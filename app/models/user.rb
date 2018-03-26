@@ -36,6 +36,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :omniauthable, omniauth_providers: [:facebook, :twitter]
 
+  has_many :initiatives, dependent: :destroy
 
   @@user_password = "prochord#{rand(30..10500)}"
 

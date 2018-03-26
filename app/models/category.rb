@@ -11,4 +11,5 @@
 #
 
 class Category < ApplicationRecord
+  has_many :initiatives, dependent: :destroy
 end
