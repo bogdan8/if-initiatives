@@ -25,6 +25,8 @@
 #  name                   :string           default("")
 #  phone                  :string           default("")
 #  age                    :integer
+#  provider               :string           default("")
+#  uid                    :string           default("")
 #
 
 FactoryBot.define do
