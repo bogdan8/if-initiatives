@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180327164620) do
+ActiveRecord::Schema.define(version: 20180327185344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20180327164620) do
     t.string "slug"
     t.text "short_description"
     t.text "long_description"
-    t.integer "sum"
+    t.integer "general_sum"
     t.date "finished_date"
     t.integer "collected_amount"
     t.datetime "created_at", null: false
