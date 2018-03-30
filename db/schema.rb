@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180327164620) do
+ActiveRecord::Schema.define(version: 20180329182934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,19 +23,25 @@ ActiveRecord::Schema.define(version: 20180327164620) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "categorizations", force: :cascade do |t|
+    t.integer "initiative_id"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["initiative_id", "category_id"], name: "index_categorizations_on_initiative_id_and_category_id"
+  end
+
   create_table "initiatives", force: :cascade do |t|
     t.string "title"
     t.string "slug"
     t.text "short_description"
     t.text "long_description"
-    t.integer "sum"
+    t.integer "general_sum"
     t.date "finished_date"
     t.integer "collected_amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_initiatives_on_category_id"
     t.index ["user_id"], name: "index_initiatives_on_user_id"
   end
 
@@ -88,6 +94,5 @@ ActiveRecord::Schema.define(version: 20180327164620) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
-  add_foreign_key "initiatives", "categories"
   add_foreign_key "initiatives", "users"
 end

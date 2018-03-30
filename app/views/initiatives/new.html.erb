@@ -1,0 +1,38 @@
+<h2>Create initiative</h2>
+
+<%= form_for @initiative, html: { multipart: true } do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :short_description %>
+    <%= f.text_area :short_description %>
+  </p>
+
+  <p>
+    <%= f.label :long_description %>
+    <%= f.text_area :long_description %>
+  </p>
+
+  <p>
+    <%= f.label :finished_date %>
+    <%= f.date_field :finished_date %>
+  </p>
+
+  <p>
+    <%= f.label :general_sum %>
+    <%= f.number_field :general_sum %>
+  </p>
+
+  <%= fields_for(@categorization) do |category| %>
+    <p>
+      <%= category.label :categories %>
+      <%= collection_select(:category, :id, @categories, :id, :title, {}, { multiple: true })  %>
+    </p>
+  <% end %>
+
+  <%= f.submit 'Submit' %>
+
+<% end %>

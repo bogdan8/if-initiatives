@@ -8,13 +8,16 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p> 
+  <% flash.each do |name, msg| %>
+    <p> <%= msg %> </p>
+  <% end %>
 
   <ul>
     <li><%= link_to 'Sign In', new_user_session_path %></li>
     <li><%= link_to 'Registration', new_user_registration_path %></li>
     <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+    <li><%= link_to 'Initiatives', initiatives_path %></li>
+    <li><%= link_to 'Categories', categories_path %></li>
   </ul>
 
   <body>

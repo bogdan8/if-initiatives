@@ -2,17 +2,16 @@
 
 # == Schema Information
 #
-# Table name: roles
+# Table name: categorizations
 #
 #  id            :integer          not null, primary key
-#  name          :string
-#  resource_type :string
-#  resource_id   :integer
+#  initiative_id :integer
+#  category_id   :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
 
-FactoryBot.define do
-  factory :role do
-  end
+class Categorization < ApplicationRecord
+  belongs_to :initiative
+  belongs_to :category
 end

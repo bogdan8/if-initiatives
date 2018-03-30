@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 ruby '2.4.3'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
 # rails
-gem 'rails', '~> 5.1.5'
 gem 'pg', '>= 0.18', '< 2.0'
+gem 'rails', '~> 5.1.5'
 
 # for js
 gem 'jbuilder', '~> 2.5'
@@ -24,6 +26,7 @@ gem 'select2-rails'
 
 # for server
 gem 'babosa'
+gem 'chewy'
 gem 'dotenv-rails'
 gem 'friendly_id', '~> 5.1.0'
 gem 'kaminari'
@@ -33,7 +36,6 @@ gem 'recaptcha', require: 'recaptcha/rails'
 gem 'sidekiq'
 gem 'sinatra', github: 'sinatra/sinatra'
 gem 'social-share-button'
-gem 'chewy'
 gem 'unicode'
 
 # for devise
@@ -46,7 +48,7 @@ gem 'rolify'
 
 group :development, :test do
   gem 'awesome_print'
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
   gem 'chromedriver-helper'
   gem 'database_cleaner'
@@ -66,17 +68,17 @@ end
 group :development do
   gem 'annotate'
   gem 'bullet'
+  gem 'capistrano', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rails-console', require: false
+  gem 'capistrano-rvm', require: false
+  gem 'capistrano3-puma', require: false
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console'
-  gem 'capistrano',         require: false
-  gem 'capistrano-rvm',     require: false
-  gem 'capistrano-rails',   require: false
-  gem 'capistrano-bundler', require: false
-  gem 'capistrano3-puma',   require: false
-  gem 'capistrano-rails-console', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

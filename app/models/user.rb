@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -35,11 +37,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :lockable, :omniauthable, omniauth_providers: [:facebook, :twitter]
+         :confirmable, :lockable, :omniauthable, omniauth_providers: %i[facebook twitter]
 
   has_many :initiatives, dependent: :destroy
 
-  @@user_password = "prochord#{rand(30..10500)}"
+  @user_password = "prochord#{rand(30..10_500)}"
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -49,7 +51,7 @@ class User < ApplicationRecord
       user.email = auth.info.email unless auth.info.email.nil?
       user.password = @@user_password
       user.skip_confirmation!
-      UserMailer.send_password_to_user(user, @@user_password).deliver_now! unless auth.info.email.nil?
+      UserMailer.send_password_to_user(user, @user_password).deliver_now! unless auth.info.email.nil?
     end
   end
 
