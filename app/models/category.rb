@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: categories
@@ -11,5 +13,6 @@
 #
 
 class Category < ApplicationRecord
-  
+  has_many :categorizations, dependent: :destroy
+  has_many :initiatives, through: :categorizations
 end
