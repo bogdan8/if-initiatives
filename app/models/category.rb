@@ -19,4 +19,5 @@ class Category < ApplicationRecord
   # validations
   validates :title, presence: true
   validates :title, length: { minimum: 2 }
+  validates :position, presence: true
 end

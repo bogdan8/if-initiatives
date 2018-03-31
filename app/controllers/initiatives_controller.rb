@@ -10,7 +10,6 @@ class InitiativesController < ApplicationController
 
   def new
     @initiative = current_user.initiatives.build
-    @categorization = @initiative.categorizations.build
   end
 
   def create
@@ -25,9 +24,7 @@ class InitiativesController < ApplicationController
     end
   end
 
-  def edit
-    @categorization = @initiative.categorizations.build
-  end
+  def edit; end
 
   def update
     Categorization.where(initiative_id: @initiative.id).delete_all
@@ -52,12 +49,14 @@ class InitiativesController < ApplicationController
   private
 
   def initiative_params
-    params.require(:initiative).permit(:title, :short_description, :long_description, :finished_date, :general_sum)
+    text = %i[title short_description long_description]
+    number = %i[finished_date general_sum]
+    params.require(:initiative).permit(*text, *number)
   end
 
   def add_categories_to_initiative
-    return if params[:category].nil?
-    params[:category][:id].each do |category|
+    return if params[:initiative][:category_ids].nil?
+    params[:initiative][:category_ids].each do |category|
       @initiative.categorizations.build(category_id: category) unless category.empty?
     end
   end
