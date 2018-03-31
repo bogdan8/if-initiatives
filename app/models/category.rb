@@ -15,4 +15,8 @@
 class Category < ApplicationRecord
   has_many :categorizations, dependent: :destroy
   has_many :initiatives, through: :categorizations
+
+  # validations
+  validates :title, presence: true
+  validates :title, length: { minimum: 2 }
 end

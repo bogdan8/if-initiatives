@@ -32,6 +32,7 @@
 #
 
 class User < ApplicationRecord
+  after_create :assign_default_role
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -41,6 +42,11 @@ class User < ApplicationRecord
 
   has_many :initiatives, dependent: :destroy
 
+  # validations
+  validates :name, :email, :phone, :age, presence: true
+  validates :name, length: { in: 2..30 }
+  validates :phone, phone: true
+
   @user_password = "prochord#{rand(30..10_500)}"
 
   def self.from_omniauth(auth)
@@ -49,7 +55,7 @@ class User < ApplicationRecord
       user.uid = auth.uid
       user.name = auth.info.name
       user.email = auth.info.email unless auth.info.email.nil?
-      user.password = @@user_password
+      user.password = @user_password
       user.skip_confirmation!
       UserMailer.send_password_to_user(user, @user_password).deliver_now! unless auth.info.email.nil?
     end
@@ -64,5 +70,11 @@ class User < ApplicationRecord
     else
       super
     end
+  end
+
+  private
+
+  def assign_default_role
+    add_role(:user)
   end
 end
