@@ -17,6 +17,6 @@ class Category < ApplicationRecord
   has_many :initiatives, through: :categorizations
 
   # validations
-  validations :title, presence: true
-  validations :title, length: { minimum: 2 }
+  validates :title, presence: true
+  validates :title, length: { minimum: 2 }
 end
