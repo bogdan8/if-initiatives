@@ -11,6 +11,7 @@ end
 # rails
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'rails', '~> 5.1.5'
+gem 'simple_form'
 
 # for js
 gem 'jbuilder', '~> 2.5'
