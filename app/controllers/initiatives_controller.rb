@@ -18,8 +18,7 @@ class InitiativesController < ApplicationController
     add_categories_to_initiative
 
     if @initiative.save
-      redirect_to @initiative
-      flash[:success] = 'Initiative created'
+      redirect_to @initiative, success: 'Initiative created'
     else
       flash[:error] = @initiative.errors.full_messages.to_sentence
       render :new
@@ -35,8 +34,7 @@ class InitiativesController < ApplicationController
     add_categories_to_initiative
 
     if @initiative.update(initiative_params)
-      redirect_to @initiative
-      flash[:success] = 'Initiative Updated'
+      redirect_to @initiative, success: 'Initiative updated'
     else
       flash[:error] = @initiative.errors.full_messages.to_sentence
       render :edit
@@ -45,8 +43,7 @@ class InitiativesController < ApplicationController
 
   def destroy
     if @initiative.destroy
-      redirect_to initiatives_path
-      flash[:success] = 'Initiative Deleted'
+      redirect_to initiatives_path, success: 'Initiative deleted'
     else
       flash[:error] = @initiative.errors.full_messages.to_sentence
     end
