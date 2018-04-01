@@ -4,7 +4,9 @@ class InitiativesController < ApplicationController
   load_and_authorize_resource
   before_action :all_categories, only: %i[new create edit update]
 
-  def index; end
+  def index
+    @initiatives = Initiative.includes(:categories)
+  end
 
   def show; end
 
