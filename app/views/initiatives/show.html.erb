@@ -13,10 +13,33 @@
     <% end %>
   </p>
 
-  <!-- links -->
+  <!-- initiative links -->
   <p>
     <%= link_to 'Edit', edit_initiative_path(@initiative) %> | 
     <%= link_to 'Destroy', initiative_path(@initiative), method: :delete, data: { confirm: 'Are you sure?' } %>
-      
   </p>
+
+  <!-- show comments -->
+  <h3>Comments:</h3>
+
+  <% @initiative.comments.each do |comment| %>
+    <p>title: <%= comment.title %></p>
+    <p>text: <%= comment.text %></p>
+
+    <!-- comment links -->
+    <%= link_to 'Edit', edit_initiative_comment_path(@initiative, comment) %> | 
+    <%= link_to 'Delete', initiative_comment_path(@initiative, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+
+  <!-- add comments -->
+  <% if current_user %>
+    <h3>Add comments</h3>
+
+    <%= simple_form_for @initiative.comments.build, url: initiative_comments_path(@initiative), html: { multipart: true } do |f| %>
+      <%= f.input :title %>
+      <%= f.input :text %>
+
+      <%= f.button :submit, 'Add comment' %>
+    <% end %>
+  <% end %>
 </div>
