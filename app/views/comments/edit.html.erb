@@ -1,0 +1,9 @@
+<h1>Editing Comment</h1>
+
+<%= simple_form_for @comment, url: initiative_comment_path(@initiative, @comment), method: :put, html: { multipart: true } do |f| %>
+  <%= f.input :title %>
+  <%= f.input :text %>
+
+  <%= f.button :submit, 'Edit comment' %>
+
+<% end %>
