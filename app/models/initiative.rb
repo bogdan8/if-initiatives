@@ -23,6 +23,8 @@ class Initiative < ApplicationRecord
   has_many :categorizations, dependent: :destroy
   has_many :categories, through: :categorizations
 
+  has_many :comments, dependent: :destroy
+
   # validations
   validates :title, :short_description, :long_description, :general_sum, :finished_date, presence: true
   validates :title, length: { minimum: 5 }

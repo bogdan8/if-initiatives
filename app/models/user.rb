@@ -41,6 +41,7 @@ class User < ApplicationRecord
          :confirmable, :lockable, :omniauthable, omniauth_providers: %i[facebook twitter]
 
   has_many :initiatives, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   # validations
   validates :name, :email, :phone, :age, presence: true
