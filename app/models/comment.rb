@@ -18,7 +18,7 @@ class Comment < ApplicationRecord
   belongs_to :initiative
 
   validates :title, presence: true
+  validates :text, presence: true
   validates :title, length: { minimum: 5 }
   validates :text, length: { minimum: 10 }
-  validates :text, presence: true
 end
