@@ -19,12 +19,11 @@
 
 FactoryBot.define do
   factory :initiative do
-    title 'MyString'
-    slug 'MyString'
-    short_description 'MyText'
-    long_description 'MyText'
-    sum 1
-    finished_date '2018-03-25'
-    collected_amount 1
+    title Faker::Lorem.characters(10)
+    short_description Faker::Lorem.characters(26)
+    long_description Faker::Lorem.characters(55)
+    sum 123
+    finished_date Faker::Date
+    collected_amount 123
   end
 end

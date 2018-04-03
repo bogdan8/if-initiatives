@@ -33,5 +33,11 @@
 
 FactoryBot.define do
   factory :user do
+    email Faker::Internet.email
+    password Faker::Internet.password
+    confirmed_at Time.zone.today
+    name Faker::Name.name
+    phone '+380991234567'
+    age 24
   end
 end

@@ -14,8 +14,8 @@
 
 FactoryBot.define do
   factory :category do
-    title 'MyString'
-    slug 'MyString'
+    title Faker::Lorem.characters(10)
+    slug Faker::Lorem.characters(10)
     position 1
   end
 end
