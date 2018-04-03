@@ -15,7 +15,7 @@ require 'rails_helper'
 
 RSpec.describe Categorization, type: :model do
   describe '#relations' do
-    it { should belong_to :initiative }
-    it { should belong_to :category }
+    it { is_expected.to belong_to :initiative }
+    it { is_expected.to belong_to :category }
   end
 end
