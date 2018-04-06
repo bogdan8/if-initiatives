@@ -1,27 +1,18 @@
 # frozen_string_literal: true
 
-def login_admin
-  before(:each) do
-    user = create(:user)
-    user.add_role :admin
-    sign_in user
-  end
+def login_admin(user)
+  user.add_role :admin
+  sign_in user
 end
 
-def login_user
-  before(:each) do
-    user = create(:user)
-    user.add_role :user
-    sign_in user
-  end
+def login_user(user)
+  user.add_role :user
+  sign_in user
 end
 
-def login_moderator
-  before(:each) do
-    user = create(:user)
-    user.add_role :moderator
-    sign_in user
-  end
+def login_moderator(user)
+  user.add_role :moderator
+  sign_in user
 end
 
 def login_user_feature(user)

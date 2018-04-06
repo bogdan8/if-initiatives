@@ -22,8 +22,8 @@ FactoryBot.define do
     title Faker::Lorem.characters(10)
     short_description Faker::Lorem.characters(26)
     long_description Faker::Lorem.characters(55)
-    sum 123
-    finished_date Faker::Date
+    general_sum 123
+    finished_date Faker::Date.backward
     collected_amount 123
   end
 end

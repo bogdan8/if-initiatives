@@ -17,7 +17,6 @@ class InitiativesController < ApplicationController
   def create
     @initiative = current_user.initiatives.new(initiative_params)
     add_categories_to_initiative
-
     if @initiative.save
       redirect_to @initiative, success: 'Initiative created'
     else
@@ -31,7 +30,6 @@ class InitiativesController < ApplicationController
   def update
     Categorization.where(initiative_id: @initiative.id).delete_all
     add_categories_to_initiative
-
     if @initiative.update(initiative_params)
       redirect_to @initiative, success: 'Initiative updated'
     else
