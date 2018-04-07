@@ -1,6 +1,6 @@
 <%= render 'users/social/social' %>
 
-<h2>Log in</h2>
+<h2><%= t('devise.shared.links.sign_in') %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= f.input :email, autofocus: true, autocomplete: :email %>
@@ -10,7 +10,7 @@
     <%= f.input :remember_me, as: :radio_buttons %>
   <% end %>
 
-  <%= f.button :submit, 'Log in' %>
+  <%= f.button :submit, t('devise.shared.links.sign_in') %>
 <% end %>
 
 <%= render 'users/shared/links' %>

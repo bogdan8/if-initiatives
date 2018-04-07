@@ -25,6 +25,6 @@ Rails.application.routes.draw do
     end
   end
   resources :initiatives, only: %i[index show] do
-    resources :comments, except: %i[index show new]
+    resources :comments, except: %i[index show new destroy]
   end
 end

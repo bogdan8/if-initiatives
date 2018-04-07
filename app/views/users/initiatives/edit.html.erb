@@ -1,4 +1,7 @@
-<h2>Edit initiative</h2>
+<%= provide :site_title, t('views.pages.initiatives.edit.title') %>
+<%= provide :initiatives_edit, 'active' %>
+
+<h2><%= t('views.pages.global.initiatives') %></h2>
 
 <%= simple_form_for [:users, @initiative], html: { multipart: true } do |f| %>
   <%= f.input :title %>
@@ -9,6 +12,6 @@
 
   <%= f.input :category_ids, collection: @categories.order(:title), label_method: :title, value_method: :id, prompt: 'Chose your categories', input_html: { multiple: true } %>
 
-  <%= f.button :submit, 'Edit initiative' %>
+  <%= f.button :submit, t('views.pages.global.button.edit') %>
 
 <% end %>

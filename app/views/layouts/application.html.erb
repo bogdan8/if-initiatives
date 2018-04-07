@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Initiatives</title>
+    <title><%= "#{yield(:site_title)} Initiatives" %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -13,29 +13,29 @@
   <% end %>
 
   <ul>
-    <li><%= link_to 'Initiatives', initiatives_path %></li>
+    <li><%= link_to t('views.pages.global.initiatives'), initiatives_path %></li>
     <% unless user_signed_in? %>
-      <li><%= link_to 'Sign In', new_user_session_path %></li>
-      <li><%= link_to 'Registration', new_user_registration_path %></li>
+      <li><%= link_to t('views.pages.global.sign_in'), new_user_session_path %></li>
+      <li><%= link_to t('views.pages.global.registration'), new_user_registration_path %></li>
     <% end %>
     <% if user_signed_in? %>
       <% if current_user.has_role? :administrator %>
-        <li>Administrator:</li>
-        <li><%= link_to 'Initiatives', administration_initiatives_path %></li>
-        <li><%= link_to 'Categories', administration_categories_path %></li>
-        <li><%= link_to 'Users', administration_users_path %></li>
+        <li><%= t('views.pages.global.role.administrator') %>:</li>
+        <li><%= link_to t('views.pages.global.initiatives'), administration_initiatives_path %></li>
+        <li><%= link_to t('views.pages.global.categories'), administration_categories_path %></li>
+        <li><%= link_to t('views.pages.global.users'), administration_users_path %></li>
       <% end %>
       
       <% if current_user.has_role? :moderator %>
-        <li>Moderator:</li>
+        <li><%=  t('views.pages.global.role.moderator') %>:</li>
       <% end %>
 
       <% if current_user.has_role? :user %>
-        <li>User:</li>
-        <li><%= link_to 'Initiatives', users_initiatives_path %></li>
+        <li><%=t('views.pages.global.role.user') %>:</li>
+        <li><%= link_to t('views.pages.global.initiatives'), users_initiatives_path %></li>
       <% end %>
-      <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-      <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+      <li><%= link_to t('views.pages.global.profile_edit'), edit_user_registration_path %></li>
+      <li><%= link_to t('views.pages.global.sign_out'), destroy_user_session_path, method: :delete %></li>
     <% end %>
   </ul>
 

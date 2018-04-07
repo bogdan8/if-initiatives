@@ -1,20 +1,23 @@
-<h1>List categories</h1>
-<%= link_to 'New category', new_administration_category_path %>
+<%= provide :site_title, t('views.pages.categories.index.title') %>
+<%= provide :categories_index, 'active' %>
+
+<h1><%= t('views.pages.categories.index.title') %></h1>
+
+<p><%= link_to t('views.pages.categories.new.title'), new_administration_category_path %></p>
 
 <div>
   <% @categories.each do |category| %>
-    <p>title: <%= category.title %></p>
-    <p>position: <%= category.position %></p>
-    <p>initiatives: <%= category.initiatives.count %></p>
+    <p><%= t('views.pages.global.title') %>: <%= category.title %></p>
+    <p><%= t('views.pages.global.position') %>: <%= category.position %></p>
+    <p><%= t('views.pages.global.count.initiatives') %>: <%= category.initiatives.count %></p>
 
     <!-- links -->
     <p>
-      <%= link_to 'Show', administration_category_path(category) %> | 
-      <%= link_to 'Edit', edit_administration_category_path(category) %> | 
-      <%= link_to 'Destroy', administration_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to t('views.pages.global.button.show'), administration_category_path(category) %> | 
+      <%= link_to t('views.pages.global.button.edit'),  edit_administration_category_path(category) %> | 
+      <%= link_to t('views.pages.global.button.destroy'), administration_category_path(category), method: :delete, data: { confirm: t('views.pages.global.confirm') } %>
     </p>
   <% end %>
-
 
   <%= paginate @categories %>
 </div>

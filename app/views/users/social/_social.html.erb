@@ -1,6 +1,6 @@
 <div>
-  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+  <%= link_to t('devise.shared.links.sign_in_with_provider', provider: :facebook), user_facebook_omniauth_authorize_path %>
 
-  <%= link_to "Sign in with Facebook", user_twitter_omniauth_authorize_path %>
+  <%= link_to t('devise.shared.links.sign_in_with_provider', provider: :twitter), user_twitter_omniauth_authorize_path %>
 
 </div>

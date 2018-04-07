@@ -1,23 +1,26 @@
-<h1>List Initiatives</h1>
-<%= link_to 'New initiative', new_users_initiative_path %>
+<%= provide :site_title, t('views.pages.global.initiatives') %>
+<%= provide :initiatives_index, 'active' %>
+
+<h1><%= t('views.pages.initiatives.index.title') %></h1>
 
 <div>
   <% @initiatives.each do |initiative| %>
-    <p>title: <%= initiative.title %></p>
-    <p>short description <%= initiative.short_description %></p>
-    <p>long description <%= initiative.long_description %></p>
-    <p>finished date <%= initiative.finished_date %></p>
-    <p>general sum <%= initiative.general_sum %></p>
-    <p>categories: 
+    <p><%= t('views.pages.global.title') %>: <%= initiative.title %></p>
+    <p><%= t('views.pages.global.short_description') %>: <%= initiative.short_description %></p>
+    <p><%= t('views.pages.global.long_description') %>: <%= initiative.long_description %></p>
+    <p><%= t('views.pages.global.finished_date') %>: <%= initiative.finished_date %></p>
+    <p><%= t('views.pages.global.general_sum') %>: <%= initiative.general_sum %></p>
+    <p><%= t('views.pages.global.collected_amount') %>: <%= initiative.collected_amount %></p>
+    <p><%= t('views.pages.global.categories') %>: 
       <% initiative.categories.each do |category| %>
-        <p><%= category.title %></p>
+        <p><%= t('views.pages.global.title') %>: <%= category.title %></p>
       <% end %>
     </p>
 
     <!-- links -->
     <p>
-      <%= link_to 'Show', users_initiative_path(initiative) %> | 
-      <%= link_to 'Edit', edit_users_initiative_path(initiative) %>        
+      <%= link_to t('views.pages.global.button.show'), users_initiative_path(initiative) %> | 
+      <%= link_to t('views.pages.global.button.edit'), edit_users_initiative_path(initiative) %>
     </p>
   <% end %>
 

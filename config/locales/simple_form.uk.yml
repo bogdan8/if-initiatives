@@ -1,0 +1,72 @@
+uk:
+  simple_form:
+    yes: 'Так'
+    no: 'Ні'
+    required:
+      text: 'вимагається'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: 'Будь ласка, перегляньте наведені нижче проблеми:'
+    # Examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+    # include_blanks:
+    #   defaults:
+    #     age: 'Rather not say'
+    # prompts:
+    #   defaults:
+    #     age: 'Select your age'
+    labels:
+      user:
+        edit:
+          email: 'Емейл'
+          password: 'Пароль'
+          remember_me: 'Запамятати мене'
+        new:
+          email: 'Емейл'
+          password: 'Пароль'
+          remember_me: 'Запамятати мене'
+      category:
+        edit:
+          title: 'Назва'
+          position: 'Позиція'
+        new:
+          title: 'Назва'
+          position: 'Позиція'
+      comment:
+        edit:
+          title: 'Назва'
+          text: 'Текст'
+        new:
+          title: 'Назва'
+          text: 'Текст'
+      initiative:
+        edit:
+          title: 'Назва'
+          long_description: 'Опис'
+          short_description: 'Короткий опис'
+          finished_date: 'Дата завершення'
+          general_sum: 'Загальна ціна'
+          collected_amount: 'Зібрано коштів'
+          category_ids: 'Категорії'
+        new:
+          title: 'Назва'
+          long_description: 'Опис'
+          short_description: 'Короткий опис'
+          finished_date: 'Дата завершення'
+          general_sum: 'Загальна ціна'
+          collected_amount: 'Зібрано коштів'
+          category_ids: 'Категорії'

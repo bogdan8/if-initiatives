@@ -1,21 +1,24 @@
-<h1>List Users</h1>
+<%= provide :site_title, t('views.pages.users.edit.title') %>
+<%= provide :users_index, 'active' %>
+
+<h1><%= t('views.pages.users.index.title') %></h1>
 
 <div>
   <% @users.each do |user| %>
-    <p>name: <%= user.name %></p>
-    <p>email: <%= user.email %></p>
+    <p><%= t('views.pages.global.name') %>: <%= user.name %></p>
+    <p><%= t('views.pages.global.email') %>: <%= user.email %></p>
     <% if user.roles.any? %>
-      <p>role: <%= user.roles.first.name %></p>
+      <p><%= t('views.pages.global.role.title') %>: <%= t("views.pages.global.role.#{user.roles.first.name}") %></p>
     <% end %>
     <% @roles.each do |role| %>
-      <%= link_to role.name, role_administration_user_path(user, role: role.name) %>
+      <%= link_to t("views.pages.global.role.#{role.name}"), role_administration_user_path(user, role: role.name) %>
     <% end %>
 
 
     <!-- links -->
     <p>
-      <%= link_to 'Show', administration_user_path(user) %> | 
-      <%= link_to 'Destroy', administration_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>  
+      <%= link_to t('views.pages.global.button.show'), administration_user_path(user) %> | 
+      <%= link_to t('views.pages.global.button.destroy'), administration_user_path(user), method: :delete, data: { confirm: t('views.pages.global.confirm')  } %>  
     </p>
   <% end %>
 </div>
