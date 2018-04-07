@@ -1,0 +1,47 @@
+# frozen_string_literal: true
+
+module Administration
+  class CategoriesController < ApplicationController
+    load_and_authorize_resource
+
+    def index; end
+
+    def show; end
+
+    def new; end
+
+    def create
+      if @category.save
+        redirect_to [:administration, @category], success: 'Category created'
+      else
+        flash[:error] = @category.errors.full_messages.to_sentence
+        render :new
+      end
+    end
+
+    def edit; end
+
+    def update
+      if @category.update(category_params)
+        redirect_to [:administration, @category], success: 'Category updated'
+      else
+        flash[:error] = @category.errors.full_messages.to_sentence
+        render :edit
+      end
+    end
+
+    def destroy
+      if @category.destroy
+        redirect_to administration_categories_path, success: 'Category deleted'
+      else
+        flash[:error] = @category.errors.full_messages.to_sentence
+      end
+    end
+
+    private
+
+    def category_params
+      params.require(:category).permit(:title, :position)
+    end
+  end
+end

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe CategoriesController, type: :controller do
+RSpec.describe Administration::CategoriesController, type: :controller do
   let(:user) { create(:user) }
   let(:category) { create(:category) }
   before(:each) do
@@ -63,7 +63,7 @@ RSpec.describe CategoriesController, type: :controller do
         title = 'new title for category'
         post :update, params: { id: category.id, category: build(:category, title: title).attributes }
         expect(Category.last.title).to eq(title)
-        expect(response).to redirect_to(category_path(category.id))
+        expect(response).to redirect_to(administration_category_path(category.id))
       end
     end
 
@@ -84,7 +84,7 @@ RSpec.describe CategoriesController, type: :controller do
         categories = Category.count
         get :destroy, params: { id: category.id }
         expect(categories - 1).to eq(Category.count)
-        expect(response).to redirect_to(categories_path)
+        expect(response).to redirect_to(administration_categories_path)
       end
     end
   end
