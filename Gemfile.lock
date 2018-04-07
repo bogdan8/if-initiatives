@@ -445,7 +445,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-twitter
   omniauth-vkontakte
-  paperclip (~> 5.0.0)
+  paperclip
   parallel_tests
   pg (>= 0.18, < 2.0)
   progress_bar

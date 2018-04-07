@@ -14,4 +14,7 @@
       <%= link_to 'Destroy', administration_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %>
     </p>
   <% end %>
+
+
+  <%= paginate @categories %>
 </div>

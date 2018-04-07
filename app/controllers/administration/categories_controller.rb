@@ -4,7 +4,9 @@ module Administration
   class CategoriesController < ApplicationController
     load_and_authorize_resource
 
-    def index; end
+    def index
+      @categories = Category.page(params[:page]).per(5)
+    end
 
     def show; end
 

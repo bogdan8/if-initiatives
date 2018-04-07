@@ -6,7 +6,7 @@ module Administration
     before_action :all_categories, only: %i[edit update]
 
     def index
-      @initiatives = Initiative.includes(:categories)
+      @initiatives = Initiative.includes(:categories).page(params[:page]).per(5)
     end
 
     def show; end

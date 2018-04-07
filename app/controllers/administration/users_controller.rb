@@ -5,7 +5,7 @@ module Administration
     load_and_authorize_resource
 
     def index
-      @users = User.includes(:roles).all
+      @users = User.includes(:roles).page(params[:page]).per(5)
       @roles = Role.all
     end
 
