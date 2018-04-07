@@ -2,7 +2,13 @@
 
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations',
-                                    omniauth_callbacks: 'users/omniauth_callbacks' }
+                                    omniauth_callbacks: 'users/omniauth_callbacks' },
+                     path: :user,
+                     path_names: { sign_in: :login,
+                                   sign_up: :new,
+                                   sign_out: :logout,
+                                   password: :secret,
+                                   confirmation: :verification }
   root 'home#index'
   namespace :administration do
     resources :initiatives do
@@ -13,7 +19,7 @@ Rails.application.routes.draw do
       get :role, on: :member
     end
   end
-  namespace :users do
+  scope module: :users, path: :user, as: :users do
     resources :initiatives, except: %i[destroy] do
       resources :comments, except: %i[index show]
     end

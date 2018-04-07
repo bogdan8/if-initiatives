@@ -13,19 +13,30 @@
   <% end %>
 
   <ul>
-    <li><%= link_to 'Sign In', new_user_session_path %></li>
-    <li><%= link_to 'Registration', new_user_registration_path %></li>
-    <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
     <li><%= link_to 'Initiatives', initiatives_path %></li>
-    <li>Administrator:</li>
-    <li><%= link_to 'Initiatives', administration_initiatives_path %></li>
-    <li><%= link_to 'Categories', administration_categories_path %></li>
-    <li><%= link_to 'Users', administration_users_path %></li>
-    <li>Moderator:</li>
+    <% unless user_signed_in? %>
+      <li><%= link_to 'Sign In', new_user_session_path %></li>
+      <li><%= link_to 'Registration', new_user_registration_path %></li>
+    <% end %>
+    <% if user_signed_in? %>
+      <% if current_user.has_role? :administrator %>
+        <li>Administrator:</li>
+        <li><%= link_to 'Initiatives', administration_initiatives_path %></li>
+        <li><%= link_to 'Categories', administration_categories_path %></li>
+        <li><%= link_to 'Users', administration_users_path %></li>
+      <% end %>
+      
+      <% if current_user.has_role? :moderator %>
+        <li>Moderator:</li>
+      <% end %>
 
-    <li>User:</li>
-    <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-    <li><%= link_to 'Initiatives', users_initiatives_path %></li>
+      <% if current_user.has_role? :user %>
+        <li>User:</li>
+        <li><%= link_to 'Initiatives', users_initiatives_path %></li>
+      <% end %>
+      <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+      <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+    <% end %>
   </ul>
 
   <body>

@@ -6,7 +6,7 @@ module Users
     before_action :all_categories, only: %i[new create edit update]
 
     def index
-      @initiatives = Initiative.includes(:categories)
+      @initiatives = current_user.initiatives.includes(:categories)
     end
 
     def show; end

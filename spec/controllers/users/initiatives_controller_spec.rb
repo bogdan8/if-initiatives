@@ -7,6 +7,11 @@ RSpec.describe Users::InitiativesController, type: :controller do
   let(:category) { create(:category) }
   let(:categorization) { create(:categorization) }
   let(:initiative) { create(:initiative, user_id: user.id) }
+
+  before(:each) do
+    login_user(user)
+  end
+
   describe 'GET #index' do
     it 'renders the template with status' do
       get :index
@@ -25,7 +30,6 @@ RSpec.describe Users::InitiativesController, type: :controller do
 
   describe 'GET #new' do
     it 'renders the template with status' do
-      login_user(user)
       get :new, params: { id: initiative.id }
       expect(response).to render_template(:new)
       expect(response.status).to eq(200)
@@ -35,7 +39,6 @@ RSpec.describe Users::InitiativesController, type: :controller do
   describe 'POST #create' do
     context 'with correct parameters' do
       it 'the number of initiatives should increse' do
-        login_user(user)
         initiatives = Initiative.count
         post :create, params: { initiative: build(:initiative, category_ids: [category.id]).attributes }
         expect(Initiative.count).to eq(initiatives + 1)
@@ -44,7 +47,6 @@ RSpec.describe Users::InitiativesController, type: :controller do
 
     context 'with incorrect parameters' do
       it 'should renders the new template' do
-        login_user(user)
         post :create, params: { initiative: build(:initiative, long_description: :test).attributes }
         expect(response).to render_template(:new)
       end
@@ -53,7 +55,6 @@ RSpec.describe Users::InitiativesController, type: :controller do
 
   describe 'GET #edit' do
     it 'renders the template with status' do
-      login_user(user)
       get :edit, params: { id: initiative.id }
       expect(response).to render_template(:edit)
       expect(response.status).to eq(200)
@@ -63,7 +64,6 @@ RSpec.describe Users::InitiativesController, type: :controller do
   describe 'POST #update' do
     context 'with correct parameters' do
       it 'value should be changed' do
-        login_user(user)
         user.initiatives.create(attributes_for(:initiative))
         title = 'new title for initiative'
         post :update, params: { id: initiative.id,
@@ -75,7 +75,6 @@ RSpec.describe Users::InitiativesController, type: :controller do
 
     context 'with incorrect parameters' do
       it 'should renders the edit template' do
-        login_user(user)
         user.initiatives.create(attributes_for(:initiative))
         post :update, params: { id: initiative.id,
                                 initiative: build(:initiative, title: '', category_ids: [category.id]).attributes }
