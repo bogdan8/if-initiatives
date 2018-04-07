@@ -25,10 +25,6 @@
   <% @initiative.comments.each do |comment| %>
     <p>title: <%= comment.title %></p>
     <p>text: <%= comment.text %></p>
-
-    <!-- comment links -->
-    <%= link_to 'Edit', edit_initiative_comment_path(@initiative, comment) %> | 
-    <%= link_to 'Delete', initiative_comment_path(@initiative, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
 
   <!-- add comments -->
