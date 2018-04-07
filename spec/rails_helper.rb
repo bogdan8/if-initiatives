@@ -17,6 +17,7 @@ require 'rspec/rails'
 require 'shoulda/matchers'
 require 'paperclip/matchers'
 require 'capybara/rspec'
+require 'cancan/matchers'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].map { |f| require f }
 
