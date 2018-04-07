@@ -13,7 +13,12 @@ Rails.application.routes.draw do
       get :role, on: :member
     end
   end
-  resources :initiatives do
+  namespace :users do
+    resources :initiatives, except: %i[destroy] do
+      resources :comments, except: %i[index show]
+    end
+  end
+  resources :initiatives, only: %i[index show] do
     resources :comments, except: %i[index show new]
   end
 end
