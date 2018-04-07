@@ -36,7 +36,7 @@ RSpec.describe Ability, type: :model do
 
     context '# when is a admin' do
       before(:each) do
-        user.add_role :admin
+        user.add_role :administrator
       end
       it { is_expected.to be_able_to(:create, Initiative) }
       it { is_expected.to be_able_to(:read, Initiative) }
@@ -75,7 +75,7 @@ RSpec.describe Ability, type: :model do
 
     context '# when is a admin' do
       before(:each) do
-        user.add_role :admin
+        user.add_role :administrator
       end
       it { is_expected.to be_able_to(:create, Comment) }
       it { is_expected.to be_able_to(:read, Comment) }
@@ -114,7 +114,7 @@ RSpec.describe Ability, type: :model do
 
     context '# when is a admin' do
       before(:each) do
-        user.add_role :admin
+        user.add_role :administrator
       end
       it { is_expected.to be_able_to(:create, Category) }
       it { is_expected.to be_able_to(:read, Category) }
@@ -153,7 +153,7 @@ RSpec.describe Ability, type: :model do
 
     context '# when is a admin' do
       before(:each) do
-        user.add_role :admin
+        user.add_role :administrator
       end
       it { is_expected.to be_able_to(:create, User) }
       it { is_expected.to be_able_to(:read, User) }

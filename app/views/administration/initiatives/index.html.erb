@@ -1,5 +1,4 @@
 <h1>List Initiatives</h1>
-<%= link_to 'New initiative', new_users_initiative_path %>
 
 <div>
   <% @initiatives.each do |initiative| %>
@@ -16,7 +15,10 @@
 
     <!-- links -->
     <p>
-      <%= link_to 'Show', initiative_path(initiative) %>        
+      <%= link_to 'Show', administration_initiative_path(initiative) %> | 
+      <%= link_to 'Edit', edit_administration_initiative_path(initiative) %> | 
+      <%= link_to 'Destroy', administration_initiative_path(initiative), method: :delete, data: { confirm: 'Are you sure?' } %>
+        
     </p>
   <% end %>
 </div>

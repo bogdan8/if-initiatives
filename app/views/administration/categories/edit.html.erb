@@ -1,6 +1,6 @@
 <h2>Edit category: <%= @category.title %></h2>
 
-<%= simple_form_for @category, html: { multipart: true } do |f| %>
+<%= simple_form_for [:administration, @category] do |f| %>
   <%= f.input :title %>
   <%= f.input :position %>
   

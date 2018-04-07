@@ -1,5 +1,4 @@
 <h1>Initiative: <%= @initiative.title %></h1>
-<%= link_to 'New initiative', new_initiative_path %>
 
 <div>
   <p>title: <%= @initiative.title %></p>
@@ -15,8 +14,8 @@
 
   <!-- initiative links -->
   <p>
-    <%= link_to 'Edit', edit_initiative_path(@initiative) %> | 
-    <%= link_to 'Destroy', initiative_path(@initiative), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Edit', edit_administration_initiative_path(@initiative) %> | 
+    <%= link_to 'Destroy', administration_initiative_path(@initiative), method: :delete, data: { confirm: 'Are you sure?' } %>
   </p>
 
   <!-- show comments -->
@@ -25,17 +24,8 @@
   <% @initiative.comments.each do |comment| %>
     <p>title: <%= comment.title %></p>
     <p>text: <%= comment.text %></p>
-  <% end %>
 
-  <!-- add comments -->
-  <% if current_user %>
-    <h3>Add comments</h3>
-
-    <%= simple_form_for @initiative.comments.build, url: initiative_comments_path(@initiative), html: { multipart: true } do |f| %>
-      <%= f.input :title %>
-      <%= f.input :text %>
-
-      <%= f.button :submit, 'Add comment' %>
-    <% end %>
+    <!-- comment links -->
+    <%= link_to 'Delete', administration_initiative_comment_path(@initiative, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
 </div>

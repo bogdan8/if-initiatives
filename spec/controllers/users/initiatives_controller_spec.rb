@@ -2,12 +2,16 @@
 
 require 'rails_helper'
 
-RSpec.describe CategoriesController, type: :controller do
+RSpec.describe Users::InitiativesController, type: :controller do
   let(:user) { create(:user) }
   let(:category) { create(:category) }
+  let(:categorization) { create(:categorization) }
+  let(:initiative) { create(:initiative, user_id: user.id) }
+
   before(:each) do
-    login_admin(user)
+    login_user(user)
   end
+
   describe 'GET #index' do
     it 'renders the template with status' do
       get :index
@@ -18,7 +22,7 @@ RSpec.describe CategoriesController, type: :controller do
 
   describe 'GET #show' do
     it 'renders the template with status' do
-      get :show, params: { id: category.id }
+      get :show, params: { id: initiative.id }
       expect(response).to render_template(:show)
       expect(response.status).to eq(200)
     end
@@ -26,7 +30,7 @@ RSpec.describe CategoriesController, type: :controller do
 
   describe 'GET #new' do
     it 'renders the template with status' do
-      get :new
+      get :new, params: { id: initiative.id }
       expect(response).to render_template(:new)
       expect(response.status).to eq(200)
     end
@@ -34,16 +38,16 @@ RSpec.describe CategoriesController, type: :controller do
 
   describe 'POST #create' do
     context 'with correct parameters' do
-      it 'the number of categories should increse' do
-        categories = Category.count
-        post :create, params: { category: build(:category).attributes }
-        expect(Category.count).to eq(categories + 1)
+      it 'the number of initiatives should increse' do
+        initiatives = Initiative.count
+        post :create, params: { initiative: build(:initiative, category_ids: [category.id]).attributes }
+        expect(Initiative.count).to eq(initiatives + 1)
       end
     end
 
     context 'with incorrect parameters' do
       it 'should renders the new template' do
-        post :create, params: { category: build(:category, title: :t).attributes }
+        post :create, params: { initiative: build(:initiative, long_description: :test).attributes }
         expect(response).to render_template(:new)
       end
     end
@@ -51,7 +55,7 @@ RSpec.describe CategoriesController, type: :controller do
 
   describe 'GET #edit' do
     it 'renders the template with status' do
-      get :edit, params: { id: category.id }
+      get :edit, params: { id: initiative.id }
       expect(response).to render_template(:edit)
       expect(response.status).to eq(200)
     end
@@ -60,31 +64,23 @@ RSpec.describe CategoriesController, type: :controller do
   describe 'POST #update' do
     context 'with correct parameters' do
       it 'value should be changed' do
-        title = 'new title for category'
-        post :update, params: { id: category.id, category: build(:category, title: title).attributes }
-        expect(Category.last.title).to eq(title)
-        expect(response).to redirect_to(category_path(category.id))
+        user.initiatives.create(attributes_for(:initiative))
+        title = 'new title for initiative'
+        post :update, params: { id: initiative.id,
+                                initiative: build(:initiative, title: title, category_ids: [category.id]).attributes }
+        expect(Initiative.last.title).to eq(title)
+        expect(response).to redirect_to(users_initiative_path(initiative.id))
       end
     end
 
     context 'with incorrect parameters' do
       it 'should renders the edit template' do
-        post :update, params: { id: category.id, category: build(:category, title: '').attributes }
-        expect(Category.last.title).not_to eq('')
+        user.initiatives.create(attributes_for(:initiative))
+        post :update, params: { id: initiative.id,
+                                initiative: build(:initiative, title: '', category_ids: [category.id]).attributes }
+        expect(Initiative.last.title).not_to eq('')
         expect(response).to render_template(:edit)
         expect(response.status).to eq(200)
-      end
-    end
-  end
-
-  describe 'GET #destroy' do
-    context 'if admin' do
-      it 'the number of categories should decrease' do
-        category.save
-        categories = Category.count
-        get :destroy, params: { id: category.id }
-        expect(categories - 1).to eq(Category.count)
-        expect(response).to redirect_to(categories_path)
       end
     end
   end

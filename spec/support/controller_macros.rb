@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 def login_admin(user)
-  user.add_role :admin
+  user.add_role :administrator
   sign_in user
 end
 

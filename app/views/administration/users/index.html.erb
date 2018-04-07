@@ -1,0 +1,21 @@
+<h1>List Users</h1>
+
+<div>
+  <% @users.each do |user| %>
+    <p>name: <%= user.name %></p>
+    <p>email: <%= user.email %></p>
+    <% if user.roles.any? %>
+      <p>role: <%= user.roles.first.name %></p>
+    <% end %>
+    <% @roles.each do |role| %>
+      <%= link_to role.name, role_administration_user_path(user, role: role.name) %>
+    <% end %>
+
+
+    <!-- links -->
+    <p>
+      <%= link_to 'Show', administration_user_path(user) %> | 
+      <%= link_to 'Destroy', administration_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>  
+    </p>
+  <% end %>
+</div>

@@ -1,0 +1,14 @@
+<h1>Category: <%= @category.title %></h1>
+<%= link_to 'New category', new_administration_category_path %>
+
+<div>
+  <p>title: <%= @category.title %></p>
+  <p>position: <%= @category.position %></p>
+
+  <!-- links -->
+  <p>
+    <%= link_to 'Edit', edit_administration_category_path(@category) %> | 
+    <%= link_to 'Destroy', administration_category_path(@category), method: :delete, data: { confirm: 'Are you sure?' } %>
+      
+  </p>
+</div>
