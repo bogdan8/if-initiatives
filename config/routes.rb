@@ -8,7 +8,10 @@ Rails.application.routes.draw do
     resources :initiatives do
       resources :comments, only: %i[destroy]
     end
-    resources :categories, :users
+    resources :categories
+    resources :users do
+      get :role, on: :member
+    end
   end
   resources :initiatives do
     resources :comments, except: %i[index show new]
