@@ -5,7 +5,10 @@ Rails.application.routes.draw do
                                     omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'home#index'
   namespace :administration do
-    resources :initiatives, :categories, :users
+    resources :initiatives do
+      resources :comments, only: %i[destroy]
+    end
+    resources :categories, :users
   end
   resources :initiatives do
     resources :comments, except: %i[index show new]

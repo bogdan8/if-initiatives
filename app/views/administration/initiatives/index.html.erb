@@ -1,0 +1,24 @@
+<h1>List Initiatives</h1>
+
+<div>
+  <% @initiatives.each do |initiative| %>
+    <p>title: <%= initiative.title %></p>
+    <p>short description <%= initiative.short_description %></p>
+    <p>long description <%= initiative.long_description %></p>
+    <p>finished date <%= initiative.finished_date %></p>
+    <p>general sum <%= initiative.general_sum %></p>
+    <p>categories: 
+      <% initiative.categories.each do |category| %>
+        <p><%= category.title %></p>
+      <% end %>
+    </p>
+
+    <!-- links -->
+    <p>
+      <%= link_to 'Show', administration_initiative_path(initiative) %> | 
+      <%= link_to 'Edit', edit_administration_initiative_path(initiative) %> | 
+      <%= link_to 'Destroy', administration_initiative_path(initiative), method: :delete, data: { confirm: 'Are you sure?' } %>
+        
+    </p>
+  <% end %>
+</div>
