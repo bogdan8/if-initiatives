@@ -15,8 +15,9 @@
 
 FactoryBot.define do
   factory :comment do
-    title 'MyString'
-    text 'MyText'
-    initiative nil
+    title Faker::Lorem.characters(10)
+    text Faker::Lorem.characters(15)
+    initiative 1
+    user_id 1
   end
 end

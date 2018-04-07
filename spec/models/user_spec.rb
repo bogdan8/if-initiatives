@@ -34,5 +34,15 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#relations' do
+    it { is_expected.to have_many :initiatives }
+    it { is_expected.to have_many :comments }
+  end
+
+  describe '#validations' do
+    it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_presence_of :email }
+    it { is_expected.to validate_presence_of :age }
+    it { is_expected.to validate_length_of(:name).is_at_least(2).is_at_most(30) }
+  end
 end

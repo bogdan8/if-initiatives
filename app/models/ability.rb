@@ -8,18 +8,28 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     elsif user.has_role? :moderator
-      can :manage, Initiative, Category, Comment
+      for_moderator
     elsif user.has_role? :user
-      cannot :manage, Category
-      cannot :manage, User
-      can :read, Initiative
-      can :manage, Initiative, user_id: user.id
-      can :read, User
-      can %i[edit update], User, id: user.id
-      can :manage, Comment, id: user.id
+      for_user(user)
     else
       cannot :manage, :all
       can :read, Initiative
     end
+  end
+
+  def for_moderator
+    can :manage, Initiative
+    can :manage, Category
+    can :manage, Comment
+  end
+
+  def for_user(user)
+    cannot :manage, Category
+    cannot :manage, User
+    can :read, Initiative
+    can :manage, Initiative, user_id: user.id
+    can :read, User
+    can %i[edit update], User, id: user.id
+    can :manage, Comment, id: user.id
   end
 end
