@@ -1,4 +1,26 @@
 uk:
+  controller:
+    admins:
+      save: 'Адміністратора додано'
+      update: 'Дані успішно відредаговані'
+      destroy: 'Категорію видалено'
+    catrgory:
+      save: 'Категорію додано'
+      update: 'Дані успішно відредаговані'
+      destroy: 'Категорію видалено'
+    initiative:
+      save: 'Ініціативу додано'
+      update: 'Дані успішно відредаговані'
+      destroy: 'Ініціативу видалено'
+      success_confirmation: 'Ініціативу підтверджено'
+      for_confirmation: 'Відправлено на підтвердження'
+      error_confirmation: 'Ініціативу відхилено'
+      insufficient_funds: 'Ініціативу відхилено бо недостатньо коштів'
+      locked: 'Ініціативу заблоковано'
+      implemented: 'Ініціативу успішно завершено'
+      unrealized: 'Ініціативу не завершено'
+      started_implement_success: 'Ініціативу відправлено для надання звіту'
+
   views:
     pages:
       global:
@@ -7,6 +29,7 @@ uk:
           show: 'Переглянути'
           edit: 'Редагувати'
           destroy: 'Видалити'
+          for_confirmation: 'Надіслати на підтвердження'
         title: 'Назва'
         name: "Ім'я"
         email: 'Електронна адреса'
@@ -15,6 +38,10 @@ uk:
           user: 'Користувач'
           administrator: 'Адміністратор'
           moderator: 'Модератор'
+        pending_approval: 'Очікує підтвердження'
+        fundraising_finished: 'Збір коштів завершено'
+        audit_implemented: 'Перевірка реалізована'
+        report: 'Звіт'
         text: 'Текст'
         position: 'Позиція'
         long_description: 'Опис'

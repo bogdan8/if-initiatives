@@ -1,0 +1,34 @@
+<% @initiatives.each do |initiative| %>
+  <p><%= t('views.pages.global.title') %>: <%= initiative.title %></p>
+  <p><%= t('views.pages.global.short_description') %>: <%= initiative.short_description %></p>
+  <p><%= t('views.pages.global.long_description') %>: <%= initiative.long_description %></p>
+  <p><%= t('views.pages.global.finished_date') %>: <%= initiative.finished_date %></p>
+  <p><%= t('views.pages.global.general_sum') %>: <%= initiative.general_sum %></p>
+  <p><%= t('views.pages.global.collected_amount') %>: <%= initiative.collected_amount %></p>
+  <p><%= t('views.pages.global.categories') %>: 
+    <% initiative.categories.each do |category| %>
+      <p><%= t('views.pages.global.title') %>: <%= category.title %></p>
+    <% end %>
+  </p>
+  <h3><%= initiative.state %></h3>
+  <!-- links -->
+  <p>
+    <%= link_to t('views.pages.global.button.show'), administration_initiative_path(initiative) %>
+    <%= link_to t('views.pages.global.button.destroy'), administration_initiative_path(initiative), method: :delete, data: { confirm: t('views.pages.global.confirm') } %>
+    <% if initiative.pending_approval? %>
+      <%= link_to t('views.pages.global.button.success_confirmation'), success_confirmation_administration_initiative_path(initiative) %>
+      <%= link_to t('views.pages.global.button.error_confirmation'), error_confirmation_administration_initiative_path(initiative) %>
+    <% elsif initiative.fundraiser? %>
+      <%= link_to t('views.pages.global.button.fundraising_finished'), finish_fundraising_administration_initiative_path(initiative) %>
+      <%= link_to t('views.pages.global.button.error_confirmation'), error_confirmation_administration_initiative_path(initiative) %>
+    <% elsif initiative.fundraising_finished? %>
+      <%= link_to t('views.pages.global.button.started_implement'), started_implement_administration_initiative_path(initiative) %>
+      <%= link_to t('views.pages.global.button.insufficient_funds'), insufficient_funds_administration_initiative_path(initiative) %>
+    <% elsif initiative.being_implemented? %>
+      <%= link_to t('views.pages.global.button.check_implemented'), check_implemented_administration_initiative_path(initiative) %>
+    <% elsif initiative.audit_implemented? %>
+      <%= link_to t('views.pages.global.button.implemented'), implemented_administration_initiative_path(initiative) %>
+      <%= link_to t('views.pages.global.button.unrealized'), unrealized_administration_initiative_path(initiative) %>
+    <% end %>
+  </p>
+<% end %>

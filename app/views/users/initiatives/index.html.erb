@@ -19,8 +19,11 @@
 
     <!-- links -->
     <p>
-      <%= link_to t('views.pages.global.button.show'), users_initiative_path(initiative) %> | 
-      <%= link_to t('views.pages.global.button.edit'), edit_users_initiative_path(initiative) %>
+      <%= link_to t('views.pages.global.button.show'), users_initiative_path(initiative) %>
+      <% if initiative.draft? || initiative.rejected? %>
+        <%= link_to_if initiative.draft?, t('views.pages.global.button.edit'), edit_users_initiative_path(initiative) %>
+        <%= link_to_if initiative.draft?, t('views.pages.global.button.for_confirmation'), for_confirmation_users_initiative_path(initiative) %>
+      <% end %>
     </p>
   <% end %>
 

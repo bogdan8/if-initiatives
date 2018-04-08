@@ -4,6 +4,10 @@ module Administration
   class InitiativesController < ApplicationController
     load_and_authorize_resource
     before_action :all_categories, only: %i[edit update]
+    before_action :find_initiative, only: %i[error_confirmation success_confirmation started_implement
+                                             insufficient_funds implemented unrealized locked]
+
+    include AbilityStateToInitiatives
 
     def index
       @initiatives = Initiative.includes(:categories).page(params[:page]).per(5)
@@ -49,6 +53,10 @@ module Administration
 
     def all_categories
       @categories = Category.all
+    end
+
+    def find_initiative
+      @initiative = Initiative.find(params[:id])
     end
   end
 end

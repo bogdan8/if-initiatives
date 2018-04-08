@@ -4,6 +4,9 @@ module Users
   class InitiativesController < ApplicationController
     load_and_authorize_resource
     before_action :all_categories, only: %i[new create edit update]
+    before_action :find_initiative, only: %i[for_confirmation]
+
+    include AbilityStateToInitiatives
 
     def index
       @initiatives = current_user.initiatives.includes(:categories).page(params[:page]).per(5)
@@ -56,6 +59,10 @@ module Users
 
     def all_categories
       @categories = Category.all
+    end
+
+    def find_initiative
+      @initiative = Initiative.find(params[:id])
     end
   end
 end
