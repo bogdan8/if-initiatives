@@ -15,11 +15,49 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  user_id           :integer
+#  state             :string
 #
 
 class Initiative < ApplicationRecord
-  belongs_to :user
+  state_machine initial: :draft do
+    event :submit_for_confirmation do
+      transition %i[draft rejected] => :pending_approval
+    end
 
+    event :success_confirmation do
+      transition pending_approval: :fundraiser
+    end
+
+    event :error_confirmation do
+      transition %i[pending_approval draft fundraiser] => :rejected
+    end
+
+    event :finish_fundraising do
+      transition fundraiser: :fundraising_finished
+    end
+
+    event :started_implement do
+      transition fundraising_finished: :being_implemented
+    end
+
+    event :insufficient_funds do
+      transition fundraising_finished: :unrealized
+    end
+
+    event :check_implemented do
+      transition being_implemented: :audit_implemented
+    end
+
+    event :finish_fundraiser_success do
+      transition audit_implemented: :implemented
+    end
+
+    event :finish_fundraiser_errors do
+      transition audit_implemented: :unrealized
+    end
+  end
+
+  belongs_to :user
   has_many :categorizations, dependent: :destroy
   has_many :categories, through: :categorizations
 

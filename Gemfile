@@ -11,6 +11,7 @@ end
 # rails
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'rails', '~> 5.1.5'
+gem 'ruby-graphviz', require: 'graphviz'
 gem 'simple_form'
 gem 'state_machine'
 
