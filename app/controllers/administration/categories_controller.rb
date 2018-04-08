@@ -14,7 +14,7 @@ module Administration
 
     def create
       if @category.save
-        redirect_to [:administration, @category], success: 'Category created'
+        redirect_to [:administration, @category], success: t('controller.category.save')
       else
         flash[:error] = @category.errors.full_messages.to_sentence
         render :new
@@ -25,7 +25,7 @@ module Administration
 
     def update
       if @category.update(category_params)
-        redirect_to [:administration, @category], success: 'Category updated'
+        redirect_to [:administration, @category], success: t('controller.category.update')
       else
         flash[:error] = @category.errors.full_messages.to_sentence
         render :edit
@@ -34,7 +34,7 @@ module Administration
 
     def destroy
       if @category.destroy
-        redirect_to administration_categories_path, success: 'Category deleted'
+        redirect_to administration_categories_path, success: t('controller.category.destroy')
       else
         flash[:error] = @category.errors.full_messages.to_sentence
       end

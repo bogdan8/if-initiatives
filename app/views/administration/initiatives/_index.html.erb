@@ -10,7 +10,7 @@
       <p><%= t('views.pages.global.title') %>: <%= category.title %></p>
     <% end %>
   </p>
-  
+
   <!-- links -->
   <p>
     <%= link_to t('views.pages.global.button.show'), administration_initiative_path(initiative) %>
@@ -31,6 +31,8 @@
       <%= link_to t('views.pages.global.button.unimplemented'), to_unimplemented_administration_initiative_path(initiative) %>
     <% end %>
 
-    <%= link_to t('views.pages.global.button.locked'), to_locked_administration_initiative_path(initiative) %>
+    <% unless initiative.locked? %>
+      <%= link_to t('views.pages.global.button.locked'), to_locked_administration_initiative_path(initiative) %>
+    <% end %>
   </p>
 <% end %>

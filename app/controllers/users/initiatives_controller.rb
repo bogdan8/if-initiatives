@@ -21,7 +21,7 @@ module Users
       @initiative = current_user.initiatives.new(initiative_params)
       add_categories_to_initiative
       if @initiative.save
-        redirect_to [:users, @initiative], success: 'Initiative created'
+        redirect_to [:users, @initiative], success: t('controller.initiative.save')
       else
         flash[:error] = @initiative.errors.full_messages.to_sentence
         render :new
@@ -34,7 +34,7 @@ module Users
       Categorization.where(initiative_id: @initiative.id).delete_all
       add_categories_to_initiative
       if @initiative.update(initiative_params)
-        redirect_to [:users, @initiative], success: 'Initiative updated'
+        redirect_to [:users, @initiative], success: t('controller.initiative.update')
       else
         flash[:error] = @initiative.errors.full_messages.to_sentence
         render :edit

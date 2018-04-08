@@ -13,7 +13,7 @@ module Administration
 
     def destroy
       if @user.destroy
-        redirect_to administration_users_path, success: 'User deleted'
+        redirect_to administration_users_path, success: t('controller.user.destroy')
       else
         flash[:error] = @user.errors.full_messages.to_sentence
       end
@@ -23,7 +23,7 @@ module Administration
     def role
       @user.roles.destroy_all
       if @user.add_role params[:role]
-        redirect_to administration_users_path, success: 'Role changed'
+        redirect_to administration_users_path, success: t('controller.role.change')
       else
         flash[:error] = @user.errors.full_messages.to_sentence
       end
