@@ -12,6 +12,7 @@ end
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'rails', '~> 5.1.5'
 gem 'simple_form'
+gem 'state_machine'
 
 # for js
 gem 'jbuilder', '~> 2.5'
@@ -34,8 +35,6 @@ gem 'kaminari'
 gem 'paperclip', '~> 5.2.0'
 gem 'puma', '~> 3.0'
 gem 'recaptcha', require: 'recaptcha/rails'
-gem 'sidekiq'
-gem 'sinatra', github: 'sinatra/sinatra'
 gem 'social-share-button'
 gem 'unicode'
 
