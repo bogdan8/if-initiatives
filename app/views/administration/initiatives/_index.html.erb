@@ -10,25 +10,27 @@
       <p><%= t('views.pages.global.title') %>: <%= category.title %></p>
     <% end %>
   </p>
-  <h3><%= initiative.state %></h3>
+  
   <!-- links -->
   <p>
     <%= link_to t('views.pages.global.button.show'), administration_initiative_path(initiative) %>
     <%= link_to t('views.pages.global.button.destroy'), administration_initiative_path(initiative), method: :delete, data: { confirm: t('views.pages.global.confirm') } %>
-    <% if initiative.pending_approval? %>
-      <%= link_to t('views.pages.global.button.success_confirmation'), success_confirmation_administration_initiative_path(initiative) %>
-      <%= link_to t('views.pages.global.button.error_confirmation'), error_confirmation_administration_initiative_path(initiative) %>
-    <% elsif initiative.fundraiser? %>
-      <%= link_to t('views.pages.global.button.fundraising_finished'), finish_fundraising_administration_initiative_path(initiative) %>
-      <%= link_to t('views.pages.global.button.error_confirmation'), error_confirmation_administration_initiative_path(initiative) %>
-    <% elsif initiative.fundraising_finished? %>
-      <%= link_to t('views.pages.global.button.started_implement'), started_implement_administration_initiative_path(initiative) %>
-      <%= link_to t('views.pages.global.button.insufficient_funds'), insufficient_funds_administration_initiative_path(initiative) %>
-    <% elsif initiative.being_implemented? %>
-      <%= link_to t('views.pages.global.button.check_implemented'), check_implemented_administration_initiative_path(initiative) %>
-    <% elsif initiative.audit_implemented? %>
-      <%= link_to t('views.pages.global.button.implemented'), implemented_administration_initiative_path(initiative) %>
-      <%= link_to t('views.pages.global.button.unrealized'), unrealized_administration_initiative_path(initiative) %>
+    <% if initiative.confirmating? %>
+      <%= link_to t('views.pages.global.button.confirmed'), to_fundraising_administration_initiative_path(initiative) %>
+      <%= link_to t('views.pages.global.button.rejected'), to_rejected_administration_initiative_path(initiative) %>
+    <% elsif initiative.fundraising? %>
+      <%= link_to t('views.pages.global.button.fundraised'), to_fundraised_administration_initiative_path(initiative) %>
+      <%= link_to t('views.pages.global.button.rejected'), to_rejected_administration_initiative_path(initiative) %>
+    <% elsif initiative.fundraised? %>
+      <%= link_to t('views.pages.global.button.implementing'), to_implementing_administration_initiative_path(initiative) %>
+      <%= link_to t('views.pages.global.button.unimplemented'), to_unimplemented_administration_initiative_path(initiative) %>
+    <% elsif initiative.implementing? %>
+      <%= link_to t('views.pages.global.button.reporting'), to_reporting_administration_initiative_path(initiative) %>
+    <% elsif initiative.reporting? %>
+      <%= link_to t('views.pages.global.button.implemented'), to_implemented_administration_initiative_path(initiative) %>
+      <%= link_to t('views.pages.global.button.unimplemented'), to_unimplemented_administration_initiative_path(initiative) %>
     <% end %>
+
+    <%= link_to t('views.pages.global.button.locked'), to_locked_administration_initiative_path(initiative) %>
   </p>
 <% end %>

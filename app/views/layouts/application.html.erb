@@ -24,10 +24,10 @@
         <li><%= link_to t('views.pages.global.initiatives'), administration_initiatives_path %></li>
         <li><%= link_to t('views.pages.global.categories'), administration_categories_path %></li>
         <li><%= link_to t('views.pages.global.users'), administration_users_path %></li>
-        <li><%= link_to t('views.pages.global.pending_approval'), pending_approval_administration_initiatives_path %></li>
-        <li><%= link_to t('views.pages.global.fundraising_finished'), fundraising_finished_administration_initiatives_path %></li>
-        <li><%= link_to t('views.pages.global.report'), report_administration_initiatives_path %></li>
-        <li><%= link_to t('views.pages.global.audit_implemented'), audit_implemented_administration_initiatives_path %></li>
+        <li><%= link_to t('views.pages.global.confirmating'), confirmating_administration_initiatives_path %></li>
+        <li><%= link_to t('views.pages.global.fundraising'), fundraising_administration_initiatives_path %></li>
+        <li><%= link_to t('views.pages.global.implementing'), implementing_administration_initiatives_path %></li>
+        <li><%= link_to t('views.pages.global.reporting'), reporting_administration_initiatives_path %></li>
       <% end %>
       
       <% if current_user.has_role? :moderator %>

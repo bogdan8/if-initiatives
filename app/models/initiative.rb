@@ -20,40 +20,40 @@
 
 class Initiative < ApplicationRecord
   state_machine initial: :draft do
-    event :submit_for_confirmation do
-      transition %i[draft rejected] => :pending_approval
+    event :to_confirmating do
+      transition %i[draft rejected] => :confirmating
     end
 
-    event :success_confirmation do
-      transition pending_approval: :fundraiser
+    event :to_fundraising do
+      transition confirmating: :fundraising
     end
 
-    event :error_confirmation do
-      transition %i[pending_approval draft fundraiser] => :rejected
+    event :to_rejected do
+      transition %i[confirmating fundraising] => :rejected
     end
 
-    event :finish_fundraising do
-      transition fundraiser: :fundraising_finished
+    event :to_fundraised do
+      transition fundraising: :fundraised
     end
 
-    event :started_implement do
-      transition fundraising_finished: :being_implemented
+    event :to_implementing do
+      transition fundraised: :implementing
     end
 
-    event :insufficient_funds do
-      transition fundraising_finished: :unrealized
+    event :to_reporting do
+      transition implementing: :reporting
     end
 
-    event :check_implemented do
-      transition being_implemented: :audit_implemented
+    event :to_implemented do
+      transition reporting: :implemented
     end
 
-    event :finish_fundraiser_success do
-      transition audit_implemented: :implemented
+    event :to_unimplemented do
+      transition %i[fundraised reporting] => :unimplemented
     end
 
-    event :finish_fundraiser_errors do
-      transition audit_implemented: :unrealized
+    event :to_locked do
+      transition all - %i[locked] => :locked
     end
   end
 

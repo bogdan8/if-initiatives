@@ -3,108 +3,99 @@
 module AbilityStateToInitiatives
   extend ActiveSupport::Concern
 
-  def for_confirmation
-    if @initiative.submit_for_confirmation!
-      redirect_to users_initiatives_path, success: t('controller.initiative.for_confirmation')
+  def to_confirmating
+    if @initiative.to_confirmating!
+      redirect_to users_initiatives_path, success: t('controller.initiative.to_confirmating')
     else
       flash[:error] = @initiative.errors.full_messages.to_sentence
     end
   end
 
-  def success_confirmation
-    if @initiative.success_confirmation!
-      redirect_to pending_approval_administration_initiatives_path,
-                  success: t('controller.initiative.success_confirmation')
+  def to_fundraising
+    if @initiative.to_fundraising!
+      redirect_to administration_initiatives_path,
+                  success: t('controller.initiative.to_fundraising')
     else
       flash[:error] = @initiative.errors.full_messages.to_sentence
     end
   end
 
-  def error_confirmation
-    if @initiative.error_confirmation!
-      redirect_to pending_approval_administration_initiatives_path,
-                  success: t('controller.initiative.error_confirmation')
+  def to_rejected
+    if @initiative.to_rejected!
+      redirect_to administration_initiatives_path,
+                  success: t('controller.initiative.to_rejected')
     else
       flash[:error] = @initiative.errors.full_messages.to_sentence
     end
   end
 
-  def finish_fundraising
-    if @initiative.finish_fundraising!
-      redirect_to pending_approval_administration_initiatives_path,
-                  success: t('controller.initiative.success_confirmation')
+  def to_fundraised
+    if @initiative.to_fundraised!
+      redirect_to administration_initiatives_path,
+                  success: t('controller.initiative.to_fundraised')
     else
       flash[:error] = @initiative.errors.full_messages.to_sentence
     end
   end
 
-  def started_implement
-    if @initiative.started_implement!
-      redirect_to fundraising_finished_administration_initiatives_path,
-                  success: t('controller.initiative.started_implement_success')
+  def to_implementing
+    if @initiative.to_implementing!
+      redirect_to administration_initiatives_path,
+                  success: t('controller.initiative.to_implementing')
     else
       flash[:error] = @initiative.errors.full_messages.to_sentence
     end
   end
 
-  def insufficient_funds
-    if @initiative.insufficient_funds!
-      redirect_to fundraising_finished_administration_initiatives_path,
-                  success: t('controller.initiative.insufficient_funds')
+  def to_unimplemented
+    if @initiative.to_unimplemented!
+      redirect_to administration_initiatives_path,
+                  success: t('controller.initiative.to_unimplemented')
     else
       flash[:error] = @initiative.errors.full_messages.to_sentence
     end
   end
 
-  def check_implemented
-    if @initiative.check_implemented!
-      redirect_to audit_implemented_administration_initiatives_path,
-                  success: t('controller.initiative.check_implemented')
+  def to_reporting
+    if @initiative.to_reporting!
+      redirect_to administration_initiatives_path,
+                  success: t('controller.initiative.to_reporting')
     else
       flash[:error] = @initiative.errors.full_messages.to_sentence
     end
   end
 
-  def implemented
-    if @initiative.finish_fundraiser_success!
-      redirect_to audit_implemented_administration_initiatives_path,
-                  success: t('controller.initiative.implemented')
+  def to_implemented
+    if @initiative.to_implemented!
+      redirect_to administration_initiatives_path,
+                  success: t('controller.initiative.to_implemented')
     else
       flash[:error] = @initiative.errors.full_messages.to_sentence
     end
   end
 
-  def unrealized
-    if @initiative.finish_fundraiser_errors!
-      redirect_to audit_implemented_administration_initiatives_path,
-                  success: t('controller.initiative.unrealized')
+  def to_locked
+    if @initiative.to_locked!
+      redirect_to administration_initiatives_path, success: t('controller.initiative.to_locked')
     else
       flash[:error] = @initiative.errors.full_messages.to_sentence
     end
   end
 
-  def locked
-    if @initiative.locked_forever!
-      redirect_to administration_initiatives_path, success: t('controller.initiative.locked')
-    else
-      flash[:error] = @initiative.errors.full_messages.to_sentence
-    end
+  def confirmating
+    @initiatives = initiative_with(:confirmating)
   end
 
-  def fundraising_finished
-    @initiatives = initiative_with(:fundraising_finished)
+  def fundraising
+    @initiatives = initiative_with(:fundraising)
   end
 
-  def pending_approval
-    @initiatives = initiative_with(:pending_approval)
+  def implementing
+    @initiatives = initiative_with(:implementing)
   end
 
-  def report
-    @initiatives = initiative_with(:being_implemented)
-  end
-
-  def audit_implemented
-    @initiatives = initiative_with(:audit_implemented)
+  def reporting
+    @initiatives = initiative_with(:reporting)
   end
 
   private
