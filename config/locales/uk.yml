@@ -1,4 +1,37 @@
 uk:
+  controller:
+    admins:
+      save: 'Адміністратора додано'
+      update: 'Дані успішно відредаговані'
+      destroy: 'Категорію видалено'
+    user:
+      save: 'Користувача додано'
+      update: 'Користувача відредаговано'
+      destroy: 'Користувача видалено'
+    role:
+      change: 'Роль змінено'
+    catrgory:
+      save: 'Категорію додано'
+      update: 'Категорію відредаговано'
+      destroy: 'Категорію видалено'
+    comment:
+      save: 'Коментар додано'
+      update: 'Коментар відредаговано'
+      destroy: 'Коментар видалено'
+    initiative:
+      save: 'Ініціативу додано'
+      update: 'Ініціативу відредаговано'
+      destroy: 'Ініціативу видалено'
+      to_confirmating: 'Відправлено на підтвердження'
+      to_fundraising: 'Збір коштів розпочато'
+      to_fundraised: 'Збір коштів завершено'
+      to_rejected: 'Ініціативу відхилено'
+      to_locked: 'Ініціативу заблоковано'
+      to_implemented: 'Розпочато реалізацію'
+      to_implemented: 'Ініціативу успішно завершено'
+      to_unimplemented: 'Ініціативу не завершено'
+      to_reporting: 'Ініціативу відправлено для надання звіту'
+
   views:
     pages:
       global:
@@ -7,6 +40,15 @@ uk:
           show: 'Переглянути'
           edit: 'Редагувати'
           destroy: 'Видалити'
+          confirmation: 'Надіслати на підтвердження'
+          confirmed: 'Підтвердити'
+          locked: 'Заблукувати'
+          rejected: 'Відхилити'
+          fundraised: 'Розпочати збір коштів'
+          implementing: 'Реалізувати'
+          unimplemented: 'Не реалізовано'
+          reporting: 'Звітність'
+          implemented: 'Реалізовано'
         title: 'Назва'
         name: "Ім'я"
         email: 'Електронна адреса'
@@ -15,6 +57,11 @@ uk:
           user: 'Користувач'
           administrator: 'Адміністратор'
           moderator: 'Модератор'
+        confirmating: 'Підтвердження'
+        fundraising: 'Збір коштів'
+        implementing: 'Реалізація'
+        reporting: 'Звітність'
+        report: 'Звіт'
         text: 'Текст'
         position: 'Позиція'
         long_description: 'Опис'
@@ -86,6 +133,11 @@ uk:
 
   activerecord:
     errors:
+      models:
+        initiative:
+          attributes:
+            state:
+              invalid_transition: 'Невірний стейт'
       messages:
         record_invalid: 'Виникли помилки: %{errors}'
         restrict_dependent_destroy:

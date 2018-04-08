@@ -5,6 +5,8 @@ module Administration
     load_and_authorize_resource
     before_action :all_categories, only: %i[edit update]
 
+    include AbilityStateToInitiatives
+
     def index
       @initiatives = Initiative.includes(:categories).page(params[:page]).per(5)
     end
@@ -17,7 +19,7 @@ module Administration
       Categorization.where(initiative_id: @initiative.id).delete_all
       add_categories_to_initiative
       if @initiative.update(initiative_params)
-        redirect_to [:administration, @initiative], success: 'Initiative updated'
+        redirect_to [:administration, @initiative], success: t('controller.initiative.update')
       else
         flash[:error] = @initiative.errors.full_messages.to_sentence
         render :edit
@@ -26,7 +28,7 @@ module Administration
 
     def destroy
       if @initiative.destroy
-        redirect_to administration_initiatives_path, success: 'Initiative deleted'
+        redirect_to administration_initiatives_path, success: t('controller.initiative.destroy')
       else
         flash[:error] = @initiative.errors.full_messages.to_sentence
       end

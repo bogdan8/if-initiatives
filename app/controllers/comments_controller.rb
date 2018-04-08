@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     @comment = @initiative.comments.new(comment_params)
 
     if @comment.save
-      redirect_to @initiative, success: 'Comment created'
+      redirect_to @initiative, success: t('controller.comment.save')
     else
       redirect_to @initiative, error: @comment.errors.full_messages.to_sentence
     end
@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to @initiative, success: 'Comment updated'
+      redirect_to @initiative, success: t('controller.comment.update')
     else
       flash[:error] = @comment.errors.full_messages.to_sentence
       render :edit
@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
 
   def destroy
     if @comment.destroy
-      redirect_to @initiative, success: 'Comment deleted'
+      redirect_to @initiative, success: t('controller.comment.destroy')
     else
       redirect_to @initiative, error: @comment.errors.full_messages.to_sentence
     end

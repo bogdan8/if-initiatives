@@ -12,6 +12,18 @@ Rails.application.routes.draw do
   root 'home#index'
   namespace :administration do
     resources :initiatives do
+      get :to_fundraising, on: :member
+      get :to_rejected, on: :member
+      get :to_fundraised, on: :member
+      get :to_implementing, on: :member
+      get :to_unimplemented, on: :member
+      get :to_reporting, on: :member
+      get :to_implemented, on: :member
+      get :to_locked, on: :member
+      get :confirmating, on: :collection
+      get :fundraising, on: :collection
+      get :implementing, on: :collection
+      get :reporting, on: :collection
       resources :comments, only: %i[destroy]
     end
     resources :categories
@@ -21,6 +33,7 @@ Rails.application.routes.draw do
   end
   scope module: :users, path: :user, as: :users do
     resources :initiatives, except: %i[destroy] do
+      get :to_confirmating, on: :member
       resources :comments, except: %i[index show]
     end
   end

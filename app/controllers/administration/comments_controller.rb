@@ -7,7 +7,7 @@ module Administration
 
     def destroy
       if @comment.destroy
-        redirect_to [:administration, @initiative], success: 'Comment deleted'
+        redirect_to [:administration, @initiative], success: t('controller.comment.destroy')
       else
         redirect_to [:administration, @initiative], error: @comment.errors.full_messages.to_sentence
       end
