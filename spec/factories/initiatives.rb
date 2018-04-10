@@ -10,7 +10,7 @@
 #  short_description :text
 #  long_description  :text
 #  general_sum       :integer
-#  finished_date     :date
+#  finish_date       :date
 #  collected_amount  :integer
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
