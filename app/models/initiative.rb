@@ -15,7 +15,8 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  user_id           :integer
-#  state             :string
+#  state             :string           default("draft")
+#  finish_days       :integer          default(5)
 #
 
 class Initiative < ApplicationRecord
@@ -53,7 +54,7 @@ class Initiative < ApplicationRecord
     end
 
     event :to_locked do
-      transition all - %i[locked] => :locked
+      transition all - %i[locked implemented unimplemented] => :locked
     end
   end
 
@@ -64,7 +65,7 @@ class Initiative < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   # validations
-  validates :title, :short_description, :long_description, :general_sum, :finished_date, presence: true
+  validates :title, :short_description, :long_description, :general_sum, :finish_days, presence: true
   validates :title, length: { minimum: 5 }
   validates :short_description, length: { minimum: 25 }
   validates :long_description, length: { minimum: 50 }

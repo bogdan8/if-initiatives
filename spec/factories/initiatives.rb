@@ -15,7 +15,8 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  user_id           :integer
-#  state             :string
+#  state             :string           default("draft")
+#  finish_days       :integer          default(5)
 #
 
 FactoryBot.define do
@@ -24,7 +25,7 @@ FactoryBot.define do
     short_description Faker::Lorem.characters(26)
     long_description Faker::Lorem.characters(55)
     general_sum 123
-    finished_date Faker::Date.backward
+    finish_days 15
     collected_amount 123
   end
 end
