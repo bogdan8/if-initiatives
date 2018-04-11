@@ -70,4 +70,9 @@ class Initiative < ApplicationRecord
   validates :short_description, length: { minimum: 25 }
   validates :long_description, length: { minimum: 50 }
   validates :general_sum, length: { maximum: 6 }
+
+  # get initiatives where status is fundraising and if date equal Time.now
+  def self.fundraising_now
+    where(finish_date: Time.current.to_date, state: 'fundraising')
+  end
 end
