@@ -66,7 +66,7 @@ uk:
         position: 'Позиція'
         long_description: 'Опис'
         short_description: 'Короткий опис'
-        finished_date: 'Дата завершення'
+        finish_date: 'Дата завершення'
         general_sum: 'Загальна ціна'
         collected_amount: 'Зібрано коштів'
         initiatives: 'Ініціативи'

@@ -12,7 +12,6 @@ AllCops:
     - '**/db/schema.rb'
     - 'config/**/**'
     - 'db/**/**'
-    - 'lib/**/**'
     - 'bin/**'
     - 'app/models/role.rb'
 Rails:

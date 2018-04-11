@@ -38,7 +38,7 @@ module Administration
 
     def initiative_params
       text = %i[title short_description long_description]
-      number = %i[finished_date general_sum]
+      number = %i[finish_days general_sum]
       params.require(:initiative).permit(*text, *number)
     end
 

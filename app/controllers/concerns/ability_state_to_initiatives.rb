@@ -13,6 +13,7 @@ module AbilityStateToInitiatives
 
   def to_fundraising
     if @initiative.to_fundraising!
+      @initiative.update(finish_date: Time.current.to_date + @initiative.finish_days) # update finishe date
       redirect_to administration_initiatives_path,
                   success: t('controller.initiative.to_fundraising')
     else
