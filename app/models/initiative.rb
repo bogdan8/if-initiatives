@@ -20,6 +20,9 @@
 #
 
 class Initiative < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: %i[slugged]
+
   state_machine initial: :draft do
     event :to_confirmating do
       transition %i[draft rejected] => :confirmating
@@ -74,5 +77,9 @@ class Initiative < ApplicationRecord
   # get initiatives where status is fundraising and if date equal Time.now
   def self.fundraising_now
     where(finish_date: Time.current.to_date, state: 'fundraising')
+  end
+
+  def normalize_friendly_id(input)
+    input.to_s.to_slug.normalize(transliterations: :ukrainian).to_s
   end
 end
