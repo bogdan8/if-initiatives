@@ -4,12 +4,7 @@ class CommentsController < ApplicationController
   load_and_authorize_resource
   before_action :find_initiative, only: %i[create update destroy]
 
-  def edit
-    @initiative = @comment.initiative
-  end
-
   def create
-    @initiative = Initiative.find(params[:initiative_id])
     @comment = @initiative.comments.new(comment_params)
 
     if @comment.save
@@ -17,6 +12,10 @@ class CommentsController < ApplicationController
     else
       redirect_to @initiative, error: @comment.errors.full_messages.to_sentence
     end
+  end
+
+  def edit
+    @initiative = @comment.initiative
   end
 
   def update
@@ -39,7 +38,7 @@ class CommentsController < ApplicationController
   private
 
   def find_initiative
-    @initiative = Initiative.find(params[:initiative_id])
+    @initiative = Initiative.friendly.find(params[:initiative_id])
   end
 
   def comment_params

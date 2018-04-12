@@ -22,7 +22,7 @@ RSpec.describe Users::InitiativesController, type: :controller do
 
   describe 'GET #show' do
     it 'renders the template with status' do
-      get :show, params: { id: initiative.id }
+      get :show, params: { id: initiative.slug }
       expect(response).to render_template(:show)
       expect(response.status).to eq(200)
     end
@@ -30,7 +30,7 @@ RSpec.describe Users::InitiativesController, type: :controller do
 
   describe 'GET #new' do
     it 'renders the template with status' do
-      get :new, params: { id: initiative.id }
+      get :new, params: { id: initiative.slug }
       expect(response).to render_template(:new)
       expect(response.status).to eq(200)
     end
@@ -55,7 +55,7 @@ RSpec.describe Users::InitiativesController, type: :controller do
 
   describe 'GET #edit' do
     it 'renders the template with status' do
-      get :edit, params: { id: initiative.id }
+      get :edit, params: { id: initiative.slug }
       expect(response).to render_template(:edit)
       expect(response.status).to eq(200)
     end
@@ -66,17 +66,17 @@ RSpec.describe Users::InitiativesController, type: :controller do
       it 'value should be changed' do
         user.initiatives.create(attributes_for(:initiative))
         title = 'new title for initiative'
-        post :update, params: { id: initiative.id,
+        post :update, params: { id: initiative.slug,
                                 initiative: build(:initiative, title: title, category_ids: [category.id]).attributes }
         expect(Initiative.last.title).to eq(title)
-        expect(response).to redirect_to(users_initiative_path(initiative.id))
+        expect(response).to redirect_to(users_initiative_path(initiative.slug))
       end
     end
 
     context 'with incorrect parameters' do
       it 'should renders the edit template' do
         user.initiatives.create(attributes_for(:initiative))
-        post :update, params: { id: initiative.id,
+        post :update, params: { id: initiative.slug,
                                 initiative: build(:initiative, title: '', category_ids: [category.id]).attributes }
         expect(Initiative.last.title).not_to eq('')
         expect(response).to render_template(:edit)

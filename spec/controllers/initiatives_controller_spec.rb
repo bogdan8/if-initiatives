@@ -17,7 +17,7 @@ RSpec.describe InitiativesController, type: :controller do
 
   describe 'GET #show' do
     it 'renders the template with status' do
-      get :show, params: { id: initiative.id }
+      get :show, params: { id: initiative.slug }
       expect(response).to render_template(:show)
       expect(response.status).to eq(200)
     end

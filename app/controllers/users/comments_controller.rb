@@ -10,7 +10,6 @@ module Users
     end
 
     def create
-      @initiative = Initiative.find(params[:initiative_id])
       @comment = @initiative.comments.new(comment_params)
 
       if @comment.save
@@ -40,7 +39,7 @@ module Users
     private
 
     def find_initiative
-      @initiative = Initiative.find(params[:initiative_id])
+      @initiative = Initiative.friendly.find(params[:initiative_id])
     end
 
     def comment_params
