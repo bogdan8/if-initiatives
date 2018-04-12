@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180412163513) do
+ActiveRecord::Schema.define(version: 20180412164144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 20180412163513) do
 
   create_table "initiatives", force: :cascade do |t|
     t.string "title"
-    t.string "slug"
     t.text "short_description"
     t.text "long_description"
     t.integer "general_sum"
@@ -66,6 +65,8 @@ ActiveRecord::Schema.define(version: 20180412163513) do
     t.bigint "user_id"
     t.string "state", default: "draft"
     t.integer "finish_days", default: 5
+    t.string "slug"
+    t.index ["slug"], name: "index_initiatives_on_slug", unique: true
     t.index ["user_id"], name: "index_initiatives_on_user_id"
   end
 
