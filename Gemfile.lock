@@ -95,10 +95,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
-    chewy (5.0.0)
-      activesupport (>= 4.0)
-      elasticsearch (>= 2.0.0)
-      elasticsearch-dsl
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     chromedriver-helper (1.2.0)
@@ -129,15 +125,6 @@ GEM
     dotenv-rails (2.2.1)
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
-    elasticsearch (6.0.2)
-      elasticsearch-api (= 6.0.2)
-      elasticsearch-transport (= 6.0.2)
-    elasticsearch-api (6.0.2)
-      multi_json
-    elasticsearch-dsl (0.1.5)
-    elasticsearch-transport (6.0.2)
-      faraday
-      multi_json
     erubi (1.7.1)
     execjs (2.7.0)
     factory_bot (4.8.2)
@@ -410,7 +397,6 @@ DEPENDENCIES
   capistrano-rvm
   capistrano3-puma
   capybara
-  chewy
   chromedriver-helper
   database_cleaner
   devise
