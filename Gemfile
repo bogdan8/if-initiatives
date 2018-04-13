@@ -29,7 +29,6 @@ gem 'select2-rails'
 
 # for server
 gem 'babosa'
-gem 'chewy'
 gem 'dotenv-rails'
 gem 'friendly_id', '~> 5.1.0'
 gem 'kaminari'

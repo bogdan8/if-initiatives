@@ -55,7 +55,6 @@ RSpec.configure do |config|
     default_url_options[:locale] = :en
   end
 
-  config.include Devise::Test::ControllerHelpers, type: :controller
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include Shoulda::Matchers::ActiveModel, type: :model
   config.include Shoulda::Matchers::ActiveRecord, type: :model
