@@ -34,10 +34,9 @@ Rails.application.routes.draw do
   scope module: :users, path: :user, as: :users do
     resources :initiatives, except: %i[destroy] do
       get :to_confirmating, on: :member
-      resources :comments, except: %i[index show]
     end
   end
   resources :initiatives, only: %i[index show] do
-    resources :comments, except: %i[index show new destroy]
+    resources :comments, except: %i[index show new]
   end
 end
