@@ -67,6 +67,8 @@ class Initiative < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
+  has_many :photos, dependent: :destroy
+
   # validations
   validates :title, :short_description, :long_description, :general_sum, :finish_days, presence: true
   validates :title, length: { minimum: 5 }
