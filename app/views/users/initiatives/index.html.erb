@@ -23,8 +23,9 @@
     <p>
       <%= link_to t('views.pages.global.button.show'), users_initiative_path(initiative) %>
       <% if initiative.draft? || initiative.rejected? %>
-        <%= link_to_if initiative.draft?, t('views.pages.global.button.edit'), edit_users_initiative_path(initiative) %>
-        <%= link_to_if initiative.draft?, t('views.pages.global.button.confirmation'), to_confirmating_users_initiative_path(initiative) %>
+        <%= link_to t('views.pages.global.button.edit'), edit_users_initiative_path(initiative) %>
+        <%= link_to t('views.pages.global.button.confirmation'), to_confirmating_users_initiative_path(initiative) %>
+        <%= link_to t('views.pages.global.button.destroy'), users_initiative_path(initiative), method: :delete, data: { confirm: t('views.pages.global.confirm') } %> 
       <% end %>
     </p>
   <% end %>

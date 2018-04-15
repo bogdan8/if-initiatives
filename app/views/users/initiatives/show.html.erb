@@ -15,6 +15,12 @@
     <% end %>
   </p>
 
+  <div class="photos">
+    <% @initiative.photos.each do |photo| %>
+      <%= image_tag photo.photo.url(:medium) %>
+    <% end %>
+  </div>
+
   <!-- initiative links -->
   <p>
     <%= link_to t('views.pages.global.button.edit'), edit_users_initiative_path(@initiative) %>
@@ -26,8 +32,5 @@
   <% @initiative.comments.each do |comment| %>
     <p><%= t('views.pages.global.title') %>: <%= comment.title %></p>
     <p><%= t('views.pages.global.text') %>: <%= comment.text %></p>
-
-    <!-- comment links -->
-    <%= link_to t('views.pages.global.button.destroy'), users_initiative_comment_path(@initiative, comment), method: :delete, data: { confirm: t('views.pages.global.confirm') } %>
   <% end %>
 </div>

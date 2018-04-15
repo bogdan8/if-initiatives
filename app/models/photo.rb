@@ -15,15 +15,15 @@
 #
 
 class Photo < ApplicationRecord
-  belongs_to :initiative
+  belongs_to :initiative, optional: true
 
   size_initiative_images = { medium: '300x300>', thumb: '100x100>' }
   path_initiative_images = ':rails_root/public/images/:class/:attachment/:id/:style/:filename'
 
-  has_attached_file :photos,
+  has_attached_file :photo,
                     styles: size_initiative_images,
                     path: path_initiative_images,
                     url: '/images/:class/:attachment/:id/:style/:filename',
                     default_url: '/images/:style/missing.png'
-  validates_attachment_content_type :photos, content_type: %r{\Aimage\/.*\Z}
+  validates_attachment_content_type :photo, content_type: %r{\Aimage\/.*\Z}
 end
