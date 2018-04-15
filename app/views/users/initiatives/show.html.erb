@@ -17,10 +17,10 @@
     <% end %>
   </p>
 
-  <!-- show photos -->
-  <div class="photos">
-    <% @initiative.photos.each do |photo| %>
-      <%= image_tag photo.photo.url(:medium) %>
+  <!-- show images -->
+  <div class="images">
+    <% @initiative.attachments.each do |attachment| %>
+      <%= image_tag attachment.image.url(:medium) %>
     <% end %>
   </div>
 

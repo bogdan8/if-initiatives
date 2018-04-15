@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     resources :initiatives do
       get :to_confirmating, on: :member
     end
-    resources :photos, only: %i[destroy]
+    resources :attachments, only: %i[destroy]
   end
   resources :initiatives, only: %i[index show] do
     resources :comments, except: %i[index show new]

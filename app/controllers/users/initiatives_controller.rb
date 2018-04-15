@@ -54,8 +54,8 @@ module Users
     def initiative_params
       text = %i[title short_description long_description]
       number = %i[finish_days general_sum]
-      photos = %i[id photo _destroy]
-      params.require(:initiative).permit(*text, *number, photos_attributes: [*photos])
+      attachments = %i[id image video _destroy]
+      params.require(:initiative).permit(*text, *number, attachments_attributes: [*attachments])
     end
 
     def add_categories_to_initiative

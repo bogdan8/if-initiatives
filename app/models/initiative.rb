@@ -67,8 +67,8 @@ class Initiative < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
-  has_many :photos, dependent: :destroy, inverse_of: :initiative
-  accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
+  has_many :attachments, dependent: :destroy, inverse_of: :initiative
+  accepts_nested_attributes_for :attachments, reject_if: :all_blank, allow_destroy: true
 
   # validations
   validates :title, :short_description, :long_description, :general_sum, :finish_days, presence: true

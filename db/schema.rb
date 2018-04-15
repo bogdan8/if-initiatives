@@ -15,6 +15,21 @@ ActiveRecord::Schema.define(version: 20180414075558) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "attachments", force: :cascade do |t|
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.string "video_file_name"
+    t.string "video_content_type"
+    t.integer "video_file_size"
+    t.datetime "video_updated_at"
+    t.bigint "initiative_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["initiative_id"], name: "index_attachments_on_initiative_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "title"
     t.string "slug"
@@ -70,17 +85,6 @@ ActiveRecord::Schema.define(version: 20180414075558) do
     t.index ["user_id"], name: "index_initiatives_on_user_id"
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.string "photo_file_name"
-    t.string "photo_content_type"
-    t.integer "photo_file_size"
-    t.datetime "photo_updated_at"
-    t.bigint "initiative_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["initiative_id"], name: "index_photos_on_initiative_id"
-  end
-
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
@@ -130,6 +134,6 @@ ActiveRecord::Schema.define(version: 20180414075558) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "attachments", "initiatives"
   add_foreign_key "initiatives", "users"
-  add_foreign_key "photos", "initiatives"
 end

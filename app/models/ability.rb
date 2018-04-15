@@ -26,7 +26,7 @@ class Ability
   def for_user(user)
     cannot :manage, Category
     cannot :manage, User
-    can :manage, Photo, initiative: { user_id: user.id }
+    can :manage, Attachment, initiative: { user_id: user.id }
     can :read, Initiative
     can :manage, Initiative, user_id: user.id
     can :read, User
