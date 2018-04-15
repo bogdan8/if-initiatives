@@ -9,11 +9,20 @@
   <p><%= t('views.pages.global.long_description') %>: <%= @initiative.long_description %></p>
   <p><%= t('views.pages.global.finish_date') %>: <%= @initiative.finish_date %></p>
   <p><%= t('views.pages.global.general_sum') %>: <%= @initiative.general_sum %></p>
+  
+  <!-- show categories -->
   <p><%= t('views.pages.global.categories') %>: 
     <% @initiative.categories.each do |category| %>
       <p><%= t('views.pages.global.title') %> <%= category.title %></p>
     <% end %>
   </p>
+
+  <!-- show photos -->
+  <div class="photos">
+    <% @initiative.photos.each do |photo| %>
+      <%= image_tag photo.photo.url(:medium) %>
+    <% end %>
+  </div>
 
   <!-- initiative links -->
   <p>
