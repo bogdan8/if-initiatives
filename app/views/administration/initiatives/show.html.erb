@@ -17,10 +17,19 @@
     <% end %>
   </p>
 
-  <!-- show image -->
+  <!-- show images -->
   <div class="images">
     <% @initiative.attachments.each do |attachment| %>
       <%= image_tag attachment.image.url(:medium) %>
+    <% end %>
+  </div>
+
+  <!-- show videos -->
+  <div class="videos">
+    <% @initiative.attachments.each do |attachment| %>
+      <% if attachment.video? %>
+        <%= video_tag attachment.video.url, controls: true %>
+      <% end %>
     <% end %>
   </div>
 

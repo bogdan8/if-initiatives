@@ -14,17 +14,32 @@
 
   <div id="images_cocoon">
     <%= f.simple_fields_for :attachments do |attachment| %>
-      <% if attachment.object.image.url %>
-        <%= image_tag attachment.object.image.url(:thumb) %>
-        <%= link_to 'remove image', users_attachment_path(attachment.object.id, initiative_id: @initiative.slug), method: :delete %>
-      <% else %>
-        <%= render 'image_fields', f: attachment %>
+      <% if attachment.object.image? %>
+        <% if attachment.object.image.url %>
+          <%= image_tag attachment.object.image.url(:thumb) %>
+          <%= link_to 'remove image', users_attachment_path(attachment.object.id, initiative_id: @initiative.slug), method: :delete %>
+        <% else %>
+          <%= render 'image_fields', f: attachment %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
 
-  <%= link_to_add_association 'add image', f, :attachments, partial: 'users/initiatives/image_fields', data: { 
-    association_insertion_node: '#images_cocoon', association_insertion_method: :append } %>
+  <div id="videos_cocoon">
+    <%= f.simple_fields_for :attachments do |attachment| %>
+      <% if attachment.object.video? %>
+        <% if attachment.object.video.url %>
+          <%= video_tag attachment.object.video.url, controls: true %>
+          <%= link_to 'remove video', users_attachment_path(attachment.object.id, initiative_id: @initiative.slug), method: :delete %>
+        <% else %>
+          <%= render 'video_fields', f: attachment %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= link_to_add_association 'add image', f, :attachments, partial: 'users/initiatives/image_fields', data: { association_insertion_node: '#images_cocoon', association_insertion_method: :append } %>
+  <%= link_to_add_association 'add video', f, :attachments, partial: 'users/initiatives/video_fields', data: { association_insertion_node: '#videos_cocoon', association_insertion_method: :append } %>
 
   <%= f.button :submit, t('views.pages.global.button.edit') %>
 

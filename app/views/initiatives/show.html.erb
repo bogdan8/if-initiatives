@@ -25,6 +25,15 @@
     <% end %>
   </div>
 
+  <!-- show videos -->
+  <div class="videos">
+    <% @initiative.attachments.each do |attachment| %>
+      <% if attachment.video? %>
+        <%= video_tag attachment.video.url, controls: true %>
+      <% end %>
+    <% end %>
+  </div>
+
   <!-- show comments -->
   <h3><%= t('views.pages.global.comments') %>:</h3>
 

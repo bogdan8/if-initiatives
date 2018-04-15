@@ -9,14 +9,20 @@
 
   <%= f.input :category_ids, collection: @categories.order(:title), label_method: :title, value_method: :id, prompt: 'Chose your categories', input_html: { multiple: true } %>
 
-  <div id="photos_cocoon">
-    <%= f.simple_fields_for :photos do |photo| %>
-      <%= render 'photo_fields', f: photo %>
+  <div id="images_cocoon">
+    <%= f.simple_fields_for :attachments do |attachment| %>
+      <%= render 'image_fields', f: attachment %>
     <% end %>
   </div>
 
-  <%= link_to_add_association 'add photo', f, :photos, data: { 
-    association_insertion_node: '#photos_cocoon', association_insertion_method: :append } %>
+  <div id="videos_cocoon">
+    <%= f.simple_fields_for :attachments do |attachment| %>
+      <%= render 'video_fields', f: attachment %>
+    <% end %>
+  </div>
+
+  <%= link_to_add_association 'add image', f, :attachments, partial: 'users/initiatives/image_fields', data: { association_insertion_node: '#images_cocoon', association_insertion_method: :append } %>
+  <%= link_to_add_association 'add video', f, :attachments, partial: 'users/initiatives/video_fields', data: { association_insertion_node: '#videos_cocoon', association_insertion_method: :append } %>
   <%= f.button :submit, t('views.pages.global.button.new') %>
 
 <% end %>
