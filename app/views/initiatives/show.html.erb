@@ -9,11 +9,30 @@
   <p><%= t('views.pages.global.long_description') %>: <%= @initiative.long_description %></p>
   <p><%= t('views.pages.global.finish_date') %>: <%= @initiative.finish_date %></p>
   <p><%= t('views.pages.global.general_sum') %>: <%= @initiative.general_sum %></p>
+  
+  <!-- show categories -->
   <p><%= t('views.pages.global.categories') %>: 
     <% @initiative.categories.each do |category| %>
       <p><%= t('views.pages.global.title') %> <%= category.title %></p>
     <% end %>
   </p>
+<%= video_tag "https://youtu.be/PTK-stVxjx0", :size => "320x240", :controls => true %>
+
+  <!-- show images -->
+  <div class="images">
+    <% @initiative.attachments.each do |attachment| %>
+      <%= image_tag attachment.image.url(:medium) %>
+    <% end %>
+  </div>
+
+  <!-- show videos -->
+  <div class="videos">
+    <% @initiative.attachments.each do |attachment| %>
+      <% if attachment.video? %>
+        <%= video_tag attachment.video.url, controls: true %>
+      <% end %>
+    <% end %>
+  </div>
 
   <!-- show comments -->
   <h3><%= t('views.pages.global.comments') %>:</h3>
@@ -21,9 +40,6 @@
   <% @initiative.comments.each do |comment| %>
     <p><%= t('views.pages.global.title') %>: <%= comment.title %></p>
     <p><%= t('views.pages.global.text') %>: <%= comment.text %></p>
-
-    <!-- comment links -->
-    <%= link_to t('views.pages.global.button.destroy'), users_initiative_comment_path(@initiative.id, comment), method: :delete, data: { confirm: t('views.pages.global.confirm') } %>
   <% end %>
 
   <!-- add comments -->

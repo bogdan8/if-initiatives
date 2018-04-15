@@ -17,5 +17,8 @@ coverage/
 /node_modules
 /yarn-error.log
 
+public/images/
+public/videos/
+
 .byebug_history
 .env

@@ -41,12 +41,21 @@ module Users
       end
     end
 
+    def destroy
+      if @initiative.destroy
+        redirect_to users_initiatives_path, success: t('controller.initiative.destroy')
+      else
+        flash[:error] = @initiative.errors.full_messages.to_sentence
+      end
+    end
+
     private
 
     def initiative_params
       text = %i[title short_description long_description]
-      number = %i[finish_day general_sum]
-      params.require(:initiative).permit(*text, *number)
+      number = %i[finish_days general_sum]
+      attachments = %i[id image video _destroy]
+      params.require(:initiative).permit(*text, *number, attachments_attributes: [*attachments])
     end
 
     def add_categories_to_initiative
