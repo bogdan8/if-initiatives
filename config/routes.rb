@@ -23,7 +23,6 @@ Rails.application.routes.draw do
       get :confirmating, on: :collection
       get :fundraising, on: :collection
       get :implementing, on: :collection
-      get :reporting, on: :collection
       resources :comments, only: %i[destroy]
     end
     resources :categories
@@ -34,6 +33,7 @@ Rails.application.routes.draw do
   scope module: :users, path: :user, as: :users do
     resources :initiatives do
       get :to_confirmating, on: :member
+      resources :reports, only: %i[create update destroy]
     end
     resources :attachments, only: %i[destroy]
   end

@@ -44,12 +44,8 @@ class Initiative < ApplicationRecord
       transition fundraised: :implementing
     end
 
-    event :to_reporting do
-      transition implementing: :reporting
-    end
-
     event :to_implemented do
-      transition reporting: :implemented
+      transition implementing: :implemented
     end
 
     event :to_unimplemented do
@@ -66,6 +62,7 @@ class Initiative < ApplicationRecord
   has_many :categories, through: :categorizations
 
   has_many :comments, dependent: :destroy
+  has_many :reports, dependent: :destroy
 
   has_many :attachments, dependent: :destroy, inverse_of: :initiative
   accepts_nested_attributes_for :attachments, reject_if: :all_blank, allow_destroy: true
