@@ -57,15 +57,6 @@ module AbilityStateToInitiatives
     end
   end
 
-  def to_reporting
-    if @initiative.to_reporting!
-      redirect_to administration_initiatives_path,
-                  success: t('controller.initiative.to_reporting')
-    else
-      flash[:error] = @initiative.errors.full_messages.to_sentence
-    end
-  end
-
   def to_implemented
     if @initiative.to_implemented!
       redirect_to administration_initiatives_path,
@@ -93,10 +84,6 @@ module AbilityStateToInitiatives
 
   def implementing
     @initiatives = initiative_with(:implementing)
-  end
-
-  def reporting
-    @initiatives = initiative_with(:reporting)
   end
 
   private
