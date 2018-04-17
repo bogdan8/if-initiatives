@@ -6,7 +6,7 @@ module Users
 
     def destroy
       Attachment.find(params[:id]).destroy
-      redirect_to edit_users_initiative_path(params[:initiative_id]), success: 'Файл видалено'
+      redirect_to params[:redirect_path], success: 'Файл видалено'
     end
   end
 end

@@ -40,6 +40,14 @@
     <%= link_to t('views.pages.global.button.edit'), edit_users_initiative_path(@initiative) %>
   </p>
 
+  <!-- add reports -->
+  <% if current_user && @initiative.user_id === current_user.id && @initiative.implementing? %>
+    <%= render '/users/reports/new' %>
+  <% end %>
+
+  <!-- show reports -->
+  <%= render '/users/reports/reports' %>
+
   <!-- show comments -->
   <h3><%= t('views.pages.global.comments') %>:</h3>
 

@@ -1,16 +1,8 @@
-<%= provide :site_title, t('views.pages.initiatives.new.title') %>
-<%= provide :initiatives_new, 'active' %>
+<h3><%= t('views.pages.reports.new.title') %></h3>
 
-<h2><%= t('views.pages.initiatives.new.title') %></h2>
-
-<%= simple_form_for [:users, @initiative], html: { multipart: true } do |f| %>
+<%= simple_form_for @initiative.reports.build, url: users_initiative_reports_path(@initiative), html: { multipart: true } do |f| %>
   <%= f.input :title %>
-  <%= f.input :short_description %>
-  <%= f.input :long_description %>
-  <%= f.input :finish_days %>
-  <%= f.input :general_sum %>
-
-  <%= f.input :category_ids, collection: @categories.order(:title), label_method: :title, value_method: :id, prompt: 'Chose your categories', input_html: { multiple: true } %>
+  <%= f.input :description %>
 
   <div id="images_cocoon">
     <%= f.simple_fields_for :attachments do |attachment| %>
@@ -26,6 +18,6 @@
 
   <%= link_to_add_association 'add image', f, :attachments, partial: 'users/attachments/image_fields', data: { association_insertion_node: '#images_cocoon', association_insertion_method: :append } %>
   <%= link_to_add_association 'add video', f, :attachments, partial: 'users/attachments/video_fields', data: { association_insertion_node: '#videos_cocoon', association_insertion_method: :append } %>
-  <%= f.button :submit, t('views.pages.global.button.new') %>
 
+  <%= f.button :submit, t('views.pages.global.button.new') %>
 <% end %>

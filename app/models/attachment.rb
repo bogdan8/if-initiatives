@@ -16,10 +16,12 @@
 #  initiative_id      :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  report_id          :integer
 #
 
 class Attachment < ApplicationRecord
   belongs_to :initiative, optional: true
+  belongs_to :report, optional: true
 
   size_initiative_images = { medium: '300x300>', thumb: '100x100>' }
   path_initiative_images = ':rails_root/public/images/:class/:attachment/:id/:style/:filename'

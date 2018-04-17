@@ -27,8 +27,11 @@ class Ability
     cannot :manage, Category
     cannot :manage, User
     can :manage, Attachment, initiative: { user_id: user.id }
+    can :manage, Attachment, report: { initiative: { user_id: user.id } }
     can :read, Initiative
+    can :read, Report
     can :manage, Initiative, user_id: user.id
+    can :manage, Report, initiative: { user_id: user.id }
     can :read, User
     can %i[edit update], User, id: user.id
     can :manage, Comment, id: user.id
