@@ -161,4 +161,82 @@ RSpec.describe Ability, type: :model do
       it { is_expected.to be_able_to(:destroy, User) }
     end
   end
+
+  describe 'Report' do
+    context '# when is a not authorized' do
+      it { is_expected.not_to be_able_to(:create, Report) }
+      it { is_expected.not_to be_able_to(:read, Report) }
+      it { is_expected.not_to be_able_to(:update, Report) }
+      it { is_expected.not_to be_able_to(:destroy, Report) }
+    end
+
+    context '# when is a user' do
+      before(:each) do
+        user.add_role :user
+      end
+      it { is_expected.to be_able_to(:create, Report) }
+      it { is_expected.to be_able_to(:read, Report) }
+      it { is_expected.to be_able_to(:update, Report) }
+      it { is_expected.to be_able_to(:destroy, Report) }
+    end
+
+    context '# when is a moderator' do
+      before(:each) do
+        user.add_role :moderator
+      end
+      it { is_expected.not_to be_able_to(:create, Report) }
+      it { is_expected.not_to be_able_to(:read, Report) }
+      it { is_expected.not_to be_able_to(:update, Report) }
+      it { is_expected.not_to be_able_to(:destroy, Report) }
+    end
+
+    context '# when is a admin' do
+      before(:each) do
+        user.add_role :administrator
+      end
+      it { is_expected.to be_able_to(:create, Report) }
+      it { is_expected.to be_able_to(:read, Report) }
+      it { is_expected.to be_able_to(:update, Report) }
+      it { is_expected.to be_able_to(:destroy, Report) }
+    end
+  end
+
+  describe 'Attachment' do
+    context '# when is a not authorized' do
+      it { is_expected.not_to be_able_to(:create, Attachment) }
+      it { is_expected.not_to be_able_to(:read, Attachment) }
+      it { is_expected.not_to be_able_to(:update, Attachment) }
+      it { is_expected.not_to be_able_to(:destroy, Attachment) }
+    end
+
+    context '# when is a user' do
+      before(:each) do
+        user.add_role :user
+      end
+      it { is_expected.to be_able_to(:create, Attachment) }
+      it { is_expected.to be_able_to(:read, Attachment) }
+      it { is_expected.to be_able_to(:update, Attachment) }
+      it { is_expected.to be_able_to(:destroy, Attachment) }
+    end
+
+    context '# when is a moderator' do
+      before(:each) do
+        user.add_role :moderator
+      end
+      it { is_expected.not_to be_able_to(:create, Attachment) }
+      it { is_expected.not_to be_able_to(:read, Attachment) }
+      it { is_expected.not_to be_able_to(:update, Attachment) }
+      it { is_expected.not_to be_able_to(:destroy, Attachment) }
+    end
+
+    context '# when is a admin' do
+      before(:each) do
+        user.add_role :administrator
+      end
+      it { is_expected.to be_able_to(:create, Attachment) }
+      it { is_expected.to be_able_to(:read, Attachment) }
+      it { is_expected.to be_able_to(:update, Attachment) }
+      it { is_expected.to be_able_to(:destroy, Attachment) }
+    end
+  end
 end
