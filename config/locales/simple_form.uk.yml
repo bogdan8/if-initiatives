@@ -53,6 +53,22 @@ uk:
         new:
           title: 'Назва'
           text: 'Текст'
+      attachment:
+        edit:
+          title: 'Назва'
+          description: 'Текст'
+        new:
+          title: 'Назва'
+          description: 'Текст'
+      report:
+        title: 'Назва'
+        description: 'Текст'
+        edit:
+          title: 'Назва'
+          description: 'Текст'
+        new:
+          title: 'Назва'
+          description: 'Текст'
       initiative:
         edit:
           title: 'Назва'
@@ -62,6 +78,7 @@ uk:
           general_sum: 'Загальна ціна'
           collected_amount: 'Зібрано коштів'
           category_ids: 'Категорії'
+          finish_days: 'Кількість днів до завершення'
         new:
           title: 'Назва'
           long_description: 'Опис'
@@ -70,3 +87,4 @@ uk:
           general_sum: 'Загальна ціна'
           collected_amount: 'Зібрано коштів'
           category_ids: 'Категорії'
+          finish_days: 'Кількість днів до завершення'

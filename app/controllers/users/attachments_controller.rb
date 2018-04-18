@@ -5,8 +5,8 @@ module Users
     load_and_authorize_resource
 
     def destroy
-      Attachment.find(params[:id]).destroy
-      redirect_to params[:redirect_path], success: 'Файл видалено'
+      @attachment.destroy
+      redirect_to params[:redirect_path], success: t('controller.attachment.destroy')
     end
   end
 end

@@ -1,7 +1,7 @@
 <%= provide :site_title, t('views.pages.initiatives.edit.title') %>
 <%= provide :initiatives_edit, 'active' %>
 
-<h2><%= t('views.pages.global.initiatives') %></h2>
+<h2><%= t('views.pages.initiatives.edit.title') %>: <%= @initiative.title %></h2>
 
 <%= simple_form_for [:administration, @initiative], html: { multipart: true } do |f| %>
   <%= f.input :title %>
