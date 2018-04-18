@@ -8,6 +8,6 @@ class UserMailer < Devise::Mailer
   def send_password_to_user(user, password)
     @user = user
     @user_password = password
-    mail(to: @user.email, subject: 'Ваш тимчасовий пароль.')
+    mail(to: @user.email, subject: t('mail.user.password.temporary.subject'))
   end
 end

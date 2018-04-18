@@ -16,8 +16,8 @@
     <% end %>
   </div>
 
-  <%= link_to_add_association 'add image', f, :attachments, partial: 'users/attachments/image_fields', data: { association_insertion_node: '#images_cocoon', association_insertion_method: :append } %>
-  <%= link_to_add_association 'add video', f, :attachments, partial: 'users/attachments/video_fields', data: { association_insertion_node: '#videos_cocoon', association_insertion_method: :append } %>
+  <%= link_to_add_association t('views.pages.attachments.new.image'), f, :attachments, partial: 'users/attachments/image_fields', data: { association_insertion_node: '#images_cocoon', association_insertion_method: :append } %>
+  <%= link_to_add_association t('views.pages.attachments.new.video'), f, :attachments, partial: 'users/attachments/video_fields', data: { association_insertion_node: '#videos_cocoon', association_insertion_method: :append } %>
 
   <%= f.button :submit, t('views.pages.global.button.new') %>
 <% end %>

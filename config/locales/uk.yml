@@ -31,6 +31,14 @@ uk:
       to_implemented: 'Ініціативу успішно завершено'
       to_unimplemented: 'Ініціативу не завершено'
       to_reporting: 'Ініціативу відправлено для надання звіту'
+    attachment:
+      new: 'Файл додано'
+      update: 'Файл відредаговано'
+      destroy: 'Файл видалено'
+    report:
+      new: 'Звіт додано'
+      update: 'Звіт відредаговано'
+      destroy: 'Звіт видалено'
 
   views:
     pages:
@@ -50,6 +58,8 @@ uk:
           reporting: 'Звітність'
           implemented: 'Реалізовано'
         title: 'Назва'
+        description: 'Опис'
+        updated_at: 'Додано о'
         name: "Ім'я"
         email: 'Електронна адреса'
         role:
@@ -68,6 +78,7 @@ uk:
         short_description: 'Короткий опис'
         finish_date: 'Дата завершення'
         general_sum: 'Загальна ціна'
+        finish_days: 'Кількість днів до завершення'
         collected_amount: 'Зібрано коштів'
         initiatives: 'Ініціативи'
         initiative: 'Ініціатива'
@@ -94,6 +105,8 @@ uk:
         index: 
           title: 'Всі категорії'
       initiatives:
+        form:
+          categories: 'Виберіть категорії'
         edit:
           title: 'Редагувати ініціативу'
         new: 
@@ -114,6 +127,26 @@ uk:
           title: 'Додати коментар'
         index:
           title: 'Всі коментарі'
+      attachments:
+        edit:
+          image: 'Редагувати фото'
+          video: 'Редагувати відео'
+        new:
+          image: 'Додати фото'
+          video: 'Додати відео'
+        index:
+          image: 'Всі фото'
+          video: 'Всі відео'
+        destroy:
+          image: 'Видалити фото'
+          video: 'Видалити відео'
+      reports:
+        edit:
+          title: 'Редагувати звіт'
+        new:
+          title: 'Додати звіт'
+        index:
+          title: 'Всі звіти'
 
     pagination:
       first: '&laquo; Перший'
@@ -121,6 +154,18 @@ uk:
       previous: '&lsaquo; Попередній'
       next: 'Наступний &rsaquo;'
       truncate: '&hellip;'
+
+  mail:
+    user:
+      pasword:
+        temporary: 
+          subject: 'Ваш тимчасовий пароль'
+          title: 'Ваш новий пароль'
+    initiative:
+      fundraised:
+        subject: 'Дата збору коштів завершено'
+        body: 'Завершено збір коштів на вашу ініціативу'
+
   helpers:
     page_entries_info:
       one_page:
@@ -132,6 +177,27 @@ uk:
         display_entries: 'Відображення %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> загалом'
 
   activerecord:
+    attributes:
+      report:
+        title: 
+          zero: 'Назви'
+          one: 'Назва'
+          other: 'Назви'
+        description:
+          title: 
+          zero: 'Описи'
+          one: 'Опис'
+          other: 'Описи'
+      initiative:
+        title: 'Назва'
+        description: 'Опис'
+        short_description: 'Короткий опис'
+        long_description: 'Опис'
+        general_sum: 'Загальна ціна'
+        finish_days: 'Кількість днів до завершення'
+      comment:
+        title: 'Назва'
+        text: 'Текст'
     errors:
       models:
         initiative:
