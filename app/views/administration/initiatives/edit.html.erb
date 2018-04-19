@@ -12,6 +12,6 @@
 
   <%= f.input :category_ids, collection: @categories.order(:title), label_method: :title, value_method: :id, prompt: 'Chose your categories', input_html: { multiple: true } %>
 
-  <%= f.button :submit, t('views.pages.global.button.edit') %>
+  <%= f.button :submit, t('views.pages.global.button.edit'), class: 'btn btn-success btn-sm' %>
 
 <% end %>

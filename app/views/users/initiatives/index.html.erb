@@ -3,7 +3,7 @@
 
 <h1><%= t('views.pages.initiatives.index.title') %></h1>
 
-<h3><%= link_to t('views.pages.initiatives.new.title'), new_users_initiative_path %></h3>
+<h3><%= link_to t('views.pages.initiatives.new.title'), new_users_initiative_path, class: 'btn btn-success btn-sm' %></h3>
 
 <div>
   <% @initiatives.each do |initiative| %>
@@ -22,11 +22,11 @@
 
     <!-- links -->
     <p>
-      <%= link_to t('views.pages.global.button.show'), users_initiative_path(initiative) %>
+      <%= link_to t('views.pages.global.button.show'), users_initiative_path(initiative), class: 'btn btn-info btn-sm' %>
       <% if initiative.draft? || initiative.rejected? %>
-        <%= link_to t('views.pages.global.button.edit'), edit_users_initiative_path(initiative) %>
-        <%= link_to t('views.pages.global.button.confirmation'), to_confirmating_users_initiative_path(initiative) %>
-        <%= link_to t('views.pages.global.button.destroy'), users_initiative_path(initiative), method: :delete, data: { confirm: t('views.pages.global.confirm') } %> 
+        <%= link_to t('views.pages.global.button.edit'), edit_users_initiative_path(initiative), class: 'btn btn-warning btn-sm' %>
+        <%= link_to t('views.pages.global.button.confirmation'), to_confirmating_users_initiative_path(initiative), class: 'btn btn-success btn-sm' %>
+        <%= link_to t('views.pages.global.button.destroy'), users_initiative_path(initiative), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %> 
       <% end %>
     </p>
   <% end %>

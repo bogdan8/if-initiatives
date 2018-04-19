@@ -10,7 +10,7 @@
     <%= f.input :remember_me, as: :radio_buttons %>
   <% end %>
 
-  <%= f.button :submit, t('devise.shared.links.sign_in') %>
+  <%= f.button :submit, t('devise.shared.links.sign_in'), class: 'btn btn-success btn-sm' %>
 <% end %>
 
 <%= render 'users/shared/links' %>

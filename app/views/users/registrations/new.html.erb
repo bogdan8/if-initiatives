@@ -8,7 +8,7 @@
   <%= f.input :password, autocomplete: :off %>
   <%= f.input :password_confirmation, autocomplete: :off %>
 
-  <%= f.button :submit, t('devise.registrations.new.sign_up') %>
+  <%= f.button :submit, t('devise.registrations.new.sign_up'), class: 'btn btn-success btn-sm' %>
 <% end %>
 
 <%= render 'users/shared/links' %>

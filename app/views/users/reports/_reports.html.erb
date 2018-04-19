@@ -26,7 +26,7 @@
   </div>
 
   <div class="remove-report">
-    <%= link_to t('views.pages.global.button.destroy'), users_initiative_report_path(@initiative.slug, report), method: :delete, data: { confirm: t('views.pages.global.confirm') } %>
+    <%= link_to t('views.pages.global.button.destroy'), users_initiative_report_path(@initiative.slug, report), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
   </div>
 
 <% end %>

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Administration
-  class UsersController < ApplicationController
+  class UsersController < Administration::BaseController
     load_and_authorize_resource
 
     def index
