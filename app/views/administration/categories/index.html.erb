@@ -3,7 +3,7 @@
 
 <h1><%= t('views.pages.categories.index.title') %></h1>
 
-<p><%= link_to t('views.pages.categories.new.title'), new_administration_category_path %></p>
+<p><%= link_to t('views.pages.categories.new.title'), new_administration_category_path, class: 'btn btn-success btn-sm'  %></p>
 
 <div>
   <% @categories.each do |category| %>

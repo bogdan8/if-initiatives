@@ -5,6 +5,10 @@
   <body>
     <%= render 'layouts/navigation' %>
     
+    <%= render 'layouts/flash' %>
+
+    <%= render_breadcrumbs separator: ' / ' %>
+    
     <%= yield %>
   </body>
 </html>

@@ -10,7 +10,7 @@ uk:
       destroy: 'Користувача видалено'
     role:
       change: 'Роль змінено'
-    catrgory:
+    category:
       save: 'Категорію додано'
       update: 'Категорію відредаговано'
       destroy: 'Категорію видалено'
@@ -46,7 +46,9 @@ uk:
         button:
           new: 'Додати'
           show: 'Переглянути'
+          show_obj: "Переглянути: %{obj}"
           edit: 'Редагувати'
+          edit_obj: "Редагувати: %{obj}"
           destroy: 'Видалити'
           confirmation: 'Надіслати на підтвердження'
           confirmed: 'Підтвердити'
@@ -198,6 +200,9 @@ uk:
       comment:
         title: 'Назва'
         text: 'Текст'
+      category:
+        title: 'Назва'
+        position: 'Позиція'
     errors:
       models:
         initiative:

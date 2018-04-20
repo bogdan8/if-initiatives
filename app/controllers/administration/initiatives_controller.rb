@@ -4,6 +4,7 @@ module Administration
   class InitiativesController < Administration::BaseController
     load_and_authorize_resource find_by: :slug
     before_action :all_categories, only: %i[edit update]
+    add_breadcrumb I18n.t('views.pages.global.initiatives'), :users_initiatives_path
 
     include AbilityStateToInitiatives
 
@@ -11,9 +12,13 @@ module Administration
       @initiatives = Initiative.includes(:categories).page(params[:page]).per(5)
     end
 
-    def show; end
+    def show
+      add_breadcrumb t('views.pages.global.button.show_obj', obj: @initiative.title)
+    end
 
-    def edit; end
+    def edit
+      add_breadcrumb t('views.pages.global.button.edit_obj', obj: @initiative.title)
+    end
 
     def update
       Categorization.where(initiative_id: @initiative.id).delete_all
@@ -21,6 +26,7 @@ module Administration
       if @initiative.update(initiative_params)
         redirect_to [:administration, @initiative], success: t('controller.initiative.update')
       else
+        add_breadcrumb t('views.pages.global.button.edit_obj', obj: @initiative.title)
         flash[:error] = @initiative.errors.full_messages.to_sentence
         render :edit
       end
