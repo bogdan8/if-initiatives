@@ -2,7 +2,7 @@
 
 class CommentsController < ApplicationController
   load_and_authorize_resource
-  before_action :find_initiative, only: %i[create update destroy]
+  before_action :find_initiative, only: %i[create edit update destroy]
   add_breadcrumb I18n.t('views.pages.global.initiatives'), :initiatives_path
 
   def create
@@ -17,7 +17,6 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @initiative = @comment.initiative
     add_breadcrumb t('views.pages.global.button.edit_obj', obj: @initiative.title)
   end
 

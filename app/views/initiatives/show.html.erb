@@ -39,6 +39,18 @@
   <% @initiative.comments.each do |comment| %>
     <p><%= t('views.pages.global.title') %>: <%= comment.title %></p>
     <p><%= t('views.pages.global.text') %>: <%= comment.text %></p>
+
+    <!-- edit comment -->
+    <% if current_user %>
+      <h3><%= t('views.pages.comments.edit.title_obj', obj: comment.title) %></h3>
+
+      <%= simple_form_for comment, url: initiative_comment_path(@initiative, comment), html: { multipart: true } do |f| %>
+        <%= f.input :title %>
+        <%= f.input :text %>
+
+        <%= f.button :submit, t('views.pages.global.button.edit'), class: 'btn btn-warning btn-sm' %>
+      <% end %>
+    <% end %>
   <% end %>
 
   <!-- add comments -->
@@ -52,5 +64,4 @@
       <%= f.button :submit, t('views.pages.global.button.new'), class: 'btn btn-success btn-sm' %>
     <% end %>
   <% end %>
-
 </div>

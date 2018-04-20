@@ -125,6 +125,7 @@ uk:
       comments:
         edit:
           title: 'Редагувати коментар'
+          title_obj: 'Редагувати %{obj}'
         new:
           title: 'Додати коментар'
         index:
