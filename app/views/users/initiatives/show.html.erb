@@ -52,7 +52,7 @@
 <div class="row">
   <div class="col-sm-12">
     <% if current_user && @initiative.user_id === current_user.id && @initiative.implementing? %>
-      <%= render '/users/reports/new' %>
+      <%= render '/users/reports/new', obj: :new %>
     <% end %>
   </div>
 </div>

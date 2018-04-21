@@ -1,4 +1,4 @@
-<div id="images_cocoon">
+<div id=<%= "images_cocoon_#{obj}" %>>
   <%= f.simple_fields_for :attachments do |attachment| %>
     <% if attachment.object.image? %>
       <% if attachment.object.image.url %>
@@ -11,7 +11,7 @@
   <% end %>
 </div>
 
-<div id="videos_cocoon">
+<div id=<%= "videos_cocoon_#{obj}" %>>
   <%= f.simple_fields_for :attachments do |attachment| %>
     <% if attachment.object.video? %>
       <% if attachment.object.video.url %>

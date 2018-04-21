@@ -1,14 +1,14 @@
 <%= provide :site_title, t('views.pages.global.user') %>
 <%= provide :users_show, 'active' %>
 
-<h1><%= t('views.pages.global.user') %>: <%= @user.name %></h1>
+<div class="row">
+  <div class="col-sm-12">
+    <p><%= t('views.pages.global.name') %>: <%= @user.name %></p>
 
-<div>
-  <p><%= t('views.pages.global.name') %>: <%= @user.name %></p>
-
-  <!-- links -->
-  <p>
-    <%= link_to t('views.pages.global.button.edit'), edit_administration_user_path(@user), class: 'btn btn-warning btn-sm' %>
-    <%= link_to t('views.pages.global.button.destroy'), administration_user_path(@user), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
-  </p>
+    <!-- links -->
+    <p>
+      <%= link_to t('views.pages.global.button.edit'), edit_administration_user_path(@user), class: 'btn btn-warning btn-sm' %>
+      <%= link_to t('views.pages.global.button.destroy'), administration_user_path(@user), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
+    </p>
+  </div>
 </div>

@@ -1,23 +1,15 @@
-<h3><%= t('views.pages.reports.new.title') %></h3>
+<div class="col-sm-12">
+  <h3><%= t('views.pages.reports.new.title') %></h3>
 
-<%= simple_form_for @initiative.reports.build, url: users_initiative_reports_path(@initiative), html: { multipart: true } do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
+  <%= simple_form_for @initiative.reports.build, url: users_initiative_reports_path(@initiative), html: { multipart: true } do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
 
-  <div id="images_cocoon">
-    <%= f.simple_fields_for :attachments do |attachment| %>
-      <%= render 'users/attachments/image_fields', f: attachment %>
-    <% end %>
-  </div>
+    <%= render '/users/attachments/form', entity: :report, obj: :new, redirect_path: users_initiative_path(@initiative.slug), f: f %>
 
-  <div id="videos_cocoon">
-    <%= f.simple_fields_for :attachments do |attachment| %>
-      <%= render 'users/attachments/video_fields', f: attachment %>
-    <% end %>
-  </div>
+    <%= link_to_add_association t('views.pages.attachments.new.image'), f, :attachments, partial: 'users/attachments/image_fields', data: { association_insertion_node: "#images_cocoon_#{obj}", association_insertion_method: :append }, class: 'btn btn-success btn-sm' %>
+    <%= link_to_add_association t('views.pages.attachments.new.video'), f, :attachments, partial: 'users/attachments/video_fields', data: { association_insertion_node: "#videos_cocoon_#{obj}", association_insertion_method: :append }, class: 'btn btn-success btn-sm' %>
 
-  <%= link_to_add_association t('views.pages.attachments.new.image'), f, :attachments, partial: 'users/attachments/image_fields', data: { association_insertion_node: '#images_cocoon', association_insertion_method: :append }, class: 'btn btn-success btn-sm' %>
-  <%= link_to_add_association t('views.pages.attachments.new.video'), f, :attachments, partial: 'users/attachments/video_fields', data: { association_insertion_node: '#videos_cocoon', association_insertion_method: :append }, class: 'btn btn-success btn-sm' %>
-
-  <%= f.button :submit, t('views.pages.global.button.new'), class: 'btn btn-success btn-sm' %>
-<% end %>
+    <%= f.button :submit, t('views.pages.global.button.new'), class: 'btn btn-success btn-sm' %>
+  <% end %>
+</div>

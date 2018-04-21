@@ -1,16 +1,18 @@
-<%= render 'users/social/social' %>
+<div class="col-sm-12">
+  <%= render 'users/social/social' %>
 
-<h2><%= t('devise.shared.links.sign_in') %></h2>
+  <h2><%= t('devise.shared.links.sign_in') %></h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= f.input :email, autofocus: true, autocomplete: :email %>
-  <%= f.input :password, autocomplete: :off %>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.input :email, autofocus: true, autocomplete: :email %>
+    <%= f.input :password, autocomplete: :off %>
 
-  <% if devise_mapping.rememberable? %>
-    <%= f.input :remember_me, as: :radio_buttons %>
+    <% if devise_mapping.rememberable? %>
+      <%= f.input :remember_me, as: :radio_buttons %>
+    <% end %>
+
+    <%= f.button :submit, t('devise.shared.links.sign_in'), class: 'btn btn-success btn-sm' %>
   <% end %>
 
-  <%= f.button :submit, t('devise.shared.links.sign_in'), class: 'btn btn-success btn-sm' %>
-<% end %>
-
-<%= render 'users/shared/links' %>
+  <%= render 'users/shared/links' %>
+</div>

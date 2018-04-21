@@ -1,11 +1,11 @@
 <%= provide :site_title, t('views.pages.categories.edit.title') %>
 <%= provide :categories_edit, 'active' %>
 
-<h2><%= "#{t('views.pages.categories.edit.title')} #{@category.title}" %></h2>
-
-<%= simple_form_for [:administration, @category] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :position %>
-  
-  <%= f.button :submit, t('views.pages.global.button.edit'), class: 'btn btn-success btn-sm' %>
-<% end %>
+<div class="col-sm-12">
+  <%= simple_form_for [:administration, @category] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :position %>
+    
+    <%= f.button :submit, t('views.pages.global.button.edit'), class: 'btn btn-success btn-sm' %>
+  <% end %>
+</div>

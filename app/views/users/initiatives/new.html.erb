@@ -1,31 +1,31 @@
 <%= provide :site_title, t('views.pages.initiatives.new.title') %>
 <%= provide :initiatives_new, 'active' %>
 
-<h2><%= t('views.pages.initiatives.new.title') %></h2>
+<div class="col-sm-12">
+  <%= simple_form_for [:users, @initiative], html: { multipart: true } do |f| %>
+    <%= f.input :title %>
+    <%= f.input :short_description %>
+    <%= f.input :long_description %>
+    <%= f.input :finish_days %>
+    <%= f.input :general_sum %>
 
-<%= simple_form_for [:users, @initiative], html: { multipart: true } do |f| %>
-  <%= f.input :title %>
-  <%= f.input :short_description %>
-  <%= f.input :long_description %>
-  <%= f.input :finish_days %>
-  <%= f.input :general_sum %>
+    <%= f.input :category_ids, collection: @categories.order(:title), label_method: :title, value_method: :id, prompt: t('views.pages.initiatives.form.categories'), input_html: { multiple: true } %>
 
-  <%= f.input :category_ids, collection: @categories.order(:title), label_method: :title, value_method: :id, prompt: t('views.pages.initiatives.form.categories'), input_html: { multiple: true } %>
+    <!-- attachments -->
+    <div id="images_cocoon">
+      <%= f.simple_fields_for :attachments do |attachment| %>
+        <%= render 'users/attachments/image_fields', f: attachment %>
+      <% end %>
+    </div>
 
-  <div id="images_cocoon">
-    <%= f.simple_fields_for :attachments do |attachment| %>
-      <%= render 'users/attachments/image_fields', f: attachment %>
-    <% end %>
-  </div>
+    <div id="videos_cocoon">
+      <%= f.simple_fields_for :attachments do |attachment| %>
+        <%= render 'users/attachments/video_fields', f: attachment %>
+      <% end %>
+    </div>
 
-  <div id="videos_cocoon">
-    <%= f.simple_fields_for :attachments do |attachment| %>
-      <%= render 'users/attachments/video_fields', f: attachment %>
-    <% end %>
-  </div>
-
-  <%= link_to_add_association t('views.pages.attachments.new.image'), f, :attachments, partial: 'users/attachments/image_fields', data: { association_insertion_node: '#images_cocoon', association_insertion_method: :append }, class: 'btn btn-success btn-sm' %>
-  <%= link_to_add_association t('views.pages.attachments.new.video'), f, :attachments, partial: 'users/attachments/video_fields', data: { association_insertion_node: '#videos_cocoon', association_insertion_method: :append }, class: 'btn btn-success btn-sm' %>
-  <%= f.button :submit, t('views.pages.global.button.new'), class: 'btn btn-success btn-sm' %>
-
-<% end %>
+    <%= link_to_add_association t('views.pages.attachments.new.image'), f, :attachments, partial: 'users/attachments/image_fields', data: { association_insertion_node: '#images_cocoon', association_insertion_method: :append }, class: 'btn btn-success btn-sm' %>
+    <%= link_to_add_association t('views.pages.attachments.new.video'), f, :attachments, partial: 'users/attachments/video_fields', data: { association_insertion_node: '#videos_cocoon', association_insertion_method: :append }, class: 'btn btn-success btn-sm' %>
+    <%= f.button :submit, t('views.pages.global.button.new'), class: 'btn btn-success btn-sm' %>
+  <% end %>
+</div>

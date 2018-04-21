@@ -1,9 +1,7 @@
 <%= provide :site_title, t('views.pages.global.category') %>
 <%= provide :categories_show, 'active' %>
 
-<h1><%= t('views.pages.global.category') %>: <%= @category.title %></h1>
-
-<div>
+<div class="col-sm-12">
   <p><%= t('views.pages.global.title') %>: <%= @category.title %></p>
   <p><%= t('views.pages.global.position') %>: <%= @category.position %></p>
 
