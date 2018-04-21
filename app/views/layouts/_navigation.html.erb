@@ -17,6 +17,9 @@
         <li>
           <%= link_to t('views.pages.global.initiatives'), initiatives_path %>
         </li>
+        <li>
+          <%= link_to t('views.pages.initiatives.new.title'), new_users_initiative_path %>
+        </li>
         <% unless user_signed_in? %>
           <li>
             <%= link_to t('views.pages.global.sign_in'), new_user_session_path %>

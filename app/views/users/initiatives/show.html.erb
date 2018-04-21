@@ -1,58 +1,77 @@
 <%= provide :site_title, t('views.pages.global.initiative') %>
 <%= provide :initiatives_show, 'active' %>
 
-<h1><%= t('views.pages.global.initiative')%>: <%= @initiative.title %></h1>
-
-<div>
-  <p><%= t('views.pages.global.title') %>: <%= @initiative.title %></p>
-  <p><%= t('views.pages.global.short_description') %>: <%= @initiative.short_description %></p>
-  <p><%= t('views.pages.global.long_description') %>: <%= @initiative.long_description %></p>
-  <p><%= t('views.pages.global.finish_date') %>: <%= @initiative.finish_date %></p>
-  <p><%= t('views.pages.global.general_sum') %>: <%= @initiative.general_sum %></p>
-  
-  <!-- show categories -->
-  <p><%= t('views.pages.global.categories') %>: 
-    <% @initiative.categories.each do |category| %>
-      <p><%= t('views.pages.global.title') %> <%= category.title %></p>
-    <% end %>
-  </p>
-
-  <!-- show images -->
-  <div class="images">
-    <% @initiative.attachments.each do |attachment| %>
-      <% if attachment.image? %>
-        <%= image_tag attachment.image.url(:medium) %>
+<div class="row">
+  <div class="col-sm-12">
+    <p><%= t('views.pages.global.title') %>: <%= @initiative.title %></p>
+    <p><%= t('views.pages.global.short_description') %>: <%= @initiative.short_description %></p>
+    <p><%= t('views.pages.global.long_description') %>: <%= @initiative.long_description %></p>
+    <p><%= t('views.pages.global.finish_date') %>: <%= @initiative.finish_date %></p>
+    <p><%= t('views.pages.global.general_sum') %>: <%= @initiative.general_sum %></p>
+    
+    <!-- show categories -->
+    <p>
+      <%= t('views.pages.global.categories') %>: 
+      <% @initiative.categories.each do |category| %>
+        <p><%= t('views.pages.global.title') %> <%= category.title %></p>
       <% end %>
-    <% end %>
+    </p>
   </div>
+</div>
 
-  <!-- show videos -->
-  <div class="videos">
-    <% @initiative.attachments.each do |attachment| %>
-      <% if attachment.video? %>
-        <%= video_tag attachment.video.url, controls: true %>
-      <% end %>
+<!-- show images -->
+<div class="row">
+  <% @initiative.attachments.each do |attachment| %>
+    <% if attachment.image? %>
+      <div class="col-sm-3">
+        <%= image_tag attachment.image.url(:medium), class: 'full-image' %>
+      </div>
     <% end %>
-  </div>
+  <% end %>
+</div>
 
-  <!-- initiative links -->
-  <p>
+<!-- show videos -->
+<div class="row">
+  <% @initiative.attachments.each do |attachment| %>
+    <% if attachment.video? %>
+      <div class="col-sm-6">
+        <%= video_tag attachment.video.url, controls: true, class: 'full-video' %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<!-- initiative links -->
+<div class="row">
+  <div class="col-sm-12">
     <%= link_to t('views.pages.global.button.edit'), edit_users_initiative_path(@initiative), class: 'btn btn-warning btn-sm' %>
-  </p>
+  </div>
+</div>
 
-  <!-- add reports -->
-  <% if current_user && @initiative.user_id === current_user.id && @initiative.implementing? %>
-    <%= render '/users/reports/new' %>
-  <% end %>
+<!-- add reports -->
+<div class="row">
+  <div class="col-sm-12">
+    <% if current_user && @initiative.user_id === current_user.id && @initiative.implementing? %>
+      <%= render '/users/reports/new' %>
+    <% end %>
+  </div>
+</div>
 
-  <!-- show reports -->
-  <%= render '/users/reports/reports' %>
+<!-- show reports -->
+<div class="row">
+  <div class="col-sm-12">
+    <%= render '/users/reports/reports' %>
+  </div>
+</div>
 
-  <!-- show comments -->
-  <h3><%= t('views.pages.global.comments') %>:</h3>
+<!-- show comments -->
+<div class="row">
+  <div class="col-sm-12">
+    <h3><%= t('views.pages.global.comments') %>:</h3>
 
-  <% @initiative.comments.each do |comment| %>
-    <p><%= t('views.pages.global.title') %>: <%= comment.title %></p>
-    <p><%= t('views.pages.global.text') %>: <%= comment.text %></p>
-  <% end %>
+    <% @initiative.comments.each do |comment| %>
+      <p><%= t('views.pages.global.title') %>: <%= comment.title %></p>
+      <p><%= t('views.pages.global.text') %>: <%= comment.text %></p>
+    <% end %>
+  </div>
 </div>

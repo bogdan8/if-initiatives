@@ -7,8 +7,18 @@
     
     <%= render 'layouts/flash' %>
 
-    <%= render_breadcrumbs separator: ' / ' %>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page">
+          <%= render_breadcrumbs separator: ' / ' %>
+        </li>
+      </ol>
+    </nav>
     
-    <%= yield %>
+    <div class="container">    
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
