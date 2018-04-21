@@ -2,7 +2,8 @@
 
 class CommentsController < ApplicationController
   load_and_authorize_resource
-  before_action :find_initiative, only: %i[create update destroy]
+  before_action :find_initiative, only: %i[create edit update destroy]
+  add_breadcrumb I18n.t('views.pages.global.initiatives'), :initiatives_path
 
   def create
     @comment = @initiative.comments.new(comment_params)
@@ -10,18 +11,20 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @initiative, success: t('controller.comment.save')
     else
+      add_breadcrumb t('views.pages.global.button.new')
       redirect_to @initiative, error: @comment.errors.full_messages.to_sentence
     end
   end
 
   def edit
-    @initiative = @comment.initiative
+    add_breadcrumb t('views.pages.global.button.edit_obj', obj: @initiative.title)
   end
 
   def update
     if @comment.update(comment_params)
       redirect_to @initiative, success: t('controller.comment.update')
     else
+      add_breadcrumb t('views.pages.global.button.edit_obj', obj: @initiative.title)
       flash[:error] = @comment.errors.full_messages.to_sentence
       render :edit
     end

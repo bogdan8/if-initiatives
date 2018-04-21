@@ -4,6 +4,7 @@ module Users
   class InitiativesController < ApplicationController
     load_and_authorize_resource find_by: :slug
     before_action :all_categories, only: %i[new create edit update]
+    add_breadcrumb I18n.t('views.pages.global.initiatives'), :users_initiatives_path
 
     include AbilityStateToInitiatives
 
@@ -11,9 +12,12 @@ module Users
       @initiatives = current_user.initiatives.includes(:categories).page(params[:page]).per(5)
     end
 
-    def show; end
+    def show
+      add_breadcrumb t('views.pages.global.button.show_obj', obj: @initiative.title)
+    end
 
     def new
+      add_breadcrumb t('views.pages.global.button.new')
       @initiative = current_user.initiatives.build
     end
 
@@ -23,12 +27,15 @@ module Users
       if @initiative.save
         redirect_to [:users, @initiative], success: t('controller.initiative.save')
       else
+        add_breadcrumb t('views.pages.global.button.new')
         flash[:error] = @initiative.errors.full_messages.to_sentence
         render :new
       end
     end
 
-    def edit; end
+    def edit
+      add_breadcrumb t('views.pages.global.button.edit_obj', obj: @initiative.title)
+    end
 
     def update
       Categorization.where(initiative_id: @initiative.id).delete_all
@@ -36,6 +43,7 @@ module Users
       if @initiative.update(initiative_params)
         redirect_to [:users, @initiative], success: t('controller.initiative.update')
       else
+        add_breadcrumb t('views.pages.global.button.edit_obj', obj: @initiative.title)
         flash[:error] = @initiative.errors.full_messages.to_sentence
         render :edit
       end

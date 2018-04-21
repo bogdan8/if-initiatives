@@ -1,11 +1,13 @@
 <%= provide :site_title, t('views.pages.comments.edit.title') %>
 <%= provide :comments_show, 'active' %>
 
-<h1><%= t('views.pages.comments.edit.title') %></h1>
+<div class="row">
+  <div class="col-sm-12">
+    <%= simple_form_for @comment, url: initiative_comment_path(@initiative, @comment), method: :put, html: { multipart: true } do |f| %>
+      <%= f.input :title %>
+      <%= f.input :text %>
 
-<%= simple_form_for @comment, url: initiative_comment_path(@initiative, @comment), method: :put, html: { multipart: true } do |f| %>
-  <%= f.input :title %>
-  <%= f.input :text %>
-
-  <%= f.button :submit, t('views.pages.global.button.edit') %>
-<% end %>
+      <%= f.button :submit, t('views.pages.global.button.edit'), class: 'btn btn-success btn-sm' %>
+    <% end %>
+  </div>
+</div>

@@ -1,15 +1,18 @@
 # frozen_string_literal: true
 
 module Administration
-  class UsersController < ApplicationController
+  class UsersController < Administration::BaseController
     load_and_authorize_resource
+    add_breadcrumb I18n.t('views.pages.global.users'), :administration_users_path
 
     def index
       @users = User.includes(:roles).page(params[:page]).per(5)
       @roles = Role.all
     end
 
-    def show; end
+    def show
+      add_breadcrumb t('views.pages.global.button.show_obj', obj: @user.name)
+    end
 
     def destroy
       if @user.destroy

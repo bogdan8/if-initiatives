@@ -1,32 +1,41 @@
-<% @initiative.reports.includes(:attachments).each do |report| %>
-  <p><%= t('views.pages.global.title') %>: <%= report.title %></p>
-  <p><%= t('views.pages.global.description') %>: <%= report.description %></p>
-  <p><%= t('views.pages.global.updated_at') %>: <%= report.updated_at %></p>
+<div class="col-sm-12"></div>
+  <% @initiative.reports.includes(:attachments).each do |report| %>
+    <p><%= t('views.pages.global.title') %>: <%= report.title %></p>
+    <p><%= t('views.pages.global.description') %>: <%= report.description %></p>
+    <p><%= t('views.pages.global.updated_at') %>: <%= report.updated_at %></p>
 
-  <!-- show images -->
-  <div class="images">
-    <% report.attachments.each do |attachment| %>
-      <% if attachment.image? %>
-        <%= image_tag attachment.image.url(:medium) %>
+    <!-- show images -->
+    <div class="row">
+      <% report.attachments.each do |attachment| %>
+        <% if attachment.image? %>
+          <div class="col-sm-3">
+            <%= image_tag attachment.image.url(:medium), class: 'full-image' %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
 
-  <!-- show videos -->
-  <div class="videos">
-    <% report.attachments.each do |attachment| %>
-      <% if attachment.video? %>
-        <%= video_tag attachment.video.url, controls: true %>
+    <!-- show videos -->
+    <div class="row">
+      <% report.attachments.each do |attachment| %>
+        <% if attachment.video? %>
+          <div class="col-sm-3">
+            <%= video_tag attachment.video.url, controls: true, class: 'full-video' %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
 
-  <div class="edit-report">
-    <%= render '/users/reports/edit', report: report %>
-  </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <%= render '/users/reports/edit', report: report, obj: :edit %>
+      </div>
+    </div>
 
-  <div class="remove-report">
-    <%= link_to t('views.pages.global.button.destroy'), users_initiative_report_path(@initiative.slug, report), method: :delete, data: { confirm: t('views.pages.global.confirm') } %>
-  </div>
-
-<% end %>
+    <div class="row">
+      <div class="col-sm-12">
+        <%= link_to t('views.pages.global.button.destroy'), users_initiative_report_path(@initiative.slug, report), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
+      </div>
+    </div>
+  <% end %>
+</div>

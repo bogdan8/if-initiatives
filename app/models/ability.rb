@@ -34,6 +34,6 @@ class Ability
     can :manage, Report, initiative: { user_id: user.id }
     can :read, User
     can %i[edit update], User, id: user.id
-    can :manage, Comment, id: user.id
+    can :manage, Comment, user_id: user.id
   end
 end

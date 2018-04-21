@@ -4,6 +4,7 @@ module Users
   class ReportsController < ApplicationController
     load_and_authorize_resource :initiative, find_by: :slug
     load_and_authorize_resource :report, through: :initiative
+    add_breadcrumb I18n.t('views.pages.global.reports'), :users_reports_path
 
     def create
       @initiative = Initiative.friendly.find(params[:initiative_id])
@@ -11,6 +12,7 @@ module Users
       if @report.save
         redirect_to users_initiative_path(params[:initiative_id]), success: t('controller.report.save')
       else
+        add_breadcrumb t('views.pages.global.button.new')
         redirect_to users_initiative_path(params[:initiative_id]), error: @report.errors.full_messages.to_sentence
       end
     end
@@ -19,6 +21,7 @@ module Users
       if @report.update(report_params)
         redirect_to [:users, @initiative], success: t('controller.report.update')
       else
+        add_breadcrumb t('views.pages.global.button.edit_obj', obj: @initiative.title)
         redirect_to [:users, @initiative], error: @report.errors.full_messages.to_sentence
       end
     end

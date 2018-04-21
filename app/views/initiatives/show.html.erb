@@ -1,56 +1,80 @@
 <%= provide :site_title, t('views.pages.global.initiative') %>
 <%= provide :initiatives_show, 'active' %>
 
-<h1><%= t('views.pages.global.initiative')%>: <%= @initiative.title %></h1>
-
-<div>
-  <p><%= t('views.pages.global.title') %>: <%= @initiative.title %></p>
-  <p><%= t('views.pages.global.short_description') %>: <%= @initiative.short_description %></p>
-  <p><%= t('views.pages.global.long_description') %>: <%= @initiative.long_description %></p>
-  <p><%= t('views.pages.global.finish_date') %>: <%= @initiative.finish_date %></p>
-  <p><%= t('views.pages.global.general_sum') %>: <%= @initiative.general_sum %></p>
-  
-  <!-- show categories -->
-  <p><%= t('views.pages.global.categories') %>: 
-    <% @initiative.categories.each do |category| %>
-      <p><%= t('views.pages.global.title') %> <%= category.title %></p>
-    <% end %>
-  </p>
-
-  <!-- show images -->
-  <div class="images">
-    <% @initiative.attachments.each do |attachment| %>
-      <%= image_tag attachment.image.url(:medium) %>
-    <% end %>
+<div class="row">
+  <div class="col-sm-12">
+    <p><%= t('views.pages.global.title') %>: <%= @initiative.title %></p>
+    <p><%= t('views.pages.global.short_description') %>: <%= @initiative.short_description %></p>
+    <p><%= t('views.pages.global.long_description') %>: <%= @initiative.long_description %></p>
+    <p><%= t('views.pages.global.finish_date') %>: <%= @initiative.finish_date %></p>
+    <p><%= t('views.pages.global.general_sum') %>: <%= @initiative.general_sum %></p>
+    
+    <!-- show categories -->
+    <p>
+      <%= t('views.pages.global.categories') %>: 
+      <% @initiative.categories.each do |category| %>
+        <p><%= t('views.pages.global.title') %> <%= category.title %></p>
+      <% end %>
+    </p>
   </div>
+</div>
 
-  <!-- show videos -->
-  <div class="videos">
-    <% @initiative.attachments.each do |attachment| %>
-      <% if attachment.video? %>
-        <%= video_tag attachment.video.url, controls: true %>
+<!-- show images -->
+<div class="row">
+  <% @initiative.attachments.each do |attachment| %>
+    <div class="col-sm-3">
+      <%= image_tag attachment.image.url(:medium), class: 'full-image' %>
+    </div>
+  <% end %>
+</div>
+
+<!-- show videos -->
+<div class="row">
+  <% @initiative.attachments.each do |attachment| %>
+    <% if attachment.video? %>
+      <div class="col-sm-6">
+        <%= video_tag attachment.video.url, controls: true, class: 'full-video' %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<!-- show comments -->
+<div class="row">
+  <div class="col-sm-12">
+    <h3><%= t('views.pages.global.comments') %>:</h3>
+
+    <% @initiative.comments.each do |comment| %>
+      <p><%= t('views.pages.global.title') %>: <%= comment.title %></p>
+      <p><%= t('views.pages.global.text') %>: <%= comment.text %></p>
+
+      <!-- edit comment -->
+      <% if current_user %>
+        <h3><%= t('views.pages.comments.edit.title_obj', obj: comment.title) %></h3>
+
+        <%= simple_form_for comment, url: initiative_comment_path(@initiative, comment), html: { multipart: true } do |f| %>
+          <%= f.input :title %>
+          <%= f.input :text %>
+
+          <%= f.button :submit, t('views.pages.global.button.edit'), class: 'btn btn-warning btn-sm' %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
+</div>
 
-  <!-- show comments -->
-  <h3><%= t('views.pages.global.comments') %>:</h3>
+<!-- add comments -->
+<div class="row">
+  <div class="col-sm-12">
+    <% if current_user %>
+      <h3><%= t('views.pages.comments.new.title') %></h3>
 
-  <% @initiative.comments.each do |comment| %>
-    <p><%= t('views.pages.global.title') %>: <%= comment.title %></p>
-    <p><%= t('views.pages.global.text') %>: <%= comment.text %></p>
-  <% end %>
+      <%= simple_form_for @initiative.comments.build, url: initiative_comments_path(@initiative), html: { multipart: true } do |f| %>
+        <%= f.input :title %>
+        <%= f.input :text %>
 
-  <!-- add comments -->
-  <% if current_user %>
-    <h3><%= t('views.pages.comments.new.title') %></h3>
-
-    <%= simple_form_for @initiative.comments.build, url: initiative_comments_path(@initiative), html: { multipart: true } do |f| %>
-      <%= f.input :title %>
-      <%= f.input :text %>
-
-      <%= f.button :submit, t('views.pages.global.button.new') %>
+        <%= f.button :submit, t('views.pages.global.button.new'), class: 'btn btn-success btn-sm' %>
+      <% end %>
     <% end %>
-  <% end %>
-
+  </div>
 </div>

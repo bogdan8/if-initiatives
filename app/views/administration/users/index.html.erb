@@ -1,24 +1,22 @@
 <%= provide :site_title, t('views.pages.users.index.title') %>
 <%= provide :users_index, 'active' %>
 
-<h1><%= t('views.pages.users.index.title') %></h1>
+<% @users.each do |user| %>
+  <div class="col-sm-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><%= user.name %></div>
+      <div class="panel-body">
+        <p><%= t('views.pages.global.email') %>: <%= user.email %></p>
+        <% @roles.each do |role| %>
+          <%= link_to_if user.roles.first.name != role.name, t("views.pages.global.role.#{role.name}"), role_administration_user_path(user, role: role.name), class: 'btn btn-success btn-sm' %>
+        <% end %>
 
-<div>
-  <% @users.each do |user| %>
-    <p><%= t('views.pages.global.name') %>: <%= user.name %></p>
-    <p><%= t('views.pages.global.email') %>: <%= user.email %></p>
-    <% if user.roles.any? %>
-      <p><%= t('views.pages.global.role.title') %>: <%= t("views.pages.global.role.#{user.roles.first.name}") %></p>
-    <% end %>
-    <% @roles.each do |role| %>
-      <%= link_to t("views.pages.global.role.#{role.name}"), role_administration_user_path(user, role: role.name) %>
-    <% end %>
-
-
-    <!-- links -->
-    <p>
-      <%= link_to t('views.pages.global.button.show'), administration_user_path(user) %> | 
-      <%= link_to t('views.pages.global.button.destroy'), administration_user_path(user), method: :delete, data: { confirm: t('views.pages.global.confirm') } %>
-    </p>
-  <% end %>
-</div>
+        <!-- links -->
+        <p>
+          <%= link_to t('views.pages.global.button.show'), administration_user_path(user), class: 'btn btn-info btn-sm' %>
+          <%= link_to t('views.pages.global.button.destroy'), administration_user_path(user), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
+        </p>
+      </div>
+    </div>
+  </div>
+<% end %>

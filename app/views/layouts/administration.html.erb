@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <%= render 'layouts/header' %>
+
+  <body>
+    <%= render 'layouts/navigation' %>
+    
+    <%= render 'layouts/flash' %>
+
+    <%= render 'layouts/breadcrumb' %>
+    
+    <div class="container">    
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
