@@ -1,80 +1,298 @@
 <%= provide :site_title, t('views.pages.global.initiative') %>
 <%= provide :initiatives_show, 'active' %>
 
-<div class="row">
-  <div class="col-sm-12">
-    <p><%= t('views.pages.global.title') %>: <%= @initiative.title %></p>
-    <p><%= t('views.pages.global.short_description') %>: <%= @initiative.short_description %></p>
-    <p><%= t('views.pages.global.long_description') %>: <%= @initiative.long_description %></p>
-    <p><%= t('views.pages.global.finish_date') %>: <%= @initiative.finish_date %></p>
-    <p><%= t('views.pages.global.general_sum') %>: <%= @initiative.general_sum %></p>
-    
-    <!-- show categories -->
-    <p>
-      <%= t('views.pages.global.categories') %>: 
-      <% @initiative.categories.each do |category| %>
-        <p><%= t('views.pages.global.title') %> <%= category.title %></p>
-      <% end %>
-    </p>
+<section class="full-height-baner">
+  <div class="bg ready data-jarallax" data-jarallax="15" style="background-image:url(http://electricblaze.com/soliaris/img/portfolio/detail_main_img.jpg)">
+    <div class="hold-layer-2"></div>
   </div>
-</div>
-
-<!-- show images -->
-<div class="row">
-  <% @initiative.attachments.each do |attachment| %>
-    <div class="col-sm-3">
-      <%= image_tag attachment.image.url(:medium), class: 'full-image' %>
-    </div>
-  <% end %>
-</div>
-
-<!-- show videos -->
-<div class="row">
-  <% @initiative.attachments.each do |attachment| %>
-    <% if attachment.video? %>
-      <div class="col-sm-6">
-        <%= video_tag attachment.video.url, controls: true, class: 'full-video' %>
+  <div class="container">
+    <div class="empty-sp-lg-0 empty-sp-md-130 empty-sp-sm-100 empty-sp-xs-100"></div>
+    <div class="vertical-align full no-align-md">
+      <div class="main-detail-baner">
+        <div class="empty-sp-lg-100 empty-sp-md-80 empty-sp-sm-80 empty-sp-xs-80"></div>
+        <div class="bg" style="background-image:url(<%= @initiative.attachments.first.image.url(:original) %>)">
+          <div class="hold-layer-2"></div>
+        </div>
+        <div class="title-style-4 center">
+          <h1 class="caption-1 color-1"><%= @initiative.title %></h1>
+          <div class="empty-sp-sm-20 empty-sp-xs-20"></div>
+          <div class="title-separator"></div>
+          <div class="empty-sp-sm-25 empty-sp-xs-25"></div>
+          <div class="simple-text size-2 color-1">
+            <p><%= @initiative.short_description %></p>
+          </div>
+        </div>
+        <div class="empty-sp-lg-100 empty-sp-md-80 empty-sp-sm-80 empty-sp-xs-80"></div>
       </div>
-    <% end %>
-  <% end %>
-</div>
-
-<!-- show comments -->
-<div class="row">
-  <div class="col-sm-12">
-    <h3><%= t('views.pages.global.comments') %>:</h3>
-
-    <% @initiative.comments.each do |comment| %>
-      <p><%= t('views.pages.global.title') %>: <%= comment.title %></p>
-      <p><%= t('views.pages.global.text') %>: <%= comment.text %></p>
-
-      <!-- edit comment -->
-      <% if current_user %>
-        <h3><%= t('views.pages.comments.edit.title_obj', obj: comment.title) %></h3>
-
-        <%= simple_form_for comment, url: initiative_comment_path(@initiative, comment), html: { multipart: true } do |f| %>
-          <%= f.input :title %>
-          <%= f.input :text %>
-
-          <%= f.button :submit, t('views.pages.global.button.edit'), class: 'btn btn-warning btn-sm' %>
+    </div>
+    <div class="empty-sp-lg-0 empty-sp-md-70 empty-sp-sm-70 empty-sp-xs-50"></div>
+  </div>
+  <a href="<%= initiative_path(@previous) %>" class="portfolio-arrow arrow-prev">
+    <div class="title">
+      <h5 class="caption-5 color-1"><%= @previous.title %></h5>
+    </div>
+    <div class="empty-sp-sm-20 empty-sp-xs-20"></div>
+    <span class="arrow-line"><i class="icon-left-open-big"></i><b class="line"></b></span>
+    <div class="empty-sp-sm-20 empty-sp-xs-20"></div>
+    <span class="image">
+      <%= image_tag @previous.attachments.first.image.url(:thumb), class: 'thumb' %>
+    </span>
+  </a>
+  <a href="<%= initiative_path(@next) %>" class="portfolio-arrow arrow-next">
+    <div class="title">
+      <h5 class="caption-5 color-1"><%= @next.title %></h5>
+    </div>
+    <div class="empty-sp-sm-20 empty-sp-xs-20"></div>
+    <span class="arrow-line"><i class="icon-right-open-big"></i><b class="line"></b></span>
+    <div class="empty-sp-sm-20 empty-sp-xs-20"></div>
+    <span class="image">
+      <%= image_tag @next.attachments.first.image.url(:thumb), class: 'thumb' %>
+    </span>
+  </a>
+</section>
+<section class="section">
+  <div class="empty-sp-md-80 empty-sp-sm-50 empty-sp-xs-50"></div>
+  <div class="container">
+    <div class="portfolio-desc">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1 col-md-12">
+          <div class="row">
+            <div class="col-lg-8 col-md-7 wow fadeInUp">
+              <div class="title-style-4">
+                <h4 class="caption-4 color-3">Detail information about projects</h4>
+                <div class="empty-sp-sm-15 empty-sp-xs-15"></div>
+                <div class="title-separator lg"></div>
+                <div class="empty-sp-sm-25 empty-sp-xs-25"></div>
+                <div class="simple-text size-1 color-3">
+                  <p><%= @initiative.long_description %></p>
+                </div>
+              </div>
+              <div class="empty-sp-md-0 empty-sp-sm-50 empty-sp-xs-30"></div>
+            </div>
+            <div class="col-lg-4 col-md-5 wow fadeInUp">
+              <ul class="author-info">
+                <li>
+                  <h6 class="caption-6 lg"><%= t('views.pages.global.title') %>:</h6>
+                  <span class="sub-caption"><%= @initiative.title %></span>
+                </li>
+                <li>
+                  <h6 class="caption-6 lg"><%= t('views.pages.global.finish_date') %>:</h6>
+                  <span class="sub-caption"><%= @initiative.finish_date %></span>
+                </li>
+                <li>
+                  <h6 class="caption-6 lg"><%= t('views.pages.global.general_sum') %>:</h6>
+                  <span class="sub-caption"><%= @initiative.general_sum %></span>
+                </li>
+                <li>
+                  <h6 class="caption-6 lg"><%= t('views.pages.global.user') %>:</h6>
+                  <span class="sub-caption"><%= @initiative.user.name %></span>
+                </li>
+                <li>
+                  <h6 class="caption-6 lg"><%= t('views.pages.global.categories') %>: </h6>
+                  <span class="sub-caption">
+                    <% @initiative.categories.each do |category| %>
+                      <%= category.title %>
+                    <% end %>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="empty-sp-sm-50 empty-sp-xs-30"></div>
+        </div>
+      </div>
+      <% if @initiative.attachments %>
+        <div class="row">
+          <div class="col-md-12 wow fadeInUp">
+            <div class="image">
+               <%= image_tag @initiative.attachments[0].image.url(:original), class: 'resp-img' %>
+            </div>
+          </div>
+        <div class="empty-sp-sm-30 empty-sp-xs-30"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 wow fadeInUp">
+            <div class="image">
+              <%= image_tag @initiative.attachments[1].image.url(:original), class: 'resp-img' %>
+            </div>
+            <div class="empty-sp-sm-0 empty-sp-md-0 empty-sp-sm-30 empty-sp-xs-30"></div>
+          </div>
+          <div class="col-md-4 wow fadeInUp">
+            <div class="image">
+              <%= image_tag @initiative.attachments[2].image.url(:original), class: 'resp-img' %>
+            </div>
+            <div class="empty-sp-sm-0 empty-sp-md-0 empty-sp-sm-30 empty-sp-xs-30"></div>
+          </div>
+          <div class="col-md-4 wow fadeInUp">
+            <div class="image">
+              <%= image_tag @initiative.attachments[3].image.url(:original), class: 'resp-img' %>
+            </div>
+          </div>
+          <div class="empty-sp-sm-50 empty-sp-xs-50"></div>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1 col-md-12 wow fadeInUp">
+          <div class="title-style-4 center wide">
+            <h4 class="caption-4 color-3">About work process</h4>
+            <div class="empty-sp-sm-15 empty-sp-xs-15"></div>
+            <div class="title-separator lg"></div>
+            <div class="empty-sp-sm-25 empty-sp-xs-25"></div>
+            <div class="simple-text size-1 color-3">
+              <p>Quisque eu sem id mi mattis maximus vitae at ipsum. Donec facilisis, augue vitae makes euismod condimentum, odio tortor pulvinar sapien quis bibendum scelerisque somethibg here making this. Quisque et commodo erat, in tincidunt elit. Praesent vulputate urna sit amet molestie placerat. Aenean quam dui, mattis a viverra eu, ornare ac mi. Curabitur hendrerit nibh id nibh lacinia malesuada, aptent</p>
+            </div>
+          </div>
+          <div class="empty-sp-sm-50 empty-sp-xs-50"></div>
+          </div>
+        </div>
+        <!-- show videos -->
+        <% @initiative.attachments.each do |attachment| %>
+          <% if attachment.video? %>
+            <div class="col-md-12 wow fadeInUp" style="margin-bottom: 20px;">
+              <div class="video-open text-center type-2">
+                <div class="bg" style="background-image:url(http://electricblaze.com/soliaris/img/portfolio/det_img_5.jpg)">
+                  <div class="hold-layer-2"></div>
+                </div>
+              <div class="vertical-align full">
+                <div class="play-button model-style-play color-2" data-video=<%= attachment.video.url %>>
+                  <span>play</span>
+              </div>
+              </div>
+              <div class="video-item">
+                <div class="video-wrapper">
+                  <div class="video-iframe"></div>
+                  <div class="close-video"><img src="http://electricblaze.com/soliaris/img/close_dark.svg" alt=""></div>
+                </div>
+              </div>
+            </div>
+          </div>
         <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+  <div class="empty-sp-lg-130 empty-sp-md-80 empty-sp-sm-50 empty-sp-xs-50"></div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 wow fadeInUp">
+        <a href="<%= initiative_path(@previous) %>" class="page-nav left">
+          <div class="image">
+            <%= image_tag @previous.attachments.first.image.url(:medium), class: 'full-size' %>
+          </div>
+          <div class="title vertical-align">
+            <span class="sub-caption">previous project</span>
+            <h4 class="caption-4">Nature photoproject</h4>
+            <i class="icon-left-open-big icon"></i>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 wow fadeInUp">
+        <a href="#" class="page-nav">
+          <div class="vertical-align full">
+            <span class="all-project"><i class="icon-th"></i></span>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 wow fadeInUp">
+        <a href="<%= initiative_path(@next) %>" class="page-nav right">
+          <div class="image">
+            <%= image_tag @next.attachments.first.image.url(:medium), class: 'full-size' %>
+          </div>
+          <div class="title vertical-align">
+            <span class="sub-caption">next project</span>
+            <h4 class="caption-4">People photo</h4>
+            <i class="icon-right-open-big icon"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="empty-sp-lg-130 empty-sp-md-80 empty-sp-sm-50 empty-sp-xs-50"></div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="swiper-container slide-gutter-15 wow fadeInUp" data-mode="horizontal" data-autoplay="0" data-effect="slide" data-slides-per-view="responsive" data-loop="0" data-speed="800" data-center="0" data-add-slides="4" data-lg-slides="4" data-md-slides="2" data-sm-slides="1" data-xs-slides="1">
+        <div class="swiper-wrapper">
+          <% @initiative.attachments.each do |attachment| %>
+            <% if attachment.image? %>
+              <div class="swiper-slide">
+                <div class="slide-item">
+                  <div class="image hover-img">
+                    <%= image_tag attachment.image.url(:medium), class: 'resp-img' %>
+                    <div class="hold-layer-2"></div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="pagination hidden"></div>
+      </div>
+    </div>
+    <div class="empty-sp-sm-30 empty-sp-xs-30"></div>
+  </div>
+</section>
 
+<!-- show comments -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h3><%= t('views.pages.global.comments') %>:</h3>
+        <% @initiative.comments.each do |comment| %>
+          <p><%= t('views.pages.global.title') %>: <%= comment.title %></p>
+          <p><%= t('views.pages.global.text') %>: <%= comment.text %></p>
+          <!-- edit comment -->
+          <% if current_user %>
+            <button id="show-dialog-<%= comment.id %>" type="button" class="mdl-button"><%= t('views.pages.comments.edit.title_obj', obj: comment.title) %></button>
+            <dialog class="mdl-dialog" id="<%= comment.id %>">
+              <h4 class="mdl-dialog__title">Allow data collection?</h4>
+              <div class="mdl-dialog__content">
+                <%= simple_form_for comment, url: initiative_comment_path(@initiative, comment), html: { multipart: true } do |f| %>
+                  <%= f.input :title %>
+                  <%= f.input :text %>
+                  <%= f.button :submit, t('views.pages.global.button.edit') %>
+                <% end %>
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored close">
+                  <i class="material-icons">close</i>
+                </button>
+              </div>
+            </dialog>
+            <script>
+              var dialog = document.querySelector('dialog');
+              var showDialogButton = document.querySelector('#show-dialog-<%= comment.id %>');
+              if (! dialog.showModal) {
+                dialogPolyfill.registerDialog(dialog);
+              }
+              showDialogButton.addEventListener('click', function() {
+                dialog.showModal();
+              });
+              dialog.querySelector('.close').addEventListener('click', function() {
+                dialog.close();
+              });
+            </script>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- add comments -->
-<div class="row">
-  <div class="col-sm-12">
-    <% if current_user %>
-      <h3><%= t('views.pages.comments.new.title') %></h3>
-
-      <%= simple_form_for @initiative.comments.build, url: initiative_comments_path(@initiative), html: { multipart: true } do |f| %>
-        <%= f.input :title %>
-        <%= f.input :text %>
-
-        <%= f.button :submit, t('views.pages.global.button.new'), class: 'btn btn-success btn-sm' %>
-      <% end %>
-    <% end %>
+<section class="section new-comment-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <% if current_user %>
+          <h3><%= t('views.pages.comments.new.title') %></h3>
+          <%= simple_form_for @initiative.comments.build, url: initiative_comments_path(@initiative), html: { multipart: true } do |f| %>
+            <%= f.input :title %>
+            <%= f.input :text %>
+            <%= f.button :submit, t('views.pages.global.button.new') %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
+</section>

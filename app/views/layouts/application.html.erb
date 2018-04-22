@@ -2,25 +2,18 @@
 <html>
   <%= render 'layouts/header' %>
 
-  <body>
+  <body class="page-style color-style-1">
+
     <%= render 'layouts/navigation' %>
     
     <%= render 'layouts/flash' %>
     
-    <div class="container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item" aria-current="page">
-            <%= render_breadcrumbs separator: ' / ' %>
-          </li>
-        </ol>
-      </nav>
-    </div>
+    <%= render 'layouts/preloader' %>
 
-    <div class="container">    
-      <div class="row">
-        <%= yield %>
-      </div>
-    </div>
+    <%# render 'layouts/breadcrumb' %>
+
+    <%= yield %>
   </body>
+
+  <%= render 'layouts/footer' %>
 </html>
