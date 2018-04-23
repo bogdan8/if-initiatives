@@ -8,8 +8,6 @@ class InitiativesController < ApplicationController
   end
 
   def show
-    @next = @initiative.next
-    @previous = @initiative.previous
     add_breadcrumb t('views.pages.global.button.show_obj', obj: @initiative.title)
   end
 end

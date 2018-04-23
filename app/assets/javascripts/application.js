@@ -12,8 +12,8 @@
 //
 //= require rails-ujs
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require cocoon
-//= require material
-//= require wow.min
-//= require all
+//= require_tree .
