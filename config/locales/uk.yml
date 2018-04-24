@@ -93,6 +93,7 @@ uk:
         user: 'Користувач'
         sign_in: 'Увійти'
         sign_out: 'Вийти'
+        home: 'Головна'
         profile_edit: 'Редагувати профіль'
         confirm: 'Ви впевнені?'
         registration: 'Реєстрація'

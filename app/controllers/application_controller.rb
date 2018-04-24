@@ -2,6 +2,7 @@
 
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  add_breadcrumb I18n.t('views.pages.global.home'), :root_path
 
   add_flash_types :success, :danger, :error
 
