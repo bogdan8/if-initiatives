@@ -1,1 +1,3 @@
-<%= render_flash %>
+<% flash.each do |type, msg| %>
+  <%= flash_block type %>
+<% end %>

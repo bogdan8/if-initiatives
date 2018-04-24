@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+
+class InitiativeDecorator < ApplicationDecorator
+  delegate_all
+
+  def categories_title
+    categories.map(&:title).join(',')
+  end
+end
