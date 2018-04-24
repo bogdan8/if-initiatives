@@ -12,9 +12,7 @@
     <!-- show categories -->
     <p>
       <%= t('views.pages.global.categories') %>: 
-      <% @initiative.categories.each do |category| %>
-        <p><%= t('views.pages.global.title') %> <%= category.title %></p>
-      <% end %>
+      <% @initiative.decorate.categories_title%>
     </p>
   </div>
 </div>
@@ -42,7 +40,7 @@
 <!-- initiative links -->
 <div class="row">
   <div class="col-sm-12">
-     <%= link_to t('views.pages.global.button.edit'), edit_administration_initiative_path(@initiative), class: 'btn btn-warning btn-sm' %>
+    <%= link_to t('views.pages.global.button.edit'), edit_administration_initiative_path(@initiative), class: 'btn btn-warning btn-sm' %>
     <%= link_to t('views.pages.global.button.destroy'), administration_initiative_path(@initiative), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
   </div>
 </div>

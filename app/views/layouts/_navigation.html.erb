@@ -20,54 +20,10 @@
         <li>
           <%= link_to t('views.pages.initiatives.new.title'), new_users_initiative_path %>
         </li>
-        <% unless user_signed_in? %>
-          <li>
-            <%= link_to t('views.pages.global.sign_in'), new_user_session_path %>
-          </li>
-          <li>
-            <%= link_to t('views.pages.global.registration'), new_user_registration_path %>
-          </li>
-        <% end %>
-        <% if user_signed_in? %>
-          <% if current_user.has_role? :administrator %>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <%= t('views.pages.global.role.administrator') %>
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to t('views.pages.global.initiatives'), administration_initiatives_path %></li>
-                <li><%= link_to t('views.pages.global.categories'), administration_categories_path %></li>
-                <li><%= link_to t('views.pages.global.users'), administration_users_path %></li>
-                <li><%= link_to t('views.pages.global.confirmating'), confirmating_administration_initiatives_path %></li>
-                <li><%= link_to t('views.pages.global.fundraising'), fundraising_administration_initiatives_path %></li>
-                <li><%= link_to t('views.pages.global.implementing'), implementing_administration_initiatives_path %></li>
-              </ul>
-            </li>
-          <% end %>
-          <% if current_user.has_role? :moderator %>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <%= t('views.pages.global.role.moderator') %>
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-              </ul>
-            </li>
-          <% end %>
-
-          <% if current_user.has_role? :user %>
-          <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <%= t('views.pages.global.role.user') %>
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to t('views.pages.global.initiatives'), users_initiatives_path %></li>
-              </ul>
-            </li>
-          <% end %>
-        <% end %>
+        <%= navigation_for_signout %>
+        <%= navigation_for_administrator %>
+        <%= navigation_for_moderator %>
+        <%= navigation_for_user %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">

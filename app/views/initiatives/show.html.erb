@@ -12,9 +12,7 @@
     <!-- show categories -->
     <p>
       <%= t('views.pages.global.categories') %>: 
-      <% @initiative.categories.each do |category| %>
-        <p><%= t('views.pages.global.title') %> <%= category.title %></p>
-      <% end %>
+      <%= @initiative.decorate.categories_title %>
     </p>
   </div>
 </div>
