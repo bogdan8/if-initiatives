@@ -17,7 +17,6 @@ Rails.application.routes.draw do
       get :to_fundraised, on: :member
       get :to_implementing, on: :member
       get :to_unimplemented, on: :member
-      get :to_reporting, on: :member
       get :to_implemented, on: :member
       get :to_locked, on: :member
       get :confirmating, on: :collection

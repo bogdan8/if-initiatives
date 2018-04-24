@@ -49,7 +49,7 @@ class Initiative < ApplicationRecord
     end
 
     event :to_unimplemented do
-      transition %i[fundraised reporting] => :unimplemented
+      transition fundraised: :unimplemented
     end
 
     event :to_locked do
