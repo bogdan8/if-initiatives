@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 20180425182931) do
   end
 
   create_table "subscriptions", force: :cascade do |t|
-    t.text "email", default: "", null: false
+    t.string "email", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_subscriptions_on_email", unique: true

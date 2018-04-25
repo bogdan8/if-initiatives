@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       resources :comments, only: %i[destroy]
     end
     resources :categories
+    resources :subscriptions, only: %i[index destroy]
     resources :users do
       get :role, on: :member
     end
@@ -39,4 +40,5 @@ Rails.application.routes.draw do
   resources :initiatives, only: %i[index show] do
     resources :comments, except: %i[index show new]
   end
+  resources :subscriptions, only: %i[create]
 end
