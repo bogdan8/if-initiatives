@@ -30,6 +30,7 @@ class Ability
     can :manage, Attachment, report: { initiative: { user_id: user.id } }
     can :read, Initiative
     can :read, Report
+    can :read, Subscription
     can :manage, Initiative, user_id: user.id
     can :manage, Report, initiative: { user_id: user.id }
     can :read, User

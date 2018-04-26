@@ -18,6 +18,9 @@ uk:
       save: 'Коментар додано'
       update: 'Коментар відредаговано'
       destroy: 'Коментар видалено'
+    subscription:
+      save: 'Підписано'
+      destroy: 'Підписку видалено'
     initiative:
       save: 'Ініціативу додано'
       update: 'Ініціативу відредаговано'
@@ -91,6 +94,7 @@ uk:
         comment: 'Коментар'
         users: 'Користувачі'
         user: 'Користувач'
+        subscriptions: 'Підписки'
         sign_in: 'Увійти'
         sign_out: 'Вийти'
         home: 'Головна'

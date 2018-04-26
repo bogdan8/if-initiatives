@@ -55,6 +55,7 @@ module ApplicationHelper
     [
       content_tag(:li, link_to(t('views.pages.global.initiatives'), administration_initiatives_path)),
       content_tag(:li, link_to(t('views.pages.global.categories'), administration_categories_path)),
+      content_tag(:li, link_to(t('views.pages.global.subscriptions'), administration_subscriptions_path)),
       content_tag(:li, link_to(t('views.pages.global.users'), administration_users_path)),
       content_tag(:li, link_to(t('views.pages.global.confirmating'), confirmating_administration_initiatives_path)),
       content_tag(:li, link_to(t('views.pages.global.fundraising'), fundraising_administration_initiatives_path)),
