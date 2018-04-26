@@ -4,9 +4,13 @@ class SubscriptionsController < ApplicationController
   load_and_authorize_resource
   def create
     if @subscription.save
-      flash[:success] = t('controller.subscription.save')
+      respond_to do |format|
+        format.js { flash[:success] = t('controller.subscription.save') }
+      end
     else
-      flash[:error] = @subscription.errors.full_messages.to_sentence
+      respond_to do |format|
+        format.js { flash[:error] = @subscription.errors.full_messages.to_sentence }
+      end
     end
   end
 

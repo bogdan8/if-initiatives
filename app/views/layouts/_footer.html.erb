@@ -1,6 +1,6 @@
 
 <div class="col-sm-12">
-  <%= simple_form_for Subscription.new, html: { multipart: true } do |f| %>
+  <%= simple_form_for Subscription.new, html: { multipart: true }, remote: true do |f| %>
     <%= f.input :email %>
 
     <%= f.button :submit, t('views.pages.global.button.new'), class: 'btn btn-success btn-sm' %>
