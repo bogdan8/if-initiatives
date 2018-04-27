@@ -50,11 +50,9 @@ module Users
     end
 
     def destroy
-      if @initiative.destroy
-        redirect_to users_initiatives_path, success: t('controller.initiative.destroy')
-      else
-        flash[:error] = @initiative.errors.full_messages.to_sentence
-      end
+      @initiative.destroy
+      flash[:success] = t('controller.initiative.destroy')
+      redirect_to users_initiatives_path, success: t('controller.initiative.destroy')
     end
 
     private
