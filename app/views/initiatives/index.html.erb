@@ -6,7 +6,7 @@
     <div class="panel panel-primary">
       <div class="panel-heading"><%= initiative.title %></div>
       <div class="panel-body">
-        <%= image_tag initiative.attachments.first.image.url(:medium), class: 'img-responsive' %>
+        <%= image_tag(initiative.attachments.first.image.url(:medium), class: 'img-responsive') if initiative.attachments.first %>
       </div>
       <div class="panel-footer">
         <p><%= initiative.short_description %></p>
