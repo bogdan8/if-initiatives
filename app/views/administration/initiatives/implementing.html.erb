@@ -1,6 +1,8 @@
 <%= provide :site_title, t('views.pages.global.implementing') %>
 <%= provide :implementing, 'active' %>
 
-<%= render 'index' %>
+<div id="initiatives">
+  <%= render 'index' %>
+</div>
 
 <%= paginate @initiatives %>

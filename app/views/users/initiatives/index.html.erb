@@ -1,8 +1,9 @@
 <%= provide :site_title, t('views.pages.global.initiatives') %>
 <%= provide :initiatives_index, 'active' %>
 
-<%= render 'users/initiatives/index', collection: @initiatives %>
-<div id="initiatves_js"></div>
+<div id="initiatives">
+  <%= render 'users/initiatives/index', collection: @initiatives %>
+</div>
 
 <div id="paginator">
   <%= paginate @initiatives %>
