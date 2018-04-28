@@ -1,22 +1,8 @@
 <%= provide :site_title, t('views.pages.users.index.title') %>
 <%= provide :users_index, 'active' %>
 
-<% @users.each do |user| %>
-  <div class="col-sm-6">
-    <div class="panel panel-primary">
-      <div class="panel-heading"><%= user.name %></div>
-      <div class="panel-body">
-        <p><%= t('views.pages.global.email') %>: <%= user.email %></p>
-        <% @roles.each do |role| %>
-          <%= link_to_if user.roles.first.name != role.name, t("views.pages.global.role.#{role.name}"), role_administration_user_path(user, role: role.name), class: 'btn btn-success btn-sm' %>
-        <% end %>
+<div id="users">
+  <%= render 'administration/users/index', collection: @users %>  
+</div>
 
-        <!-- links -->
-        <p>
-          <%= link_to t('views.pages.global.button.show'), administration_user_path(user), class: 'btn btn-info btn-sm' %>
-          <%= link_to t('views.pages.global.button.destroy'), administration_user_path(user), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
-        </p>
-      </div>
-    </div>
-  </div>
-<% end %>
+<%= paginate @users %>

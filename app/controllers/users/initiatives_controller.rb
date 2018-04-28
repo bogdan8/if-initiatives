@@ -5,11 +5,10 @@ module Users
     load_and_authorize_resource find_by: :slug
     before_action :all_categories, only: %i[new create edit update]
     add_breadcrumb I18n.t('views.pages.global.initiatives'), :users_initiatives_path
-
     include AbilityStateToInitiatives
 
     def index
-      @initiatives = current_user.initiatives.includes(:categories).page(params[:page]).per(5)
+      @initiatives = current_user.initiatives.includes(:categories).page(params[:page]).per(6)
     end
 
     def show
@@ -50,11 +49,9 @@ module Users
     end
 
     def destroy
-      if @initiative.destroy
-        redirect_to users_initiatives_path, success: t('controller.initiative.destroy')
-      else
-        flash[:error] = @initiative.errors.full_messages.to_sentence
-      end
+      @initiative.destroy
+      flash[:success] = t('controller.initiative.destroy')
+      redirect_to users_initiatives_path(page: page), success: t('controller.initiative.destroy')
     end
 
     private

@@ -1,5 +1,5 @@
-<% @initiatives.decorate.each do |initiative| %>
-  <div class="col-sm-6">
+<% collection.decorate.each do |initiative| %> 
+  <div class="col-sm-6" id="initiative-<%= initiative.id %>">
     <div class="panel panel-primary">
       <div class="panel-heading"><%= initiative.title %></div>
       <div class="panel-body">
@@ -13,16 +13,14 @@
         <p><%= initiative.state %></p>
 
         <!-- Categories -->
-        <p><%= t('views.pages.global.categories') %>: 
+        <p>
+          <%= t('views.pages.global.categories') %>: 
           <%= initiative.categories_title %>
         </p>
         <!-- links -->
         <p>
-          <%= link_to t('views.pages.global.button.show'), administration_initiative_path(initiative), class: 'btn btn-info btn-sm' %>
-          <%= link_to t('views.pages.global.button.destroy'), administration_initiative_path(initiative), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
-          <%= initiative_state_administrator_links(initiative) %>
-
-          <%= to_locked(initiative) %>
+          <%= link_to t('views.pages.global.button.show'), users_initiative_path(initiative), class: 'btn btn-info btn-sm' %>
+          <%= initiative_state_user_links initiative %>
         </p>
       </div>
     </div>

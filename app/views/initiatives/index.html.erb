@@ -1,32 +1,10 @@
 <%= provide :site_title, t('views.pages.global.initiatives') %>
 <%= provide :initiatives_index, 'active' %>
 
-<% @initiatives.decorate.each do |initiative| %>
-  <div class="col-sm-6">
-    <div class="panel panel-primary">
-      <div class="panel-heading"><%= initiative.title %></div>
-      <div class="panel-body">
-        <%= image_tag initiative.attachments.first.image.url(:medium), class: 'img-responsive' %>
-      </div>
-      <div class="panel-footer">
-        <p><%= initiative.short_description %></p>
-        <p><%= t('views.pages.global.finish_date') %>: <%= initiative.finish_date %></p>
-        <p><%= t('views.pages.global.general_sum') %>: <%= initiative.general_sum %></p>
-        <p><%= t('views.pages.global.collected_amount') %>: <%= initiative.collected_amount %></p>
-        <p><%= initiative.state %></p>
+<div id="initiatives">
+  <%= render 'initiatives/index', collection: @initiatives %>
+</div>
 
-        <!-- Categories -->
-        <p>
-          <%= t('views.pages.global.categories') %>: 
-          <%= initiative.categories_title %>
-        </p>
-        <!-- links -->
-        <p>
-          <%= link_to t('views.pages.global.button.show'), initiative_path(initiative), class: 'btn btn-info btn-sm' %>
-        </p>
-      </div>
-    </div>
-  </div>
-<% end %>
-
-<%= paginate @initiatives %>
+<div id="paginator">
+  <%= paginate @initiatives %>
+</div>

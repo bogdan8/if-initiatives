@@ -14,6 +14,6 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require bootstrap-sprockets
 //= require cocoon
-//= require_tree .
+//= require initiatives
+//= require administration/users
