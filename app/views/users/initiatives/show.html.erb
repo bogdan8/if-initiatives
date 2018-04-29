@@ -19,23 +19,19 @@
 
 <!-- show images -->
 <div class="row">
-  <% @initiative.attachments.each do |attachment| %>
-    <% if attachment.image? %>
-      <div class="col-sm-3">
-        <%= image_tag attachment.image.url(:medium), class: 'full-image' %>
-      </div>
-    <% end %>
+  <% @initiative.decorate.attachments_images.each do |attachment| %>
+    <div class="col-sm-3">
+      <%= image_tag attachment.image.url(:medium), class: 'full-image' %>
+    </div>
   <% end %>
 </div>
 
 <!-- show videos -->
 <div class="row">
-  <% @initiative.attachments.each do |attachment| %>
-    <% if attachment.video? %>
-      <div class="col-sm-6">
-        <%= video_tag attachment.video.url, controls: true, class: 'full-video' %>
-      </div>
-    <% end %>
+  <% @initiative.decorate.attachments_videos.each do |attachment| %>
+    <div class="col-sm-6">
+      <%= video_tag attachment.video.url, controls: true, class: 'full-video' %>
+    </div>
   <% end %>
 </div>
 
@@ -50,7 +46,7 @@
 <div class="row">
   <div class="col-sm-12">
     <% if current_user && @initiative.user_id === current_user.id && @initiative.implementing? %>
-      <%= render '/users/reports/new', obj: :new %>
+      <%= render '/users/reports/new', action: :new %>
     <% end %>
   </div>
 </div>
