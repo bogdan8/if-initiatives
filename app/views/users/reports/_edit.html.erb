@@ -1,15 +1,3 @@
 <div class="col-sm-12">
-  <h3><%= t('views.pages.reports.edit.title') %></h3>
-
-  <%= simple_form_for report, url: users_initiative_report_path(@initiative.slug, report.id), html: { multipart: true } do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-
-    <%= render '/users/attachments/form', entity: :report, obj: :edit, redirect_path: users_initiative_path(@initiative.slug), f: f %>
-
-    <%= link_to_add_association t('views.pages.attachments.new.image'), f, :attachments, partial: 'users/attachments/image_fields', data: { association_insertion_node: "#images_cocoon_#{obj}", association_insertion_method: :append }, class: 'btn btn-success btn-sm' %>
-    <%= link_to_add_association t('views.pages.attachments.new.video'), f, :attachments, partial: 'users/attachments/video_fields', data: { association_insertion_node: "#videos_cocoon_#{obj}", association_insertion_method: :append }, class: 'btn btn-success btn-sm' %>
-
-    <%= f.button :submit, t('views.pages.global.button.edit'), class: 'btn btn-success btn-sm' %>
-  <% end %>
+  <%= render 'users/reports/form', action: :edit, url: users_initiative_report_path(@initiative.slug, report.id), entity: report, initiative: @initiative %>
 </div>
