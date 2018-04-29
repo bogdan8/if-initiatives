@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module RoleHelper
+  # helper of links for roles
   def roles_links(roles, user)
     links = []
     roles.each do |role|

@@ -1,18 +1,20 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  # navigation for signout user
   def navigation_for_signout
     return if user_signed_in?
     links_for_signout
   end
 
+  # helper of  navigation for administrator user
   def navigation_for_administrator
-    return unless user_signed_in?
-    return unless current_user.has_role? :administrator
+    return unless user_signed_in? # return if user not signin
+    return unless current_user.has_role? :administrator # return if user not administrator
     dropdown = [content_tag(:span, t('views.pages.global.role.administrator')), content_tag(:span, '', class: 'caret')]
     data = { toggle: 'dropdown' }
     aria = { haspopup: 'true', expanded: 'false' }
-    links = [
+    links = [ # array of links for administrator
       content_tag(:a, safe_join(dropdown), class: 'dropdown-toggle', data: data, role: 'button', aria: aria),
       content_tag(:ul, safe_join(links_for_administrator), class: 'dropdown-menu')
     ]
@@ -21,18 +23,20 @@ module ApplicationHelper
     end
   end
 
+  # helper of navigation for moderator user
   def navigation_for_moderator
-    return unless user_signed_in?
-    return unless current_user.has_role? :moderator
+    return unless user_signed_in? # return if user not signin
+    return unless current_user.has_role? :moderator # return if user not administrator
   end
 
+  # helper of navigation for user
   def navigation_for_user
-    return unless user_signed_in?
-    return unless current_user.has_role? :user
+    return unless user_signed_in? # return if user not signin
+    return unless current_user.has_role? :user # return if user not administrator
     dropdown = [content_tag(:span, t('views.pages.global.role.user')), content_tag(:span, '', class: 'caret')]
     data = { toggle: 'dropdown' }
     aria = { haspopup: 'true', expanded: 'false' }
-    links = [
+    links = [ # array of links for user
       content_tag(:a, safe_join(dropdown), class: 'dropdown-toggle', data: data, role: 'button', aria: aria),
       content_tag(:ul, safe_join(links_for_user), class: 'dropdown-menu')
     ]
@@ -43,6 +47,7 @@ module ApplicationHelper
 
   private
 
+  # links for signout user
   def links_for_signout
     links = [
       content_tag(:li, link_to(t('views.pages.global.sign_in'), new_user_session_path)),
@@ -51,6 +56,7 @@ module ApplicationHelper
     safe_join(links)
   end
 
+  # links for administrator
   def links_for_administrator
     [
       content_tag(:li, link_to(t('views.pages.global.initiatives'), administration_initiatives_path)),
@@ -63,12 +69,14 @@ module ApplicationHelper
     ]
   end
 
+  # links for user
   def links_for_user
     [
       content_tag(:li, link_to(t('views.pages.global.initiatives'), users_initiatives_path))
     ]
   end
 
+  # helper for display flash
   def flash_block(type)
     flash_classes = { success: 'alert alert-success', error: 'alert alert-danger' }
     content_tag(:div, class: flash_classes[type.to_sym]) do

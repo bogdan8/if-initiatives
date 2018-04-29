@@ -8,6 +8,7 @@ module InitiativesHelper
     @warning = 'btn btn-warning btn-sm'
   end
 
+  # helper of links for administrator
   def initiative_state_administrator_links(initiative)
     if initiative.confirmating?
       for_confirmating(initiative)
@@ -20,6 +21,7 @@ module InitiativesHelper
     end
   end
 
+  # helper of links for user
   def initiative_state_user_links(initiative)
     edit = edit_users_initiative_path(initiative)
     confirmating = to_confirmating_users_initiative_path(initiative)
@@ -33,6 +35,7 @@ module InitiativesHelper
               ])
   end
 
+  # helper for locked initiative
   def to_locked(initiative)
     return if initiative.locked?
     locked = to_locked_administration_initiative_path(initiative)
@@ -41,6 +44,7 @@ module InitiativesHelper
 
   private
 
+  # links for confirmating
   def for_confirmating(initiative)
     fundraising = to_fundraising_administration_initiative_path(initiative)
     rejected = to_rejected_administration_initiative_path(initiative)
@@ -50,6 +54,7 @@ module InitiativesHelper
               ])
   end
 
+  # links for fundraising
   def for_fundraising(initiative)
     fundraised = to_fundraised_administration_initiative_path(initiative)
     rejected = to_rejected_administration_initiative_path(initiative)
@@ -59,6 +64,7 @@ module InitiativesHelper
               ])
   end
 
+  # links for fundraised
   def for_fundraised(initiative)
     implementing = to_implementing_administration_initiative_path(initiative)
     unimplemented = to_unimplemented_administration_initiative_path(initiative)
@@ -68,6 +74,7 @@ module InitiativesHelper
               ])
   end
 
+  # links for implementing
   def for_implementing(initiative)
     implemented = to_implemented_administration_initiative_path(initiative)
     link_to(t('views.pages.global.button.implemented'), implemented, class: @success)
