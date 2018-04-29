@@ -210,6 +210,9 @@ uk:
       category:
         title: 'Назва'
         position: 'Позиція'
+      attachment:
+        image: 'Зображення'
+        video: 'Відео'
     errors:
       models:
         initiative:
