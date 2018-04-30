@@ -84,4 +84,24 @@ RSpec.describe Users::InitiativesController, type: :controller do
       end
     end
   end
+
+  describe 'GET #to_confirmating' do
+    it 'initiative state should change to confirmating instead draft' do
+      login_user(user)
+      initiative.state = :draft
+      initiative.save
+      get :to_confirmating, params: { id: initiative.slug }
+      expect(Initiative.find(initiative.id).confirmating?).to eq(true)
+      expect(response).to redirect_to(users_initiatives_path)
+    end
+
+    it 'initiative state should not change if wrong state' do
+      login_user(user)
+      initiative.state = :implemented
+      initiative.save
+      get :to_confirmating, params: { id: initiative.slug }
+      expect(Initiative.find(initiative.id).confirmating?).to eq(false)
+      expect(response).to redirect_to(users_initiatives_path)
+    end
+  end
 end
