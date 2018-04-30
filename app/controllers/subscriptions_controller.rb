@@ -1,16 +1,12 @@
 # frozen_string_literal: true
 
 class SubscriptionsController < ApplicationController
-  load_and_authorize_resource
+  load_resource
   def create
     if @subscription.save
-      respond_to do |format|
-        format.js { flash[:success] = t('controller.subscription.save') }
-      end
+      redirect_to root_path, success: t('controller.subscription.save')
     else
-      respond_to do |format|
-        format.js { flash[:error] = @subscription.errors.full_messages.to_sentence }
-      end
+      redirect_to root_path, error: @subscription.errors.full_messages.to_sentence
     end
   end
 
