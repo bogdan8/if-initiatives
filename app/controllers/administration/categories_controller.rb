@@ -42,11 +42,8 @@ module Administration
     end
 
     def destroy
-      if @category.destroy
-        redirect_to administration_categories_path, success: t('controller.category.destroy')
-      else
-        flash[:error] = @category.errors.full_messages.to_sentence
-      end
+      @category.destroy
+      redirect_to administration_categories_path, success: t('controller.category.destroy')
     end
 
     private
