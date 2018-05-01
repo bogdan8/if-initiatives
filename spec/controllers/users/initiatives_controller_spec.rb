@@ -85,6 +85,17 @@ RSpec.describe Users::InitiativesController, type: :controller do
     end
   end
 
+  describe 'GET #destroy' do
+    it 'the number of users should decrease' do
+      login_user(user)
+      initiative.save
+      initiatives = Initiative.count
+      get :destroy, params: { id: initiative.slug }
+      expect(initiatives - 1).to eq(Initiative.count)
+      expect(response).to redirect_to(users_initiatives_path)
+    end
+  end
+
   describe 'GET #to_confirmating' do
     it 'initiative state should change to confirmating instead draft' do
       login_user(user)
