@@ -51,7 +51,7 @@ module Users
     def destroy
       @initiative.destroy
       flash[:success] = t('controller.initiative.destroy')
-      redirect_to users_initiatives_path(page: page), success: t('controller.initiative.destroy')
+      redirect_to users_initiatives_path(page: params[:page]), success: t('controller.initiative.destroy')
     end
 
     private
