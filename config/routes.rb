@@ -22,8 +22,8 @@ Rails.application.routes.draw do
       get :confirmating, on: :collection
       get :fundraising, on: :collection
       get :implementing, on: :collection
-      resources :comments, only: %i[destroy]
     end
+    resources :comments, only: %i[destroy]
     resources :categories
     resources :subscriptions, only: %i[index destroy]
     resources :users do

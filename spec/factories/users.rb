@@ -36,7 +36,7 @@ FactoryBot.define do
     email Faker::Internet.email
     password Faker::Internet.password
     confirmed_at Time.zone.today
-    name Faker::Name.name
+    name Faker::HarryPotter.character
     phone '+380991234567'
     age 24
   end

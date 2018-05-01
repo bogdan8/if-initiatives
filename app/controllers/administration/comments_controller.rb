@@ -6,11 +6,8 @@ module Administration
     before_action :find_initiative, only: %i[destroy]
 
     def destroy
-      if @comment.destroy
-        redirect_to [:administration, @initiative], success: t('controller.comment.destroy')
-      else
-        redirect_to [:administration, @initiative], error: @comment.errors.full_messages.to_sentence
-      end
+      @comment.destroy
+      redirect_to [:administration, @initiative], success: t('controller.comment.destroy')
     end
 
     private

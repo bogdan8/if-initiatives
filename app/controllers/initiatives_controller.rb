@@ -4,7 +4,7 @@ class InitiativesController < ApplicationController
   load_and_authorize_resource find_by: :slug
   def index
     @initiatives = Initiative.includes(:categories).page(params[:page]).per(6)
-    add_breadcrumb I18n.t('views.pages.global.initiatives'), :initiatives_path
+    add_breadcrumb t('views.pages.global.initiatives'), :initiatives_path
   end
 
   def show

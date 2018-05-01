@@ -31,11 +31,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    if @comment.destroy
-      redirect_to @initiative, success: t('controller.comment.destroy')
-    else
-      redirect_to @initiative, error: @comment.errors.full_messages.to_sentence
-    end
+    @comment.destroy
+    redirect_to @initiative, success: t('controller.comment.destroy')
   end
 
   private

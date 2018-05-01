@@ -6,8 +6,8 @@ module Administration
     add_breadcrumb I18n.t('views.pages.global.users'), :administration_users_path
 
     def index
-      @users = User.includes(:roles).page(params[:page]).per(1)
-      @roles = Role.all
+      @users = User.includes(:roles).page(params[:page]).per(6)
+      @presenter = Users::IndexPresenter.new
     end
 
     def show
@@ -15,11 +15,8 @@ module Administration
     end
 
     def destroy
-      if @user.destroy
-        redirect_to administration_users_path, success: t('controller.user.destroy')
-      else
-        flash[:error] = @user.errors.full_messages.to_sentence
-      end
+      @user.destroy
+      redirect_to administration_users_path, success: t('controller.user.destroy')
     end
 
     # method for change role in user
@@ -28,7 +25,7 @@ module Administration
       if @user.add_role params[:role]
         redirect_to administration_users_path, success: t('controller.role.change')
       else
-        flash[:error] = @user.errors.full_messages.to_sentence
+        redirect_to administration_users_path, error: @user.errors.full_messages.to_sentence
       end
     end
   end

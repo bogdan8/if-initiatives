@@ -7,9 +7,7 @@
         <p><%= t('views.pages.global.phone') %>: <%= user.phone %></p>
         <p><%= t('views.pages.global.age') %>: <%= user.age %></p>
         <p><%= t('views.pages.global.email') %>: <%= user.email %></p>
-        <% @roles.each do |role| %>
-          <%= link_to_if user.roles.first.name != role.name, t("views.pages.global.role.#{role.name}"), role_administration_user_path(user, role: role.name), class: 'btn btn-success btn-sm' %>
-        <% end %>
+        <%= roles_links(@presenter.roles, user) %>
 
         <!-- links -->
         <p>
