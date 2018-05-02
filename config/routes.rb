@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       get :to_confirmating, on: :member
       resources :reports, only: %i[create update destroy]
     end
+    resources :users, only: %i[show]
     resources :attachments, only: %i[destroy]
   end
   resources :initiatives, only: %i[index show] do

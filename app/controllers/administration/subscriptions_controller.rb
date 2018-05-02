@@ -9,11 +9,8 @@ module Administration
     end
 
     def destroy
-      if @subscription.destroy
-        redirect_to administration_subscriptions_path, success: t('controller.subscription.destroy')
-      else
-        flash[:error] = @subscription.errors.full_messages.to_sentence
-      end
+      @subscription.destroy
+      redirect_to administration_subscriptions_path, success: t('controller.subscription.destroy')
     end
   end
 end

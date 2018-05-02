@@ -239,4 +239,35 @@ RSpec.describe Ability, type: :model do
       it { is_expected.to be_able_to(:destroy, Attachment) }
     end
   end
+
+  describe 'Subscription' do
+    context '# when is a not authorized' do
+      it { is_expected.to be_able_to(:create, Subscription) }
+      it { is_expected.not_to be_able_to(:read, Subscription) }
+    end
+
+    context '# when is a user' do
+      before(:each) do
+        user.add_role :user
+      end
+      it { is_expected.to be_able_to(:create, Subscription) }
+      it { is_expected.to be_able_to(:read, Subscription) }
+    end
+
+    context '# when is a moderator' do
+      before(:each) do
+        user.add_role :moderator
+      end
+      it { is_expected.to be_able_to(:create, Subscription) }
+      it { is_expected.to be_able_to(:read, Subscription) }
+    end
+
+    context '# when is a admin' do
+      before(:each) do
+        user.add_role :administrator
+      end
+      it { is_expected.to be_able_to(:create, Subscription) }
+      it { is_expected.to be_able_to(:read, Subscription) }
+    end
+  end
 end

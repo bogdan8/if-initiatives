@@ -13,7 +13,9 @@ class Ability
       for_user(user)
     else
       cannot :manage, :all
+      cannot :read, :all
       can :read, Initiative
+      can %i[create], Subscription
     end
   end
 
@@ -21,6 +23,7 @@ class Ability
     can :manage, Initiative
     can :manage, Category
     can :manage, Comment
+    can :manage, Subscription
   end
 
   def for_user(user)
@@ -36,5 +39,6 @@ class Ability
     can :read, User
     can %i[edit update], User, id: user.id
     can :manage, Comment, user_id: user.id
+    can %i[create], Subscription
   end
 end

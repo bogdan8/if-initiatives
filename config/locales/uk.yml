@@ -63,6 +63,9 @@ uk:
           unimplemented: 'Не реалізовано'
           reporting: 'Звітність'
           implemented: 'Реалізовано'
+        profile:
+          show: 'Профіль'
+          edit: 'Редагувати профіль'
         title: 'Назва'
         description: 'Опис'
         updated_at: 'Додано о'
