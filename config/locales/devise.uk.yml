@@ -17,7 +17,8 @@ uk:
         failed_attempts: 
         last_sign_in_at: 
         last_sign_in_ip: 
-        locked_at: 
+        locked_at:
+        avatar: 'Аватар'
         password: "Пароль"
         password_confirmation: "Підтвердження пароля"
         remember_created_at: 
@@ -47,6 +48,10 @@ uk:
       timeout: "Час вашої сесії вичерпано. Будь ласка, увійдіть в систему знову."
       unauthenticated: "Вам необхідно увійти в систему чи зареєструватися."
       unconfirmed: "Вам потрібно підтвердити Ваш обліковий запис."
+    failure:
+      user:
+        invalid: 'Невірний емейл або пароль'
+        not_found_in_database: 'Користувача не знайдено'
     mailer:
       confirmation_instructions:
         action: "Підтвердити мій аккаунт"
