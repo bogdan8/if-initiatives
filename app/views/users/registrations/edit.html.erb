@@ -11,6 +11,7 @@
     <%= f.input :name %>
     <%= f.input :phone %>
     <%= f.input :age %>
+    <%= f.input :avatar, as: :file %>
     <%= f.input :password, autocomplete: :off, hint: t('devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it') %>
     <%= f.input :password_confirmation, autocomplete: :off %>
     <%= f.input :current_password, autocomplete: :off %>
