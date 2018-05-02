@@ -29,11 +29,16 @@
 #  age                    :integer
 #  provider               :string           default("")
 #  uid                    :string           default("")
+#  avatar_file_name       :string
+#  avatar_content_type    :string
+#  avatar_file_size       :integer
+#  avatar_updated_at      :datetime
 #
 
 class User < ApplicationRecord
   after_create :assign_default_role
   rolify
+  include Paperclip::Glue
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -47,6 +52,16 @@ class User < ApplicationRecord
   validates :name, :email, :phone, :age, presence: true
   validates :name, length: { in: 2..30 }
   validates :phone, phone: true
+
+  size_user_avatars = { medium: '300x300>', thumb: '100x100>' }
+  path_user_avatars = ':rails_root/public/images/:class/:attachment/:id/:style/:filename'
+
+  has_attached_file :avatar,
+                    styles: size_user_avatars,
+                    path: path_user_avatars,
+                    url: '/images/:class/:attachment/:id/:style/:filename',
+                    default_url: '/images/missing.png'
+  validates_attachment_content_type :avatar, content_type: %r{\Aimage\/.*\Z}
 
   @user_password = "prochord#{rand(30..10_500)}"
 
