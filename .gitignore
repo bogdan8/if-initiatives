@@ -14,8 +14,9 @@
 !/tmp/.keep
 coverage/
 
-/node_modules
-/yarn-error.log
+client/node_modules
+client/yarn-error.log
+client/dist
 
 public/images/attachments/
 public/images/users/
