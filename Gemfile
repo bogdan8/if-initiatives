@@ -40,6 +40,7 @@ gem 'puma', '~> 3.0'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'social-share-button'
 gem 'unicode'
+gem 'foreman'
 
 # for devise
 gem 'cancancan'
