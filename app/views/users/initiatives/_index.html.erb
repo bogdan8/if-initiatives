@@ -10,7 +10,7 @@
         <p><%= t('views.pages.global.finish_date') %>: <%= initiative.finish_date %></p>
         <p><%= t('views.pages.global.general_sum') %>: <%= initiative.general_sum %></p>
         <p><%= t('views.pages.global.collected_amount') %>: <%= initiative.collected_amount %></p>
-        <p><%= initiative.state %></p>
+        <p><%= t("views.pages.initiatives.state.#{initiative.state}") %></p>
 
         <!-- Categories -->
         <p>
