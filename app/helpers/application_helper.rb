@@ -59,7 +59,7 @@ module ApplicationHelper
   def links_for_signin
     [
       content_tag(:li, link_to(t('views.pages.global.initiatives'), users_initiatives_path)),
-      content_tag(:li, link_to(t('views.pages.glubal.profile.show'), users_user_path(current_user.id))),
+      content_tag(:li, link_to(t('views.pages.global.profile.show'), users_user_path(current_user.id))),
       content_tag(:li, link_to(t('views.pages.global.profile.edit'), edit_user_registration_path)),
       content_tag(:li, link_to(t('views.pages.global.sign_out'), destroy_user_session_path, method: :delete))
     ]
