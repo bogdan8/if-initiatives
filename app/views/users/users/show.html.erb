@@ -3,10 +3,10 @@
 
 <div class="row">
   <div class="col-sm-12">
-    <p><%= t('views.pages.user.name') %>: <%= @user.name %></p>
-    <p><%= t('views.pages.user.phone') %>: <%= @user.phone %></p>
-    <p><%= t('views.pages.user.age') %>: <%= @user.age %></p>
-    <p><%= t('views.pages.user.roles') %>: <%= @user.decorate.roles_name %></p>
+    <p><%= t('views.pages.users.name') %>: <%= @user.name %></p>
+    <p><%= t('views.pages.users.phone') %>: <%= @user.phone %></p>
+    <p><%= t('views.pages.users.age') %>: <%= @user.age %></p>
+    <p><%= t('views.pages.users.roles') %>: <%= @user.decorate.roles_name %></p>
     <div class="avatar">
       <%= image_tag @user.avatar.url(:original), class: 'full-image' %>
     </div>
