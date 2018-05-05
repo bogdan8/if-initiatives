@@ -116,6 +116,16 @@ uk:
         index: 
           title: 'Всі категорії'
       initiatives:
+        state:
+          draft: 'Чернетка'
+          confirmating: 'Підтвердження'
+          rejected: 'Відхиленно'
+          fundraising: 'Збір коштів'
+          fundraised: 'Зібрано кошти'
+          implementing: 'Реалізація'
+          implemented: 'Реалізовано'
+          unimplemented: 'Не реалізовано'
+          locked: 'Заблоковано'
         form:
           categories: 'Виберіть категорії'
         edit:
@@ -125,6 +135,10 @@ uk:
         index: 
           title: 'Всі ініціативи'
       users:
+        name: "Ім'я"
+        phone: 'Телефон'
+        age: 'Вік'
+        roles: 'Ролі'
         edit:
           title: 'Редагувати користувача'
         new:

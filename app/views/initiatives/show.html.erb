@@ -8,7 +8,8 @@
     <p><%= t('views.pages.global.long_description') %>: <%= @initiative.long_description %></p>
     <p><%= t('views.pages.global.finish_date') %>: <%= @initiative.finish_date %></p>
     <p><%= t('views.pages.global.general_sum') %>: <%= @initiative.general_sum %></p>
-    
+    <p><%= t("views.pages.initiatives.state.#{@initiative.state}") %></p>
+   
     <!-- show categories -->
     <p>
       <%= t('views.pages.global.categories') %>: 
