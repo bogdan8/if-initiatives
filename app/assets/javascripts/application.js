@@ -15,5 +15,13 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require cocoon
+//= require select2
 //= require initiatives
 //= require administration/users
+
+$(function($) {
+  $('#initiative_category_ids').select2({
+    placeholder: 'Виберіть категорії',
+    language: 'uk'
+  })
+});
