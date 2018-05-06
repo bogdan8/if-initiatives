@@ -24,8 +24,6 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 4.2.1'
 
 # for style
-gem 'bootstrap-kaminari-views'
-gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'select2-rails'
