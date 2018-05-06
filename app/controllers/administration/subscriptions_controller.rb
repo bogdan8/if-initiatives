@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Administration
-  class SubscriptionsController < ApplicationController
+  class SubscriptionsController < Administration::BaseController
     load_and_authorize_resource
     add_breadcrumb I18n.t('views.pages.global.subscriptions'), :administration_subscriptions_path
     def index

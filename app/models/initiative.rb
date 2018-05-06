@@ -82,4 +82,8 @@ class Initiative < ApplicationRecord
   def normalize_friendly_id(input)
     input.to_s.to_slug.normalize(transliterations: :ukrainian).to_s
   end
+
+  def self.without_draft
+    where.not(state: :draft)
+  end
 end
