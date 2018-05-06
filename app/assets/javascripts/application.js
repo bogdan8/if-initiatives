@@ -12,12 +12,11 @@
 //
 //= require rails-ujs
 //= require jquery
-//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require cocoon
 //= require select2
-//= require initiatives
-//= require administration/users
+//= require bootstrap
+//= require_tree .
 
 $(function($) {
   $('#initiative_category_ids').select2({
