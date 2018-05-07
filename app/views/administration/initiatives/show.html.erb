@@ -1,59 +1,81 @@
 <%= provide :site_title, t('views.pages.global.initiative') %>
 <%= provide :initiatives_show, 'active' %>
 
-<div class="row">
-  <div class="col-sm-12">
-    <p><%= t('views.pages.global.title') %>: <%= @initiative.title %></p>
-    <p><%= t('views.pages.global.short_description') %>: <%= @initiative.short_description %></p>
-    <p><%= t('views.pages.global.long_description') %>: <%= @initiative.long_description %></p>
-    <p><%= t('views.pages.global.finish_date') %>: <%= @initiative.finish_date %></p>
-    <p><%= t('views.pages.global.general_sum') %>: <%= @initiative.general_sum %></p>
-    
-    <!-- show categories -->
-    <p>
-      <%= t('views.pages.global.categories') %>: 
-      <% @initiative.decorate.categories_title%>
-    </p>
-  </div>
-</div>
-
-<!-- show images -->
-<div class="row">
-  <% @initiative.decorate.attachments_images.each do |attachment| %>
-    <div class="col-sm-3">
-      <%= image_tag attachment.image.url(:medium), class: 'full-image' %>
+<div class="container-fluid" %>
+  <div class="row">
+    <div class="col-sm-12">
+      <p>
+        <%= t('views.pages.global.title') %>: <%= @initiative.title %>
+      </p>
+      <p>
+        <%= t('views.pages.global.short_description') %>: <%= @initiative.short_description %>
+      </p>
+      <p>
+        <%= t('views.pages.global.long_description') %>: <%= @initiative.long_description %>
+      </p>
+      <p>
+        <%= t('views.pages.global.finish_date') %>: <%= @initiative.finish_date %>
+      </p>
+      <p>
+        <%= t('views.pages.global.general_sum') %>: <%= @initiative.general_sum %>
+      </p>
+      
+      <!-- show categories -->
+      <p>
+        <%= t('views.pages.global.categories') %>: 
+        <% @initiative.decorate.categories_title%>
+      </p>
     </div>
-  <% end %>
-</div>
-
-<!-- show videos -->
-<div class="row">
-  <% @initiative.decorate.attachments_videos.each do |attachment| %>
-    <div class="col-sm-6">
-      <%= video_tag attachment.video.url, controls: true, class: 'full-video' %>
-    </div>
-  <% end %>
-</div>
-
-<!-- initiative links -->
-<div class="row">
-  <div class="col-sm-12">
-    <%= link_to t('views.pages.global.button.edit'), edit_administration_initiative_path(@initiative), class: 'btn btn-warning btn-sm' %>
-    <%= link_to t('views.pages.global.button.destroy'), administration_initiative_path(@initiative), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
   </div>
-</div>
 
-<!-- show comments -->
-<div class="row">
-  <div class="col-sm-12">
-    <h3><%= t('views.pages.global.comments') %>:</h3>
+  <!-- show images -->
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <h3><%= t('views.pages.global.images') %>:</h3>
+    </div>
 
-    <% @initiative.comments.each do |comment| %>
-      <p><%= t('views.pages.global.title') %>: <%= comment.title %></p>
-      <p><%= t('views.pages.global.text') %>: <%= comment.text %></p>
+    <% @initiative.decorate.attachments_images.each do |attachment| %>
+      <div class="col-sm-3 margin-bottom-20 image-block">
+        <%= image_tag attachment.image.url(:medium), class: 'full-image' %>
+      </div>
+    <% end %>
+  </div>
 
-      <!-- comment links -->
-      <%= link_to t('views.pages.global.button.destroy'), administration_initiative_comment_path(@initiative, comment), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
+  <!-- show videos -->
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <h3><%= t('views.pages.global.videos') %>:</h3>
+    </div>
+
+    <% @initiative.decorate.attachments_videos.each do |attachment| %>
+      <div class="col-sm-6">
+        <%= video_tag attachment.video.url, controls: true, class: 'full-video' %>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- initiative links -->
+  <div class="row margin-bottom-20">
+    <div class="col-sm-12">
+      <%= link_to t('views.pages.global.button.edit'), edit_administration_initiative_path(@initiative), class: 'btn btn-warning btn-sm' %>
+      <%= link_to t('views.pages.global.button.destroy'), administration_initiative_path(@initiative), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
+    </div>
+  </div>
+
+  <!-- show comments -->
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <h3><%= t('views.pages.global.comments') %>:</h3>
+    </div>
+
+    <% @initiative.comments.each do |comment| %>      
+      <div class="col-sm-6">
+        <p><%= t('views.pages.global.title') %>: <%= comment.title %></p>
+        <p><%= t('views.pages.global.text') %>: <%= comment.text %></p>
+
+        <!-- comment links -->
+        <%= link_to t('views.pages.global.button.destroy'), administration_comment_path(comment, initiative_id: @initiative.id), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
+      </div>
     <% end %>
   </div>
 </div>
