@@ -3,11 +3,11 @@
 module Administration
   class UsersController < Administration::BaseController
     load_and_authorize_resource
+    before_action :user_presenter, only: %i[index show]
     add_breadcrumb I18n.t('views.pages.global.users'), :administration_users_path
 
     def index
       @users = User.includes(:roles).page(params[:page]).per(6)
-      @presenter = Users::IndexPresenter.new
     end
 
     def show
@@ -27,6 +27,12 @@ module Administration
       else
         redirect_to administration_users_path, error: @user.errors.full_messages.to_sentence
       end
+    end
+
+    private
+
+    def user_presenter
+      @presenter = Users::IndexPresenter.new
     end
   end
 end

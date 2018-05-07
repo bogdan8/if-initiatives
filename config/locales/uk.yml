@@ -104,6 +104,10 @@ uk:
         profile_edit: 'Редагувати профіль'
         confirm: 'Ви впевнені?'
         registration: 'Реєстрація'
+        phone: 'Телефон'
+        age: 'Вік'
+        images: 'Зображення'
+        videos: 'Відео'
         count:
           initiatives: 'Кількість ініціатив'
           categories: 'Кількість категорій'
