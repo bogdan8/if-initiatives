@@ -1,20 +1,46 @@
-<% collection.each do |user| %>
-  <div class="col-sm-6">
-    <div class="panel panel-primary">
-      <div class="panel-heading"><%= user.name %></div>
-      <div class="panel-body">
-        <p><%= t('views.pages.global.email') %>: <%= user.email %></p>
-        <p><%= t('views.pages.global.phone') %>: <%= user.phone %></p>
-        <p><%= t('views.pages.global.age') %>: <%= user.age %></p>
-        <p><%= t('views.pages.global.email') %>: <%= user.email %></p>
-        <%= roles_links(@presenter.roles, user) %>
-
-        <!-- links -->
-        <p>
-          <%= link_to t('views.pages.global.button.show'), administration_user_path(user), class: 'btn btn-info btn-sm' %>
-          <%= link_to t('views.pages.global.button.destroy'), administration_user_path(user), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
-        </p>
+<% collection.each do |user| %> 
+  <div class="card border-success col-sm-4 margin-bottom-20">
+    <div class="card-header bg-transparent border-success text-success">
+      <h5 class="card-title text-center">
+        <%= user.name %>
+      </h5>
+    </div>
+    <div class="card-body text-success">
+      <div class="row">
+        <div class="col-sm-6">
+          <%= image_tag user.avatar.url(:medium), class: 'full-image' %>
+        </div>
+        <div class="col-sm-6">
+          <p class="card-text">
+            <%= user.email %>
+          </p>
+        </div>
       </div>
+    </div>
+    <div class="card-footer bg-transparent border-success">
+      <p>
+        <%= t('views.pages.global.email') %>: <%= user.email %>
+      </p>
+      <p>
+        <%= t('views.pages.global.phone') %>: <%= user.phone %>
+      </p>
+      <p>
+        <%= t('views.pages.global.age') %>: <%= user.age %>
+      </p>
+      <p>
+        <%= t('views.pages.global.initiatives') %>: <%= user.initiatives.count %>
+      </p>
+
+      <!-- roles links -->
+      <div class="flex-between roles-links">
+        <%= roles_links(@presenter.roles, user) %>
+      </div>
+
+      <p>
+        <%= link_to t('views.pages.global.button.show'), administration_user_path(user), class: 'btn btn-info btn-sm' %>
+        <%= link_to t('views.pages.global.button.destroy'), administration_user_path(user), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
+ 
+      </p>
     </div>
   </div>
 <% end %>

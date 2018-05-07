@@ -1,21 +1,35 @@
 <%= provide :site_title, t('views.pages.categories.index.title') %>
 <%= provide :categories_index, 'active' %>
 
-<p><%= link_to t('views.pages.categories.new.title'), new_administration_category_path, class: 'btn btn-success btn-sm'  %></p>
+<div class="header-button">
+  <%= link_to t('views.pages.categories.new.title'), new_administration_category_path, class: 'btn btn-success btn-sm' %>
+</div>
 
-<div class="col-sm-12">
-  <% @categories.each do |category| %>
-    <p><%= t('views.pages.global.title') %>: <%= category.title %></p>
-    <p><%= t('views.pages.global.position') %>: <%= category.position %></p>
-    <p><%= t('views.pages.global.count.initiatives') %>: <%= category.initiatives.count %></p>
-
-    <!-- links -->
-    <p>
-      <%= link_to t('views.pages.global.button.show'), administration_category_path(category), class: 'btn btn-info btn-sm' %>
-      <%= link_to t('views.pages.global.button.edit'),  edit_administration_category_path(category), class: 'btn btn-warning btn-sm' %>
-      <%= link_to t('views.pages.global.button.destroy'), administration_category_path(category), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
-    </p>
-  <% end %>
-
-  <%= paginate @categories %>
+<div class="container-fluid">
+  <div class="row" id="categories">
+    <% @categories.each do |category| %>
+      <div class="card border-success col-sm-4 margin-bottom-20">
+        <div class="card-header bg-transparent border-success text-success">
+          <h5 class="card-title text-center"><%= category.title %></h5>
+        </div>
+        <div class="card-footer bg-transparent border-success">
+          <p><%= t('views.pages.global.title') %>: <%= category.title %></p>
+          <p><%= t('views.pages.global.position') %>: <%= category.position %></p>
+          <p><%= t('views.pages.global.count.initiatives') %>: <%= category.initiatives.count %></p>
+          <!-- links -->
+          <p>
+            <%= link_to t('views.pages.global.button.show'), administration_category_path(category), class: 'btn btn-info btn-sm' %>
+            <%= link_to t('views.pages.global.button.edit'),  edit_administration_category_path(category), class: 'btn btn-warning btn-sm' %>
+            <%= link_to t('views.pages.global.button.destroy'), administration_category_path(category), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
+          
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= paginate @categories %>
+    </div>
+  </div>
 </div>
