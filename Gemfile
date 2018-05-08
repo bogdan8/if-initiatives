@@ -27,6 +27,7 @@ gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'font-awesome-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'select2-rails'
+gem 'bootstrap4-kaminari-views'
 
 # for server
 gem 'babosa'
