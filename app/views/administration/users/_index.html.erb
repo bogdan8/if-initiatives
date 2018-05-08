@@ -36,11 +36,10 @@
         <%= roles_links(@presenter.roles, user) %>
       </div>
 
-      <p>
+      <div class="flex-between margin-top-20">
         <%= link_to t('views.pages.global.button.show'), administration_user_path(user), class: 'btn btn-info btn-sm' %>
-        <%= link_to t('views.pages.global.button.destroy'), administration_user_path(user), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
- 
-      </p>
+        <%= link_to t('views.pages.global.button.destroy'), administration_user_path(user), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %> 
+      </div>
     </div>
   </div>
 <% end %>
