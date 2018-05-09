@@ -17,6 +17,7 @@ gem 'rails', '~> 5.1.5'
 gem 'ruby-graphviz', require: 'graphviz'
 gem 'simple_form'
 gem 'state_machine'
+gem 'time_difference'
 
 # for js
 gem 'jbuilder', '~> 2.5'
