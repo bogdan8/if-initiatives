@@ -26,7 +26,7 @@ module ApplicationHelper
   def navigation_for_administrator
     return unless user_signed_in? # return if user not signin
     return unless current_user.has_role? :administrator # return if user not administrator
-    link_to t('views.pages.global.initiatives'), administration_initiatives_path
+    link_to t('views.pages.global.administration'), administration_home_path
   end
 
   # helper of navigation for moderator user

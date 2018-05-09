@@ -8,6 +8,11 @@ module InitiativesHelper
     @warning = 'btn btn-warning btn-sm'
   end
 
+  # helper to count how much time passed after adding
+  def added_time(initiative)
+    TimeDifference.between(initiative.created_at, Time.now).humanize
+  end
+
   # helper of links for administrator
   def initiative_state_administrator_links(initiative)
     if initiative.confirmating?
