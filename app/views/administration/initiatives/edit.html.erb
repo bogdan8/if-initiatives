@@ -1,5 +1,5 @@
 <%= provide :site_title, t('views.pages.initiatives.edit.title') %>
-<%= provide :initiatives_edit, 'active' %>
+<%= provide :initiatives, 'active' %>
 
 <div class="col-sm-12">
   <%= simple_form_for [:administration, @initiative], html: { multipart: true } do |f| %>

@@ -1,3 +1,6 @@
+<%= provide :site_title, t('views.pages.global.administration') %>
+<%= provide :administration, 'active' %>
+
 <div class="row">
   <div class="col-xl-3 col-sm-6 mb-3">
     <div class="card text-white bg-primary o-hidden h-100">
@@ -5,10 +8,10 @@
         <div class="card-body-icon">
           <%= fa_icon 'book 2x' %>
         </div>
-        <div class="mr-5"><%= @initiatives_count %> Initiatives</div>
+        <div class="mr-5"><%= @presenter.initiatives_count %> <%= t('views.pages.global.initiatives') %> </div>
       </div>
       <%= link_to administration_initiatives_path, class: 'card-footer text-white clearfix small z-1' do %>
-        <span class="float-left">View Details</span>
+        <span class="float-left"><%= t('views.pages.global.button.show') %></span>
         <span class="float-right">
           <%= fa_icon 'angle-right' %>
         </span>
@@ -21,10 +24,10 @@
         <div class="card-body-icon">
           <%= fa_icon 'address-book 2x' %>
         </div>
-        <div class="mr-5"><%= @users_count %> Users!</div>
+        <div class="mr-5"><%= @presenter.users_count %> <%= t('views.pages.global.users') %> </div>
       </div>
       <%= link_to administration_users_path, class: 'card-footer text-white clearfix small z-1' do %>
-        <span class="float-left">View Details</span>
+        <span class="float-left"><%= t('views.pages.global.button.show') %></span>
         <span class="float-right">
           <%= fa_icon 'angle-right' %>
         </span>
@@ -37,10 +40,10 @@
         <div class="card-body-icon">
           <%= fa_icon 'envelope 2x' %>
         </div>
-        <div class="mr-5"><%= @subscriptions_count %> Subscriptions!</div>
+        <div class="mr-5"><%= @presenter.subscriptions_count %> <%= t('views.pages.global.subscriptions') %> </div>
       </div>
       <%= link_to administration_subscriptions_path, class: 'card-footer text-white clearfix small z-1' do %>
-        <span class="float-left">View Details</span>
+        <span class="float-left"><%= t('views.pages.global.button.show') %></span>
         <span class="float-right">
           <%= fa_icon 'angle-right' %>
         </span>
@@ -53,10 +56,10 @@
         <div class="card-body-icon">
           <%= fa_icon 'list-alt 2x' %>
         </div>
-        <div class="mr-5"><%= @categories_count %> Categories!</div>
+        <div class="mr-5"><%= @presenter.categories_count %> <%= t('views.pages.global.categories') %> </div>
       </div>
       <%= link_to administration_categories_path, class: 'card-footer text-white clearfix small z-1' do %>
-        <span class="float-left">View Details</span>
+        <span class="float-left"><%= t('views.pages.global.button.show') %></span>
         <span class="float-right">
           <%= fa_icon 'angle-right' %>
         </span>
@@ -72,7 +75,7 @@
   </div>
   <div class="col-sm-12">
     <div class="row">
-      <% @initiatives.each do |initiative| %>
+      <% @presenter.initiatives.each do |initiative| %>
         <div class="col-sm-4">
           <a href="#">
             <%= image_tag(initiative.attachments.first.image.url(:medium), class: 'card-img-top img-fluid w-100') if initiative.attachments.first %>
@@ -96,7 +99,7 @@
 
             <%= to_locked(initiative) %>
           </div>
-          <div class="card-footer small text-muted">Posted 32 mins ago</div>
+          <div class="card-footer small text-muted"><%= added_time(initiative) %></div>
         </div>
       <% end %>
     </div>
