@@ -11,4 +11,15 @@ $(function($) {
     placeholder: 'Виберіть категорії',
     language: 'uk'
   })
+  $('.file').on('change', function(event) {
+    var files = event.target.files;
+    var image = files[0]
+    var reader = new FileReader();
+    reader.onload = function(file) {
+      var img = new Image();
+      img.src = file.target.result;
+      $('#preview').html(img);
+    }
+    reader.readAsDataURL(image);
+  });
 });
