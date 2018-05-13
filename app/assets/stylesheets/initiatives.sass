@@ -1,6 +1,27 @@
 #paginator
   display: none
 
+.short_description
+  @media screen and (min-width: 576px)
+    display: -webkit-box
+    max-width: 400px
+    -webkit-line-clamp: 6
+    -webkit-box-orient: vertical
+    overflow: hidden
+    text-overflow: ellipsis
+  @media screen and (min-width: 768px)
+    display: -webkit-box
+    max-width: 400px
+    -webkit-line-clamp: 10
+    -webkit-box-orient: vertical
+    overflow: hidden
+    text-overflow: ellipsis
+
+.card-text
+  overflow: hidden
+  text-overflow: ellipsis
+  height: 190px
+
 .portfolio-header
   position: relative
   background-image: url(header-bg.jpg)

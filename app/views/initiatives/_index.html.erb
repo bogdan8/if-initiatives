@@ -2,13 +2,13 @@
   <% collection.decorate.each do |initiative| %> 
     <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
       <div class="mdl-card__media">
-        <%= image_tag(initiative.attachments.first.image.url(:medium), class: 'article-image') if initiative.attachments.first %>
+        <%= image_tag(initiative.first_image.image.url(:medium), class: 'article-image') if initiative.first_image %>
       </div>
       <div class="mdl-card__title">
         <h2 class="mdl-card__title-text"><%= initiative.title %></h2>
       </div>
       <div class="mdl-card__supporting-text">
-        <p><%= initiative.short_description %></p>
+        <p class="short_description"><%= initiative.short_description %></p>
         <p><%= t('views.pages.global.finish_date') %>: <%= initiative.finish_date %></p>
         <p><%= t('views.pages.global.general_sum') %>: <%= initiative.general_sum %></p>
         <p><%= t('views.pages.global.collected_amount') %>: <%= initiative.collected_amount %></p>

@@ -1,3 +1,5 @@
+@import 'variable'
+
 .flex-center
   display: flex
   justify-content: center
@@ -13,10 +15,31 @@
 .full-video
   @extend .full-size
 
-.card-text
-  overflow: hidden
-  text-overflow: ellipsis
-  height: 190px
-
 .pagination
   @extend .flex-center
+
+.btn-success
+  background-color: $green !important
+
+.btn-danger
+  background-color: $red !important
+
+.btn-warning
+  background-color: $orange !important
+
+.margin-bottom-20
+  margin: 
+    bottom: 20px
+
+.margin-right-20
+  margin:
+    right: 20px
+
+.margin-left-20
+  margin:
+    left: 20px
+
+.margin-top-20
+  margin:
+    top: 20px
+

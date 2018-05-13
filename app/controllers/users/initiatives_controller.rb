@@ -8,7 +8,7 @@ module Users
     include AbilityStateToInitiatives
 
     def index
-      @initiatives = current_user.initiatives.includes(:categories).page(params[:page]).per(6)
+      @initiatives = current_user.initiatives.includes(:categories, :attachments).page(params[:page]).per(6)
     end
 
     def show
