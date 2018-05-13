@@ -7,4 +7,3 @@ module Administration
     end
   end
 end
-
