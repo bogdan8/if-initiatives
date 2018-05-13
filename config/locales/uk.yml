@@ -91,6 +91,7 @@ uk:
         collected_amount: 'Зібрано коштів'
         initiatives: 'Ініціативи'
         initiative: 'Ініціатива'
+        administration: 'Адмін панель'
         categories: 'Категорії'
         category: 'Категорія'
         comments: 'Коментарі'
@@ -104,6 +105,10 @@ uk:
         profile_edit: 'Редагувати профіль'
         confirm: 'Ви впевнені?'
         registration: 'Реєстрація'
+        phone: 'Телефон'
+        age: 'Вік'
+        images: 'Зображення'
+        videos: 'Відео'
         count:
           initiatives: 'Кількість ініціатив'
           categories: 'Кількість категорій'

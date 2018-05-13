@@ -8,3 +8,6 @@ Settings:
 
 Foreman:
 > - Run: `foreman start -f Procfile.dev`
+
+Generating graphs for the Initiative:
+> - `rake state_machine:draw FILE=initiative.rb CLASS=Initiative`

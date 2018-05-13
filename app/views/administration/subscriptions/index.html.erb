@@ -1,13 +1,32 @@
 <%= provide :site_title, t('views.pages.global.subscriptions') %>
-<%= provide :subscriptions_index, 'active' %>
+<%= provide :subscriptions, 'active' %>
 
-<% @subscriptions.each do |subscription| %>
-  <div class="col-sm-12">
-    <p><%= t('views.pages.global.email') %>: <%= subscription.email %></p>
-    <p><%= t('views.pages.global.created_at') %>: <%= subscription.created_at %></p>
-
-    <%= link_to t('views.pages.global.button.destroy'), administration_subscription_path(subscription), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
+<div class="container-fluid">
+  <div class="row" id="subscriptions">
+    <% @subscriptions.each do |subscription| %>
+      <div class="card border-success col-sm-4 margin-bottom-20">
+        <div class="card-header bg-transparent border-success text-success">
+          <h5 class="card-title text-center"><%= subscription.email %></h5>
+        </div>
+        <div class="card-footer bg-transparent border-success">
+          <p>
+            <%= t('views.pages.global.email') %>: <%= subscription.email %>
+          </p>
+          <p>
+            <%= t('views.pages.global.created_at') %>: <%= subscription.created_at %>
+          </p>
+          
+          <!-- links -->
+          <p>
+            <%= link_to t('views.pages.global.button.destroy'), administration_subscription_path(subscription), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
+          </p>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
-
-<%= paginate @subscriptions %>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= paginate @subscriptions, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-sm' %>
+    </div>
+  </div>
+</div>

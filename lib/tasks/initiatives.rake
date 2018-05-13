@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 namespace :initiatives do
-  desc 'Populate the table Song with songs'
+  desc 'the check of fundraising completed'
   task is_fundraised: :environment do
     @initiatives = Initiative.fundraising_now
     @initiatives.each do |initiative|

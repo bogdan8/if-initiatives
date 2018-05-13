@@ -17,6 +17,7 @@ gem 'rails', '~> 5.1.5'
 gem 'ruby-graphviz', require: 'graphviz'
 gem 'simple_form'
 gem 'state_machine'
+gem 'time_difference'
 
 # for js
 gem 'jbuilder', '~> 2.5'
@@ -24,8 +25,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 4.2.1'
 
 # for style
-gem 'bootstrap-kaminari-views'
-gem 'bootstrap-sass'
+gem 'bootstrap4-kaminari-views'
 gem 'font-awesome-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'select2-rails'
@@ -33,6 +33,7 @@ gem 'select2-rails'
 # for server
 gem 'babosa'
 gem 'dotenv-rails'
+gem 'foreman'
 gem 'friendly_id', '~> 5.1.0'
 gem 'kaminari'
 gem 'paperclip', '~> 5.2.0'
@@ -40,7 +41,6 @@ gem 'puma', '~> 3.0'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'social-share-button'
 gem 'unicode'
-gem 'foreman'
 
 # for devise
 gem 'cancancan'

@@ -1,8 +1,13 @@
 <%= provide :site_title, t('views.pages.users.index.title') %>
-<%= provide :users_index, 'active' %>
+<%= provide :users, 'active' %>
 
-<div id="users">
-  <%= render 'administration/users/index', collection: @users %>  
+<div class="container-fluid">
+  <div class="row" id="users">
+    <%= render 'administration/users/index', collection: @users %>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= paginate @users, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-sm'%> 
+    </div>
+  </div>
 </div>
-
-<%= paginate @users %>

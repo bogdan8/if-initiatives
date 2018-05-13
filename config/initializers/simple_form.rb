@@ -66,7 +66,7 @@ SimpleForm.setup do |config|
   config.boolean_style = :nested
 
   # Default class for buttons
-  config.button_class = 'btn'
+  config.button_class = 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.

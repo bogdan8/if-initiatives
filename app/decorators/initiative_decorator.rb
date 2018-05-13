@@ -11,7 +11,15 @@ class InitiativeDecorator < ApplicationDecorator
     attachments.select(&:image?)
   end
 
+  def first_image
+    attachments.select(&:image?).first
+  end
+
   def attachments_videos
     attachments.select(&:video?)
+  end
+
+  def first_videos
+    attachments.select(&:video?).first
   end
 end

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
                                    confirmation: :verification }
   root 'home#index'
   namespace :administration do
+    get '/home' => 'home#index'
     resources :initiatives do
       get :to_fundraising, on: :member
       get :to_rejected, on: :member

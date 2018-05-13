@@ -2,19 +2,18 @@
 <html>
   <%= render 'layouts/administration/header' %>
 
-  <body>
+  <body class="fixed-nav sticky-footer bg-dark" id="page-top">
     <%= render 'layouts/administration/navigation' %>
     
     <%= render 'layouts/administration/flash' %>
-
-    <%= render 'layouts/administration/breadcrumb' %>
-    
-    <div class="container">    
-      <div class="row">
+    <div class="content-wrapper administration">
+      <div class="container-fluid">
+        <%= render 'layouts/administration/breadcrumb' %>
+        
         <%= yield %>
       </div>
     </div>
-  </body>
 
-  <%= render 'layouts/administration/footer' %>
+    <%# render 'layouts/administration/footer' %>
+  </body>
 </html>

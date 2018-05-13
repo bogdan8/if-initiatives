@@ -3,9 +3,14 @@
 module InitiativesHelper
   def initialize(*)
     super
-    @success = 'btn btn-success btn-sm'
-    @danger = 'btn btn-danger btn-sm'
-    @warning = 'btn btn-warning btn-sm'
+    @success = 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn-success'
+    @danger = 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn-danger'
+    @warning = 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn-warning'
+  end
+
+  # helper to count how much time passed after adding
+  def added_time(initiative)
+    TimeDifference.between(initiative.created_at, Time.zone.now).humanize
   end
 
   # helper of links for administrator

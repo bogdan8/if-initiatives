@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <%= render 'layouts/user/header' %>
-
+  <%= render 'layouts/user/head' %>
   <body>
-    <%= render 'layouts/user/navigation' %>
-    
-    <%= render 'layouts/user/flash' %>
-    
-    <%= render 'layouts/user/breadcrumb' %>
-
-    <div class="container">    
-      <div class="row">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <%= render 'layouts/user/header' %>
+      
+      <%= render 'layouts/user/flash' %>
+      
+      <%# render 'layouts/user/breadcrumb' %>
+      
+      <main class="mdl-layout__content">
         <%= yield %>
-      </div>
-    </div>
 
-    <%= render 'layouts/user/footer' %>
+        <%= render 'layouts/user/footer' %>
+      </main>
+    </div>
   </body>
 </html>
