@@ -1,0 +1,27 @@
+<%= provide :site_title, t('views.pages.global.contacts') %>
+<%= provide :contacts, 'active' %>
+
+<div class="container-fluid">
+  <div class="row" id="contacts">
+    <% @contacts.each do |contact| %>
+      <div class="card border-success col-sm-4 margin-bottom-20">
+        <div class="card-header bg-transparent border-success text-success">
+          <h5 class="card-title text-center"><%= contact.full_name %></h5>
+        </div>
+        <div class="card-footer bg-transparent border-success">
+          <p>
+            <%= t('views.pages.global.email') %>: <%= contact.email %>
+          </p>
+          <p>
+            <%= t('views.pages.global.description') %>: <%= contact.description %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= paginate @contacts, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-sm' %>
+    </div>
+  </div>
+</div>
