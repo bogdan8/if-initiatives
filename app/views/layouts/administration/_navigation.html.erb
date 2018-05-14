@@ -25,6 +25,12 @@
         <% end %>
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+        <%= link_to administration_contacts_path, class: "nav-link #{yield :contacts}" do %>
+          <i class="fa fa-fw fa-dashboard"></i>
+          <span class="nav-link-text"><%= t('views.pages.global.contacts') %></span>
+        <% end %>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
         <%= link_to administration_users_path, class: "nav-link #{yield :users}" do %>
           <i class="fa fa-fw fa-dashboard"></i>
           <span class="nav-link-text"><%= t('views.pages.global.users') %></span>
