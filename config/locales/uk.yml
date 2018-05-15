@@ -43,6 +43,8 @@ uk:
       new: 'Звіт додано'
       update: 'Звіт відредаговано'
       destroy: 'Звіт видалено'
+    contact:
+      save: "Дякуємо за ваше повідомлення, ми з вами зв'яжемось якомога швидше"
 
   views:
     pages:
@@ -109,6 +111,7 @@ uk:
         age: 'Вік'
         images: 'Зображення'
         videos: 'Відео'
+        contacts: "Зв'язатись з нами"
         count:
           initiatives: 'Кількість ініціатив'
           categories: 'Кількість категорій'
@@ -178,6 +181,9 @@ uk:
           title: 'Додати звіт'
         index:
           title: 'Всі звіти'
+      contacts:
+        new:
+          title: 'Звязатись з нами'
 
     pagination:
       first: '&laquo; Перший'
@@ -229,6 +235,10 @@ uk:
       comment:
         title: 'Назва'
         text: 'Текст'
+      contact:
+        full_name: "Ім'я та прізвище"
+        email: 'Емейл'
+        description: 'Опис'
       category:
         title: 'Назва'
         position: 'Позиція'

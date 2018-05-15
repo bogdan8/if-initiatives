@@ -16,7 +16,7 @@ RSpec.describe SubscriptionsController, type: :controller do
     end
 
     context 'with incorrect parameters' do
-      it 'should reneres the new template' do
+      it 'should renders the new template' do
         subscriptions = Subscription.count
         post :create, params: { subscription: { emails: '' } }
         expect(Subscription.count).to eq(subscriptions)
