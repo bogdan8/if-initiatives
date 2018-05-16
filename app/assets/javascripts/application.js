@@ -3,8 +3,8 @@
 //= require jquery_ujs
 //= require cocoon
 //= require select2
-//= require initiatives
 //= require material.min
+//= require initiatives
 
 $(function($) {
   $('#initiative_category_ids').select2({
