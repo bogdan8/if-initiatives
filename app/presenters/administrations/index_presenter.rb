@@ -14,12 +14,28 @@ module Administrations
       User.count
     end
 
+    def users
+      User.last(3)
+    end
+
     def subscriptions_count
       Subscription.count
     end
 
+    def subscriptions
+      Subscription.last(3)
+    end
+
     def categories_count
       Category.count
+    end
+
+    def categories
+      Category.last(3)
+    end
+
+    def roles
+      Role.all
     end
   end
 end

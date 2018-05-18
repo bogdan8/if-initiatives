@@ -12,7 +12,7 @@ class InitiativeDecorator < ApplicationDecorator
   end
 
   def first_image
-    attachments.select(&:image?).first
+    attachments.select(&:image?).first.image if attachments.select(&:image?).first
   end
 
   def attachments_videos
@@ -20,6 +20,6 @@ class InitiativeDecorator < ApplicationDecorator
   end
 
   def first_videos
-    attachments.select(&:video?).first
+    attachments.select(&:video?).first.video if attachments.select(&:video?).first
   end
 end
