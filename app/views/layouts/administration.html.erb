@@ -1,19 +1,21 @@
-<!DOCTYPE html>
 <html>
-  <%= render 'layouts/administration/header' %>
+  <%= render 'layouts/administration/head' %>
 
-  <body class="fixed-nav sticky-footer bg-dark" id="page-top">
-    <%= render 'layouts/administration/navigation' %>
-    
-    <%= render 'layouts/administration/flash' %>
-    <div class="content-wrapper administration">
-      <div class="container-fluid">
+  <body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <%= render 'layouts/administration/header' %>
+
+      <%= render 'layouts/administration/navigation' %>
+      
+      <%= render 'layouts/administration/flash' %>
+      
+      <main class="mdl-layout__content mdl-color--grey-100">
         <%= render 'layouts/administration/breadcrumb' %>
         
         <%= yield %>
-      </div>
-    </div>
+      </main>
 
-    <%# render 'layouts/administration/footer' %>
+      <%# render 'layouts/administration/footer' %>
+    </div>
   </body>
 </html>
