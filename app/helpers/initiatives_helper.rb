@@ -7,12 +7,7 @@ module InitiativesHelper
     @danger = 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn-danger'
     @warning = 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn-warning'
   end
-
-  # helper to count how much time passed after adding
-  def added_time(initiative)
-    TimeDifference.between(initiative.created_at, Time.zone.now).humanize
-  end
-
+ 
   # helper of links for administrator
   def initiative_state_administrator_links(initiative)
     if initiative.confirmating?
