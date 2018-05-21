@@ -1,3 +1,4 @@
-<li>
+<li class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
   <%= link_to_unless current_page.first?, raw(t 'views.pagination.first'), url, remote: remote %>
+  <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span>
 </li>
