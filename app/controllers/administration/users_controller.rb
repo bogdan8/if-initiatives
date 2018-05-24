@@ -7,7 +7,7 @@ module Administration
     add_breadcrumb I18n.t('views.pages.global.users'), :administration_users_path
 
     def index
-      @users = User.includes(:roles).page(params[:page]).per(6)
+      @users = User.includes(:roles).page(params[:page]).per(8)
     end
 
     def show

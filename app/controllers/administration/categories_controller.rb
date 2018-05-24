@@ -6,7 +6,7 @@ module Administration
     add_breadcrumb I18n.t('views.pages.global.categories'), :administration_categories_path
 
     def index
-      @categories = Category.page(params[:page]).per(5)
+      @categories = Category.page(params[:page]).per(8)
     end
 
     def show

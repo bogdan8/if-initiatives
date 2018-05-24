@@ -7,7 +7,7 @@ module Administrations
     end
 
     def initiatives
-      Initiative.includes(:categories).without_draft.last(3)
+      Initiative.includes(:categories, :attachments).without_draft.last(3)
     end
 
     def users_count
