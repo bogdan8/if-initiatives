@@ -2,7 +2,9 @@
 <%= provide :confirmating, 'active' %>
 
 <div id="initiatives">
-  <%= render 'index' %>
+  <%= render 'index', collection: @initiatives %>
 </div>
 
-<%= paginate @initiatives %>
+<div id="paginator">
+  <%= paginate @initiatives %>
+</div>
