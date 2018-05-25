@@ -4,6 +4,7 @@
 //= require cocoon
 //= require select2
 //= require material.min
+//= require administration/initiatives
 
 $(function($) {
   $('#initiative_category_ids').select2({
