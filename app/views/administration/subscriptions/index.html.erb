@@ -1,14 +1,11 @@
 <%= provide :site_title, t('views.pages.global.subscriptions') %>
 <%= provide :subscriptions, 'active' %>
 
-<div class="container-fluid">
-  <div class="row" id="subscriptions">
-    <% @subscriptions.each do |subscription| %>
-      <div class="card border-success col-sm-4 margin-bottom-20">
-        <div class="card-header bg-transparent border-success text-success">
-          <h5 class="card-title text-center"><%= subscription.email %></h5>
-        </div>
-        <div class="card-footer bg-transparent border-success">
+<div class="mdl-grid"> 
+  <% @subscriptions.each do |subscription| %>
+    <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--12-col-table mdl-cell--12-col-phone">
+      <div class="demo-card-square mdl-card mdl-card-subscriptions mdl-shadow--2dp">
+        <div class="mdl-card__supporting-text">
           <p>
             <%= t('views.pages.global.email') %>: <%= subscription.email %>
           </p>
@@ -18,15 +15,16 @@
           
           <!-- links -->
           <p>
-            <%= link_to t('views.pages.global.button.destroy'), administration_subscription_path(subscription), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
+            <%= link_to t('views.pages.global.button.destroy'), administration_subscription_path(subscription), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
           </p>
         </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <%= paginate @subscriptions, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-sm' %>
+      </div> 
     </div>
+  <% end %>
+</div>
+
+<div class="mdl-grid"> 
+  <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-table mdl-cell--12-col-phone">
+      <%= paginate @subscriptions %>
   </div>
 </div>

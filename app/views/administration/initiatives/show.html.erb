@@ -1,81 +1,93 @@
 <%= provide :site_title, t('views.pages.global.initiative') %>
 <%= provide :initiatives, 'active' %>
 
-<div class="container-fluid" %>
-  <div class="row">
-    <div class="col-sm-12">
-      <p>
-        <%= t('views.pages.global.title') %>: <%= @initiative.title %>
-      </p>
-      <p>
-        <%= t('views.pages.global.short_description') %>: <%= @initiative.short_description %>
-      </p>
-      <p>
-        <%= t('views.pages.global.long_description') %>: <%= @initiative.long_description %>
-      </p>
-      <p>
-        <%= t('views.pages.global.finish_date') %>: <%= @initiative.finish_date %>
-      </p>
-      <p>
-        <%= t('views.pages.global.general_sum') %>: <%= @initiative.general_sum %>
-      </p>
-      
-      <!-- show categories -->
-      <p>
-        <%= t('views.pages.global.categories') %>: 
-        <% @initiative.decorate.categories_title%>
-      </p>
-    </div>
-  </div>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--12-col">
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__supporting-text">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-table mdl-cell--12-col-phone">
+            <%= image_tag @initiative.decorate.first_image(:medium), class: 'main-image' %>
+          </div>
+          <div class="mdl-cell mdl-cell--9-col-desktop mdl-cell--9-col-table mdl-cell--12-col-phone">
+            <p>
+              <%= t('views.pages.global.title') %>: <%= @initiative.title %>
+            </p>
+            <p>
+              <%= t('views.pages.global.short_description') %>: <%= @initiative.short_description %>
+            </p>
+            <p>
+              <%= t('views.pages.global.long_description') %>: <%= @initiative.long_description %>
+            </p>
+            <p>
+              <%= t('views.pages.global.finish_date') %>: <%= @initiative.finish_date %>
+            </p>
+            <p>
+              <%= t('views.pages.global.general_sum') %>: <%= @initiative.general_sum %>
+            </p>
+            
+            <!-- show categories -->
+            <p>
+              <%= t('views.pages.global.categories') %>: 
+              <% @initiative.decorate.categories_title%>
+            </p>
+          </div>
+        </div>
+        <div class="mdl-grid--no-spacing">
+          <div class="mdl-cell mdl-cell--12-col">
+            <h3><%= t('views.pages.global.images') %></h3>
+            <div class="mdl-grid">
+              <% @initiative.decorate.attachments_images.each do |attachment| %>
+                <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-table mdl-cell--12-col-phone">
+                  <%= image_tag attachment.image.url(:medium), class: 'full-image' %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="mdl-grid--no-spacing">
+          <div class="mdl-cell mdl-cell--12-col">
+            <h3><%= t('views.pages.global.videos') %></h3>
+            <div class="mdl-grid">
+              <% @initiative.decorate.attachments_videos.each do |attachment| %>
+                <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--6-col-table mdl-cell--12-col-phone">
+                  <%= video_tag attachment.video.url, class: 'full-video' %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="mdl-grid--no-spacing">
+          <div class="mdl-cell mdl-cell--12-col">
+            <h3><%= t('views.pages.global.comments') %></h3>
+            <div class="mdl-grid--no-spacing">
+              <% @initiative.comments.includes(:user).each do |comment| %>      
+                <div class="mdl-cell mdl-cell--12-col">
+                  <div class="comment-user-block">
+                    <%= image_tag comment.decorate.user_avatar, class: 'user-image' %>
+                    <div class="user-information">
+                      <span><%= comment.user.name %></span>
+                      <span><%= added_time comment.updated_at %></span>
+                    </div>
+                  </div>
+                  <p><%= t('views.pages.global.title') %>: <%= comment.title %></p>
+                  <p><%= t('views.pages.global.text') %>: <%= comment.text %></p>
 
-  <!-- show images -->
-  <div class="row">
-    <div class="col-sm-12 text-center">
-      <h3><%= t('views.pages.global.images') %>:</h3>
-    </div>
-
-    <% @initiative.decorate.attachments_images.each do |attachment| %>
-      <div class="col-sm-3 margin-bottom-20 image-block">
-        <%= image_tag attachment.image.url(:medium), class: 'full-image' %>
+                  <!-- comment links -->
+                  <%= link_to t('views.pages.global.button.destroy'), administration_comment_path(comment, initiative_id: @initiative.id), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-    <% end %>
-  </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <%= link_to t('views.pages.global.button.edit'), edit_administration_initiative_path(@initiative), class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
+        <%= link_to t('views.pages.global.button.destroy'), administration_initiative_path(@initiative), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
+        <%= initiative_state_administrator_links(@initiative) %>
 
-  <!-- show videos -->
-  <div class="row">
-    <div class="col-sm-12 text-center">
-      <h3><%= t('views.pages.global.videos') %>:</h3>
-    </div>
-
-    <% @initiative.decorate.attachments_videos.each do |attachment| %>
-      <div class="col-sm-6">
-        <%= video_tag attachment.video.url, controls: true, class: 'full-video' %>
+        <%= to_locked(@initiative) %>
       </div>
-    <% end %>
-  </div>
-
-  <!-- initiative links -->
-  <div class="row margin-bottom-20">
-    <div class="col-sm-12">
-      <%= link_to t('views.pages.global.button.edit'), edit_administration_initiative_path(@initiative), class: 'btn btn-warning btn-sm' %>
-      <%= link_to t('views.pages.global.button.destroy'), administration_initiative_path(@initiative), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
     </div>
-  </div>
-
-  <!-- show comments -->
-  <div class="row">
-    <div class="col-sm-12 text-center">
-      <h3><%= t('views.pages.global.comments') %>:</h3>
-    </div>
-
-    <% @initiative.comments.each do |comment| %>      
-      <div class="col-sm-6">
-        <p><%= t('views.pages.global.title') %>: <%= comment.title %></p>
-        <p><%= t('views.pages.global.text') %>: <%= comment.text %></p>
-
-        <!-- comment links -->
-        <%= link_to t('views.pages.global.button.destroy'), administration_comment_path(comment, initiative_id: @initiative.id), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
-      </div>
-    <% end %>
   </div>
 </div>

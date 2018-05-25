@@ -26,6 +26,11 @@ module ApplicationHelper
     return unless current_user.has_role? :moderator # return if user not administrator
   end
 
+  # helper to count how much time passed after adding
+  def added_time(date)
+    TimeDifference.between(date, Time.zone.now).humanize
+  end
+
   private
 
   # links for signout user

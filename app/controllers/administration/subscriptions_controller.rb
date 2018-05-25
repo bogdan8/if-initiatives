@@ -5,7 +5,7 @@ module Administration
     load_and_authorize_resource
     add_breadcrumb I18n.t('views.pages.global.subscriptions'), :administration_subscriptions_path
     def index
-      @subscriptions = Subscription.page(params[:page]).per(5)
+      @subscriptions = Subscription.page(params[:page]).per(8)
     end
 
     def destroy

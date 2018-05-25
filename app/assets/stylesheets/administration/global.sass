@@ -1,33 +1,189 @@
-.administration
-  .header-button
-    text-align: center
-    width: 100%
-    padding: 25px
+@import 'variable'
 
-  .margin-bottom-20
-    margin: 
-      bottom: 20px
+html, body
+  font-family: 'Roboto', 'Helvetica', sans-serif
 
-  .margin-right-20
-    margin:
-      right: 20px
+.flex-column
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
 
-  .margin-left-20
-    margin:
-      left: 20px
+.flex-between
+  display: flex
+  justify-content: space-around
+  align-items: center
+  flex-wrap: wrap
 
-  .margin-top-20
-    margin:
-      top: 20px
+.flex-center
+  display: flex
+  justify-content: center
+  align-items: center
 
-  .image-block
-    width: 100%
-    height: 300px
+.full-image
+  height: 300px
+  width: 100%
 
-  .flex-between
+.full-video
+  height: 300px
+  width: 100%
+
+.comment-user-block
+  display: flex
+
+  .user-image
+    width: 50px
+    height: 50px
+    border-radius: 50%
+
+  .user-information
     display: flex
-    justify-content: space-between
-    flex-wrap: wrap
+    flex-direction: column
+    justify-content: space-around
+    margin-left: 20px
 
-  .roles-links
-    width: 320px
+.demo-avatar
+  width: 100%
+  height: 80%
+
+.demo-layout .mdl-layout__header .mdl-layout__drawer-button
+  color: rgba(0, 0, 0, 0.54)
+
+.mdl-layout__drawer .avatar
+  margin-bottom: 16px
+
+.demo-drawer
+  border: none
+  .mdl-menu__container
+    z-index: -1
+  .demo-navigation
+    z-index: -2
+  .mdl-menu .mdl-menu__item
+    display: flex
+    align-items: center
+
+/* iOS Safari specific workaround
+
+/* END iOS Safari specific workaround
+
+.demo-drawer-header
+  box-sizing: border-box
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
+  padding: 16px
+  height: 151px
+
+.demo-avatar-dropdown
+  display: flex
+  position: relative
+  flex-direction: row
+  align-items: center
+  width: 100%
+
+.demo-navigation
+  flex-grow: 1
+
+.demo-layout .demo-navigation .mdl-navigation__link
+  display: flex !important
+  flex-direction: row
+  align-items: center
+  color: rgba(255, 255, 255, 0.56)
+  font-weight: 500
+  &:hover
+    background-color: #00BCD4
+    color: #37474F
+
+.demo-navigation .mdl-navigation__link .material-icons
+  font-size: 24px
+  color: rgba(255, 255, 255, 0.56)
+  margin-right: 32px
+
+.demo-content
+  max-width: 1080px
+
+.demo-charts
+  align-items: center
+
+.demo-chart
+  &:nth-child(1)
+    color: #ACEC00
+  &:nth-child(2)
+    color: #00BBD6
+  &:nth-child(3)
+    color: #BA65C9
+  &:nth-child(4)
+    color: #EF3C79
+
+.demo-graphs
+  padding: 16px 32px
+  display: flex
+  flex-direction: column
+  align-items: stretch
+
+.demo-graph
+  &:nth-child(1)
+    color: #00b9d8
+  &:nth-child(2)
+    color: #d9006e
+
+.demo-cards
+  align-items: flex-start
+  align-content: flex-start
+  .demo-separator
+    height: 32px
+  .mdl-card__title.mdl-card__title
+    color: white
+    font-size: 24px
+    font-weight: 400
+  ul
+    padding: 0
+  h3
+    font-size: 1em
+
+.demo-updates .mdl-card__title
+  min-height: 200px
+  background-image: url('images/dog.png')
+  background-position: 90% 100%
+  background-repeat: no-repeat
+
+.demo-cards .mdl-card__actions a
+  color: #00BCD4
+  text-decoration: none
+
+.demo-options
+  h3
+    margin: 0
+  .mdl-checkbox__box-outline
+    border-color: rgba(255, 255, 255, 0.89)
+  ul
+    margin: 0
+    list-style-type: none
+  li
+    margin: 4px 0
+  .material-icons
+    color: rgba(255, 255, 255, 0.89)
+  .mdl-card__actions
+    height: 64px
+    display: flex
+    box-sizing: border-box
+    align-items: center
+
+.image-block
+  height: 250px
+
+.background-white
+  background-color: $white
+
+.full-div-size
+  div
+    width: 100%
+
+.menu-links-block
+  display: flex
+  position: absolute
+  justify-content: flex-end
+  text-align: center
+  width: 100%
+  button
+    margin: 10px

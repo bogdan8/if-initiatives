@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[destroy]
     resources :categories
     resources :subscriptions, only: %i[index destroy]
-    resources :contacts, only: %i[index]
+    resources :contacts, only: %i[index destroy]
     resources :users do
       get :role, on: :member
     end

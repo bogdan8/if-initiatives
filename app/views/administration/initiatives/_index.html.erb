@@ -1,37 +1,36 @@
-<% @initiatives.decorate.each do |initiative| %>
-  <div class="card border-success col-sm-6 col-md-6 col-lg-4 col-xl-4 margin-bottom-20">
-    <div class="card-header bg-transparent border-success text-success">
-      <h5 class="card-title text-center"><%= initiative.title %></h5>
-    </div>
-    <div class="card-body text-success">
-      <div class="row">
-        <div class="col-sm-6">
-          <%= image_tag(initiative.first_image.image.url(:medium), class: 'full-image') if initiative.first_image %>
+<div class="mdl-grid">
+  <% collection.decorate.each do |initiative| %>
+    <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--6-col-table mdl-cell--12-col-phone flex-column">
+      <div class="demo-card-square mdl-card mdl-card-initiatives mdl-shadow--2dp">
+        <div class="mdl-card__title mdl-card--expand" style="background: url('<%= initiative.decorate.first_image(:small) %>'); background-size: cover; ">
+          <h2 class="mdl-card__title-text"><%= initiative.title %></h2>
         </div>
-        <div class="col-sm-6">
-          <p class="card-text"><%= initiative.short_description %></p>
+        <div class="mdl-card__supporting-text">
+          <p class="ndk-card__short-description">
+            <%= t('views.pages.global.short_description') %>: <%= initiative.short_description %>
+          </p>
+          <p>
+            <%= t('views.pages.global.finish_date') %>: <%= initiative.finish_date %>
+          </p>
+          <p>
+            <%= t('views.pages.global.general_sum') %>: <%= initiative.general_sum %>
+          </p>
+          <p>
+            <%= t('views.pages.global.collected_amount') %>: <%= initiative.collected_amount %>
+          </p>
+          <p>
+            <%= t("views.pages.initiatives.state.#{initiative.state}") %>
+          </p>
+
+          <!-- Categories -->
+          <p>
+            <%= t('views.pages.global.categories') %>: <%= initiative.decorate.categories_title %>
+          </p>
         </div>
-      </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <%= link_to t('views.pages.global.button.show'), administration_initiative_path(initiative), class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
+        </div>
+      </div> 
     </div>
-    <div class="card-footer bg-transparent border-success">
-      <p><%= t('views.pages.global.finish_date') %>: <%= initiative.finish_date %></p>
-      <p><%= t('views.pages.global.general_sum') %>: <%= initiative.general_sum %></p>
-      <p><%= t('views.pages.global.collected_amount') %>: <%= initiative.collected_amount %></p>
-      <p><%= t("views.pages.initiatives.state.#{initiative.state}") %></p>
-
-      <!-- Categories -->
-      <p>
-        <%= t('views.pages.global.categories') %>: <%= initiative.categories_title %>
-      </p>
-
-      <!-- links -->
-      <div class="flex-between">
-        <%= link_to t('views.pages.global.button.show'), administration_initiative_path(initiative), class: 'btn btn-info btn-sm' %>
-        <%= link_to t('views.pages.global.button.destroy'), administration_initiative_path(initiative), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm' %>
-        <%= initiative_state_administrator_links(initiative) %>
-
-        <%= to_locked(initiative) %>
-      </div>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
