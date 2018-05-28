@@ -7,24 +7,24 @@
     "npm": "5.8.0"
   },
   "scripts": {
-    "dev": "webpack-dev-server --env.env=dev",
-    "dev:bundleanalyzer": "yarn dev --env.addons=bundleanalyzer",
-    "prebuild": "rimraf dist",
-    "build": "cross-env NODE_ENV=production webpack -p --env.env=prod",
-    "build:bundleanalyzer": "yarn build --env.addons=bundleanalyzer"
+    "build:production": "NODE_ENV=production webpack --config webpack.config.js",
+    "build:development": "webpack --config webpack.config.js"
   },
   "cacheDirectories": [
     "node_modules",
     "client/node_modules"
   ],
   "dependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "es6-shim": "^0.35.3",
+    "npm": "^6.1.0",
     "react": "^16.3.2",
     "react-delay-render": "^0.1.2",
     "react-dom": "^16.3.2",
     "react-imported-component": "^4.3.0",
     "react-prop-types": "^0.4.0",
-    "react-router-dom": "^4.2.2",
-    "semantic-ui-react": "^0.80.0"
+    "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -33,18 +33,17 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "chalk": "^2.4.1",
+    "compression-webpack-plugin": "^1.1.11",
     "cross-env": "^5.1.4",
     "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.9.0",
     "postcss-loader": "^2.1.4",
-    "react-hot-loader": "^4.1.2",
-    "rimraf": "^2.6.2",
+    "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
-    "webpack": "^4.6.0",
-    "webpack-bundle-analyzer": "^2.11.1",
+    "webpack": "^4.9.1",
     "webpack-cli": "^2.1.2",
-    "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.1.2"
   },
   "main": "index.js",
