@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180513164319) do
+ActiveRecord::Schema.define(version: 20180528164635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,6 +114,14 @@ ActiveRecord::Schema.define(version: 20180513164319) do
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
+  create_table "steps", force: :cascade do |t|
+    t.string "state"
+    t.bigint "initiative_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["initiative_id"], name: "index_steps_on_initiative_id"
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.datetime "created_at", null: false
@@ -167,4 +175,5 @@ ActiveRecord::Schema.define(version: 20180513164319) do
   add_foreign_key "attachments", "initiatives"
   add_foreign_key "initiatives", "users"
   add_foreign_key "reports", "initiatives"
+  add_foreign_key "steps", "initiatives"
 end
