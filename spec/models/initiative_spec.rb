@@ -28,6 +28,7 @@ RSpec.describe Initiative, type: :model do
     it { is_expected.to have_many :comments }
     it { is_expected.to have_many :reports }
     it { is_expected.to have_many :attachments }
+    it { is_expected.to have_many :steps }
   end
 
   describe '#validations' do
