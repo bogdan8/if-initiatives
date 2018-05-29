@@ -1,46 +1,65 @@
-const buildValidations = require('./build-utils/build-validations');
-const commonConfig = require('./build-utils/webpack.common');
+const webpack = require('webpack');
+const CompressionPlugin = require('compression-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
-const webpackMerge = require('webpack-merge');
+const config = {
+  mode: 'development',
+  entry: {
+    'babel-polyfill': ['babel-polyfill'],
+    app: './src/index.jsx'
+  },
 
-// We can include Webpack plugins, through addons, that do 
-// not need to run every time we are developing.
-// We will see an example when we set up 'Bundle Analyzer'
-const addons = (/* string | string[] */ addonsArg) => {
-  
-  // Normalize array of addons (flatten)
-  let addons = [...[addonsArg]] 
-    .filter(Boolean); // If addons is undefined, filter it out
+  output: {
+    filename: '[name].[hash].js',
+    path: __dirname + '../../public/assets',
+    publicPath: '/assets/'
+  },
 
-  return addons.map(addonName =>
-    require(`./build-utils/addons/webpack.${addonName}.js`)
-  );
+  module: {
+    rules: [{
+      test: /\.scss$/,
+      use: [{
+          loader: "style-loader" // creates style nodes from JS strings
+      }, {
+          loader: "css-loader" // translates CSS into CommonJS
+      }, {
+          loader: "sass-loader" // compiles Sass to CSS
+      }]
+    },
+    {
+      loader: "babel-loader",
+
+      // Skip any files outside of your project's `src` directory
+      include: [
+        path.resolve(__dirname, "src"),
+      ],
+
+      // Only run `.js` and `.jsx` files through Babel
+      test: /\.jsx?$/,
+
+      // Options to configure babel with
+      query: {
+        plugins: ['transform-runtime'],
+        presets: ['es2015', 'stage-1', 'react'],
+      }
+    }]
+  },
+
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new CompressionPlugin({
+        asset: "[path].gz[query]",
+        algorithm: "gzip",
+        test: /\.(js|html)$/,
+        threshold: 10240,
+        minRatio: 0.8
+      }),
+    new HtmlWebpackPlugin({
+      filename: '../index.html',
+      template: 'index.ejs',
+      chunks: ['app']
+    })
+  ]
 };
-
-// 'env' will contain the environment variable from 'scripts' 
-// section in 'package.json'.
-// console.log(env); => { env: 'dev' }
-module.exports = env => {
-
-  // We use 'buildValidations' to check for the 'env' flag
-  if (!env) {
-    throw new Error(buildValidations.ERR_NO_ENV_FLAG);
-  }
-
-  // Select which Webpack configuration to use; development 
-  // or production
-  // console.log(env.env); => dev
-  const envConfig = require(`./build-utils/webpack.${env.env}.js`);
-  
-  // 'webpack-merge' will combine our shared configurations, the 
-  // environment specific configurations and any addons we are
-  // including
-  const mergedConfig = webpackMerge(
-    commonConfig,
-    envConfig,
-    ...addons(env.addons)
-  );
-
-  // Then return the final configuration for Webpack
-  return mergedConfig;
-};
+module.exports = config;

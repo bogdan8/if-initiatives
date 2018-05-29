@@ -22,6 +22,7 @@ client/public
 public/images/attachments/
 public/images/users/
 public/videos/
+public/assets/
 
-.byebug_history
+byebug_history
 .env
