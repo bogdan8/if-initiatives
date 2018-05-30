@@ -7,7 +7,7 @@ module InitiativesHelper
     @danger = 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn-danger'
     @warning = 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn-warning'
   end
- 
+
   # helper of links for administrator
   def initiative_state_administrator_links(initiative)
     if initiative.confirmating?
