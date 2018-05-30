@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :api, defaults: { format: :json } do
+    resources :initiatives, only: %i[index show] do
+      resources :comments, except: %i[index show new]
+    end
+    resources :subscriptions, only: %i[create]
+    resources :contacts, only: %i[new create]
+  end
+  
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     omniauth_callbacks: 'users/omniauth_callbacks' },
                      path: :user,
