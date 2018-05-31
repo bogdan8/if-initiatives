@@ -6,7 +6,7 @@ const path = require('path');
 const config = {
   mode: 'development',
   entry: {
-    'babel-polyfill': ['babel-polyfill'],
+    library: ['babel-polyfill'],
     app: './src/index.jsx'
   },
 
@@ -62,4 +62,5 @@ const config = {
     })
   ]
 };
+
 module.exports = config;
