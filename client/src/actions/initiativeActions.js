@@ -1,4 +1,5 @@
-import * as types from './actionTypes';
+import * as types from './actionTypes'
+import initiativeApi from '../api/initiativeApi'
 
 export function allInitiatives() {
   return function (dispatch) {
@@ -6,9 +7,9 @@ export function allInitiatives() {
       dispatch({
         type: types.GET_INITIATIVES,
         initiatives: response.body
-      });
+      })
     }).catch(error => {
       throw(error);
-    });
-  };
-};
+    })
+  }
+}
