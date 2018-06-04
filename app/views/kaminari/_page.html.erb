@@ -1,11 +1,15 @@
 <% if page.current? %>
-  <li class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect active">
-    <%= content_tag :a, page, remote: remote, rel: (page.next? ? 'next' : (page.prev? ? 'prev' : nil)) %>
-    <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span>
-  </li>
+  <%= content_tag :a, remote: remote, rel: (page.next? ? 'next' : (page.prev? ? 'prev' : nil)) do %>
+    <li class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect active">
+      <%= page %>
+      <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span>
+    </li>
+  <% end %>
 <% else %>
-  <li class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-    <%= link_to page, url, remote: remote, rel: (page.next? ? 'next' : (page.prev? ? 'prev' : nil)) %>
-    <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span>
-  </li>
+  <%= link_to url, remote: remote, rel: (page.next? ? 'next' : (page.prev? ? 'prev' : nil)) do %>
+    <li class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+      <%= page %>
+      <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span>
+    </li>
+  <% end %>
 <% end %>
