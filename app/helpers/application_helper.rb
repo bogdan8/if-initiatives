@@ -3,7 +3,7 @@
 module ApplicationHelper
   def initialize(*)
     super
-    @link = @link
+    @link = 'mdl-navigation__link'
   end
 
   # navigation for signout user

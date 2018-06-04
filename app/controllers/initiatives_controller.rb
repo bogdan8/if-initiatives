@@ -8,6 +8,7 @@ class InitiativesController < ApplicationController
   end
 
   def show
+    @initiative = Initiative.includes(comments: :user).friendly.find(params[:id])
     add_breadcrumb t('views.pages.global.button.show_obj', obj: @initiative.title)
   end
 end
