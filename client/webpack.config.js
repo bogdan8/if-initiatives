@@ -6,7 +6,7 @@ const path = require('path');
 const config = {
   mode: 'development',
   entry: {
-    'babel-polyfill': ['babel-polyfill'],
+    library: ['babel-polyfill'],
     app: './src/index.jsx'
   },
 
@@ -18,7 +18,7 @@ const config = {
 
   module: {
     rules: [{
-      test: /\.scss$/,
+      test: /\.scss|.sass$/,
       use: [{
           loader: "style-loader" // creates style nodes from JS strings
       }, {
@@ -62,4 +62,5 @@ const config = {
     })
   ]
 };
+
 module.exports = config;
