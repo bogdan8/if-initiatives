@@ -1,13 +1,25 @@
-import React from 'react';
-import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
-import importedComponent from 'react-imported-component';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const App = () => {
-  return (
-    <div>
-    Hello
-    </div>
-  );
-};
+import Routes from '../routes/Routes.jsx';
+import rootReducer from '../reducers/rootReducer';
 
-export default App;
+import 'react-mdl/extra/material.js';
+
+import '../style/Header.sass';
+
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+
+export default class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Routes />
+      </Provider>
+    )
+  }
+}
