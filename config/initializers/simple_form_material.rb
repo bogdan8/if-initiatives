@@ -27,9 +27,9 @@ SimpleForm.setup do |config|
     b.optional :maxlength
     b.optional :minlength
     b.optional :readonly
-    b.use :label, class: 'image_input_button mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored'
+    b.use :label
 
-    b.use :input, class: 'none file'
+    b.use :input
     b.use :error, wrap_with: { tag: 'span', class: 'mdl-textfield__error' }
     b.use :hint,  wrap_with: { tag: 'p', class: 'mdl-textfield__error' }
   end

@@ -2,18 +2,22 @@
 <html>
   <%= render 'layouts/user/head' %>
   <body>
-    <div>
+    <div class="mdl-layout mdl-js-layout">
       <%= render 'layouts/user/header' %>
       
-      <%= render 'layouts/user/flash' %>
+      <%# render 'layouts/user/flash' %>
       
       <%# render 'layouts/user/breadcrumb' %>
       
       <main class="mdl-layout__content">
-        <%= yield %>
-
-        <%= render 'layouts/user/footer' %>
+     
+        <div class="page-content">
+          <%= yield %>
+        </div>
+      
       </main>
+
+      <%= render 'layouts/user/footer' %>
     </div>
   </body>
 </html>
