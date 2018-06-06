@@ -26,10 +26,7 @@
             <!-- roles links -->
           </div>
         </div>
-      </div>
-      <div class="mdl-card__actions mdl-card--border">
-       <%= link_to t('views.pages.global.button.edit'), edit_administration_user_path(@user), class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect margin-rigth-20' %>
-        <%= link_to t('views.pages.global.button.destroy'), administration_user_path(@user), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
+        <%= link_to t('views.pages.global.button.edit'), edit_user_registration_path, class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect margin-rigth-20' %>
       </div>
     </div>
   </div>
