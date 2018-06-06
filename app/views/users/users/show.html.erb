@@ -1,14 +1,33 @@
 <%= provide :site_title, t('views.pages.global.user') %>
-<%= provide :users_show, 'active' %>
+<%= provide :users, 'active' %>
 
-<div class="row">
-  <div class="col-sm-12">
-    <p><%= t('views.pages.users.name') %>: <%= @user.name %></p>
-    <p><%= t('views.pages.users.phone') %>: <%= @user.phone %></p>
-    <p><%= t('views.pages.users.age') %>: <%= @user.age %></p>
-    <p><%= t('views.pages.users.roles') %>: <%= @user.decorate.roles_name %></p>
-    <div class="avatar">
-      <%= image_tag @user.avatar.url(:original), class: 'full-image' %>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--12-col">
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__supporting-text">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-table mdl-cell--12-col-phone image-block">
+            <%= image_tag @user.avatar.url(:medium), class: 'main-image' %>
+          </div>
+          <div class="mdl-cell mdl-cell--9-col-desktop mdl-cell--9-col-table mdl-cell--12-col-phone">
+            <p>
+              <%= t('views.pages.global.email') %>: <%= @user.email %>
+            </p>
+            <p>
+              <%= t('views.pages.global.phone') %>: <%= @user.phone %>
+            </p>
+            <p>
+              <%= t('views.pages.global.age') %>: <%= @user.age %>
+            </p>
+            <p>
+              <%= t('views.pages.global.email') %>: <%= @user.email %>
+            </p>
+            
+            <!-- roles links -->
+          </div>
+        </div>
+        <%= link_to t('views.pages.global.button.edit'), edit_user_registration_path, class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect margin-rigth-20' %>
+      </div>
     </div>
   </div>
 </div>

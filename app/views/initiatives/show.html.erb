@@ -7,7 +7,7 @@
       <h2 class="mdl-card__title-text"><%= @initiative.title %></h2>
     </div>
     <div class="mdl-card__media">
-      <%= image_tag(@initiative.decorate.first_image(:original), class: 'article-image') %>
+      <%= image_tag(@initiative.decorate.first_image(:original), class: 'initiative-image') %>
     </div>
     <div class="mdl-card__supporting-text">
       <strong><%= t('views.pages.global.categories') %></strong>
@@ -28,7 +28,7 @@
       <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding">
         <div class="mdl-grid">
           <% @initiative.decorate.attachments_images.each do |attachment| %>
-            <div class="mdl-cell mdl-cell--3 col mdl-card__supporting-text no-padding">
+            <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone mdl-card__supporting-text no-padding">
               <%= image_tag attachment.image.url(:medium), class: 'full-image' %>
             </div>
           <% end %>
@@ -36,11 +36,13 @@
       </div>
       <!-- show videos -->
       <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding">
-        <% @initiative.decorate.attachments_videos.each do |attachment| %>
-          <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding">
-            <%= video_tag attachment.video.url, controls: true, class: 'full-video' %>
-          </div>
-        <% end %>
+        <div class="mdl-grid">
+          <% @initiative.decorate.attachments_videos.each do |attachment| %>
+            <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--12-col-phone mdl-card__supporting-text no-padding">
+              <%= video_tag attachment.video.url, controls: true, class: 'full-video' %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
     <!-- show comments -->
