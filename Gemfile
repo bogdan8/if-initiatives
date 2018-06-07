@@ -19,6 +19,9 @@ gem 'simple_form'
 gem 'state_machine'
 gem 'time_difference'
 
+# payment
+gem 'liqpay', '~>1.0.0'
+
 # for js
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
