@@ -24,6 +24,7 @@
         <p><%= t('views.pages.global.general_sum') %>: <%= @initiative.general_sum %></p>
         <p><%= t("views.pages.initiatives.state.#{@initiative.state}") %></p>
       </div>
+      <%= liqpay_button @liqpay_request, title: "Pay now!" %>
       <!-- show images -->
       <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding">
         <div class="mdl-grid">
