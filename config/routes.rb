@@ -47,7 +47,7 @@ Rails.application.routes.draw do
     end
     resources :attachments, only: %i[destroy]
   end
-  resources :donations, only: %i[create]
+  post 'liqpay', to: 'donations#liqpay'
   get 'user/:id', to: 'users/users#show', as: :user
 
   resources :initiatives, only: %i[index show] do
