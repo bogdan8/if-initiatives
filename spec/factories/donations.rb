@@ -4,16 +4,16 @@
 #
 # Table name: donations
 #
-#  id               :integer          not null, primary key
-#  payer_id         :integer
-#  user_id          :integer
-#  initiative_id    :integer
-#  amount           :integer
-#  description      :string
-#  currency         :string
-#  internet_banking :string
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
+#  id            :integer          not null, primary key
+#  payer_id      :integer
+#  user_id       :integer
+#  initiative_id :integer
+#  amount        :integer
+#  description   :string
+#  currency      :string
+#  status        :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #
 
 FactoryBot.define do
@@ -24,6 +24,6 @@ FactoryBot.define do
     amount 123
     description Faker::Lorem.characters(55)
     currency 'usd'
-    internet_banking 'private'
+    status 'success'
   end
 end
