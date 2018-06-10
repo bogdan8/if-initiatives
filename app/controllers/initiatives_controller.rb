@@ -9,17 +9,24 @@ class InitiativesController < ApplicationController
 
   def show
     @initiative = Initiative.includes(comments: :user).friendly.find(params[:id])
-    add_breadcrumb t('views.pages.global.button.show_obj', obj: @initiative.title) 
-    # need to find another solution
-    donation = Donation.create(user_id: current_user.id, initiative_id: @initiative.id)
+    add_breadcrumb t('views.pages.global.button.show_obj', obj: @initiative.title)
+    liqpay(@initiative)
+  end
+
+  private
+
+  # need to find another solution
+  def liqpay(initiative)
+    return unless current_user
+    donation = Donation.create(user_id: current_user.id, initiative_id: initiative.id)
     @liqpay_request = Liqpay::Request.new(
-      amount: '5',
+      amount: '0.02',
       currency: 'UAH',
       sandbox: '1',
       order_id: donation.id,
-      description: @initiative.short_description,
-      result_url: initiative_url(@initiative),
-      server_url: "http://localhost:3000/liqpay"
+      description: initiative.short_description,
+      result_url: initiative_url(initiative),
+      server_url: 'http://localhost/liqpay'
     )
   end
 end

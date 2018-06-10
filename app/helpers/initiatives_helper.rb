@@ -79,4 +79,10 @@ module InitiativesHelper
     implemented = to_implemented_administration_initiative_path(initiative)
     link_to(t('views.pages.global.button.implemented'), implemented, class: @success)
   end
+
+  # liqpay payment for initiative
+  def liqpay(liqpay_request)
+    return unless current_user
+    liqpay_button liqpay_request, title: 'Оплатити'
+  end
 end
