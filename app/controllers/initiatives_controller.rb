@@ -20,9 +20,9 @@ class InitiativesController < ApplicationController
     return unless current_user
     donation = Donation.create(user_id: current_user.id, initiative_id: initiative.id)
     @liqpay_request = Liqpay::Request.new(
-      amount: '0.02',
+      amount: '5',
       currency: 'UAH',
-      sandbox: '1',
+      sandbox: '1', # for testing
       order_id: donation.id,
       description: initiative.short_description,
       result_url: initiative_url(initiative),
