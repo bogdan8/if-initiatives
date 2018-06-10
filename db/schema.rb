@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180528164635) do
+ActiveRecord::Schema.define(version: 20180610070353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,20 @@ ActiveRecord::Schema.define(version: 20180528164635) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "donations", force: :cascade do |t|
+    t.integer "payer_id"
+    t.bigint "user_id"
+    t.bigint "initiative_id"
+    t.integer "amount"
+    t.string "description"
+    t.string "currency"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["initiative_id"], name: "index_donations_on_initiative_id"
+    t.index ["user_id"], name: "index_donations_on_user_id"
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -84,7 +98,7 @@ ActiveRecord::Schema.define(version: 20180528164635) do
     t.text "long_description"
     t.integer "general_sum"
     t.date "finish_date"
-    t.integer "collected_amount"
+    t.integer "collected_amount", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -173,6 +187,8 @@ ActiveRecord::Schema.define(version: 20180528164635) do
   end
 
   add_foreign_key "attachments", "initiatives"
+  add_foreign_key "donations", "initiatives"
+  add_foreign_key "donations", "users"
   add_foreign_key "initiatives", "users"
   add_foreign_key "reports", "initiatives"
   add_foreign_key "steps", "initiatives"

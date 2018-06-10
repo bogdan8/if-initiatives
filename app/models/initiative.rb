@@ -6,17 +6,17 @@
 #
 #  id                :integer          not null, primary key
 #  title             :string
-#  slug              :string
 #  short_description :text
 #  long_description  :text
 #  general_sum       :integer
 #  finish_date       :date
-#  collected_amount  :integer
+#  collected_amount  :integer          default(0)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  user_id           :integer
 #  state             :string           default("draft")
 #  finish_days       :integer          default(5)
+#  slug              :string
 #
 
 class Initiative < ApplicationRecord
@@ -64,6 +64,7 @@ class Initiative < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :reports, dependent: :destroy
   has_many :steps, dependent: :destroy
+  has_many :donations, dependent: :destroy
 
   has_many :attachments, dependent: :destroy, inverse_of: :initiative
   accepts_nested_attributes_for :attachments, reject_if: :all_blank, allow_destroy: true
@@ -86,6 +87,11 @@ class Initiative < ApplicationRecord
 
   def self.without_draft
     where.not(state: :draft)
+  end
+
+  def update_amount(amount)
+    new_amount = collected_amount + amount.to_i
+    update(collected_amount: new_amount)
   end
 
   # method for get initiatives which available for everyone

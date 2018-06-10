@@ -47,6 +47,7 @@ class User < ApplicationRecord
 
   has_many :initiatives, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :donations, dependent: :destroy
 
   # validations
   validates :name, :email, :phone, :age, presence: true
