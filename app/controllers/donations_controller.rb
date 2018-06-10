@@ -9,6 +9,7 @@ class DonationsController < ApplicationController
       Donation.find(@liqpay_response.order_id).initiative.update_amount(@liqpay_response.amount)
     end
     donation(@liqpay_response)
+    head :no_content
   rescue Liqpay::InvalidResponse
     render text: 'Payment error', status: :internal_server_error
   end
@@ -18,6 +19,7 @@ class DonationsController < ApplicationController
   def donation(liqpay)
     Donation.find(liqpay.order_id).update(
       amount: liqpay.amount,
+      status: liqpay.status,
       description: liqpay.description,
       currency: liqpay.currency
     )
