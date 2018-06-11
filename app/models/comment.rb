@@ -14,6 +14,8 @@
 #
 
 class Comment < ApplicationRecord
+  after_commit :create_notifications, on: :create
+
   belongs_to :user
   belongs_to :initiative
 
@@ -21,4 +23,16 @@ class Comment < ApplicationRecord
   validates :text, presence: true
   validates :title, length: { minimum: 5 }
   validates :text, length: { minimum: 10 }
+
+  private
+
+  def create_notifications
+    Notification.create do |notification|
+      notification.notify_type = 'comment'
+      notification.actor = user
+      notification.user = initiative.user
+      notification.target = self
+      notification.second_target = initiative
+    end
+  end
 end

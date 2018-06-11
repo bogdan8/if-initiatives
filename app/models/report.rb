@@ -13,6 +13,7 @@
 #
 
 class Report < ApplicationRecord
+  after_commit :create_notifications, on: :create
   belongs_to :initiative
 
   has_many :attachments, dependent: :destroy, inverse_of: :report
@@ -22,4 +23,18 @@ class Report < ApplicationRecord
   validates :title, :description, presence: true
   validates :title, length: { minimum: 5 }
   validates :description, length: { minimum: 25 }
+
+  private
+
+  def create_notifications
+    User.with_role(:administrator).each do |admin|
+      Notification.create do |notification|
+        notification.notify_type = 'report'
+        notification.actor = initiative.user
+        notification.user = admin
+        notification.target = self
+        notification.second_target = initiative
+      end
+    end
+  end
 end
