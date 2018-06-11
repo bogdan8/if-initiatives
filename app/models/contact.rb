@@ -14,7 +14,7 @@
 
 class Contact < ApplicationRecord
   after_commit :create_notifications, on: :create
-  
+
   validates :full_name, :email, :description, presence: true
 
   private

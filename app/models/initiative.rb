@@ -23,7 +23,7 @@ class Initiative < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: %i[slugged]
   after_commit :create_notifications, on: :create
-  
+
   state_machine initial: :draft do
     event :to_confirmating do
       transition %i[draft rejected] => :confirmating
@@ -101,7 +101,7 @@ class Initiative < ApplicationRecord
   end
 
   private
-  
+
   def create_notifications
     User.with_role(:administrator).each do |admin|
       Notification.create do |notification|

@@ -15,7 +15,7 @@
 
 class Comment < ApplicationRecord
   after_commit :create_notifications, on: :create
-  
+
   belongs_to :user
   belongs_to :initiative
 

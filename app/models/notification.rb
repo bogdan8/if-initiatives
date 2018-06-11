@@ -19,7 +19,6 @@
 #  updated_at         :datetime         not null
 #
 
-
 class Notification < ApplicationRecord
   include Notifications::Model
 end
