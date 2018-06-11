@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180610092054) do
+ActiveRecord::Schema.define(version: 20180611183042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 20180610092054) do
   end
 
   create_table "donations", force: :cascade do |t|
-    t.integer "payer_id"
     t.bigint "user_id"
     t.bigint "initiative_id"
     t.integer "amount"
