@@ -13,5 +13,19 @@
 #
 
 class Contact < ApplicationRecord
+  after_commit :create_notifications, on: :create
+  
   validates :full_name, :email, :description, presence: true
+
+  private
+
+  def create_notifications
+    User.with_role(:administrator).each do |admin|
+      Notification.create do |notification|
+        notification.notify_type = 'contact'
+        notification.user = admin
+        notification.target = self
+      end
+    end
+  end
 end
