@@ -17,6 +17,21 @@
 #
 
 class Donation < ApplicationRecord
+  after_commit :create_notifications, on: :create
+  
   belongs_to :user
   belongs_to :initiative
+
+  private
+
+  def create_notifications
+    User.with_role(:administrator).each do |admin|
+      Notification.create do |notification|
+        notification.notify_type = 'donation'
+        notification.actor = user
+        notification.user = admin
+        notification.target = self
+      end
+    end
+  end
 end
