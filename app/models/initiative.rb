@@ -24,39 +24,7 @@ class Initiative < ApplicationRecord
   friendly_id :title, use: %i[slugged]
   after_commit :create_notifications, on: :create
 
-  state_machine initial: :draft do
-    event :to_confirmating do
-      transition %i[draft rejected] => :confirmating
-    end
-
-    event :to_fundraising do
-      transition confirmating: :fundraising
-    end
-
-    event :to_rejected do
-      transition %i[confirmating fundraising] => :rejected
-    end
-
-    event :to_fundraised do
-      transition fundraising: :fundraised
-    end
-
-    event :to_implementing do
-      transition fundraised: :implementing
-    end
-
-    event :to_implemented do
-      transition implementing: :implemented
-    end
-
-    event :to_unimplemented do
-      transition fundraised: :unimplemented
-    end
-
-    event :to_locked do
-      transition all - %i[locked implemented unimplemented] => :locked
-    end
-  end
+  include Initiatives::StateMachine
 
   belongs_to :user
   has_many :categorizations, dependent: :destroy
