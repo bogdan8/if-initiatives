@@ -208,6 +208,9 @@ GEM
     nio4r (2.3.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    notifications (0.6.0)
+      kaminari (>= 0.15)
+      rails (~> 5)
     oauth (0.5.4)
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
@@ -429,6 +432,7 @@ DEPENDENCIES
   kaminari
   liqpay (~> 1.0.0)
   listen
+  notifications (~> 0.6.0)
   omniauth-facebook
   omniauth-twitter
   omniauth-vkontakte

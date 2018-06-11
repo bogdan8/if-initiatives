@@ -1,0 +1,10 @@
+<h4>Reports</h4>
+
+<div class=''>
+  <%= link_to notification.actor.email, main_app.user_path(notification.actor) %> has commented in
+  <%= link_to notification.second_target.title, main_app.users_initiative_path(notification.second_target) %>
+</div>
+
+<div class=''>
+  <%= notification.target.title %>
+</div>
