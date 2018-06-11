@@ -22,7 +22,8 @@
 class Initiative < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: %i[slugged]
-
+  after_commit :create_notifications, on: :create
+  
   state_machine initial: :draft do
     event :to_confirmating do
       transition %i[draft rejected] => :confirmating
@@ -97,5 +98,18 @@ class Initiative < ApplicationRecord
   # method for get initiatives which available for everyone
   def self.available_everyone
     where.not(state: :draft).where.not(state: :lock).where.not(state: :confirmating).where.not(state: :rejected)
+  end
+
+  private
+  
+  def create_notifications
+    User.with_role(:administrator).each do |admin|
+      Notification.create do |notification|
+        notification.notify_type = 'initiative'
+        notification.actor = user
+        notification.user = admin
+        notification.target = self
+      end
+    end
   end
 end
