@@ -45,6 +45,8 @@ uk:
       destroy: 'Звіт видалено'
     contact:
       save: "Дякуємо за ваше повідомлення, ми з вами зв'яжемось якомога швидше"
+    donation:
+      error: 'Помилка платежу'
 
   views:
     pages:
@@ -185,6 +187,10 @@ uk:
       contacts:
         new:
           title: 'Звязатись з нами'
+      notifications:
+        all_notifications: 'Всі нагадування'
+        clean_all: 'Очистити все'
+        no_records: 'Немає нових нагадувань'
 
     pagination:
       first: '&laquo; Перший'

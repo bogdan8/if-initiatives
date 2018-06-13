@@ -4,6 +4,7 @@ module Administration
   class SubscriptionsController < Administration::BaseController
     load_and_authorize_resource
     add_breadcrumb I18n.t('views.pages.global.subscriptions'), :administration_subscriptions_path
+
     def index
       @subscriptions = Subscription.page(params[:page]).per(8)
     end

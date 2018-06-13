@@ -11,7 +11,7 @@ class DonationsController < ApplicationController
     donation(@liqpay_response)
     head :no_content
   rescue Liqpay::InvalidResponse
-    render text: 'Payment error', status: :internal_server_error
+    render text: t('controller.donation.error'), status: :internal_server_error
   end
 
   private

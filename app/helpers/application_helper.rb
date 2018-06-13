@@ -9,13 +9,13 @@ module ApplicationHelper
   # navigation for signout user
   def navigation_for_signout
     return if user_signed_in?
-    safe_join(links_for_signout)
+    safe_join(links_for_signout.map { |link| content_tag(:li, link) })
   end
 
   # navigation for signin user
   def navigation_for_user
     return unless user_signed_in?
-    safe_join(links_for_signin)
+    safe_join(links_for_signin.map { |link| content_tag(:li, link) })
   end
 
   # helper of navigation for administrator user
@@ -41,8 +41,8 @@ module ApplicationHelper
   # links for signout user
   def links_for_signout
     [
-      content_tag(:li, link_to(t('views.pages.global.sign_in'), new_user_session_path, class: @link)),
-      content_tag(:li, link_to(t('views.pages.global.registration'), new_user_registration_path, class: @link))
+      link_to(t('views.pages.global.sign_in'), new_user_session_path, class: @link),
+      link_to(t('views.pages.global.registration'), new_user_registration_path, class: @link)
     ]
   end
 
@@ -50,11 +50,11 @@ module ApplicationHelper
   def links_for_signin
     unread_count = Notification.unread_count(current_user)
     [
-      content_tag(:li, link_to(t('views.pages.global.initiatives'), main_app.users_initiatives_path, class: @link)),
-      content_tag(:li, link_to(pluralize(unread_count, t('views.pages.global.notifications')), notifications_path, class: @link)),
-      content_tag(:li, link_to(t('views.pages.global.profile.show'), main_app.user_path(current_user.id), class: @link)),
-      content_tag(:li, link_to(t('views.pages.global.profile.edit'), main_app.edit_user_registration_path, class: @link)),
-      content_tag(:li, link_to(t('views.pages.global.sign_out'), main_app.destroy_user_session_path, method: :delete, class: @link))
+      link_to(t('views.pages.global.initiatives'), main_app.users_initiatives_path, class: @link),
+      link_to(pluralize(unread_count, t('views.pages.global.notifications')), notifications_path, class: @link),
+      link_to(t('views.pages.global.profile.show'), main_app.user_path(current_user.id), class: @link),
+      link_to(t('views.pages.global.profile.edit'), main_app.edit_user_registration_path, class: @link),
+      link_to(t('views.pages.global.sign_out'), main_app.destroy_user_session_path, method: :delete, class: @link)
     ]
   end
 
