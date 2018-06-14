@@ -90,11 +90,11 @@
     </div>
     <!-- add comments -->
     <div class="mdl-card__supporting-text">
-      <strong><%= t('views.pages.links') %></strong>
+      <strong><%= t('views.pages.global.links') %></strong>
     </div>
     <div class="mdl-grid portfolio-copy">
       <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding">
-        <%= link_to t('views.pages.global.button.edit'), edit_users_initiative_path(@initiative), class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn-warning' %>
+        <%= initiative_state_user_links(@initiative) %>
       </div>
     </div>
   </div>

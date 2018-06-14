@@ -23,6 +23,12 @@ module InitiativesHelper
 
   # helper of links for user
   def initiative_state_user_links(initiative)
+    initiative_state_user_links_draft(initiative)
+    initiative_state_user_links_fundraised(initiative)
+  end
+
+  # helper of links for user with initiative state 'draft' or 'confirm'
+  def initiative_state_user_links_draft(initiative)
     edit = edit_users_initiative_path(initiative)
     confirmating = to_confirmating_users_initiative_path(initiative)
     delete = users_initiative_path(initiative)
@@ -35,11 +41,11 @@ module InitiativesHelper
               ])
   end
 
-  # helper for locked initiative
-  def to_locked(initiative)
-    return if initiative.locked?
-    locked = to_locked_administration_initiative_path(initiative)
-    link_to(t('views.pages.global.button.locked'), locked, class: @danger)
+  # helper of links for user with initiative state 'draft' or 'confirm'
+  def initiative_state_user_links_fundraised(initiative)
+    fundraised = to_fundraised_users_initiative_path(initiative)
+    return unless initiative.fundraising?
+    safe_join([link_to(t('controller.initiative.to_fundraised'), fundraised, class: @success)])
   end
 
   private

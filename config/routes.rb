@@ -43,8 +43,9 @@ Rails.application.routes.draw do
   end
   scope module: :users, path: :user, as: :users do
     resources :initiatives do
-      get :to_confirmating, on: :member
       resources :reports, only: %i[create update destroy]
+      get :to_fundraised, on: :member
+      get :to_confirmating, on: :member
     end
     resources :attachments, only: %i[destroy]
   end
