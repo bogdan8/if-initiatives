@@ -115,6 +115,7 @@ uk:
         images: 'Зображення'
         videos: 'Відео'
         contacts: "Зв'язатись з нами"
+        links: 'Посилання'
         count:
           initiatives: 'Кількість ініціатив'
           categories: 'Кількість категорій'
@@ -129,11 +130,11 @@ uk:
       initiatives:
         state:
           draft: 'Чернетка'
-          confirmating: 'Підтвердження'
+          confirmating: 'Очікується підтвердження'
           rejected: 'Відхиленно'
-          fundraising: 'Збір коштів'
-          fundraised: 'Зібрано кошти'
-          implementing: 'Реалізація'
+          fundraising: 'Проходить збір коштів'
+          fundraised: 'Зібрано кошти, очікується початку реалізації'
+          implementing: 'Проходить реалізація'
           implemented: 'Реалізовано'
           unimplemented: 'Не реалізовано'
           locked: 'Заблоковано'
