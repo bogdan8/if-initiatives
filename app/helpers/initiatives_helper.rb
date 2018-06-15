@@ -91,4 +91,9 @@ module InitiativesHelper
     return unless current_user
     liqpay_button liqpay_request, title: 'Оплатити'
   end
+
+  # category links
+  def category_link(initiative)
+    safe_join(initiative.categories.map { |category| content_tag(:li, link_to(category.title, category_path(category)))})
+  end
 end
