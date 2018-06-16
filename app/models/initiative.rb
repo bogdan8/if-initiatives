@@ -26,6 +26,7 @@ class Initiative < ApplicationRecord
 
   include Initiatives::StateMachine
 
+  # relations
   belongs_to :user
   has_many :categorizations, dependent: :destroy
   has_many :categories, through: :categorizations
@@ -64,8 +65,13 @@ class Initiative < ApplicationRecord
   end
 
   # method for get initiatives which available for everyone
-  def self.available_everyone
-    where.not(state: :draft).where.not(state: :lock).where.not(state: :confirmating).where.not(state: :rejected)
+  def self.available_everyone(*states)
+    where.not(state: states)
+  end
+
+  # method for get category through Categorization
+  def self.by_category(id)
+    joins(:categorizations).where(Categorization.table_name => { category_id: id })
   end
 
   private
