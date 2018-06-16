@@ -2,7 +2,8 @@
 
 class CategoriesController < ApplicationController
   def show
+    states = %i(draft confirmating rejected locked)
     @category = Category.find(params[:id])
-    @initiatives = Initiative.available_everyone(:draft, :confirmating, :rejected, :locked).by_category(@category)
+    @initiatives = Initiative.available_everyone(states).by_category(@category)
   end
 end

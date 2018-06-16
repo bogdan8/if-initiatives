@@ -3,7 +3,8 @@
 class InitiativesController < ApplicationController
   load_and_authorize_resource find_by: :slug
   def index
-    @initiatives = Initiative.includes(:categories, :attachments).available_everyone(:draft, :confirmating, :rejected, :locked).page(params[:page]).per(6)
+    states = %i(draft confirmating rejected locked)
+    @initiatives = Initiative.includes(:categories, :attachments).available_everyone(states).page(params[:page]).per(6)
     add_breadcrumb t('views.pages.global.initiatives'), :initiatives_path
   end
 
