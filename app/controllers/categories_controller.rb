@@ -2,8 +2,7 @@
 
 class CategoriesController < ApplicationController
   def show
-    states = %i(draft confirmating rejected locked)
     @category = Category.find(params[:id])
-    @initiatives = Initiative.available_everyone(states).by_category(@category)
+    @presenter = Categories::ShowPresenter.new(@category)
   end
 end
