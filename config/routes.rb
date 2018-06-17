@@ -57,5 +57,6 @@ Rails.application.routes.draw do
   end
   resources :subscriptions, only: %i[create]
   resources :contacts, only: %i[new create]
+  resources :categories, only: %i[show]
   get '*path' => 'static#index', constraints: lambda { |req| req.format != 'json' }
 end

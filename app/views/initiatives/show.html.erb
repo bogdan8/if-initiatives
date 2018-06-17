@@ -47,6 +47,18 @@
         </div>
       </div>
     </div>
+    <!-- show steps -->
+    <div class="mdl-card__supporting-text">
+      <strong><%= t('views.pages.global.steps') %></strong>
+    </div>
+    <div class="mdl-grid portfolio-copy">
+      <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding">
+        <% @initiative.steps.each do |step| %>
+          <p><%= t('views.pages.global.created_at') %>: <%= step.created_at %></p>
+          <p><%= t('views.pages.global.initiatives.state') %>: <%= t("views.pages.initiatives.state.#{step.state}") %></p>
+        <% end %>
+      </div>
+    </div>
     <!-- show comments -->
     <div class="mdl-card__supporting-text">
       <strong><%= t('views.pages.global.comments') %></strong>

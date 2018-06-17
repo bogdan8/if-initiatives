@@ -4,7 +4,7 @@ module AbilityStateToInitiatives
   extend ActiveSupport::Concern
 
   def initiative_link
-    current_user.has_role?(:administration) ? administration_initiatives_path : users_initiatives_path
+    current_user.has_role?(:administrator) ? administration_initiatives_path : users_initiatives_path
   end
 
   def to_confirmating

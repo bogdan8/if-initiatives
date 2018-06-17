@@ -116,6 +116,8 @@ uk:
         videos: 'Відео'
         contacts: "Зв'язатись з нами"
         links: 'Посилання'
+        created_at: 'Додано в'
+        state: 'Стан'
         count:
           initiatives: 'Кількість ініціатив'
           categories: 'Кількість категорій'
