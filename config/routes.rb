@@ -49,14 +49,17 @@ Rails.application.routes.draw do
     end
     resources :attachments, only: %i[destroy]
   end
-  post 'liqpay', to: 'donations#liqpay'
-  get 'user/:id', to: 'users/users#show', as: :user
-
+ 
   resources :initiatives, only: %i[index show] do
     resources :comments, except: %i[index show new]
   end
+  
   resources :subscriptions, only: %i[create]
   resources :contacts, only: %i[new create]
   resources :categories, only: %i[show]
+
+  post :liqpay, controller: :donations
+  get 'user/:id', to: 'users/users#show', as: :user
+  get :search, controller: :home
   get '*path' => 'static#index', constraints: lambda { |req| req.format != 'json' }
 end
