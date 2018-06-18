@@ -18,6 +18,7 @@ gem 'ruby-graphviz', require: 'graphviz'
 gem 'simple_form'
 gem 'state_machine'
 gem 'time_difference'
+gem 'ransack'
 
 # payment
 gem 'liqpay', '~>1.0.0'
