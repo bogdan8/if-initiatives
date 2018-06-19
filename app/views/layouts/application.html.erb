@@ -1,21 +1,8 @@
 <!DOCTYPE html>
 <html>
-  
-  <!-- JS file -->
-  <script src="path/to/jquery.easy-autocomplete.min.js"></script> 
-
-  <!-- CSS file -->
-  <link rel="stylesheet" href="path/to/easy-autocomplete.min.css"> 
-
   <%= render 'layouts/user/head' %>
  
   <body>
-    <h1>a</h1>
-    <%= form_tag('/search', local: true, method: :get, class: 'form-inline' ) do %>
-      <%= text_field_tag(:q, nil, data: { behavior: 'autocomplete' }, placeholder: 'Search', class: 'form-control mr-sm-2') %>
-      <%= button_tag('Search', class: 'btn btn-outline-success my-2 my-sm-0', type: 'submit') %>
-    <% end %>
-
     <div class="mdl-layout mdl-js-layout">
       <%= render 'layouts/user/header' %>
       
