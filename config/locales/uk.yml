@@ -80,6 +80,7 @@ uk:
           user: 'Користувач'
           administrator: 'Адміністратор'
           moderator: 'Модератор'
+        fundraised: 'Завершено збір коштів'
         confirmating: 'Підтвердження'
         fundraising: 'Збір коштів'
         implementing: 'Реалізація'

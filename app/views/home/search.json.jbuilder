@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.initiatives do
   json.array!(@initiatives) do |initiative|
     json.title initiative.title

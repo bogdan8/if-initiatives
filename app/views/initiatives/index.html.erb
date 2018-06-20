@@ -1,6 +1,12 @@
 <%= provide :site_title, t('views.pages.global.initiatives') %>
 <%= provide :initiatives_index, 'active' %>
 
+<%= search_form_for @q, builder: SimpleForm::FormBuilder do |f| %>
+  <%= f.input :state_in, collection: [[t('views.pages.global.fundraising'), :fundraising], [t('views.pages.global.fundraised'), :fundraised], [t('views.pages.global.implementing'), :implementing], [t('views.pages.global.reporting'), :reporting]], input_html: { multiple: true } %>
+  
+  <%= f.button :submit, 'Фільтрувати' %>
+<% end %>
+
 <div id="initiatives">
   <%= render 'initiatives/index', collection: @initiatives %>
 </div>
