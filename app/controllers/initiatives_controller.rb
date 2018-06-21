@@ -3,8 +3,9 @@
 class InitiativesController < ApplicationController
   load_and_authorize_resource find_by: :slug
   def index
-    states = %i(draft confirmating rejected locked)
-    @initiatives = Initiative.includes(:categories, :attachments).available_everyone(states).page(params[:page]).per(6)
+    states = %i[draft confirmating rejected locked]
+    @q = Initiative.includes(:categories, :attachments).ransack(params[:q])
+    @initiatives = @q.result.available_everyone(states).page(params[:page]).per(6)
     add_breadcrumb t('views.pages.global.initiatives'), :initiatives_path
   end
 
@@ -16,7 +17,7 @@ class InitiativesController < ApplicationController
 
   private
 
-  # need to find another solution
+  # OPTIMIZE: need to find another solution
   def liqpay(initiative)
     return unless current_user
     donation = Donation.create(user_id: current_user.id, initiative_id: initiative.id)

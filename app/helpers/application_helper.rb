@@ -46,6 +46,7 @@ module ApplicationHelper
     ]
   end
 
+  # OPTIMIZE: need to fix method size
   # links for signin user
   def links_for_signin
     unread_count = Notification.unread_count(current_user)

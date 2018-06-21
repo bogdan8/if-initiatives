@@ -6,6 +6,7 @@ module Users
     load_and_authorize_resource :report, through: :initiative
     add_breadcrumb I18n.t('views.pages.global.reports'), :users_reports_path
 
+    # OPTIMIZE: need to fix method size
     def create
       @initiative = Initiative.friendly.find(params[:initiative_id])
       @report = @initiative.reports.build(report_params)
