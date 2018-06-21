@@ -96,4 +96,22 @@ module InitiativesHelper
   def category_link(initiative)
     safe_join(initiative.categories.map { |category| content_tag(:li, link_to(category.title, category_path(category)))})
   end
+
+  # all states wich available for administration and moderator
+  def collection_administration_states
+    states = %i[confirmating fundraising rejected fundraised implementing reporting unimplemented implemented locked]
+    states.map { |state| [t("views.pages.global.#{state}"), state] }
+  end
+
+  # all states wich available in the cabinet of user
+  def collection_user_states
+    states = %i[draft confirmating fudcraising rejected fundraised implementing reporting unimplemented implemented locked]
+    states.map { |state| [t("views.pages.global.#{state}"), state] }
+  end
+
+  # all states wich available for all users
+  def collection_states
+    states = %i[fundraising fundraised implementing reporting unimplemented implemented]
+    states.map { |state| [t("views.pages.global.#{state}"), state] }
+  end
 end

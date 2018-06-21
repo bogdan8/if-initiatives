@@ -1,6 +1,8 @@
 <%= provide :site_title, t('views.pages.global.initiatives') %>
 <%= provide :initiatives, 'active' %>
 
+<%= render 'administration/initiatives/sort' %>
+
 <div id="initiatives">
   <%= render 'index', collection: @initiatives %>
 </div>

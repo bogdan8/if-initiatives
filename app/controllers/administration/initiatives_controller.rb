@@ -9,7 +9,8 @@ module Administration
     include AbilityStateToInitiatives
 
     def index
-      @initiatives = Initiative.includes(:categories, :attachments).without_draft.page(params[:page]).per(8)
+      @q = Initiative.includes(:categories, :attachments).without_draft.ransack(params[:q])
+      @initiatives = @q.result.page(params[:page]).per(6)
     end
 
     def show

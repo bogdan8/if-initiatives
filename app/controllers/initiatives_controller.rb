@@ -17,7 +17,7 @@ class InitiativesController < ApplicationController
 
   private
 
-  # need to find another solution
+  # TODO need to find another solution
   def liqpay(initiative)
     return unless current_user
     donation = Donation.create(user_id: current_user.id, initiative_id: initiative.id)
