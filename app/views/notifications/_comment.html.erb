@@ -1,10 +1,15 @@
-<h4><%= t('views.pages.global.comments') %></h4>
-
-<div class=''>
-  <%= link_to notification.actor.email, main_app.user_path(notification.actor) %> has commented in
-  <%= link_to notification.second_target.title, main_app.users_initiative_path(notification.second_target) %>
+<div class="mdl-grid"> 
+  <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-table mdl-cell--12-col-phone flex-center">
+    <b><%= t('views.pages.global.comments') %></b>
+  </div>
 </div>
 
-<div class=''>
-  <%= notification.target.title %>
+<div class="demo-card-square mdl-shadow--2dp">
+  <div class="mdl-card__supporting-text">
+    <%= link_to notification.actor.email, main_app.user_path(notification.actor), class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %> has commented in
+    <%= link_to notification.second_target.title, main_app.users_initiative_path(notification.second_target), class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
+  </div> 
+  <div class="mdl-card__supporting-text">
+    <p><%= t('views.pages.global.title') %>: <%= notification.target.title %></p>
+  </div>
 </div>

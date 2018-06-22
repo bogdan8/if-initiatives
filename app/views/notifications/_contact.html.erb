@@ -1,11 +1,16 @@
-<h4><%= t('views.pages.global.contacts') %></h4>
-
-<div class=''>
-  <%= notification.target.full_name %> has added new question
+<div class="mdl-grid"> 
+  <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-table mdl-cell--12-col-phone flex-center">
+    <b><%= t('views.pages.global.contacts') %></b>
+  </div>
 </div>
 
-<div class=''>
-  <%= notification.target.full_name %>
-  <%= notification.target.email %>
-  <%= notification.target.description %>
+<div class="demo-card-square mdl-shadow--2dp">
+  <div class="mdl-card__supporting-text">
+    <%= notification.target.full_name %> has added new question
+  </div> 
+  <div class="mdl-card__supporting-text">
+    <p><%= t('views.pages.global.full_name') %>: <%= notification.target.full_name %></p>
+    <p><%= t('views.pages.global.email') %>: <%= notification.target.email %></p>
+    <p><%= t('views.pages.global.description') %>: <%= notification.target.description %></p>
+  </div>
 </div>
