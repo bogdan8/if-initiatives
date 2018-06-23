@@ -22,7 +22,8 @@
       </div>
       <div class="mdl-card__actions mdl-card--border">
         <%= link_to t('views.pages.global.button.show'), users_initiative_path(initiative), class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
-        <%= initiative_state_user_links initiative %>
+        <%= initiative_state_user_links_draft initiative %>
+        <%= initiative_state_user_links_fundraised initiative %>
       </div>
     </div>
   <% end %>

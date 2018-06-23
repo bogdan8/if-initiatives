@@ -45,6 +45,7 @@
         </div>
       </div>
     </div>
+    <%= render 'users/reports/new' %>
     <!-- show comments -->
     <div class="mdl-card__supporting-text">
       <strong><%= t('views.pages.global.comments') %></strong>
@@ -88,13 +89,14 @@
         </div>
       <% end %>
     </div>
-    <!-- add comments -->
+    <!-- links -->
     <div class="mdl-card__supporting-text">
       <strong><%= t('views.pages.global.links') %></strong>
     </div>
     <div class="mdl-grid portfolio-copy">
       <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding">
-        <%= initiative_state_user_links(@initiative) %>
+        <%= initiative_state_user_links_draft @initiative %>
+        <%= initiative_state_user_links_fundraised @initiative %>
       </div>
     </div>
   </div>

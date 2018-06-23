@@ -21,12 +21,6 @@ module InitiativesHelper
     end
   end
 
-  # helper of links for user
-  def initiative_state_user_links(initiative)
-    initiative_state_user_links_draft(initiative)
-    initiative_state_user_links_fundraised(initiative)
-  end
-
   # helper of links for user with initiative state 'draft' or 'confirm'
   def initiative_state_user_links_draft(initiative)
     edit = edit_users_initiative_path(initiative)
@@ -35,10 +29,10 @@ module InitiativesHelper
     data = { confirm: t('views.pages.global.confirm') }
     return unless initiative.draft? || initiative.rejected?
     safe_join([
-                link_to(t('views.pages.global.button.edit'), edit, class: @warning),
-                link_to(t('views.pages.global.button.confirmation'), confirmating, class: @success),
-                link_to(t('views.pages.global.button.destroy'), delete, method: :delete, data: data, class: @danger)
-              ])
+              link_to(t('views.pages.global.button.edit'), edit, class: @warning),
+              link_to(t('views.pages.global.button.confirmation'), confirmating, class: @success),
+              link_to(t('views.pages.global.button.destroy'), delete, method: :delete, data: data, class: @danger)
+            ])
   end
 
   # helper of links for user with initiative state 'draft' or 'confirm'
