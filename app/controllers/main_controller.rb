@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class HomeController < ApplicationController
+class MainController < ApplicationController
   def index; end
 
   def search

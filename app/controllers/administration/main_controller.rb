@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Administration
-  class HomeController < Administration::BaseController
+  class MainController < Administration::BaseController
     def index
       @presenter = Administrations::IndexPresenter.new
     end
