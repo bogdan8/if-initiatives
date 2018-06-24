@@ -29,10 +29,10 @@ module InitiativesHelper
     data = { confirm: t('views.pages.global.confirm') }
     return unless initiative.draft? || initiative.rejected?
     safe_join([
-              link_to(t('views.pages.global.button.edit'), edit, class: @warning),
-              link_to(t('views.pages.global.button.confirmation'), confirmating, class: @success),
-              link_to(t('views.pages.global.button.destroy'), delete, method: :delete, data: data, class: @danger)
-            ])
+                link_to(t('views.pages.global.button.edit'), edit, class: @warning),
+                link_to(t('views.pages.global.button.confirmation'), confirmating, class: @success),
+                link_to(t('views.pages.global.button.destroy'), delete, method: :delete, data: data, class: @danger)
+              ])
   end
 
   # helper of links for user with initiative state 'draft' or 'confirm'
@@ -86,10 +86,14 @@ module InitiativesHelper
     liqpay_button liqpay_request, title: 'Оплатити'
   end
 
-  # OPTIMIZE: need to fix size for safe_join
   # category links
   def category_link(initiative)
-    safe_join(initiative.categories.map { |category| content_tag(:li, link_to(category.title, category_path(category))) })
+    safe_join(category_links_array(initiative))
+  end
+
+  # category array of links
+  def category_links_array(initiative)
+    initiative.categories.map { |category| content_tag(:li, link_to(category.title, category_path(category))) }
   end
 
   # all states wich available for administration and moderator

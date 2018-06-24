@@ -3,5 +3,5 @@
 require 'rails_helper'
 
 RSpec.describe DonationsController, type: :controller do
-  #TODO: need to add test for liqpay
+  # TODO: need to add test for liqpay
 end
