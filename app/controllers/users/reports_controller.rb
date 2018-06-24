@@ -4,11 +4,10 @@ module Users
   class ReportsController < ApplicationController
     load_and_authorize_resource :initiative, find_by: :slug
     load_and_authorize_resource :report, through: :initiative
+    before_action :find_initiative, only: %i[create]
     add_breadcrumb I18n.t('views.pages.global.reports'), :users_reports_path
 
-    # OPTIMIZE: need to fix method size
     def create
-      @initiative = Initiative.friendly.find(params[:initiative_id])
       @report = @initiative.reports.build(report_params)
       if @report.save
         redirect_to users_initiative_path(params[:initiative_id]), success: t('controller.report.save')
@@ -41,6 +40,10 @@ module Users
       text = %i[title description]
       attachments = %i[id image video _destroy]
       params.require(:report).permit(*text, attachments_attributes: [*attachments])
+    end
+
+    def find_initiative
+      @initiative = Initiative.friendly.find(params[:initiative_id])
     end
   end
 end

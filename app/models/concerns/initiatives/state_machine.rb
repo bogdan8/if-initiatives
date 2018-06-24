@@ -4,7 +4,6 @@ module Initiatives
   module StateMachine
     extend ActiveSupport::Concern
 
-    # OPTIMIZE: need to fix method size
     included do
       state_machine initial: :draft do
         event :to_confirmating do

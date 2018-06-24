@@ -21,12 +21,6 @@ module InitiativesHelper
     end
   end
 
-  # helper of links for user
-  def initiative_state_user_links(initiative)
-    initiative_state_user_links_draft(initiative)
-    initiative_state_user_links_fundraised(initiative)
-  end
-
   # helper of links for user with initiative state 'draft' or 'confirm'
   def initiative_state_user_links_draft(initiative)
     edit = edit_users_initiative_path(initiative)
@@ -92,10 +86,14 @@ module InitiativesHelper
     liqpay_button liqpay_request, title: 'Оплатити'
   end
 
-  # OPTIMIZE: need to fix size for safe_join
   # category links
   def category_link(initiative)
-    safe_join(initiative.categories.map { |category| content_tag(:li, link_to(category.title, category_path(category))) })
+    safe_join(category_links_array(initiative))
+  end
+
+  # category array of links
+  def category_links_array(initiative)
+    initiative.categories.map { |category| content_tag(:li, link_to(category.title, category_path(category))) }
   end
 
   # all states wich available for administration and moderator

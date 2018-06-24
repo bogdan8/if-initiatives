@@ -18,9 +18,9 @@ Rails.application.routes.draw do
                                    sign_out: :logout,
                                    password: :secret,
                                    confirmation: :verification }
-  root 'home#index'
+  root 'main#index'
   namespace :administration do
-    get '/home' => 'home#index'
+    get '/main' => 'main#index'
     resources :initiatives do
       get :to_fundraising, on: :member
       get :to_rejected, on: :member
@@ -60,6 +60,6 @@ Rails.application.routes.draw do
 
   post :liqpay, controller: :donations
   get 'user/:id', to: 'users/users#show', as: :user
-  get :search, controller: :home
+  get :search, controller: :main
   get '*path' => 'static#index', constraints: lambda { |req| req.format != 'json' }
 end
