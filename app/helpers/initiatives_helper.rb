@@ -104,9 +104,9 @@ module InitiativesHelper
 
   # all states wich available in the cabinet of user
   def collection_user_states
-    states = %i[draft confirmating fudcraising rejected fundraised]
+    states = %i[draft confirmating fundraising rejected fundraised]
     states << %i[implementing reporting unimplemented implemented locked]
-    states.map { |state| [t("views.pages.global.#{state}"), state] }
+    states.flatten.map { |state| [t("views.pages.global.#{state}"), state] }
   end
 
   # all states wich available for all users
