@@ -1,0 +1,6 @@
+- unless current_page.first?
+  = link_to url, remote: remote do
+    li.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect
+      = raw(t 'views.pagination.first')
+      span.mdl-button__ripple-container
+        span.mdl-ripple

@@ -1,8 +1,0 @@
-<% unless current_page.last? %>
-  <%= link_to url, rel: 'next', remote: remote, class: :next_page do %>
-    <li class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-      <%= raw(t 'views.pagination.next') %>
-      <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span>
-    </li>
-  <% end %>
-<% end %>
