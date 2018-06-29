@@ -1,0 +1,6 @@
+= provide :site_title, t('views.pages.global.implementing')
+= provide :report, 'active'
+#initiatives
+  = render 'index', collection: @initiatives
+#paginator
+  = paginate @initiatives

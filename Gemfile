@@ -33,6 +33,7 @@ gem 'bootstrap4-kaminari-views'
 gem 'font-awesome-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'select2-rails'
+gem 'slim'
 
 # for server
 gem 'babosa'
