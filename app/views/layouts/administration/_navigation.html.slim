@@ -1,0 +1,49 @@
+.demo-drawer.mdl-layout__drawer.mdl-color--blue-grey-900.mdl-color-text--blue-grey-50
+  header.demo-drawer-header
+    = image_tag current_user.avatar.url(:medium), class: 'demo-avatar'
+    .demo-avatar-dropdown
+      span
+        = current_user.email
+      .mdl-layout-spacer
+      button#accbtn.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--icon
+        i.material-icons[role="presentation"]
+          | arrow_drop_down
+        span.visuallyhidden
+          | Accounts
+      ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect[for="accbtn"]
+        li.mdl-menu__item
+          = link_to destroy_user_session_path, method: :delete do
+            i.fa.fa-fw.fa-sign-out
+            = t('views.pages.global.sign_out')
+  nav.demo-navigation.mdl-navigation.mdl-color--blue-grey-800
+    = link_to administration_initiatives_path, class: "mdl-navigation__link #{yield :initiatives}" do
+      i.mdl-color-text--blue-grey-400.fa.fa-fw.fa-dashboard
+      = t('views.pages.global.initiatives')
+    = link_to administration_categories_path, class: "mdl-navigation__link #{yield :categories}" do
+      i.mdl-color-text--blue-grey-400.fa.fa-fw.fa-dashboard
+      span.nav-link-text
+        = t('views.pages.global.categories')
+    = link_to administration_subscriptions_path, class: "mdl-navigation__link #{yield :subscriptions}" do
+      i.mdl-color-text--blue-grey-400.fa.fa-fw.fa-dashboard
+      span.nav-link-text
+        = t('views.pages.global.subscriptions')
+    = link_to administration_contacts_path, class: "mdl-navigation__link #{yield :contacts}" do
+      i.mdl-color-text--blue-grey-400.fa.fa-fw.fa-dashboard
+      span.nav-link-text
+        = t('views.pages.global.contacts')
+    = link_to administration_users_path, class: "mdl-navigation__link #{yield :users}" do
+      i.mdl-color-text--blue-grey-400.fa.fa-fw.fa-dashboard
+      span.nav-link-text
+        = t('views.pages.global.users')
+    = link_to confirmating_administration_initiatives_path, class: "mdl-navigation__link #{yield :confirmating}" do
+      i.mdl-color-text--blue-grey-400.fa.fa-fw.fa-dashboard
+      span.nav-link-text
+        = t('views.pages.global.confirmating')
+    = link_to fundraising_administration_initiatives_path, class: "mdl-navigation__link #{yield :fundraising}" do
+      i.mdl-color-text--blue-grey-400.fa.fa-fw.fa-dashboard
+      span.nav-link-text
+        = t('views.pages.global.fundraising')
+    = link_to implementing_administration_initiatives_path, class: "mdl-navigation__link #{yield :implementing}" do
+      i.mdl-color-text--blue-grey-400.fa.fa-fw.fa-dashboard
+      span.nav-link-text
+        = t('views.pages.global.implementing')
