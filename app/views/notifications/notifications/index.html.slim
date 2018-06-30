@@ -1,0 +1,16 @@
+.notifications.row
+  .heading.clearfix
+    = t('views.pages.notifications.all_notifications')
+    span.pull-xs-right
+      = link_to t('views.pages.notifications.clean_all'), notifications.clean_notifications_path, class: 'btn btn-sm btn-secondary', method: 'delete'
+.list
+  - if @notifications.blank?
+    .no-records
+      = t('views.pages.notifications.no_records')
+  - else
+    - @notification_groups.each do |group, notifications|
+      .notification-group
+        = render notifications
+.mdl-grid
+  .mdl-cell.mdl-cell--12-col-desktop.mdl-cell--12-col-table.mdl-cell--12-col-phone
+    = paginate @notifications
