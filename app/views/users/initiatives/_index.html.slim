@@ -1,6 +1,6 @@
 .mdl-grid.portfolio-max-width
   - collection.decorate.each do |initiative|
-    .mdl-cell.mdl-cell--3-col-desktop.mdl-cell--6-col-tablet.mdl-cell--12-col-phone.mdl-shadow--4dp
+    .mdl-cell.mdl-card.mdl-shadow--4dp.portfolio-card
       .mdl-card__media
         = image_tag(initiative.first_image(:medium), class: 'initiative-image')
       .mdl-card__title
@@ -11,17 +11,23 @@
           = initiative.short_description
         p
           = t('views.pages.global.finish_date')
-          | \: #{initiative.finish_date}
+          | : 
+          = initiative.finish_date
         p
           = t('views.pages.global.general_sum')
-          | \: #{initiative.general_sum}
+          | : 
+          = initiative.general_sum
         p
           = t('views.pages.global.collected_amount')
-          | \: #{initiative.collected_amount}
-        p= t("views.pages.initiatives.state.# initiative.state ")
-        /! Categories
+          | : 
+          = initiative.collected_amount
+        p
+          = t("views.pages.initiatives.state.#{initiative.state}")
         p
           = t('views.pages.global.categories')
-          | #{category_link initiative}
+          | : 
+          = initiative.categories_title
       .mdl-card__actions.mdl-card--border
-        = link_to t('views.pages.global.button.show'), initiative_path(initiative), class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent'
+        = link_to t('views.pages.global.button.show'), users_initiative_path(initiative), class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'
+        = initiative_state_user_links_draft initiative
+        = initiative_state_user_links_fundraised initiative

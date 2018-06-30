@@ -1,0 +1,11 @@
+.col-sm-12
+  = render 'users/social/social'
+  h2
+    = t('devise.shared.links.sign_in')
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    = f.input :email, autofocus: true, autocomplete: :email
+    = f.input :password, autocomplete: :off
+    - if devise_mapping.rememberable?
+      = f.input :remember_me, as: :radio_buttons
+    = f.button :submit, t('devise.shared.links.sign_in')
+  = render 'users/shared/links'

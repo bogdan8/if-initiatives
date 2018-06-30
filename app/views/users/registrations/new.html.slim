@@ -1,0 +1,14 @@
+.col-sm-12
+  h2
+    = t('devise.shared.links.sign_up')
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = f.input :email, autofocus: true, autocomplete: :email
+    = f.input :name
+    = f.input :phone
+    = f.input :age
+    = f.input :avatar, as: :file, label: fa_icon('upload')
+    #preview
+    = f.input :password, autocomplete: :off
+    = f.input :password_confirmation, autocomplete: :off
+    = f.button :submit, t('devise.registrations.new.sign_up'), class: 'btn btn-success btn-sm'
+  = render 'users/shared/links'
