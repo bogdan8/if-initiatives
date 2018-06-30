@@ -1,0 +1,35 @@
+footer.mdl-mega-footer
+  .mdl-mega-footer__middle-section
+    .mdl-mega-footer__drop-down-section
+      input.mdl-mega-footer__heading-checkbox[type="checkbox" checked]
+      h1.mdl-mega-footer__heading
+        | Для користувачів
+      ul.mdl-mega-footer__link-list
+        = navigation_for_user
+    .mdl-mega-footer__drop-down-section
+      input.mdl-mega-footer__heading-checkbox[type="checkbox" checked]
+      h1.mdl-mega-footer__heading
+        | Для адміністраторів
+      ul.mdl-mega-footer__link-list
+        = navigation_for_administrator
+    .mdl-mega-footer__drop-down-section
+      input.mdl-mega-footer__heading-checkbox[type="checkbox" checked]
+      h1.mdl-mega-footer__heading
+        | Для не зареєстрованих користувачів
+      ul.mdl-mega-footer__link-list
+        = navigation_for_signout
+    .mdl-mega-footer__drop-down-section
+      input.mdl-mega-footer__heading-checkbox[type="checkbox" checked]
+      h1.mdl-mega-footer__heading
+        | FAQ
+      ul.mdl-mega-footer__link-list
+        li
+          = link_to t('views.pages.global.initiatives'), main_app.initiatives_path
+        li
+          = link_to t('views.pages.initiatives.new.title'), main_app.new_users_initiative_path
+        li
+          = link_to t('views.pages.contacts.new.title'), main_app.new_contact_path
+  .mdl-mega-footer__bottom-section
+    = simple_form_for Subscription.new, url: main_app.subscriptions_path, html: { multipart: true }, remote: true do |f|
+      = f.input :email
+      = f.button :submit, t('views.pages.global.button.new')
