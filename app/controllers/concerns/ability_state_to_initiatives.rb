@@ -7,27 +7,6 @@ module AbilityStateToInitiatives
     current_user.has_role?(:administrator) ? administration_initiatives_path : users_initiatives_path
   end
 
-  def to_fundraising
-    if @initiative.to_fundraising
-      @initiative.update(finish_date: Time.current.to_date + @initiative.finish_days) # update finishe date
-      create_step @initiative
-      redirect_to initiative_link,
-                  success: t('controller.initiative.to_fundraising')
-    else
-      redirect_to initiative_link, error: @initiative.errors.full_messages.to_sentence
-    end
-  end
-
-  def to_rejected
-    if @initiative.to_rejected
-      create_step @initiative
-      redirect_to initiative_link,
-                  success: t('controller.initiative.to_rejected')
-    else
-      redirect_to initiative_link, error: @initiative.errors.full_messages.to_sentence
-    end
-  end
-
   def to_implementing
     if @initiative.to_implementing
       create_step @initiative

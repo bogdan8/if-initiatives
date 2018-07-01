@@ -7,7 +7,7 @@ module Users
       def update
         @initiative = Initiative.find(params[:id])
         if @initiative.to_confirmating
-          initiative.steps.create(state: @initiative.state) # create a step for tracking the initiative
+          @initiative.steps.create(state: @initiative.state) # create a step for tracking the initiative
           redirect_to users_initiatives_path, success: t('controller.initiative.to_confirmating')
         else
           redirect_to users_initiatives_path, errors: @initiative.errors.full_messages.to_sentence

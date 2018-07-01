@@ -46,20 +46,20 @@ module InitiativesHelper
 
   # links for confirmating
   def for_confirmating(initiative)
-    fundraising = to_fundraising_administration_initiative_path(initiative)
+    fundraising = administration_initiatives_fundraise_path(initiative, state: :fundraising)
     rejected = to_rejected_administration_initiative_path(initiative)
     safe_join([
-                link_to(t('views.pages.global.button.confirmed'), fundraising, class: @success),
+                link_to(t('views.pages.global.button.confirmed'), fundraising, method: :put, class: @success),
                 link_to(t('views.pages.global.button.rejected'), rejected, class: @danger)
               ])
   end
 
   # links for fundraising
   def for_fundraising(initiative)
-    fundraised = to_fundraised_administration_initiative_path(initiative)
+    fundraised = administration_initiatives_fundraise_path(initiative, state: :fundraised)
     rejected = to_rejected_administration_initiative_path(initiative)
     safe_join([
-                link_to(t('views.pages.global.button.fundraised'), fundraised, class: @success),
+                link_to(t('views.pages.global.button.fundraised'), fundraised, method: :put, class: @success),
                 link_to(t('views.pages.global.button.rejected'), rejected, class: @danger)
               ])
   end
