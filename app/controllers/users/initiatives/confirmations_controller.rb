@@ -5,7 +5,7 @@ module Users
     class ConfirmationsController < ApplicationController
       load_and_authorize_resource :initiative
       def update
-        @initiative = Initiative.find(params[:id])
+        @initiative = Initiative.friendly.find(params[:id])
         if @initiative.to_confirmating
           @initiative.steps.create(state: @initiative.state) # create a step for tracking the initiative
           redirect_to users_initiatives_path, success: t('controller.initiative.to_confirmating')

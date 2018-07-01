@@ -22,8 +22,6 @@ Rails.application.routes.draw do
   namespace :administration do
     get '/main' => 'main#index'
     resources :initiatives do
-      get :to_locked, on: :member
-
       get :confirmating, on: :collection
       get :fundraising, on: :collection
       get :implementing, on: :collection
@@ -33,6 +31,7 @@ Rails.application.routes.draw do
       resources :fundraises, only: %i[update]
       resources :rejections, only: %i[update]
       resources :implementions, only: %i[update]
+      resources :locks, only: %i[update]
     end
     resources :comments, only: %i[destroy]
     resources :categories

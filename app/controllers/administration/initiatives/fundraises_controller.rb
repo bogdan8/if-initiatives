@@ -7,7 +7,7 @@ module Administration
       def update
         @initiative = Initiative.friendly.find(params[:id])
         if @initiative.update(state: params[:state])
-          for_fundraising(initiative) if @initiative.fundraising?
+          for_fundraising(@initiative) if @initiative.fundraising?
           @initiative.steps.create(state: @initiative.state) # create a step for tracking the initiative
           redirect_to administration_initiatives_path,
                       success: t("controller.initiative.to.#{params[:state]}")
