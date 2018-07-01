@@ -17,21 +17,21 @@ module AbilityStateToInitiatives
     end
   end
 
-  def to_unimplemented
-    if @initiative.to_unimplemented
-      create_step @initiative
-      redirect_to initiative_link,
-                  success: t('controller.initiative.to_unimplemented')
-    else
-      redirect_to initiative_link, error: @initiative.errors.full_messages.to_sentence
-    end
-  end
-
   def to_implemented
     if @initiative.to_implemented
       create_step @initiative
       redirect_to initiative_link,
                   success: t('controller.initiative.to_implemented')
+    else
+      redirect_to initiative_link, error: @initiative.errors.full_messages.to_sentence
+    end
+  end
+
+  def to_unimplemented
+    if @initiative.to_unimplemented
+      create_step @initiative
+      redirect_to initiative_link,
+                  success: t('controller.initiative.to_unimplemented')
     else
       redirect_to initiative_link, error: @initiative.errors.full_messages.to_sentence
     end

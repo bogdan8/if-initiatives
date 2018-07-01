@@ -47,37 +47,37 @@ module InitiativesHelper
   # links for confirmating
   def for_confirmating(initiative)
     fundraising = administration_initiatives_fundraise_path(initiative, state: :fundraising)
-    rejected = to_rejected_administration_initiative_path(initiative)
+    rejected = administration_initiatives_rejection_path(initiative)
     safe_join([
                 link_to(t('views.pages.global.button.confirmed'), fundraising, method: :put, class: @success),
-                link_to(t('views.pages.global.button.rejected'), rejected, class: @danger)
+                link_to(t('views.pages.global.button.rejected'), rejected, method: :put, class: @danger)
               ])
   end
 
   # links for fundraising
   def for_fundraising(initiative)
     fundraised = administration_initiatives_fundraise_path(initiative, state: :fundraised)
-    rejected = to_rejected_administration_initiative_path(initiative)
+    rejected = administration_initiatives_rejection_path(initiative)
     safe_join([
                 link_to(t('views.pages.global.button.fundraised'), fundraised, method: :put, class: @success),
-                link_to(t('views.pages.global.button.rejected'), rejected, class: @danger)
+                link_to(t('views.pages.global.button.rejected'), rejected, method: :put, class: @danger)
               ])
   end
 
   # links for fundraised
   def for_fundraised(initiative)
-    implementing = to_implementing_administration_initiative_path(initiative)
+    implementing = administration_initiatives_implemention_path(initiative, state: :implementing)
     unimplemented = to_unimplemented_administration_initiative_path(initiative)
     safe_join([
-                link_to(t('views.pages.global.button.implementing'), implementing, class: @success),
+                link_to(t('views.pages.global.button.implementing'), implementing, method: :put, class: @success),
                 link_to(t('views.pages.global.button.unimplemented'), unimplemented, class: @danger)
               ])
   end
 
   # links for implementing
   def for_implementing(initiative)
-    implemented = to_implemented_administration_initiative_path(initiative)
-    link_to(t('views.pages.global.button.implemented'), implemented, class: @success)
+    implemented = administration_initiatives_implemention_path(initiative, state: :implemented)
+    link_to(t('views.pages.global.button.implemented'), implemented, method: :put, class: @success)
   end
 
   # liqpay payment for initiative

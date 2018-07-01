@@ -22,10 +22,9 @@ Rails.application.routes.draw do
   namespace :administration do
     get '/main' => 'main#index'
     resources :initiatives do
-      get :to_implementing, on: :member
       get :to_unimplemented, on: :member
-      get :to_implemented, on: :member
       get :to_locked, on: :member
+
       get :confirmating, on: :collection
       get :fundraising, on: :collection
       get :implementing, on: :collection
@@ -34,6 +33,7 @@ Rails.application.routes.draw do
     namespace :initiatives do
       resources :fundraises, only: %i[update]
       resources :rejections, only: %i[update]
+      resources :implementions, only: %i[update]
     end
     resources :comments, only: %i[destroy]
     resources :categories
