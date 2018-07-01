@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  mount Notifications::Engine => "/notifications"
+  mount Notifications::Engine => '/notifications'
   namespace :api, defaults: { format: :json } do
     resources :initiatives, only: %i[index show] do
       resources :comments, except: %i[index show new]
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :subscriptions, only: %i[create]
     resources :contacts, only: %i[new create]
   end
-  
+
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     omniauth_callbacks: 'users/omniauth_callbacks' },
                      path: :user,
@@ -44,16 +44,18 @@ Rails.application.routes.draw do
   scope module: :users, path: :user, as: :users do
     resources :initiatives do
       resources :reports, only: %i[create update destroy]
-      get :to_fundraised, on: :member
-      get :to_confirmating, on: :member
+    end
+    namespace :initiatives do
+      resources :confirmations, only: %i[update]
+      resources :fundraises, only: %i[update]
     end
     resources :attachments, only: %i[destroy]
   end
- 
+
   resources :initiatives, only: %i[index show] do
     resources :comments, except: %i[index show new]
   end
-  
+
   resources :subscriptions, only: %i[create]
   resources :contacts, only: %i[new create]
   resources :categories, only: %i[show]
