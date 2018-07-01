@@ -21,17 +21,13 @@ Rails.application.routes.draw do
   root 'main#index'
   namespace :administration do
     get '/main' => 'main#index'
-    resources :initiatives do
-      get :confirmating, on: :collection
-      get :fundraising, on: :collection
-      get :implementing, on: :collection
-    end
-
+    resources :initiatives
     namespace :initiatives do
-      resources :fundraises, only: %i[update]
+      resources :fundraises, only: %i[index update]
       resources :rejections, only: %i[update]
-      resources :implementions, only: %i[update]
+      resources :implementions, only: %i[index update]
       resources :locks, only: %i[update]
+      resources :confirmations, only: %i[index]
     end
     resources :comments, only: %i[destroy]
     resources :categories
