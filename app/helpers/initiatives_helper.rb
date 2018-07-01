@@ -67,10 +67,10 @@ module InitiativesHelper
   # links for fundraised
   def for_fundraised(initiative)
     implementing = administration_initiatives_implemention_path(initiative, state: :implementing)
-    unimplemented = to_unimplemented_administration_initiative_path(initiative)
+    unimplemented = administration_initiatives_implemention_path(initiative, state: :unimplemented)
     safe_join([
                 link_to(t('views.pages.global.button.implementing'), implementing, method: :put, class: @success),
-                link_to(t('views.pages.global.button.unimplemented'), unimplemented, class: @danger)
+                link_to(t('views.pages.global.button.unimplemented'), unimplemented, method: :put, class: @danger)
               ])
   end
 

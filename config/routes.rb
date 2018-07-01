@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   namespace :administration do
     get '/main' => 'main#index'
     resources :initiatives do
-      get :to_unimplemented, on: :member
       get :to_locked, on: :member
 
       get :confirmating, on: :collection

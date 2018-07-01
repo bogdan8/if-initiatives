@@ -7,36 +7,6 @@ module AbilityStateToInitiatives
     current_user.has_role?(:administrator) ? administration_initiatives_path : users_initiatives_path
   end
 
-  def to_implementing
-    if @initiative.to_implementing
-      create_step @initiative
-      redirect_to initiative_link,
-                  success: t('controller.initiative.to_implementing')
-    else
-      redirect_to initiative_link, error: @initiative.errors.full_messages.to_sentence
-    end
-  end
-
-  def to_implemented
-    if @initiative.to_implemented
-      create_step @initiative
-      redirect_to initiative_link,
-                  success: t('controller.initiative.to_implemented')
-    else
-      redirect_to initiative_link, error: @initiative.errors.full_messages.to_sentence
-    end
-  end
-
-  def to_unimplemented
-    if @initiative.to_unimplemented
-      create_step @initiative
-      redirect_to initiative_link,
-                  success: t('controller.initiative.to_unimplemented')
-    else
-      redirect_to initiative_link, error: @initiative.errors.full_messages.to_sentence
-    end
-  end
-
   def to_locked
     if @initiative.to_locked
       create_step @initiative
