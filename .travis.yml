@@ -13,4 +13,4 @@ before_install:
 
 before_script: bundle exec rake db:setup RAILS_ENV=test
 
-script: bundle exec rspec spec 
+script: bundle exec rspec spec && cd client/ && npm run lint

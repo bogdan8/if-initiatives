@@ -9,7 +9,7 @@ export function allInitiatives() {
         initiatives: response.body
       })
     }).catch(error => {
-      throw(error);
+      throw(error)
     })
   }
 }

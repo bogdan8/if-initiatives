@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
-import initiatives from './initiatives';
+import { combineReducers } from 'redux'
+import initiatives from './initiatives'
 
 const rootReducer = combineReducers({
   initiatives
-});
+})
 
-export default rootReducer;
+export default rootReducer
