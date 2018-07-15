@@ -15,6 +15,7 @@ AllCops:
     - 'db/**/**'
     - 'bin/**'
     - 'app/models/role.rb'
+    - 'vendor/*'
 Rails:
   Enabled: true
 
