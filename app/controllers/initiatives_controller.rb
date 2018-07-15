@@ -28,7 +28,7 @@ class InitiativesController < ApplicationController
       order_id: donation.id,
       description: initiative.short_description,
       result_url: initiative_url(initiative),
-      server_url: 'http://localhost/liqpay'
+      server_url: donations_url
     )
   end
 end
