@@ -1,0 +1,12 @@
+doctype html
+html
+  = render 'layouts/user/head'
+  body
+    .mdl-layout.mdl-js-layout
+      = render 'layouts/user/header'
+      - # render 'layouts/user/flash'
+      - # render 'layouts/user/breadcrumb'
+      main.mdl-layout__content
+        .page-content
+          = yield
+      = render 'layouts/user/footer'

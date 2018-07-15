@@ -1,0 +1,19 @@
+= simple_form_for [:users, @initiative], html: { multipart: true } do |f|
+  = f.input :title
+  = f.input :short_description
+  = f.input :long_description
+  = f.input :finish_days
+  = f.input :general_sum
+  = f.input :category_ids, collection: @categories.order(:title), label_method: :title, value_method: :id, prompt: t('views.pages.initiatives.form.categories'), input_html: { multiple: true }
+  - if action == :new
+    div id="images_cocoon_#{action}" 
+      = f.simple_fields_for :attachments do |attachment|
+        = render 'users/attachments/image_fields', f: attachment
+    div id="videos_cocoon_#{action}" 
+      = f.simple_fields_for :attachments do |attachment|
+        = render 'users/attachments/video_fields', f: attachment
+  - else
+    = render '/users/attachments/form', entity: :initiative, action: action, redirect_path: edit_users_initiative_path(@initiative.slug), f: f
+  = link_to_add_association t('views.pages.attachments.new.image'), f, :attachments, partial: 'users/attachments/image_fields', data: { association_insertion_node: "#images_cocoon_#{action}", association_insertion_method: :append }
+  = link_to_add_association t('views.pages.attachments.new.video'), f, :attachments, partial: 'users/attachments/video_fields', data: { association_insertion_node: "#videos_cocoon_#{action}", association_insertion_method: :append }
+  = f.button :submit, t("views.pages.global.button.#{action}")

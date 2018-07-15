@@ -1,0 +1,12 @@
+- if page.current?
+  = content_tag :a, remote: remote, rel: (page.next? ? 'next' : (page.prev? ? 'prev' : nil)) do
+    li.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.active
+      = page
+      span.mdl-button__ripple-container
+        span.mdl-ripple
+- else
+  = link_to url, remote: remote, rel: (page.next? ? 'next' : (page.prev? ? 'prev' : nil)) do
+    li.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect
+      = page
+      span.mdl-button__ripple-container
+        span.mdl-ripple

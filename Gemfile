@@ -33,6 +33,7 @@ gem 'bootstrap4-kaminari-views'
 gem 'font-awesome-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'select2-rails'
+gem 'slim'
 
 # for server
 gem 'babosa'
@@ -60,6 +61,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
   gem 'chromedriver-helper'
+  gem 'codecov', require: false
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'faker'
@@ -69,6 +71,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'rubycritic'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'simplecov', require: false
@@ -76,6 +79,7 @@ end
 
 group :development do
   gem 'annotate'
+  gem 'brakeman'
   gem 'bullet'
   gem 'capistrano', require: false
   gem 'capistrano-bundler', require: false
@@ -84,6 +88,7 @@ group :development do
   gem 'capistrano-rvm', require: false
   gem 'capistrano3-puma', require: false
   gem 'listen'
+  gem 'rails_best_practices'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console'

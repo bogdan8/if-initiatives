@@ -1,0 +1,90 @@
+= provide :site_title, t('views.pages.global.initiative')
+= provide :initiatives_show, 'active'
+.mdl-grid.portfolio-max-width
+  .mdl-cell.mdl-cell--12-col.mdl-card.mdl-shadow--4dp
+    .mdl-card__title
+      h2.mdl-card__title-text
+        = @initiative.title
+    .mdl-card__media
+      = image_tag(@initiative.decorate.first_image(:original), class: 'initiative-image')
+    .mdl-card__supporting-text
+      strong
+        = t('views.pages.global.categories')
+      span
+        = @initiative.decorate.categories_title
+    .mdl-grid.portfolio-copy
+      .mdl-cell.mdl-cell--12-col.mdl-card__supporting-text.no-padding
+        p
+          = @initiative.long_description
+      .mdl-cell.mdl-cell--12-col.mdl-card__supporting-text.no-padding
+        p
+          = t('views.pages.global.finish_date')
+          | \: #{@initiative.finish_date}
+        p
+          = t('views.pages.global.general_sum')
+          | \: #{@initiative.general_sum}
+        p
+          = t('views.pages.global.collected_amount')
+          | \: #{@initiative.collected_amount}
+        p
+          = t("views.pages.initiatives.state.# @initiative.state ")
+      = liqpay @liqpay_request
+      /! show images
+      .mdl-cell.mdl-cell--12-col.mdl-card__supporting-text.no-padding
+        .mdl-grid
+          - @initiative.decorate.attachments_images.each do |attachment|
+            .mdl-cell.mdl-cell--2-col-desktop.mdl-cell--4-col-tablet.mdl-cell--12-col-phone.mdl-card__supporting-text.no-padding
+              = image_tag attachment.image.url(:medium), class: 'full-image'
+      /! show videos
+      .mdl-cell.mdl-cell--12-col.mdl-card__supporting-text.no-padding
+        .mdl-grid
+          - @initiative.decorate.attachments_videos.each do |attachment|
+            .mdl-cell.mdl-cell--6-col-desktop.mdl-cell--12-col-phone.mdl-card__supporting-text.no-padding
+              = video_tag attachment.video.url, controls: true, class: 'full-video'
+    /! show steps
+    .mdl-card__supporting-text
+      strong
+        = t('views.pages.global.steps')
+    .mdl-grid.portfolio-copy
+      .mdl-cell.mdl-cell--12-col.mdl-card__supporting-text.no-padding
+        - @initiative.steps.each do |step|
+          p
+            = t('views.pages.global.created_at')
+            | \: #{step.created_at}
+          p
+            = t('views.pages.global.initiatives.state')
+            | \: #{t("views.pages.initiatives.state.#{step.state}")}
+    /! show comments
+    .mdl-card__supporting-text
+      strong
+        = t('views.pages.global.comments')
+    .mdl-grid.portfolio-copy
+      .mdl-cell.mdl-cell--12-col.mdl-card__supporting-text.no-padding
+        - @initiative.comments.each do |comment|
+          p
+            = t('views.pages.global.title')
+            | \: #{comment.title}
+          p
+            = t('views.pages.global.text')
+            | \: #{comment.text}
+          /! edit comment
+          - if current_user
+            - if current_user.id == comment.user.id
+              .mdl-card__supporting-text
+                strong
+                  = t('views.pages.comments.edit.title_obj', obj: comment.title)
+              = simple_form_for comment, url: initiative_comment_path(@initiative, comment), html: { multipart: true } do |f|
+                = f.input :title
+                = f.input :text
+                = f.button :submit, t('views.pages.global.button.edit'), class: 'btn btn-warning btn-sm'
+    /! add comments
+    .mdl-card__supporting-text
+      strong
+        = t('views.pages.comments.new.title')
+    .mdl-grid.portfolio-copy
+      - if current_user
+        .mdl-cell.mdl-cell--12-col.mdl-card__supporting-text.no-padding
+          = simple_form_for @initiative.comments.build, url: initiative_comments_path(@initiative), html: { multipart: true } do |f|
+            = f.input :title
+            = f.input :text
+            = f.button :submit, t('views.pages.global.button.new'), class: 'btn btn-success btn-sm'
