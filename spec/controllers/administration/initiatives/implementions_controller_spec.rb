@@ -27,7 +27,7 @@ RSpec.describe Administration::Initiatives::ImplementionsController, type: :cont
       expect(response).to redirect_to(administration_initiatives_path)
     end
 
-   it 'initiative state should change to unimplemented instead fundraised' do
+    it 'initiative state should change to unimplemented instead fundraised' do
       initiative.state = :fundraised
       initiative.save
       post :update, params: { id: initiative.slug, state: :unimplemented }
@@ -35,7 +35,7 @@ RSpec.describe Administration::Initiatives::ImplementionsController, type: :cont
       expect(response).to redirect_to(administration_initiatives_path)
     end
 
-   it 'initiative state should change to implemented instead implementing' do
+    it 'initiative state should change to implemented instead implementing' do
       initiative.state = :implementing
       initiative.save
       post :update, params: { id: initiative.slug, state: :implemented }

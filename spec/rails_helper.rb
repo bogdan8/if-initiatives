@@ -7,6 +7,9 @@ SimpleCov.start do
   add_group 'Models', 'app/models'
 end
 
+require 'codecov'
+SimpleCov.formatter = SimpleCov::Formatter::Codecov
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 
