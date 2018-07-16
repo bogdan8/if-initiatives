@@ -3,6 +3,7 @@
 **Initiatives**
 
 [![Build Status](https://travis-ci.com/bogdan8/if-initiatives.svg?branch=develop)](https://travis-ci.com/bogdan8/if-initiatives)
+[![codecov](https://codecov.io/gh/bogdan8/if-initiatives/branch/develop/graph/badge.svg)](https://codecov.io/gh/bogdan8/if-initiatives)
 
 # Setup rails
 ```sh
