@@ -55,8 +55,8 @@ Rails.application.routes.draw do
   resources :subscriptions, only: %i[create]
   resources :contacts, only: %i[new create]
   resources :categories, only: %i[show]
-
-  post :liqpay, controller: :donations
+  resources :donations, only: %[create]
+  
   get 'user/:id', to: 'users/users#show', as: :user
   get :search, controller: :main
   get '*path' => 'static#index', constraints: lambda { |req| req.format != 'json' }
