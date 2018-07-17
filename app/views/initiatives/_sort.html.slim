@@ -1,3 +1,13 @@
-= search_form_for @q, builder: SimpleForm::FormBuilder do |f|
-  = f.input :state_in, collection: collection_states, input_html: { multiple: true }
-  = f.button :submit, 'Фільтрувати'
+.sort
+  p
+    button.btn.btn-default aria-controls='collapseExample' aria-expanded='false' data-target='#collapseExample' data-toggle='collapse' type='button'
+      | Фільтер
+  #collapseExample.collapse
+    .card.card-body
+      = search_form_for @q, builder: SimpleForm::FormBuilder do |f|
+        = f.input :state_in, collection: collection_states, input_html: { multiple: true, id: 'select2' }
+        = f.button :submit, 'Фільтрувати'
+  .well
+    .row
+      .col-xl-4
+        = sort_link(@q, :updated_at)

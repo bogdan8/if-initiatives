@@ -10,7 +10,7 @@
 //= require initiatives
 
 $(function($) {
-  $('#initiative_category_ids').select2({
+  $('#select2').select2({
     placeholder: 'Виберіть категорії',
     language: 'uk'
   })

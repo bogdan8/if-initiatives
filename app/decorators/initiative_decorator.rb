@@ -12,7 +12,7 @@ class InitiativeDecorator < ApplicationDecorator
   end
 
   def first_image(size)
-    attachments.select(&:image?).first ? attachments.select(&:image?).first.image.url(size) : 'missing.png'
+    attachments.select(&:image?).first ? attachments.select(&:image?).first.image.url(size) : '/images/missing.png'
   end
 
   def attachments_videos
@@ -20,6 +20,6 @@ class InitiativeDecorator < ApplicationDecorator
   end
 
   def first_videos
-    attachments.select(&:video?).first ? attachments.select(&:video?).first.video.url(size) : 'default.avi'
+    attachments.select(&:video?).first ? attachments.select(&:video?).first.video.url(size) : '/video/default.avi'
   end
 end

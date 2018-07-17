@@ -1,5 +1,4 @@
-.container
-  nav[aria-label="breadcrumb"]
-    ol.breadcrumb
-      li.breadcrumb-item[aria-current="page"]
-        = render_breadcrumbs separator: ' / '
+nav aria-label='breadcrumb'
+  ol.breadcrumb
+    li.breadcrumb-item.active aria-current='page'
+      = render_breadcrumbs separator: ' / '
