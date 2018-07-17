@@ -3,27 +3,28 @@
 module ApplicationHelper
   def initialize(*)
     super
-    @link = 'mdl-navigation__link'
+    @link = 'nav-link'
   end
 
   # navigation for signout user
   def navigation_for_signout
     return if user_signed_in?
-    safe_join(links_for_signout.map { |link| content_tag(:li, link) })
+    safe_join(links_for_signout.map { |link| content_tag(:li, link, class: 'nav-item') })
   end
 
   # navigation for signin user
   def navigation_for_user
     return unless user_signed_in?
     unread_count = Notification.unread_count(current_user)
-    safe_join(links_for_signin(unread_count).map { |link| content_tag(:li, link) })
+    safe_join(links_for_signin(unread_count).map { |link| content_tag(:li, link, class: 'nav-item') })
   end
 
   # helper of navigation for administrator user
   def navigation_for_administrator
     return unless user_signed_in? # return if user not signin
     return unless current_user.has_role? :administrator # return if user not administrator
-    content_tag(:li, link_to(t('views.pages.global.administration'), main_app.administration_main_path, class: @link))
+    link = link_to(t('views.pages.global.administration'), main_app.administration_main_path, class: @link)
+    content_tag(:li, link, class: 'nav-item')
   end
 
   # helper of navigation for moderator user
