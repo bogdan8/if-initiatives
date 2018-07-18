@@ -93,7 +93,8 @@ module InitiativesHelper
 
   # category array of links
   def category_links_array(initiative)
-    initiative.categories.map { |category| content_tag(:li, link_to(category.title, category_path(category))) }
+    badge = 'badge badge-light'
+    initiative.categories.map { |category| content_tag(:span, link_to(category.title, category_path(category)), class: badge) }
   end
 
   # all states wich available for administration and moderator
