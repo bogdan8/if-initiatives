@@ -8,6 +8,7 @@
 #= require jquery.easy-autocomplete
 #= require material.min
 #= require initiatives
+#= require form
 
 window.addEventListener 'load', ->
   $input = $('[data-behavior=\'autocomplete\']')
