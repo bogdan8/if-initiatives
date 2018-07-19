@@ -3,9 +3,9 @@
 module InitiativesHelper
   def initialize(*)
     super
-    @success = 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn-success'
-    @danger = 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn-danger'
-    @warning = 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn-warning'
+    @success = 'btn btn-sm btn-success'
+    @danger = 'btn btn-sm btn-danger'
+    @warning = 'btn btn-sm btn-warning'
   end
 
   # helper of links for administrator

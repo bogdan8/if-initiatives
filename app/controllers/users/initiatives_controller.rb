@@ -8,7 +8,6 @@ module Users
     include AbilityStateToInitiatives
 
     def index
-      add_breadcrumb t('views.pages.global.initiatives'), :initiatives_path
       @q = current_user.initiatives.includes(:categories, :attachments).ransack(params[:q])
       @initiatives = @q.result.page(params[:page]).per(6)
     end
