@@ -82,30 +82,30 @@
 
     /! comments
     - if @initiative.comments.any?
-    .card
-      .card-header
-        = t('views.pages.global.comments')
-      .card-body.comments
-        .comments-container
-          ul#comments-list.comments-list
-            - @initiative.comments.each do |comment|
-              li
-                .comment-main-level
-                  /! Avatar
-                  .comment-avatar
-                    = image_tag(comment.user.avatar(:medium))
-                  /! Contenedor del Comentario
-                  .comment-box
-                    .comment-head
-                      h6.comment-name.by-author
-                        = link_to(comment.user.name, user_path(comment.user.id))
-                      span
-                        = comment.updated_at
-                    .comment-content
-                      p
-                        = comment.title
-                      p
-                        = comment.text
+      .card
+        .card-header
+          = t('views.pages.global.comments')
+        .card-body.comments
+          .comments-container
+            ul#comments-list.comments-list
+              - @initiative.comments.each do |comment|
+                li
+                  .comment-main-level
+                    /! Avatar
+                    .comment-avatar
+                      = image_tag(comment.user.avatar(:medium))
+                    /! Contenedor del Comentario
+                    .comment-box
+                      .comment-head
+                        h6.comment-name.by-author
+                          = link_to(comment.user.name, user_path(comment.user.id))
+                        span
+                          = comment.updated_at
+                      .comment-content
+                        p
+                          = comment.title
+                        p
+                          = comment.text
     /! Reports
     .card
       .card-header
