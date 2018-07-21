@@ -34,3 +34,11 @@ $ foreman start -f Procfile.dev
 ```sh
 $ rake state_machine:draw FILE=initiative.rb CLASS=Initiative
 ```
+
+# Checking the code
+```sh
+$ rubocop
+$ matric_fu
+$ rubycritic
+$ rails_best_practices
+```

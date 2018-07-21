@@ -68,6 +68,7 @@ group :development, :test do
   gem 'faker'
   gem 'parallel_tests'
   gem 'progress_bar'
+  gem 'metric_fu', git: 'https://github.com/metricfu/metric_fu.git'
   gem 'rack-mini-profiler'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
