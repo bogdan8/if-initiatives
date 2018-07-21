@@ -3,7 +3,7 @@
 module Administration
   class InitiativesController < Administration::BaseController
     load_and_authorize_resource find_by: :slug
-    before_action :all_categories, only: %i[edit update]
+    before_action :all_categories, only: %i(edit update)
     add_breadcrumb I18n.t('views.pages.global.initiatives'), :administration_initiatives_path
 
     include AbilityStateToInitiatives
@@ -41,8 +41,8 @@ module Administration
     private
 
     def initiative_params
-      text = %i[title short_description long_description]
-      number = %i[finish_days general_sum]
+      text = %i(title short_description long_description)
+      number = %i(finish_days general_sum)
       params.require(:initiative).permit(*text, *number)
     end
 

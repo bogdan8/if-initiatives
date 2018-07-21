@@ -29,6 +29,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 4.2.1'
 
 # for style
+gem 'bootstrap', '~> 4.1.1'
 gem 'bootstrap4-kaminari-views'
 gem 'font-awesome-rails'
 gem 'sass-rails', '~> 5.0'
@@ -58,7 +59,7 @@ gem 'rolify'
 
 group :development, :test do
   gem 'awesome_print'
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'byebug', platforms: %i(mri mingw x64_mingw)
   gem 'capybara'
   gem 'chromedriver-helper'
   gem 'codecov', require: false
@@ -67,6 +68,7 @@ group :development, :test do
   gem 'faker'
   gem 'parallel_tests'
   gem 'progress_bar'
+  gem 'metric_fu', git: 'https://github.com/metricfu/metric_fu.git'
   gem 'rack-mini-profiler'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
@@ -95,4 +97,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'tzinfo-data', platforms: %i(mingw mswin x64_mingw jruby)

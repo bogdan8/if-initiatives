@@ -7,7 +7,7 @@ module Initiatives
     included do
       state_machine initial: :draft do
         event :to_confirmating do
-          transition %i[draft rejected] => :confirmating
+          transition %i(draft rejected) => :confirmating
         end
 
         event :to_fundraising do
@@ -15,7 +15,7 @@ module Initiatives
         end
 
         event :to_rejected do
-          transition %i[confirmating fundraising] => :rejected
+          transition %i(confirmating fundraising) => :rejected
         end
 
         event :to_fundraised do
@@ -35,7 +35,7 @@ module Initiatives
         end
 
         event :to_locked do
-          transition all - %i[locked implemented unimplemented] => :locked
+          transition all - %i(locked implemented unimplemented) => :locked
         end
       end
     end

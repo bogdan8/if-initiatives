@@ -6,8 +6,7 @@
     = f.input :name
     = f.input :phone
     = f.input :age
-    = f.input :avatar, as: :file, label: fa_icon('upload')
-    #preview
+    = f.input :avatar, as: :file
     = f.input :password, autocomplete: :off
     = f.input :password_confirmation, autocomplete: :off
     = f.button :submit, t('devise.registrations.new.sign_up'), class: 'btn btn-success btn-sm'
