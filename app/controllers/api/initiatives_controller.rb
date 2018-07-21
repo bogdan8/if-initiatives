@@ -4,7 +4,7 @@ module Api
   class InitiativesController < ApiController
     def index
       @initiatives = Initiative.includes(:categories, :attachments).available_everyone
-      render json: @initiatives.to_json(include: %i[categories attachments])
+      render json: @initiatives.to_json(include: %i(categories attachments))
     end
 
     def show

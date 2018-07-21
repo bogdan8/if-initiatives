@@ -59,7 +59,7 @@ gem 'rolify'
 
 group :development, :test do
   gem 'awesome_print'
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'byebug', platforms: %i(mri mingw x64_mingw)
   gem 'capybara'
   gem 'chromedriver-helper'
   gem 'codecov', require: false
@@ -97,4 +97,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'tzinfo-data', platforms: %i(mingw mswin x64_mingw jruby)

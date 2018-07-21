@@ -15,7 +15,7 @@ class Ability
       cannot :manage, :all
       cannot :read, :all
       can :read, Initiative
-      can %i[create], Subscription
+      can %i(create), Subscription
     end
   end
 
@@ -37,8 +37,8 @@ class Ability
     can :manage, Initiative, user_id: user.id
     can :manage, Report, initiative: { user_id: user.id }
     can :read, User
-    can %i[edit update], User, id: user.id
+    can %i(edit update), User, id: user.id
     can :manage, Comment, user_id: user.id
-    can %i[create], Subscription
+    can %i(create), Subscription
   end
 end

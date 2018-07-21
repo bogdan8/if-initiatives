@@ -29,10 +29,10 @@ module InitiativesHelper
     data = { confirm: t('views.pages.global.confirm') }
     return unless initiative.draft? || initiative.rejected?
     safe_join([
-                link_to(t('views.pages.global.button.edit'), edit, class: @warning),
-                link_to(t('views.pages.global.button.confirmation'), confirmating, method: :put, class: @success),
-                link_to(t('views.pages.global.button.destroy'), delete, method: :delete, data: data, class: @danger)
-              ])
+      link_to(t('views.pages.global.button.edit'), edit, class: @warning),
+      link_to(t('views.pages.global.button.confirmation'), confirmating, method: :put, class: @success),
+      link_to(t('views.pages.global.button.destroy'), delete, method: :delete, data: data, class: @danger)
+    ])
   end
 
   # helper of links for user with initiative state 'draft' or 'confirm'
@@ -49,9 +49,9 @@ module InitiativesHelper
     fundraising = administration_initiatives_fundraise_path(initiative, state: :fundraising)
     rejected = administration_initiatives_rejection_path(initiative)
     safe_join([
-                link_to(t('views.pages.global.button.confirmed'), fundraising, method: :put, class: @success),
-                link_to(t('views.pages.global.button.rejected'), rejected, method: :put, class: @danger)
-              ])
+      link_to(t('views.pages.global.button.confirmed'), fundraising, method: :put, class: @success),
+      link_to(t('views.pages.global.button.rejected'), rejected, method: :put, class: @danger)
+    ])
   end
 
   # links for fundraising
@@ -59,9 +59,9 @@ module InitiativesHelper
     fundraised = administration_initiatives_fundraise_path(initiative, state: :fundraised)
     rejected = administration_initiatives_rejection_path(initiative)
     safe_join([
-                link_to(t('views.pages.global.button.fundraised'), fundraised, method: :put, class: @success),
-                link_to(t('views.pages.global.button.rejected'), rejected, method: :put, class: @danger)
-              ])
+      link_to(t('views.pages.global.button.fundraised'), fundraised, method: :put, class: @success),
+      link_to(t('views.pages.global.button.rejected'), rejected, method: :put, class: @danger)
+    ])
   end
 
   # links for fundraised
@@ -69,9 +69,9 @@ module InitiativesHelper
     implementing = administration_initiatives_implemention_path(initiative, state: :implementing)
     unimplemented = administration_initiatives_implemention_path(initiative, state: :unimplemented)
     safe_join([
-                link_to(t('views.pages.global.button.implementing'), implementing, method: :put, class: @success),
-                link_to(t('views.pages.global.button.unimplemented'), unimplemented, method: :put, class: @danger)
-              ])
+      link_to(t('views.pages.global.button.implementing'), implementing, method: :put, class: @success),
+      link_to(t('views.pages.global.button.unimplemented'), unimplemented, method: :put, class: @danger)
+    ])
   end
 
   # links for implementing
@@ -99,20 +99,20 @@ module InitiativesHelper
 
   # all states wich available for administration and moderator
   def collection_administration_states
-    states = %i[confirmating fundraising rejected fundraised implementing reporting unimplemented implemented locked]
+    states = %i(confirmating fundraising rejected fundraised implementing reporting unimplemented implemented locked)
     states.map { |state| [t("views.pages.global.#{state}"), state] }
   end
 
   # all states wich available in the cabinet of user
   def collection_user_states
-    states = %i[draft confirmating fundraising rejected fundraised]
-    states << %i[implementing reporting unimplemented implemented locked]
+    states = %i(draft confirmating fundraising rejected fundraised)
+    states << %i(implementing reporting unimplemented implemented locked)
     states.flatten.map { |state| [t("views.pages.global.#{state}"), state] }
   end
 
   # all states wich available for all users
   def collection_states
-    states = %i[fundraising fundraised implementing reporting unimplemented implemented]
+    states = %i(fundraising fundraised implementing reporting unimplemented implemented)
     states.map { |state| [t("views.pages.global.#{state}"), state] }
   end
 end
