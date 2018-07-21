@@ -1,6 +1,7 @@
 AllCops:
   DisplayStyleGuide: true
   DisplayCopNames: true
+  RunRailsCops: true
   Include:
     - '**/Gemfile'
     - '**/Rakefile'
@@ -16,8 +17,6 @@ AllCops:
     - 'bin/**'
     - 'app/models/role.rb'
     - 'vendor/**/*'
-Rails:
-  Enabled: true
 
 Metrics/LineLength:
   Max: 120
@@ -25,17 +24,59 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Max: 20
 
-Style/Documentation:
-  Enabled: false
+Metrics/ClassLength:
+  Max: 1500
 
 Metrics/AbcSize:
-  Max: 25
+  Max: 30
+
+Style/SpaceAroundEqualsInParameterDefault:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: true
+
+Style/DeprecatedHashMethods:
+  Enabled: false
+
+Style/ParenthesesAroundCondition:
+  AllowSafeAssignment: false
+Lint/AssignmentInCondition:
+  AllowSafeAssignment: false
+
+Style/RaiseArgs:
+  Enabled: false
+
+Style/MultilineOperationIndentation:
+  Enabled: false
+
+Lint/HandleExceptions:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Lint/ShadowingOuterLocalVariable:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false 
+
+Style/OpMethod:
+  Enabled: false 
+
+Lint/Debugger:
+  Enabled: false
+
+Style/MethodDefParentheses:
+  Enabled: false
 
 Metrics/ModuleLength:
   Exclude:
     - "**/*_spec.rb"
-
-Metrics/BlockLength:
-  Exclude:
-    - "**/*_spec.rb"
-  ExcludedMethods: ['included']
