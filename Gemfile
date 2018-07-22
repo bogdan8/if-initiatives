@@ -74,7 +74,7 @@ group :development, :test do
   gem 'rack-mini-profiler'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
-  gem 'rubocop'
+  gem 'rubocop', git: 'https://github.com/rubocop-hq/rubocop.git'
   gem 'rubycritic'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 3.1'
