@@ -4,6 +4,7 @@ module Users
   module Initiatives
     class BaseController < ApplicationController
       private
+
       # create a step for tracking the initiative
       def step(initiative)
         initiative.steps.create(state: initiative.state)
