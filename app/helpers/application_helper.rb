@@ -27,12 +27,6 @@ module ApplicationHelper
     content_tag(:li, link, class: 'nav-item')
   end
 
-  # helper of navigation for moderator user
-  def navigation_for_moderator
-    return unless user_signed_in? # return if user not signin
-    return unless current_user.has_role? :moderator # return if user not administrator
-  end
-
   # helper to count how much time passed after adding
   def added_time(date)
     TimeDifference.between(date, Time.zone.now).humanize
