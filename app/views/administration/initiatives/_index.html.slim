@@ -8,25 +8,25 @@
         .mdl-card__supporting-text
           p.ndk-card__short-description
             = t('views.pages.global.short_description')
-            | : 
+            | :
             = initiative.short_description
           p
             = t('views.pages.global.finish_date')
-            | : 
+            | :
             = initiative.finish_date
           p
             = t('views.pages.global.general_sum')
-            | : 
+            | :
             = initiative.general_sum
           p
             = t('views.pages.global.collected_amount')
-            | : 
+            | :
             = initiative.collected_amount
           p
             = t("views.pages.initiatives.state.#{initiative.state}")
           p
             = t('views.pages.global.categories')
-            | : 
+            | :
             = initiative.decorate.categories_title
         .mdl-card__actions.mdl-card--border
           = link_to t('views.pages.global.button.show'), administration_initiative_path(initiative), class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect'

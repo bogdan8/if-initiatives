@@ -10,14 +10,6 @@ RSpec.describe Administration::Initiatives::ImplementionsController, type: :cont
     login_admin(user)
   end
 
-  describe 'GET #index' do
-    it 'renders the template with status' do
-      get :index
-      expect(response).to render_template(:index)
-      expect(response.status).to eq(200)
-    end
-  end
-
   describe 'POST #update' do
     it 'initiative state should change to implementing instead fundraised' do
       initiative.state = :fundraised

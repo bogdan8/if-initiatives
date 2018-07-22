@@ -70,7 +70,7 @@
                   - @initiative.steps.each do |step|
                     .line.text-muted
                     .separator.text-muted
-                      time 
+                      time
                         = step.created_at
                     article.panel.panel-primary
                       .panel-heading.icon
@@ -102,7 +102,7 @@
                       h6.comment-name.by-author
                         = link_to(comment.user.name, user_path(comment.user.id))
                       span
-                        = comment.updated_at
+                        = l comment.updated_at
                       i.fa.fa-edit  data-target="#editComment-#{comment.id}" data-toggle='modal'
                     .comment-content
                       p
@@ -120,7 +120,7 @@
                         span aria-hidden='true'  &times;
                     .modal-body
                       - if current_user
-                        - if current_user.id == comment.user.id
+                        - if comment.user == current_user
                           = simple_form_for comment, url: initiative_comment_path(@initiative, comment), html: { multipart: true } do |f|
                             = f.input :title
                             = f.input :text
