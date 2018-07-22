@@ -8,7 +8,7 @@
 # Setup rails
 ```sh
 $ git clone git@github.com:bogdan8/if-initiatives
-$ cd pivorak-web-app
+$ cd if-initiatives
 $ bundle
 $ rake db:setup
 $ rails s
@@ -17,7 +17,7 @@ $ rails s
 # Setup rails & react
 ```sh
 $ git clone git@github.com:bogdan8/if-initiatives
-$ cd pivorak-web-app
+$ cd if-initiatives
 $ bundle
 $ rake db:setup
 $ cd client && npm i
