@@ -2,7 +2,7 @@
 
 module Administration
   module Initiatives
-    class ConfirmationsController < Administration::BaseController
+    class ConfirmationsController < Administration::Initiatives::BaseController
       load_and_authorize_resource :initiative
       def index
         @initiative = initiative_with(:confirmating)

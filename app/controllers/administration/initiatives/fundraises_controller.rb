@@ -2,7 +2,7 @@
 
 module Administration
   module Initiatives
-    class FundraisesController < Administration::BaseController
+    class FundraisesController < Administration::Initiatives::BaseController
       load_and_authorize_resource :initiative
       def index
         @initiative = initiative_with(:fundraising)
@@ -11,8 +11,8 @@ module Administration
       def update
         @initiative = Initiative.friendly.find(params[:id])
         if @initiative.update(state: params[:state])
-          for_fundraising(@initiative) if @initiative.fundraising?
-          @initiative.steps.create(state: @initiative.state) # create a step for tracking the initiative
+          finish_date(@initiative) if @initiative.fundraising?
+          step(@initiative)
           redirect_to administration_initiatives_path,
                       success: t("controller.initiative.to.#{params[:state]}")
         else
@@ -22,7 +22,7 @@ module Administration
 
       private
 
-      def for_fundraising(initiative)
+      def finish_date(initiative)
         initiative.update(finish_date: Time.current.to_date + @initiative.finish_days)
       end
 

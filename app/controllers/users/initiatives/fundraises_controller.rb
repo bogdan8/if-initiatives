@@ -7,7 +7,7 @@ module Users
       def update
         @initiative = Initiative.friendly.find(params[:id])
         if @initiative.to_fundraised
-          @initiative.steps.create(state: @initiative.state) # create a step for tracking the initiative
+          step(@initiative)
           redirect_to users_initiatives_path,
                       success: t('controller.initiative.to_fundraised')
         else

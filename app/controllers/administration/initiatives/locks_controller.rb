@@ -2,13 +2,13 @@
 
 module Administration
   module Initiatives
-    class LocksController < Administration::BaseController
+    class LocksController < Administration::Initiatives::BaseController
       load_and_authorize_resource :initiative
       def update
         @initiative = Initiative.friendly.find(params[:id])
         if @initiative.to_locked
-          @initiative.steps.create(state: @initiative.state)
-          redirect_to administration_initiatives_path, success: t('controller.initiative.to.locked')
+          step(@initiative)
+          redirect_to administration_initiatives_path, success: t("controller.initiative.to.#{params[:state]}")
         else
           redirect_to administration_initiatives_path, error: @initiative.errors.full_messages.to_sentence
         end

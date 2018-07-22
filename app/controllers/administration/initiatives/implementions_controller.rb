@@ -2,7 +2,7 @@
 
 module Administration
   module Initiatives
-    class ImplementionsController < Administration::BaseController
+    class ImplementionsController < Administration::Initiatives::BaseController
       load_and_authorize_resource :initiative
       def index
         @initiative = initiative_with(:implementing)
@@ -11,7 +11,7 @@ module Administration
       def update
         @initiative = Initiative.friendly.find(params[:id])
         if @initiative.update(state: params[:state])
-          @initiative.steps.create(state: @initiative.state) # create a step for tracking the initiative
+          step(@initiative)
           redirect_to administration_initiatives_path,
                       success: t("controller.initiative.to.#{params[:state]}")
         else
