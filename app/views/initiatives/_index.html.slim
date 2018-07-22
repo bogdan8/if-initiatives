@@ -14,10 +14,10 @@
         | : #{initiative.collected_amount}
       p.card-text
         = t('views.pages.global.state')
-        | : 
+        | :
         = t("views.pages.initiatives.state.#{initiative.state}")
       p.card-text
         = t('views.pages.global.categories')
-        | : 
+        | :
         = category_link initiative
       = link_to t('views.pages.global.button.show'), initiative_path(initiative), class: 'btn btn-sm btn-primary'

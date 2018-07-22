@@ -35,15 +35,3 @@
       i.mdl-color-text--blue-grey-400.fa.fa-fw.fa-dashboard
       span.nav-link-text
         = t('views.pages.global.users')
-    = link_to administration_initiatives_confirmations_path, class: "mdl-navigation__link #{yield :confirmating}" do
-      i.mdl-color-text--blue-grey-400.fa.fa-fw.fa-dashboard
-      span.nav-link-text
-        = t('views.pages.global.confirmating')
-    = link_to administration_initiatives_fundraises_path, class: "mdl-navigation__link #{yield :fundraising}" do
-      i.mdl-color-text--blue-grey-400.fa.fa-fw.fa-dashboard
-      span.nav-link-text
-        = t('views.pages.global.fundraising')
-    = link_to administration_initiatives_implementions_path, class: "mdl-navigation__link #{yield :implementing}" do
-      i.mdl-color-text--blue-grey-400.fa.fa-fw.fa-dashboard
-      span.nav-link-text
-        = t('views.pages.global.implementing')

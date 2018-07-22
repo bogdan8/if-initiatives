@@ -21,7 +21,7 @@
 
 class Initiative < ApplicationRecord
   extend FriendlyId
-  friendly_id :title, use: %i(slugged)
+  friendly_id :title, use: %i[slugged]
   after_commit :create_notifications, on: :create
 
   include Initiatives::StateMachine

@@ -3,7 +3,7 @@
 module Users
   class InitiativesController < ApplicationController
     load_and_authorize_resource find_by: :slug
-    before_action :all_categories, only: %i(new create edit update)
+    before_action :all_categories, only: %i[new create edit update]
     add_breadcrumb I18n.t('views.pages.global.initiatives'), :users_initiatives_path
     include AbilityStateToInitiatives
 
@@ -58,9 +58,9 @@ module Users
     private
 
     def initiative_params
-      text = %i(title short_description long_description)
-      number = %i(finish_days general_sum)
-      attachments = %i(id image video _destroy)
+      text = %i[title short_description long_description]
+      number = %i[finish_days general_sum]
+      attachments = %i[id image video _destroy]
       params.require(:initiative).permit(*text, *number, attachments_attributes: [*attachments])
     end
 

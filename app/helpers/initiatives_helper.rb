@@ -99,20 +99,20 @@ module InitiativesHelper
 
   # all states wich available for administration and moderator
   def collection_administration_states
-    states = %i(confirmating fundraising rejected fundraised implementing reporting unimplemented implemented locked)
+    states = %i[confirmating fundraising rejected fundraised implementing reporting unimplemented implemented locked]
     states.map { |state| [t("views.pages.global.#{state}"), state] }
   end
 
   # all states wich available in the cabinet of user
   def collection_user_states
-    states = %i(draft confirmating fundraising rejected fundraised)
-    states << %i(implementing reporting unimplemented implemented locked)
+    states = %i[draft confirmating fundraising rejected fundraised]
+    states << %i[implementing reporting unimplemented implemented locked]
     states.flatten.map { |state| [t("views.pages.global.#{state}"), state] }
   end
 
   # all states wich available for all users
   def collection_states
-    states = %i(fundraising fundraised implementing reporting unimplemented implemented)
+    states = %i[fundraising fundraised implementing reporting unimplemented implemented]
     states.map { |state| [t("views.pages.global.#{state}"), state] }
   end
 end

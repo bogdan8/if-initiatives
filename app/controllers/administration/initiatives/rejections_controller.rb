@@ -2,14 +2,14 @@
 
 module Administration
   module Initiatives
-    class RejectionsController < Administration::BaseController
+    class RejectionsController < Administration::Initiatives::BaseController
       load_and_authorize_resource :initiative
       def update
         @initiative = Initiative.friendly.find(params[:id])
         if @initiative.to_rejected
-          @initiative.steps.create(state: @initiative.state) # create a step for tracking the initiative
+          step(@initiative)
           redirect_to administration_initiatives_path,
-                      success: t('controller.initiative.to_rejected')
+                      success: t("controller.initiative.to.#{params[:state]}")
         else
           redirect_to administration_initiatives_path, error: @initiative.errors.full_messages.to_sentence
         end

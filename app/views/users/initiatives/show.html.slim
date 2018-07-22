@@ -71,7 +71,7 @@
                   - @initiative.steps.each do |step|
                     .line.text-muted
                     .separator.text-muted
-                      time 
+                      time
                         = step.created_at
                     article.panel.panel-primary
                       .panel-heading.icon
@@ -112,4 +112,4 @@
         = t("views.pages.reports.new.title")
       .card-body
         .comments-container
-          = render 'users/reports/new'
+          = render 'users/reports/new', initiative: @initiative

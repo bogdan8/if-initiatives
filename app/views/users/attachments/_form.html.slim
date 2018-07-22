@@ -7,7 +7,7 @@ div id="images_cocoon_#{action}"
       - else
         = render 'image_fields', f: attachment
 
-div id="videos_cocoon_#{action}" 
+div id="videos_cocoon_#{action}"
   = f.simple_fields_for :attachments do |attachment|
     - if attachment.object.video?
       - if attachment.object.video.url
