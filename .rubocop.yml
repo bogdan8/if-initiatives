@@ -68,7 +68,7 @@ Lint/ShadowingOuterLocalVariable:
 Style/Documentation:
   Enabled: false 
 
-Style/OpMethod:
+Style/BinaryOperatorParameterName:
   Enabled: false 
 
 Lint/Debugger:
