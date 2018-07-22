@@ -59,6 +59,8 @@ gem 'rolify'
 
 group :development, :test do
   gem 'awesome_print'
+  gem 'binding_of_caller'
+  gem 'better_errors'
   gem 'byebug', platforms: %i(mri mingw x64_mingw)
   gem 'capybara'
   gem 'chromedriver-helper'

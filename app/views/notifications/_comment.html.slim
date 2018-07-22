@@ -2,10 +2,10 @@
   .panel.panel-white.post.panel-shadow
     .post-heading
       .pull-left.image
-        img.img-circle.avatar src="#{notification.second_target.avatar(:medium)}"
+        img.img-circle.avatar src="#{notification.actor.avatar(:medium)}"
       .pull-left.meta
         .title.h5
-          = link_to notification.actor.email, main_app.user_path(notification.actor)
+          = link_to notification.actor.name, main_app.user_path(notification.actor)
           |  has commented in
           - if notification.read?
             span.badge.badge-pill.badge-secondary
@@ -16,8 +16,6 @@
         h6.text-muted.time
           = l notification.created_at, format: :short
     .post-description
-      p
-        = link_to notification.second_target.title, main_app.users_initiative_path(notification.second_target)
       p
         = t('views.pages.global.title')
         | :

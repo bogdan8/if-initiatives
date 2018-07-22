@@ -1,7 +1,7 @@
 = provide :site_title, t('views.pages.global.initiatives')
 = provide :initiatives_index, 'active'
-= render 'initiatives/sort'
+= render 'initiatives/sort', q: @q
 #initiatives.card-columns
-  = render 'initiatives/index', collection: @initiatives, q: @q
+  = render 'initiatives/index', collection: @initiatives
 #paginator
   = paginate @initiatives
