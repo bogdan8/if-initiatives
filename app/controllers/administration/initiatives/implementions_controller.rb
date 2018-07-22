@@ -4,10 +4,6 @@ module Administration
   module Initiatives
     class ImplementionsController < Administration::Initiatives::BaseController
       load_and_authorize_resource :initiative
-      def index
-        @initiative = initiative_with(:implementing)
-      end
-
       def update
         @initiative = Initiative.friendly.find(params[:id])
         if @initiative.update(state: params[:state])

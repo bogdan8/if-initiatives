@@ -22,12 +22,11 @@ Rails.application.routes.draw do
   namespace :administration do
     get '/main' => 'main#index'
     resources :initiatives
-    namespace :initiatives do
-      resources :fundraises, only: %i(index update)
+    namespace :initiatives, path: 'manage-initiatives' do
+      resources :fundraises, only: %i(update)
       resources :rejections, only: %i(update)
-      resources :implementions, only: %i(index update)
+      resources :implementions, only: %i(update)
       resources :locks, only: %i(update)
-      resources :confirmations, only: %i(index)
     end
     resources :comments, only: %i(destroy)
     resources :categories
@@ -41,7 +40,7 @@ Rails.application.routes.draw do
     resources :initiatives do
       resources :reports, only: %i(create update destroy)
     end
-    namespace :initiatives do
+    namespace :initiatives, path: 'manage-initiatives' do
       resources :confirmations, only: %i(update)
       resources :fundraises, only: %i(update)
     end
@@ -59,5 +58,4 @@ Rails.application.routes.draw do
 
   get 'user/:id', to: 'users/users#show', as: :user
   get :search, controller: :main
-  get '*path' => 'static#index', constraints: lambda { |req| req.format != 'json' }
 end
