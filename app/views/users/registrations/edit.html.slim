@@ -5,7 +5,7 @@
     = f.input :email, autofocus: true, autocomplete: 'email'
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       div
-        | Currently waiting confirmation for: 
+        | Currently waiting confirmation for:
         = resource.unconfirmed_email
     = f.input :name
     = f.input :phone

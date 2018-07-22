@@ -8,7 +8,7 @@
     .mdl-cell.mdl-cell--3-col-desktop.mdl-cell--12-col-table.mdl-cell--12-col-phone
       .demo-card-square.mdl-card.mdl-card-subscriptions.mdl-shadow--2dp
         .menu-links-block
-          button.mdl-button.mdl-js-button.mdl-button--icon id="demo-menu-lower-right-#{category.id}" 
+          button.mdl-button.mdl-js-button.mdl-button--icon id="demo-menu-lower-right-#{category.id}"
             i.material-icons more_vert
         .mdl-card__supporting-text
           p
@@ -20,7 +20,7 @@
           p
             = t('views.pages.global.count.initiatives')
             | \: #{category.initiatives.count}
-        ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect for="demo-menu-lower-right-#{category.id}" 
+        ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect for="demo-menu-lower-right-#{category.id}"
           li.mdl-menu__item.flex-center
             = link_to t('views.pages.global.button.show'), administration_category_path(category), class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect'
           li.mdl-menu__item.flex-center

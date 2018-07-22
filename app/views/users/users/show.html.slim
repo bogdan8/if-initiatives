@@ -6,15 +6,15 @@
   .col-sm-12.col-md-6.col-lg-8.col-xl-9
     p
       = t('views.pages.global.email')
-      | : 
+      | :
       = @user.email
     p
       = t('views.pages.global.phone')
-      | : 
+      | :
       = @user.phone
     p
       = t('views.pages.global.age')
-      | : 
+      | :
       = @user.age
     p
       = link_to t('views.pages.global.button.edit'), edit_user_registration_path, class: 'btn btn-sm btn-primary'

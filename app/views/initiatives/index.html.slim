@@ -2,6 +2,6 @@
 = provide :initiatives_index, 'active'
 = render 'initiatives/sort'
 #initiatives.card-columns
-  = render 'initiatives/index', collection: @initiatives
+  = render 'initiatives/index', collection: @initiatives, q: @q
 #paginator
   = paginate @initiatives
