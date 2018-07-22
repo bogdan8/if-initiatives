@@ -59,18 +59,18 @@ gem 'rolify'
 
 group :development, :test do
   gem 'awesome_print'
-  gem 'binding_of_caller'
   gem 'better_errors'
-  gem 'byebug', platforms: %i(mri mingw x64_mingw)
+  gem 'binding_of_caller'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
   gem 'chromedriver-helper'
   gem 'codecov', require: false
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'metric_fu', git: 'https://github.com/metricfu/metric_fu.git'
   gem 'parallel_tests'
   gem 'progress_bar'
-  gem 'metric_fu', git: 'https://github.com/metricfu/metric_fu.git'
   gem 'rack-mini-profiler'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
@@ -99,4 +99,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i(mingw mswin x64_mingw jruby)
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

@@ -3,7 +3,7 @@
 module Administration
   class UsersController < Administration::BaseController
     load_and_authorize_resource
-    before_action :user_presenter, only: %i(index show)
+    before_action :user_presenter, only: %i[index show]
     add_breadcrumb I18n.t('views.pages.global.users'), :administration_users_path
 
     def index

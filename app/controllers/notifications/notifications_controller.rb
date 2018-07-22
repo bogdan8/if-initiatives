@@ -20,7 +20,7 @@ module Notifications
     private
 
     def notifications
-      fail 'You need reqiure user login for /notifications page.' unless current_user
+      raise 'You need reqiure user login for /notifications page.' unless current_user
       Notification.where(user_id: current_user.id)
     end
   end

@@ -4,7 +4,7 @@ module Users
   class ReportsController < ApplicationController
     load_and_authorize_resource :initiative, find_by: :slug
     load_and_authorize_resource :report, through: :initiative
-    before_action :find_initiative, only: %i(create)
+    before_action :find_initiative, only: %i[create]
     add_breadcrumb I18n.t('views.pages.global.reports'), :users_reports_path
 
     def create
@@ -37,8 +37,8 @@ module Users
     private
 
     def report_params
-      text = %i(title description)
-      attachments = %i(id image video _destroy)
+      text = %i[title description]
+      attachments = %i[id image video _destroy]
       params.require(:report).permit(*text, attachments_attributes: [*attachments])
     end
 
