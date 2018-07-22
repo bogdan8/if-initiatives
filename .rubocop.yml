@@ -36,7 +36,7 @@ Style/SpaceAroundEqualsInParameterDefault:
 Style/SymbolArray:
   Enabled: true
 
-Style/DeprecatedHashMethods:
+Style/PreferredHashMethods:
   Enabled: false
 
 Style/ParenthesesAroundCondition:
