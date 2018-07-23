@@ -50,12 +50,9 @@ end
 RSpec.configure do |config|
   # Capybara
   config.before(:each, type: :feature) do
-    I18n.locale = :en
+    I18n.locale = :uk
     Capybara.current_session.driver.browser.manage.window.resize_to(2_500, 2_500)
-  end
-
-  config.before(:each, type: :feature) do
-    default_url_options[:locale] = :en
+    default_url_options[:locale] = :uk
   end
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
