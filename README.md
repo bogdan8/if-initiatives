@@ -25,12 +25,12 @@ $ foreman start -f Procfile.dev
 ```
 
 **Note!** You should have this versions:
-> -  Ruby: `2.4.3`
+> -  Ruby: `2.5.0`
 > -  Rails: `~> 5.1.5`
 > -  Node: `8.10.0`
 > -  Npm: `5.8.0`
 
-# Generating graphs for the Initiative:
+# Generating graphs for the Initiative
 ```sh
 $ rake state_machine:draw FILE=initiative.rb CLASS=Initiative
 ```
