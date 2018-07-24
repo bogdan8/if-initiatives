@@ -21,7 +21,6 @@ def login_user_feature(user)
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password
   end
-  sleep(5)
   click_button I18n.t('devise.shared.links.sign_in')
-  expect(page).to have_content 'Sign in successed'
+  expect(find('#alert')).to have_text I18n.t('devise.sessions.signed_in')
 end

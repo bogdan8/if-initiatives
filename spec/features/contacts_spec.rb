@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Contacts' do
+feature 'Contacts', type: :feature do
   let(:contact) { build(:contact) }
 
   scenario '#create' do
@@ -11,6 +11,6 @@ feature 'Contacts' do
       fill_in 'contact_description', with: contact.description
     end
     click_button I18n.t('views.pages.global.button.new')
-    expect(page).to have_content: I18n.t('controller.contact.save')
+    expect(find('#alert')).to have_text I18n.t('controller.contact.save')
   end
 end
