@@ -1,4 +1,7 @@
 uk:
+  unauthorized:
+    manage:
+      all: 'Ви не маєте доступу до цього ресурсу'
   controller:
     admins:
       save: 'Адміністратора додано'
