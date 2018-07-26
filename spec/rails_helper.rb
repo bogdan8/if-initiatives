@@ -51,7 +51,7 @@ RSpec.configure do |config|
   # Capybara
   config.before(:each, type: :feature) do
     I18n.locale = :uk
-    Capybara.current_session.driver.browser.manage.window.resize_to(2_500, 2_500)
+    Capybara.current_session.current_window.resize_to(2_500, 2_500)
     default_url_options[:locale] = :uk
   end
 
