@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-DatabaseCleaner.strategy = :truncation
-
 RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.before :suite do
