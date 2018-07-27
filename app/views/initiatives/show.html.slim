@@ -104,24 +104,26 @@
                         = link_to(comment.user.name, user_path(comment.user.id))
                       span
                         = l comment.updated_at
-                      i.fa.fa-edit  data-target="#editComment-#{comment.id}" data-toggle='modal'
+                      - if current_user
+                        - if comment.user == current_user
+                          i.fa.fa-edit data-target="#editComment-#{comment.id}" id="edit_comment_tag_#{comment.id}" data-toggle='modal'
                     .comment-content
                       p
                         = comment.title
                       p
                         = comment.text
               /! edit comment
-              .modal.fade id='editComment-#{comment.id}' aria-hidden='true' aria-labelledby='examplemodallabel' role='dialog' tabindex='-1'
-                .modal-dialog role='document'
-                  .modal-content
-                    .modal-header
-                      h5#examplemodallabel.modal-title
-                        = t('views.pages.comments.edit.title_obj', obj: comment.title)
-                      button.close aria-label='close' data-dismiss='modal' type='button'
-                        span aria-hidden='true'  &times;
-                    .modal-body
-                      - if current_user
-                        - if comment.user == current_user
+              - if current_user
+                - if comment.user == current_user
+                  .modal.fade id='editComment-#{comment.id}' aria-hidden='true' aria-labelledby='examplemodallabel' role='dialog' tabindex='-1'
+                    .modal-dialog role='document'
+                      .modal-content
+                        .modal-header
+                          h5#examplemodallabel.modal-title
+                            = t('views.pages.comments.edit.title_obj', obj: comment.title)
+                          button.close aria-label='close' data-dismiss='modal' type='button'
+                            span aria-hidden='true'  &times;
+                        .modal-body
                           = simple_form_for comment, url: initiative_comment_path(@initiative, comment), html: { multipart: true } do |f|
                             = f.input :title
                             = f.input :text
