@@ -7,13 +7,14 @@ feature 'Comments', type: :feature do
   let!(:initiative) { create(:initiative, state: :fundraising, user_id: user.id) }
   let!(:comment) { create(:comment, initiative_id: initiative.id, user_id: user.id) }
   let(:new_comment) { build(:comment) }
+  let!(:new_user) { create(:user, email: Faker::Internet.email) }
 
-  scenario '#Access denied' do
+  scenario '#Access denied for create' do
     visit initiative_path(initiative)
     expect(page).not_to have_selector('#addComment')
   end
 
-  scenario '#Access granted' do
+  scenario '#Access granted for create' do
     login_user_feature(user)
     visit initiative_path(initiative)
     expect(find('#addComment'))
@@ -29,5 +30,36 @@ feature 'Comments', type: :feature do
     end
     click_button I18n.t('views.pages.global.button.new')
     expect(find('#alert')).to have_text I18n.t('controller.comment.save')
+  end
+
+  scenario '#Access denied for edit' do
+    visit initiative_path(initiative)
+    expect(page).not_to have_selector("#edit_comment_#{comment.id}")
+  end
+
+  scenario '#Access granted for edit' do
+    login_user_feature(user)
+    visit initiative_path(initiative)
+    expect(find("#edit_comment_#{comment.id}"))
+  end
+
+  scenario '#Edit' do
+    login_user_feature(user)
+    visit initiative_path(initiative)
+    find("#edit_comment_tag_#{comment.id}").click
+    within "#edit_comment_#{comment.id}" do
+      fill_in 'comment_title', with: new_comment.title
+      fill_in 'comment_text', with: new_comment.text
+    end
+    click_button I18n.t('views.pages.global.button.edit')
+    expect(find('#alert')).to have_text I18n.t('controller.comment.update')
+  end
+
+  # the user can not edit the comments by other users
+  scenario '#Access denied for other user' do
+    login_user_feature(new_user)
+    visit initiative_path(initiative)
+    sleep(20)
+    expect(page).not_to have_selector("#edit_comment_#{comment.id}")
   end
 end
