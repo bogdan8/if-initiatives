@@ -59,7 +59,6 @@ feature 'Comments', type: :feature do
   scenario '#Access denied for other user' do
     login_user_feature(new_user)
     visit initiative_path(initiative)
-    sleep(20)
     expect(page).not_to have_selector("#edit_comment_#{comment.id}")
   end
 end
