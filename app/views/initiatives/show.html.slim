@@ -83,8 +83,9 @@
       .card-header
         .flex-between
           = t('views.pages.global.comments')
-          button.btn.btn-sm.btn-primary.margin-left-20 data-target='#addComment' data-toggle='modal' type='button'
-            = t('views.pages.comments.new.title')
+          - if current_user
+            button.btn.btn-sm.btn-primary.margin-left-20 data-target='#addComment' data-toggle='modal' type='button'
+              = t('views.pages.comments.new.title')
 
     - if @initiative.comments.any?
       .card-body.comments
@@ -127,17 +128,18 @@
                             = f.button :submit, t('views.pages.global.button.edit'), class: 'btn btn-warning btn-sm'
 
 /! add comments
-.modal.fade id='addComment' aria-hidden='true' aria-labelledby='examplemodallabel' role='dialog' tabindex='-1'
-  .modal-dialog role='document'
-    .modal-content
-      .modal-header
-        h5#examplemodallabel.modal-title
-          = t('views.pages.comments.new.title')
-        button.close aria-label='close' data-dismiss='modal' type='button'
-          span aria-hidden='true' &times;
-      .modal-body
-        - if current_user
-          = simple_form_for @initiative.comments.build, url: initiative_comments_path(@initiative), html: { multipart: true } do |f|
-            = f.input :title
-            = f.input :text
-            = f.button :submit, t('views.pages.global.button.new'), class: 'btn btn-success btn-sm'
+- if current_user
+  .modal.fade id='addComment' aria-hidden='true' aria-labelledby='examplemodallabel' role='dialog' tabindex='-1'
+    .modal-dialog role='document'
+      .modal-content
+        .modal-header
+          h5#examplemodallabel.modal-title
+            = t('views.pages.comments.new.title')
+          button.close aria-label='close' data-dismiss='modal' type='button'
+            span aria-hidden='true' &times;
+        .modal-body
+          - if current_user
+            = simple_form_for @initiative.comments.build, url: initiative_comments_path(@initiative), html: { multipart: true } do |f|
+              = f.input :title
+              = f.input :text
+              = f.button :submit, t('views.pages.global.button.new'), class: 'btn btn-success btn-sm'

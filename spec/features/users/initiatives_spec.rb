@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Initiatives', type: :feature do
@@ -29,6 +31,3 @@ feature 'Initiatives', type: :feature do
     expect(find('#alert')).to have_text I18n.t('controller.initiative.save')
   end
 end
-
-
-
