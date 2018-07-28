@@ -1,0 +1,15 @@
+#subscription.modal.fade aria-hidden='true' aria-labelledby='subscription' role='dialog' tabindex='-1'
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5#exampleModalLongTitle.modal-title 
+          = t('.subscription.title')
+        button.close aria-label='Close' data-dismiss='modal' type='button'
+          span aria-hidden='true' ×
+      = simple_form_for Subscription.new, remote: true do |f|
+        .modal-body
+          = f.input :email
+        .modal-footer
+          button.btn.btn-secondary.btn-sm data-dismiss='modal' type='button'
+            = t('.subscription.submit.close')
+          = f.button :submit, t('.subscription.submit.create'), class: 'btn btn-success btn-sm'
