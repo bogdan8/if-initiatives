@@ -2,10 +2,10 @@
   .panel.panel-white.post.panel-shadow
     .post-heading
       .pull-left.image
-        img.img-circle.avatar src="#{notification.target.avatar(:medium)}"
+        img.img-circle.avatar src="#{notification.user.avatar(:medium)}"
       .pull-left.meta
         .title.h5
-          = link_to notification.target.name, main_app.user_path(notification.target)
+          = link_to notification.user.name, main_app.user_path(notification.target)
           |  has added new question
           - if notification.read?
             span.badge.badge-pill.badge-secondary
@@ -19,7 +19,7 @@
       p
         = t('views.pages.global.full_name')
         | :
-        = notification.target.name
+        = notification.target.full_name
       p
         = t('views.pages.global.email')
         | :

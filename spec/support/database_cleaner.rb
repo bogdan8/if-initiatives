@@ -1,22 +1,11 @@
 # frozen_string_literal: true
 
 RSpec.configure do |config|
-  config.use_transactional_fixtures = false
-
-  # Use transactions by default
-  config.before :each do
+  config.use_transactional_fixtures = true
+  config.before :suite do
     DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with :truncation
   end
-
-  # For the javascript-enabled tests, switch to truncation, but *only on tables that were used*
-  config.before :each, js: true do
-    DatabaseCleaner.strategy = :truncation, { pre_count: true }
-  end
-
-  config.before :each do
-    DatabaseCleaner.start
-  end
-
   config.after :each do
     DatabaseCleaner.clean
   end

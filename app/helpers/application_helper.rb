@@ -56,7 +56,7 @@ module ApplicationHelper
   # helper for display flash
   def flash_block(type)
     flash_classes = { success: 'alert alert-success', error: 'alert alert-danger' }
-    content_tag(:div, class: flash_classes[type.to_sym]) do
+    content_tag(:div, class: flash_classes[type.to_sym], id: 'alert') do
       content_tag(:button, 'x', class: 'close clear', 'data-dismiss' => 'alert') + flash[type.to_sym]
     end
   end

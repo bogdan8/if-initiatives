@@ -7,3 +7,7 @@ li.nav-item
 = navigation_for_user
 li.nav-item
   = link_to t('views.pages.contacts.new.title'), main_app.new_contact_path, class: 'nav-link'
+li.nav-item
+  a.nav-link href='#' data-target='#subscription' data-toggle='modal' id='subscription-modal-open'
+    = t('.subscription.title')
+= render 'layouts/user/subscription'

@@ -4,9 +4,13 @@ class SubscriptionsController < ApplicationController
   load_resource
   def create
     if @subscription.save
-      redirect_to root_path, success: t('controller.subscription.save')
+      respond_to do |format|
+        format.js { flash.now[:success] = t('controller.subscription.save') }
+      end
     else
-      redirect_to root_path, error: @subscription.errors.full_messages.to_sentence
+      respond_to do |format|
+        format.js { flash.now[:error] = @subscription.errors.full_messages.to_sentence }
+      end
     end
   end
 

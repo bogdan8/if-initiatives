@@ -1,4 +1,18 @@
 uk:
+  layouts:
+    user:
+      subscription:
+        subscription:
+          title: 'Підписатись'
+          submit:
+            create: 'Підписатись'
+            close: 'Закрити'
+      navigation:
+        subscription:
+          title: 'Підписатись'
+  unauthorized:
+    manage:
+      all: 'Ви не маєте доступу до цього ресурсу'
   controller:
     admins:
       save: 'Адміністратора додано'

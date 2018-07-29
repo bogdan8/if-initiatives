@@ -25,8 +25,7 @@ class CommentsController < ApplicationController
       redirect_to @initiative, success: t('controller.comment.update')
     else
       add_breadcrumb t('views.pages.global.button.edit_obj', obj: @initiative.title)
-      flash[:error] = @comment.errors.full_messages.to_sentence
-      render :edit
+      redirect_to @initiative, error: @comment.errors.full_messages.to_sentence
     end
   end
 

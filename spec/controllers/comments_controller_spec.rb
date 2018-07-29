@@ -54,8 +54,7 @@ RSpec.describe CommentsController, type: :controller do
                                 comment: build(:comment, title: '').attributes,
                                 initiative_id: initiative.slug }
         expect(Initiative.last.title).not_to eq('')
-        expect(response).to render_template(:edit)
-        expect(response.status).to eq(200)
+        expect(response).to redirect_to(initiative)
       end
     end
   end

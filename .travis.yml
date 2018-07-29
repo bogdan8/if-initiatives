@@ -1,6 +1,8 @@
 language: ruby
-dist: precise
-
+sudo: required
+dist: trusty
+addons:
+  chrome: stable
 rvm:
   - 2.5.0
 
@@ -11,6 +13,15 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install postgresql-9.5
 
-before_script: bundle exec rake db:setup RAILS_ENV=test
+before_script: 
+  - 'export DISPLAY=:99.0'
+  - 'sh -e /etc/init.d/xvfb start'
+  - CHROMEDRIVER_VERSION=$(curl -s http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+  - echo $CHROMEDRIVER_VERSION $PWD $PATH
+  - sudo apt-get install zip unzip
+  - curl -L -O 'http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip'
+  - unzip chromedriver_linux64.zip -d chromedriver
+  - export PATH=$PATH:$PWD/chromedriver
+  - bundle exec rake db:setup RAILS_ENV=test
 
 script: bundle exec rspec spec && bundle exec rubocop
