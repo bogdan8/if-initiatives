@@ -1,18 +1,74 @@
 uk:
+  categories:
+    show:
+      title: 'Категорії'
+      initiatives:
+        finish_date: "Дата завершення: %{date}"
+        general_sum: "Загальна сума: %{sum}"
+        collected_amount: "Зібрано коштів: %{amount}"
+        state:
+          confirmation: 'Надіслати на підтвердження'
+          confirmed: 'Підтвердити'
+          locked: 'Заблукувати'
+          rejected: 'Відхилити'
+          fundraising: 'Розпочато збір коштів'
+          fundraised: 'Збір коштів завершено'
+          implementing: 'Реалізувати'
+          unimplemented: 'Не реалізовано'
+          reporting: 'Звітність'
+          implemented: 'Реалізовано'
+        button:
+          show: 'Переглянути'
+ 
   layouts:
     user:
+      header:
+        title: 'Ініціативи'
+        search:
+          title: 'Пошук'
+      navigation:
+        my:
+          initiatives:
+            title: 'Мої ініціативи'
+        administrations:
+          title: 'Адмін панель'
+        notifications:
+          title: "%{count} Повідомлень"
+        profile:
+          button:
+            show: 'Профіль'
+            edit: 'Редагувати профіль'
+        sign_in:
+          button:
+            new: 'Увійти'
+        sign_out:
+          button:
+            destroy: 'Вийти'
+        registration:
+          button:
+            new: 'Зареєструватись'
+        initiatives:
+          title: 'Ініціативи'
+          button:
+            new: 'Додати ініціативу'
+        subscription:
+          button:
+            new: 'Підписатись'
+        contacts:
+          button:
+            new: "Зв'язатись з нами"
       subscription:
         subscription:
           title: 'Підписатись'
           submit:
             create: 'Підписатись'
             close: 'Закрити'
-      navigation:
-        subscription:
-          title: 'Підписатись'
   unauthorized:
     manage:
       all: 'Ви не маєте доступу до цього ресурсу'
+
+
+
   controller:
     admins:
       save: 'Адміністратора додано'
