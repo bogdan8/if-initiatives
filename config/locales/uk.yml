@@ -19,6 +19,66 @@ uk:
           implemented: 'Реалізовано'
         button:
           show: 'Переглянути'
+  contacts:
+    new:
+      button:
+        new: 'Надіслати'
+  initiatives:
+    index:
+      title: 'Ініціативи'
+      short_description:
+      finish_date: "Дата завершення: %{date}"
+      general_sum: "Загальна сума: %{sum}"
+      collected_amount: "Зібрано коштів: %{amount}"
+      state:
+        confirmation: 'Надіслати на підтвердження'
+        confirmed: 'Підтвердити'
+        locked: 'Заблукувати'
+        rejected: 'Відхилити'
+        fundraising: 'Розпочато збір коштів'
+        fundraised: 'Збір коштів завершено'
+        implementing: 'Реалізувати'
+        unimplemented: 'Не реалізовано'
+        reporting: 'Звітність'
+        implemented: 'Реалізовано'
+    sort:
+      filter:
+        title: 'Фільтр'
+        added_date: 'Дата добавлення'
+        submit:
+          title: 'Фільтрувати'
+    show:
+      title: 'Ініціатива'
+      long_description: 'Опис'
+      finish_date: "Дата завершення: %{date}"
+      general_sum: "Загальна сума: %{sum}"
+      collected_amount: "Зібрано коштів: %{amount}"
+      state:
+        confirmation: 'Надіслати на підтвердження'
+        confirmed: 'Підтвердити'
+        locked: 'Заблукувати'
+        rejected: 'Відхилити'
+        fundraising: 'Розпочато збір коштів'
+        fundraised: 'Збір коштів завершено'
+        implementing: 'Реалізувати'
+        unimplemented: 'Не реалізовано'
+        reporting: 'Звітність'
+        implemented: 'Реалізовано'
+      images:
+        title: 'Зображення'
+      videos:
+        title: 'Відео'
+      steps:
+        title: 'Історія змін'
+      comments:
+        title: 'Коментарі'
+        new:
+          title: 'Добавити коментар'
+        edit:
+          title: "Редагувати: %{comment}"
+        button:
+          new: 'Додати коментар'
+          edit: 'Редагувати'
  
   layouts:
     user:
