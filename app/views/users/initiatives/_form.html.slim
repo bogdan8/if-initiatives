@@ -4,7 +4,7 @@
   = f.input :long_description
   = f.input :finish_days
   = f.input :general_sum
-  = f.input :category_ids, collection: categories.order(:title), label_method: :title, value_method: :id, prompt: t('views.pages.initiatives.form.categories'), input_html: { multiple: true, id: :select2 }
+  = f.input :category_ids, collection: categories.order(:title), label_method: :title, value_method: :id, prompt: t('.categories'), input_html: { multiple: true, id: :select2 }
   - if action == :new
     div id="images_cocoon_#{action}"
       = f.simple_fields_for :attachments do |attachment|
@@ -14,6 +14,6 @@
         = render 'users/attachments/video_fields', f: attachment
   - else
     = render '/users/attachments/form', entity: :initiative, action: action, redirect_path: edit_users_initiative_path(initiative.slug), f: f
-  = link_to_add_association t('views.pages.attachments.new.image'), f, :attachments, partial: 'users/attachments/image_fields', data: { association_insertion_node: "#images_cocoon_#{action}", association_insertion_method: :append }
-  = link_to_add_association t('views.pages.attachments.new.video'), f, :attachments, partial: 'users/attachments/video_fields', data: { association_insertion_node: "#videos_cocoon_#{action}", association_insertion_method: :append }
-  = f.button :submit, t("views.pages.global.button.#{action}")
+  = link_to_add_association t('.image.button.new'), f, :attachments, partial: 'users/attachments/image_fields', data: { association_insertion_node: "#images_cocoon_#{action}", association_insertion_method: :append }
+  = link_to_add_association t('.image.button.video'), f, :attachments, partial: 'users/attachments/video_fields', data: { association_insertion_node: "#videos_cocoon_#{action}", association_insertion_method: :append }
+  = f.button :submit, t(".button.#{action}")

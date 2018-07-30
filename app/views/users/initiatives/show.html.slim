@@ -1,4 +1,4 @@
-= provide :site_title, t('views.pages.global.initiative')
+= provide :site_title, @initiative.title
 = provide :initiatives_show, 'active'
 .row.initiative
   .col-sm-12
@@ -12,18 +12,15 @@
               = image_tag(@initiative.decorate.first_image(:original), class: 'image-main')
           .col-sm-12.col-md-6.col-lg-6.col-xl-6
             p
-              = t('views.pages.global.finish_date')
-              | : #{@initiative.finish_date}
+              = t('.finish_date', date: @initiative.finish_date)
             p
-              = t('views.pages.global.general_sum')
-              | : #{@initiative.general_sum}
+              = t('.general_sum', sum: @initiative.general_sum)
             p
-              = t('views.pages.global.collected_amount')
-              | : #{@initiative.collected_amount}
+              = t('.collected_amount', amount: @initiative.collected_amount)
             p
-              = t("views.pages.initiatives.state.#{@initiative.state}")
+              = t(".state.#{@initiative.state}")
             p
-              = t('views.pages.global.categories')
+              = t('.categories')
               | :
               = category_link @initiative
             p
@@ -37,7 +34,7 @@
       /! images
       .card
         .card-header
-          = t('views.pages.global.images')
+          = t('.images.title')
         .card-body
           .row
             - @initiative.decorate.attachments_images.each do |attachment|
@@ -47,7 +44,7 @@
       /! videos
       .card
         .card-header
-          = t('views.pages.global.videos')
+          = t('.videos.title')
         .card-body
           .row
             - @initiative.decorate.attachments_videos.each do |attachment|
@@ -58,7 +55,7 @@
       .card
         .card-header
           button.btn.btn-primary aria-controls='collapseExample' aria-expanded='false' data-target='#collapseExample' data-toggle='collapse' type='button'
-            = t('views.pages.global.steps')
+            = t('.steps.title')
 
           #collapseExample.collapse
             .card-body
@@ -66,7 +63,7 @@
                 /! Page header
                 .page-header
                   h2
-                    | Timeline
+                    = t('.timeline.title')
                 .timeline
                   - @initiative.steps.each do |step|
                     .line.text-muted
@@ -78,23 +75,20 @@
                         i.glyphicon.glyphicon-plus
                       .panel-heading
                         h5.panel-title
-                          = t("views.pages.initiatives.state.#{step.state}")
+                          = t(".state.#{step.state}")
 
-    /! comments
     - if @initiative.comments.any?
       .card
         .card-header
-          = t('views.pages.global.comments')
+          = t('.comments.title')
         .card-body.comments
           .comments-container
             ul#comments-list.comments-list
               - @initiative.comments.each do |comment|
                 li
                   .comment-main-level
-                    /! Avatar
                     .comment-avatar
                       = image_tag(comment.user.avatar(:medium))
-                    /! Contenedor del Comentario
                     .comment-box
                       .comment-head
                         h6.comment-name.by-author
@@ -106,10 +100,9 @@
                           = comment.title
                         p
                           = comment.text
-    /! Reports
     .card
       .card-header
-        = t("views.pages.reports.new.title")
+        = t('.reports.button.new')
       .card-body
         .comments-container
           = render 'users/reports/new', initiative: @initiative
