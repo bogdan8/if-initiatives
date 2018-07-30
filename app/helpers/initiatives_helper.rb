@@ -26,12 +26,12 @@ module InitiativesHelper
     edit = edit_users_initiative_path(initiative)
     confirmating = users_initiatives_confirmation_path(initiative)
     delete = users_initiative_path(initiative)
-    data = { confirm: t('views.pages.global.confirm') }
+    data = { confirm: t('.button.confirm') }
     return unless initiative.draft? || initiative.rejected?
     safe_join([
-      link_to(t('views.pages.global.button.edit'), edit, class: @warning),
-      link_to(t('views.pages.global.button.confirmation'), confirmating, method: :put, class: @success),
-      link_to(t('views.pages.global.button.destroy'), delete, method: :delete, data: data, class: @danger)
+      link_to(t('.button.edit'), edit, class: @warning),
+      link_to(t('.button.confirmation'), confirmating, method: :put, class: @success),
+      link_to(t('.button.destroy'), delete, method: :delete, data: data, class: @danger)
     ])
   end
 
@@ -39,7 +39,7 @@ module InitiativesHelper
   def initiative_state_user_links_fundraised(initiative)
     fundraised = users_initiatives_fundraise_path(initiative)
     return unless initiative.fundraising?
-    safe_join([link_to(t('controller.initiative.to_fundraised'), fundraised, method: :put, class: @success)])
+    safe_join([link_to(t('.button.fundraised'), fundraised, method: :put, class: @success)])
   end
 
   private
@@ -49,8 +49,8 @@ module InitiativesHelper
     fundraising = administration_initiatives_fundraise_path(initiative, state: :fundraising)
     rejected = administration_initiatives_rejection_path(initiative)
     safe_join([
-      link_to(t('views.pages.global.button.confirmed'), fundraising, method: :put, class: @success),
-      link_to(t('views.pages.global.button.rejected'), rejected, method: :put, class: @danger)
+      link_to(t('.button.confirmed'), fundraising, method: :put, class: @success),
+      link_to(t('.button.rejected'), rejected, method: :put, class: @danger)
     ])
   end
 
@@ -59,8 +59,8 @@ module InitiativesHelper
     fundraised = administration_initiatives_fundraise_path(initiative, state: :fundraised)
     rejected = administration_initiatives_rejection_path(initiative)
     safe_join([
-      link_to(t('views.pages.global.button.fundraised'), fundraised, method: :put, class: @success),
-      link_to(t('views.pages.global.button.rejected'), rejected, method: :put, class: @danger)
+      link_to(t('.button.fundraised'), fundraised, method: :put, class: @success),
+      link_to(t('.button.rejected'), rejected, method: :put, class: @danger)
     ])
   end
 
@@ -69,21 +69,21 @@ module InitiativesHelper
     implementing = administration_initiatives_implemention_path(initiative, state: :implementing)
     unimplemented = administration_initiatives_implemention_path(initiative, state: :unimplemented)
     safe_join([
-      link_to(t('views.pages.global.button.implementing'), implementing, method: :put, class: @success),
-      link_to(t('views.pages.global.button.unimplemented'), unimplemented, method: :put, class: @danger)
+      link_to(t('.button.implementing'), implementing, method: :put, class: @success),
+      link_to(t('.button.unimplemented'), unimplemented, method: :put, class: @danger)
     ])
   end
 
   # links for implementing
   def for_implementing(initiative)
     implemented = administration_initiatives_implemention_path(initiative, state: :implemented)
-    link_to(t('views.pages.global.button.implemented'), implemented, method: :put, class: @success)
+    link_to(t('.button.implemented'), implemented, method: :put, class: @success)
   end
 
   # liqpay payment for initiative
   def liqpay(liqpay_request)
     return unless current_user
-    liqpay_button liqpay_request, title: 'Оплатити'
+    liqpay_button liqpay_request, title: t('.pay')
   end
 
   # category links
@@ -100,19 +100,19 @@ module InitiativesHelper
   # all states wich available for administration and moderator
   def collection_administration_states
     states = %i[confirmating fundraising rejected fundraised implementing reporting unimplemented implemented locked]
-    states.map { |state| [t("views.pages.global.#{state}"), state] }
+    states.map { |state| [t(".global.#{state}"), state] }
   end
 
   # all states wich available in the cabinet of user
   def collection_user_states
     states = %i[draft confirmating fundraising rejected fundraised]
     states << %i[implementing reporting unimplemented implemented locked]
-    states.flatten.map { |state| [t("views.pages.global.#{state}"), state] }
+    states.flatten.map { |state| [t(".global.#{state}"), state] }
   end
 
   # all states wich available for all users
   def collection_states
     states = %i[fundraising fundraised implementing reporting unimplemented implemented]
-    states.map { |state| [t("views.pages.global.#{state}"), state] }
+    states.map { |state| [t(".global.#{state}"), state] }
   end
 end

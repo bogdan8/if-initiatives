@@ -1,4 +1,9 @@
 uk:
+  comments:
+    notification:
+      success: 'Коментар додано'
+    button:
+      new: 'Додати коментар'
   categories:
     show:
       title: 'Категорії'
@@ -73,13 +78,159 @@ uk:
       comments:
         title: 'Коментарі'
         new:
-          title: 'Добавити коментар'
+          title: 'Додати коментар'
         edit:
           title: "Редагувати: %{comment}"
         button:
           new: 'Додати коментар'
           edit: 'Редагувати'
+  notifications:
+    notifications:
+      index:
+        title: 'Сповіщення'
+        clean: 'Очистити все'
+    comment:
+      title: "Назва: %{title}"
+      commented: 'Прокоментував'
+      read: 'Прочитано'
+      new: 'Нове'
+    contact:
+      added: 'Додав питання'
+      read: 'Прочитано'
+      new: 'Нове'
+      full_name: "Ім'я: %{name}"
+      email: "Емейл: "
+      description: 'Опис'
+    donation:
+      donated: 'Пожертвув'
+      read: 'Прочитано'
+      new: 'Нове'
+      name: "Ім'я: %{name}"
+      phone: "Телефон: %{phone}"
+      email: "Емейл: %{email}"
+      amount: "Сума: %{amount}"
+    initiative:
+      added: 'Додав ініціативу'
+      read: 'Прочитано'
+      new: 'Нове'
+      target:
+        title: "Назва: %{title}"
+    report:
+      reported: 'Повідомив у'
+      read: 'Прочитано'
+      new: 'Нове'
+      title: "Назва: %{title}"
+  users:
+    users:
+      show:
+        title: 'Профіле'
+        email: "Емейл: %{email}"
+        phone: "Телефон: %{phone}"
+        age: "Вік: %{age}"
+        button:
+          edit: 'Редагувати'
+    initiatives:
+      sort:
+        filter:
+          title: 'Фільтр'
+          added_date: 'Дата добавлення'
+          submit:
+            title: 'Фільтрувати'
+      index:
+        title: 'Ініціативи'
+        finish_date: "Дата завершення: %{date}"
+        general_sum: "Загальна сума: %{sum}"
+        collected_amount: "Зібрано коштів: %{amount}"
+        state:
+          confirmation: 'Надіслати на підтвердження'
+          confirmed: 'Підтвердити'
+          locked: 'Заблукувати'
+          rejected: 'Відхилити'
+          fundraising: 'Розпочато збір коштів'
+          fundraised: 'Збір коштів завершено'
+          implementing: 'Реалізувати'
+          unimplemented: 'Не реалізовано'
+          reporting: 'Звітність'
+          implemented: 'Реалізовано'
+        button:
+          show: 'Переглянути'
+          fundraised: 'Збір коштів'
+      show:
+        finish_date: "Дата завершення: %{date}"
+        general_sum: "Загальна сума: %{sum}"
+        collected_amount: "Зібрано коштів: %{amount}"
+        state:
+          draft: 'Чернетка'
+          confirmation: 'Надіслати на підтвердження'
+          confirmed: 'Підтвердити'
+          locked: 'Заблукувати'
+          rejected: 'Відхилити'
+          fundraising: 'Розпочато збір коштів'
+          fundraised: 'Збір коштів завершено'
+          implementing: 'Реалізувати'
+          unimplemented: 'Не реалізовано'
+          reporting: 'Звітність'
+          implemented: 'Реалізовано'
+        categories: 'Категорії'
+        button:
+          edit: 'Редагувати'
+          show: 'Переглянути'
+          destroy: 'Видалити'
+          fundraised: 'Збір коштів'
+          confirmation: 'Надіслати на підтвердження'
+      edit:
+        title: 'Редагувати'
+      new:
+        title: 'Добавити'
+      form:
+        button:
+          new: 'Добавити'
+          edit: 'Редагувати'
+        image:
+          button:
+            new: 'Добавити зображення'
+            video: 'Добавити відео'
+      images:
+        title: 'Зображення'
+      videos:
+        title: 'Відео'
+      steps:
+        title: 'Кроки'
+      timeline:
+        title: 'Хронологія'
+      comments:
+        title: 'Коментарі'
+      reports:
+        button:
+          new: 'Додати репорт'
+    reports:
+      new:
+        submit: 'Добавити'
+        attachments:
+          image:
+            button:
+              new: 'Додати зображення'
+          video:
+            button:
+              new: 'Додати відео'
+      edit:
+        submit: 'Редагувати'
+        attachments:
+          image:
+            button:
+              new: 'Додати зображення'
+          video:
+            button:
+              new: 'Додати відео'
+      reports:
+        title: "Назва: %{title}"
+        description: "Опис: %{description}"
+        updated_at: "Оновлено в %{date}"
+        button:
+          destroy: 'Видалити'
+        confirm: 'Ви дійсно хочите видалити цей запис'
  
+
   layouts:
     user:
       header:
@@ -179,158 +330,6 @@ uk:
       error: 'Помилка платежу'
 
   views:
-    pages:
-      global:
-        button:
-          new: 'Додати'
-          show: 'Переглянути'
-          show_obj: "Переглянути: %{obj}"
-          edit: 'Редагувати'
-          edit_obj: "Редагувати: %{obj}"
-          destroy: 'Видалити'
-          confirmation: 'Надіслати на підтвердження'
-          confirmed: 'Підтвердити'
-          locked: 'Заблукувати'
-          rejected: 'Відхилити'
-          fundraised: 'Розпочати збір коштів'
-          implementing: 'Реалізувати'
-          unimplemented: 'Не реалізовано'
-          reporting: 'Звітність'
-          implemented: 'Реалізовано'
-        profile:
-          show: 'Профіль'
-          edit: 'Редагувати профіль'
-        title: 'Назва'
-        description: 'Опис'
-        updated_at: 'Додано о'
-        name: "Ім'я"
-        email: 'Електронна адреса'
-        role:
-          title: 'Роль'
-          user: 'Користувач'
-          administrator: 'Адміністратор'
-          moderator: 'Модератор'
-        draft: 'Чернетки'
-        rejected: 'Відхиленні'
-        fundraised: 'Завершено збір коштів'
-        confirmating: 'Підтвердження'
-        fundraising: 'Збір коштів'
-        implementing: 'Реалізація'
-        reporting: 'Звітність'
-        implemented: 'Завершені'
-        unimplemented: 'Не завершені'
-        locked: 'Заблоковані'
-        report: 'Звіт'
-        text: 'Текст'
-        position: 'Позиція'
-        long_description: 'Опис'
-        short_description: 'Короткий опис'
-        finish_date: 'Дата завершення'
-        general_sum: 'Загальна ціна'
-        finish_days: 'Кількість днів до завершення'
-        collected_amount: 'Зібрано коштів'
-        initiatives: 'Ініціативи'
-        initiative: 'Ініціатива'
-        administration: 'Адмін панель'
-        categories: 'Категорії'
-        category: 'Категорія'
-        comments: 'Коментарі'
-        notifications: '%{count} повідомлень'
-        comment: 'Коментар'
-        users: 'Користувачі'
-        user: 'Користувач'
-        subscriptions: 'Підписки'
-        sign_in: 'Увійти'
-        sign_out: 'Вийти'
-        home: 'Головна'
-        profile_edit: 'Редагувати профіль'
-        confirm: 'Ви впевнені?'
-        registration: 'Реєстрація'
-        phone: 'Телефон'
-        age: 'Вік'
-        images: 'Зображення'
-        videos: 'Відео'
-        contacts: "Зв'язатись з нами"
-        links: 'Посилання'
-        created_at: 'Додано в'
-        state: 'Стан'
-        count:
-          initiatives: 'Кількість ініціатив'
-          categories: 'Кількість категорій'
-          comments: 'Кількість коментарів'
-      categories:
-        edit:
-          title: 'Редагувати категорію'
-        new: 
-          title: 'Додати Категорію'
-        index: 
-          title: 'Всі категорії'
-      initiatives:
-        state:
-          draft: 'Чернетка'
-          confirmating: 'Очікується підтвердження'
-          rejected: 'Відхиленно'
-          fundraising: 'Проходить збір коштів'
-          fundraised: 'Зібрано кошти, очікується початку реалізації'
-          implementing: 'Проходить реалізація'
-          implemented: 'Реалізовано'
-          unimplemented: 'Не реалізовано'
-          locked: 'Заблоковано'
-        form:
-          categories: 'Виберіть категорії'
-        edit:
-          title: 'Редагувати ініціативу'
-        new: 
-          title: 'Додати ініціативу'
-        index: 
-          title: 'Всі ініціативи'
-      users:
-        name: "Ім'я"
-        phone: 'Телефон'
-        age: 'Вік'
-        roles: 'Ролі'
-        edit:
-          title: 'Редагувати користувача'
-        new:
-          title: 'Додати користувача'
-        index:
-          title: 'Всі користувачі'
-      comments:
-        edit:
-          title: 'Редагувати коментар'
-          title_obj: 'Редагувати %{obj}'
-        new:
-          title: 'Додати коментар'
-        index:
-          title: 'Всі коментарі'
-      attachments:
-        edit:
-          image: 'Редагувати фото'
-          video: 'Редагувати відео'
-        new:
-          image: 'Додати фото'
-          video: 'Додати відео'
-        index:
-          image: 'Всі фото'
-          video: 'Всі відео'
-        destroy:
-          image: 'Видалити фото'
-          video: 'Видалити відео'
-      reports:
-        edit:
-          title: 'Редагувати звіт'
-        new:
-          title: 'Додати звіт'
-        index:
-          title: 'Всі звіти'
-      contacts:
-        new:
-          title: 'Звязатись з нами'
-      notifications:
-        all_notifications: 'Всі нагадування'
-        clean_all: 'Очистити все'
-        no_records: 'Немає нових нагадувань'
-
     pagination:
       first: '&laquo; Перший'
       last: 'Останій &raquo;'
