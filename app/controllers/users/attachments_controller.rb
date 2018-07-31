@@ -6,7 +6,7 @@ module Users
 
     def destroy
       @attachment.destroy
-      redirect_to params[:redirect_path], success: t('controller.attachment.destroy')
+      redirect_to params[:redirect_path], success: t('.success')
     end
   end
 end

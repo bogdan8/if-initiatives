@@ -5,7 +5,7 @@ module Users
     load_and_authorize_resource
 
     def show
-      add_breadcrumb t('views.pages.global.button.show_obj', obj: @user.name)
+      add_breadcrumb t('.breadcrumb.title', obj: @user.name)
     end
   end
 end

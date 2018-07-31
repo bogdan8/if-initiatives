@@ -4,7 +4,7 @@ module Users
   class InitiativesController < ApplicationController
     load_and_authorize_resource find_by: :slug
     before_action :all_categories, only: %i[new create edit update]
-    add_breadcrumb I18n.t('views.pages.global.initiatives'), :users_initiatives_path
+    add_breadcrumb I18n.t('.initiatives.breadcrumb.title'), :users_initiatives_path
     include AbilityStateToInitiatives
 
     def index
@@ -13,11 +13,11 @@ module Users
     end
 
     def show
-      add_breadcrumb t('views.pages.global.button.show_obj', obj: @initiative.title)
+      add_breadcrumb t('.breadcrumb.title', obj: @initiative.title)
     end
 
     def new
-      add_breadcrumb t('views.pages.global.button.new')
+      add_breadcrumb t('.breadcrumb.title')
       @initiative = current_user.initiatives.build
     end
 
@@ -25,25 +25,25 @@ module Users
       @initiative = current_user.initiatives.new(initiative_params)
       add_categories_to_initiative
       if @initiative.save
-        redirect_to [:users, @initiative], success: t('controller.initiative.save')
+        redirect_to [:users, @initiative], success: t('.success')
       else
-        add_breadcrumb t('views.pages.global.button.new')
+        add_breadcrumb t('.breadcrumb.title')
         flash[:error] = @initiative.errors.full_messages.to_sentence
         render :new
       end
     end
 
     def edit
-      add_breadcrumb t('views.pages.global.button.edit_obj', obj: @initiative.title)
+      add_breadcrumb t('.breadcrumb.title', obj: @initiative.title)
     end
 
     def update
       Categorization.where(initiative_id: @initiative.id).delete_all
       add_categories_to_initiative
       if @initiative.update(initiative_params)
-        redirect_to [:users, @initiative], success: t('controller.initiative.update')
+        redirect_to [:users, @initiative], success: t('.success')
       else
-        add_breadcrumb t('views.pages.global.button.edit_obj', obj: @initiative.title)
+        add_breadcrumb t('.breadcrumb.title', obj: @initiative.title)
         flash[:error] = @initiative.errors.full_messages.to_sentence
         render :edit
       end
@@ -51,8 +51,7 @@ module Users
 
     def destroy
       @initiative.destroy
-      flash[:success] = t('controller.initiative.destroy')
-      redirect_to users_initiatives_path(page: params[:page]), success: t('controller.initiative.destroy')
+      redirect_to users_initiatives_path(page: params[:page]), success: t('.success')
     end
 
     private
