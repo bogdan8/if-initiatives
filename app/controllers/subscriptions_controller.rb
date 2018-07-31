@@ -5,7 +5,7 @@ class SubscriptionsController < ApplicationController
   def create
     if @subscription.save
       respond_to do |format|
-        format.js { flash.now[:success] = t('controller.subscription.save') }
+        format.js { flash.now[:success] = t('.success') }
       end
     else
       respond_to do |format|
