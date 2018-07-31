@@ -9,7 +9,7 @@ module Administration
         if @initiative.update(state: params[:state])
           step(@initiative)
           redirect_to administration_initiatives_path,
-                      success: t("controller.initiative.to.#{params[:state]}")
+            success: t(".success.#{params[:state]}")
         else
           redirect_to administration_initiatives_path, error: @initiative.errors.full_messages.to_sentence
         end
