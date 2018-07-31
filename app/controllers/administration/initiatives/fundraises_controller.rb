@@ -9,8 +9,7 @@ module Administration
         if @initiative.update(state: params[:state])
           finish_date(@initiative) if @initiative.fundraising?
           step(@initiative)
-          redirect_to administration_initiatives_path,
-            success: t(".success.#{params[:state]}")
+          redirect_to administration_initiatives_path, success: t(".success.#{params[:state]}")
         else
           redirect_to administration_initiatives_path, error: @initiative.errors.full_messages.to_sentence
         end

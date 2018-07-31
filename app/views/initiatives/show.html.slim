@@ -59,7 +59,7 @@
               .container
                 .page-header
                   h2
-                    | Timeline
+                    = t('.timeline.title')
                 .timeline
                   - @initiative.steps.each do |step|
                     .line.text-muted
@@ -78,7 +78,7 @@
           = t('.comments.title')
           - if current_user
             button.btn.btn-sm.btn-primary.margin-left-20 data-target='#addComment' data-toggle='modal' type='button'
-              = t('.comments.button.new')
+              = t('.comments.new.title')
 
     - if @initiative.comments.any?
       .card-body.comments

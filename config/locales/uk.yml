@@ -1,4 +1,9 @@
 uk:
+  comments:
+    create:
+      success: 'Коментар успішно добавлений'
+    update:
+      success: 'Коментар успішно відредагований'
   breadcrumb:
     title: 'Головна'
   administration:
@@ -19,6 +24,11 @@ uk:
       rejections:
         update:
           success: 'Відхилено'
+  subscriptions:
+    create:
+      success: 'Ви успішно підписались'
+      button:
+        create: 'Підписатись'
 
   categories:
     show:
@@ -50,6 +60,8 @@ uk:
     breadcrumb:
       title: 'Ініціативи'
     index:
+      button:
+        show: 'Переглянути'
       breadcrumb:
         title: 'Ініціативи'
       title: 'Ініціативи'
@@ -75,8 +87,11 @@ uk:
         submit:
           title: 'Фільтрувати'
     show:
+      pay: 'Пожертвувати'
       breadcrumb:
         title: "Ініціатива: %{obj}"
+      timeline:
+        title: 'Історія змін'
       title: 'Ініціатива'
       long_description: 'Опис'
       finish_date: "Дата завершення: %{date}"
@@ -106,7 +121,7 @@ uk:
         edit:
           title: "Редагувати: %{comment}"
         button:
-          new: 'Додати коментар'
+          new: 'Додати'
           edit: 'Редагувати'
   notifications:
     notifications:
@@ -156,6 +171,8 @@ uk:
         button:
           edit: 'Редагувати'
     initiatives:
+      create:
+        success: 'Ініціативу додано, ви можете переглянути її у своєму кабінеті та надіслати на підтвердження'
       confirmations:
         update:
           success: 'Ініціативу успішно надісланно на підтвердження, очікуйте підтвердження.'
