@@ -1,9 +1,25 @@
 uk:
-  comments:
-    notification:
-      success: 'Коментар додано'
-    button:
-      new: 'Додати коментар'
+  breadcrumb:
+    title: 'Головна'
+  administration:
+    initiatives:
+      fundraises:
+        update:
+          success:
+            fundraising: 'Розпочато збір коштів'
+            fundraised: 'Збір коштів завершено'
+      implementions:
+        update:
+          success:
+            implementing: 'Розпочато реалізацію'
+            implemented: 'Реалізацію завершено'
+      locks:
+        update:
+          success: 'Заблоковано'
+      rejections:
+        update:
+          success: 'Відхилено'
+
   categories:
     show:
       title: 'Категорії'
@@ -26,10 +42,16 @@ uk:
           show: 'Переглянути'
   contacts:
     new:
+      breadcrumb:
+        title: "Зв'язатись з нами"
       button:
         new: 'Надіслати'
   initiatives:
+    breadcrumb:
+      title: 'Ініціативи'
     index:
+      breadcrumb:
+        title: 'Ініціативи'
       title: 'Ініціативи'
       short_description:
       finish_date: "Дата завершення: %{date}"
@@ -53,6 +75,8 @@ uk:
         submit:
           title: 'Фільтрувати'
     show:
+      breadcrumb:
+        title: "Ініціатива: %{obj}"
       title: 'Ініціатива'
       long_description: 'Опис'
       finish_date: "Дата завершення: %{date}"
@@ -123,6 +147,8 @@ uk:
   users:
     users:
       show:
+        breadcrumb:
+          title: 'Мій профіль'
         title: 'Профіле'
         email: "Емейл: %{email}"
         phone: "Телефон: %{phone}"
@@ -130,6 +156,9 @@ uk:
         button:
           edit: 'Редагувати'
     initiatives:
+      confirmations:
+        update:
+          success: 'Ініціативу успішно надісланно на підтвердження, очікуйте підтвердження.'
       sort:
         filter:
           title: 'Фільтр'
@@ -137,6 +166,8 @@ uk:
           submit:
             title: 'Фільтрувати'
       index:
+        breadcrumb:
+          title: 'Ініціативи'
         title: 'Ініціативи'
         finish_date: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
@@ -156,6 +187,8 @@ uk:
           show: 'Переглянути'
           fundraised: 'Збір коштів'
       show:
+        breadcrumb:
+          title: 'Ініціатива: %{obj}'
         finish_date: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
         collected_amount: "Зібрано коштів: %{amount}"
@@ -179,8 +212,12 @@ uk:
           fundraised: 'Збір коштів'
           confirmation: 'Надіслати на підтвердження'
       edit:
+        breadcrumb:
+          title: "Редагувати: %{obj}"
         title: 'Редагувати'
       new:
+        breadcrumb:
+          title: 'Додати ініціативу'
         title: 'Добавити'
       form:
         button:
