@@ -2,11 +2,8 @@ doctype html
 html
   = render 'layouts/administration/head'
   body
-    .demo-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
-      = render 'layouts/administration/header'
-      = render 'layouts/administration/navigation'
-      = render 'layouts/administration/flash'
-      main.mdl-layout__content.mdl-color--grey-100
-        = render 'layouts/administration/breadcrumb'
-        = yield
-      - # render 'layouts/administration/footer'
+    = render 'layouts/administration/header'
+    = render 'layouts/administration/flash'
+    .container-fluid
+      = render 'layouts/administration/breadcrumb'
+      = yield

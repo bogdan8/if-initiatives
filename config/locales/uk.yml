@@ -7,6 +7,46 @@ uk:
   breadcrumb:
     title: 'Головна'
   administration:
+    main:
+      index:
+        title: 'Адмін панель'
+        initiatives:
+          title: 'Ініціативи'
+          short_description: "Короткий опис: %{description}"
+          finish_date: "Дата завершення: %{date}"
+          general_sum: "Загальна сума: %{sum}"
+          collected_amount: "Зібрано коштів: %{amount}"
+          state:
+            confirmation: 'Надіслати на підтвердження'
+            confirmed: 'Підтвердити'
+            locked: 'Заблукувати'
+            rejected: 'Відхилити'
+            fundraising: 'Розпочато збір коштів'
+            fundraised: 'Збір коштів завершено'
+            implementing: 'Реалізувати'
+            unimplemented: 'Не реалізовано'
+            reporting: 'Звітність'
+            implemented: 'Реалізовано'
+        users:
+          title: 'Користувачі'
+          email: "Емейл: %{email}"
+          phone: "Телефон: %{phone}"
+          age: "Вік: %{age}"
+          initiatives:
+            count: "Кількість: %{count}"
+        subscriptions:
+          title: 'Підписки'
+          email: "Емейл: %{email}"
+          created_at: "Додано в: %{date}"
+        categories:
+          title: 'Категорії'
+          position: "Позиція: %{position}"
+          initiatives:
+            count: "Кількість: %{count}"
+        button:
+          show: 'Переглянути'
+          destroy: 'Видалити'
+          confirm: 'Ви дійсно хочете видалити?'
     initiatives:
       fundraises:
         update:
@@ -286,6 +326,22 @@ uk:
  
 
   layouts:
+    administration:
+      header:
+        title: 'Адмін панель'
+        search:
+          title: 'Пошук'
+      navigation:
+        initiatives:
+          title: 'Ініціативи'
+        categories:
+          title: 'Категорії'
+        subscriptions:
+          title: 'Підписки'
+        contacts:
+          title: "Зв'язатись з нами"
+        users:
+          title: 'Користувачі'
     user:
       header:
         title: 'Ініціативи'

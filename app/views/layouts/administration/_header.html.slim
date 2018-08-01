@@ -1,18 +1,10 @@
-header.demo-header.mdl-layout__header.mdl-color--grey-100.mdl-color-text--grey-600
-  .mdl-layout__header-row
-    span.mdl-layout-title
-      = link_to t('views.pages.global.administration'), administration_main_path, class: "#{yield :administration}"
-    .mdl-layout-spacer
-    .mdl-textfield.mdl-js-textfield.mdl-textfield--expandable
-      .mdl-textfield__expandable-holder
-        input#search.mdl-textfield__input[type="text"]
-        label.mdl-textfield__label[for="search"]
-          | Enter your query...
-    button#hdrbtn.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--icon
-      i.material-icons
-        | more_vert
-    ul.mdl-menu.mdl-js-menu.mdl-js-ripple-effect.mdl-menu--bottom-right[for="hdrbtn"]
-      li.mdl-menu__item
-        = link_to destroy_user_session_path, method: :delete do
-          i.fa.fa-fw.fa-sign-out
-          = t('views.pages.global.sign_out')
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  = link_to t('.title'), main_app.root_path, class: 'navbar-brand'
+  button.navbar-toggler aria-controls='navbar' aria-expanded='false' aria-label=('Toggle navigation') data-target='#navbar' data-toggle='collapse' type='button'
+    span.navbar-toggler-icon
+  #navbar.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      = render 'layouts/administration/navigation'
+    = form_tag('/search', local: true, method: :get, class: 'form-inline my-2 my-lg-0' ) do
+      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+        = text_field_tag(:q, nil, data: { behavior: 'autocomplete' }, placeholder: t('.search.title'), class: 'form-control mr-sm-2', type: :search)
