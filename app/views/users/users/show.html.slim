@@ -1,20 +1,14 @@
-= provide :site_title, t('views.pages.global.user')
+= provide :site_title, t('.title')
 = provide :users, 'active'
 .row
   .col-sm-12.col-md-6.col-lg-4.col-xl-3
     = image_tag @user.avatar.url(:medium), class: 'full-image'
   .col-sm-12.col-md-6.col-lg-8.col-xl-9
     p
-      = t('views.pages.global.email')
-      | :
-      = @user.email
+      = t('.email', email: @user.email)
     p
-      = t('views.pages.global.phone')
-      | :
-      = @user.phone
+      = t('.phone', phone: @user.phone)
     p
-      = t('views.pages.global.age')
-      | :
-      = @user.age
+      = t('.age', age: @user.age)
     p
-      = link_to t('views.pages.global.button.edit'), edit_user_registration_path, class: 'btn btn-sm btn-primary'
+      = link_to t('.button.edit'), edit_user_registration_path, class: 'btn btn-sm btn-primary'

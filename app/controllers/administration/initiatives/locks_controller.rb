@@ -8,7 +8,7 @@ module Administration
         @initiative = Initiative.friendly.find(params[:id])
         if @initiative.to_locked
           step(@initiative)
-          redirect_to administration_initiatives_path, success: t("controller.initiative.to.#{params[:state]}")
+          redirect_to administration_initiatives_path, success: t('success')
         else
           redirect_to administration_initiatives_path, error: @initiative.errors.full_messages.to_sentence
         end

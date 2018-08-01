@@ -6,7 +6,6 @@
 #= require cocoon
 #= require select2
 #= require jquery.easy-autocomplete
-#= require material.min
 #= require initiatives
 #= require form
 

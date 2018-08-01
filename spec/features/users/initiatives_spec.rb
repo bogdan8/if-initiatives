@@ -27,7 +27,7 @@ feature 'Initiatives', type: :feature do
       fill_in 'initiative_finish_days', with: initiative.finish_days
       fill_in 'initiative_general_sum', with: initiative.general_sum
     end
-    click_button I18n.t('views.pages.global.button.new')
-    expect(find('#alert')).to have_text I18n.t('controller.initiative.save')
+    click_button I18n.t('users.initiatives.new.title')
+    expect(find('#alert')).to have_text I18n.t('users.initiatives.create.success')
   end
 end

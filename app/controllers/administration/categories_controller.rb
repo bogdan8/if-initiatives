@@ -3,39 +3,38 @@
 module Administration
   class CategoriesController < Administration::BaseController
     load_and_authorize_resource
-    add_breadcrumb I18n.t('views.pages.global.categories'), :administration_categories_path
 
     def index
       @categories = Category.page(params[:page]).per(8)
     end
 
     def show
-      add_breadcrumb t('views.pages.global.button.show_obj', obj: @category.title), [:administration, @category]
+      add_breadcrumb t('.breadcrumb.title', obj: @category.title), [:administration, @category]
     end
 
     def new
-      add_breadcrumb t('views.pages.global.button.new')
+      add_breadcrumb t('.breadcrumb.title')
     end
 
     def create
       if @category.save
-        redirect_to [:administration, @category], success: t('controller.category.save')
+        redirect_to [:administration, @category], success: t('.success')
       else
-        add_breadcrumb t('views.pages.global.button.new')
+        add_breadcrumb t('.breadcrumb.title')
         flash[:error] = @category.errors.full_messages.to_sentence
         render :new
       end
     end
 
     def edit
-      add_breadcrumb t('views.pages.global.button.edit_obj', obj: @category.title)
+      add_breadcrumb t('.breadcrumb.edit', obj: @category.title)
     end
 
     def update
       if @category.update(category_params)
-        redirect_to [:administration, @category], success: t('controller.category.update')
+        redirect_to [:administration, @category], success: t('success')
       else
-        add_breadcrumb t('views.pages.global.button.edit_obj', obj: @category.title)
+        add_breadcrumb t('.breadcrumb.title', obj: @category.title)
         flash[:error] = @category.errors.full_messages.to_sentence
         render :edit
       end
@@ -43,7 +42,7 @@ module Administration
 
     def destroy
       @category.destroy
-      redirect_to administration_categories_path, success: t('controller.category.destroy')
+      redirect_to administration_categories_path, success: t('.success')
     end
 
     private

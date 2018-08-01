@@ -6,7 +6,7 @@
           = t('.subscription.title')
         button.close aria-label='Close' data-dismiss='modal' type='button'
           span aria-hidden='true' ×
-      = simple_form_for Subscription.new, remote: true do |f|
+      = simple_form_for [main_app, Subscription.new], remote: true do |f|
         .modal-body
           = f.input :email
         .modal-footer

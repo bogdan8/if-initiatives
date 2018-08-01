@@ -8,7 +8,7 @@ module Users
         @initiative = Initiative.friendly.find(params[:id])
         if @initiative.to_confirmating
           step(@initiative)
-          redirect_to users_initiatives_path, success: t('controller.initiative.to_confirmating')
+          redirect_to users_initiatives_path, success: t('.success')
         else
           redirect_to users_initiatives_path, errors: @initiative.errors.full_messages.to_sentence
         end

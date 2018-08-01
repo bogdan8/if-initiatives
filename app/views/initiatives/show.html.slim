@@ -1,4 +1,4 @@
-= provide :site_title, t('views.pages.global.initiative')
+= provide :site_title, t('.title')
 = provide :initiatives_show, 'active'
 .row.initiative
   .col-sm-12
@@ -12,60 +12,54 @@
               = image_tag(@initiative.decorate.first_image(:original), class: 'image-main')
           .col-sm-12.col-md-6.col-lg-6.col-xl-6
             p
-              = t('views.pages.global.finish_date')
-              | : #{@initiative.finish_date}
+              = t('.finish_date', date: @initiative.finish_date)
             p
-              = t('views.pages.global.general_sum')
-              | : #{@initiative.general_sum}
+              = t('.general_sum', sum: @initiative.general_sum)
             p
-              = t('views.pages.global.collected_amount')
-              | : #{@initiative.collected_amount}
+              = t('.collected_amount', amount: @initiative.collected_amount)
             p
-              = t("views.pages.initiatives.state.#{@initiative.state}")
+              = t(".state.#{@initiative.state}")
             p
-              = t('views.pages.global.categories')
-              | :
+              = t('.title')
               = category_link @initiative
 
             = liqpay @liqpay_request
         .row
           .col-sm-12
             p
+              = t('.long_description')
+              br
               = @initiative.long_description
     - if @initiative.decorate.attachments_images.any?
-      /! images
       .card
         .card-header
-          = t('views.pages.global.images')
+          = t('.images.title')
         .card-body
           .row
             - @initiative.decorate.attachments_images.each do |attachment|
                 .col-sm-12.col-md-6.col-lg-4.col-xl-3
                   = image_tag attachment.image.url(:medium), class: 'image'
     - if @initiative.decorate.attachments_videos.any?
-      /! videos
       .card
         .card-header
-          = t('views.pages.global.videos')
+          = t('.videos.title')
         .card-body
           .row
             - @initiative.decorate.attachments_videos.each do |attachment|
                 .col-sm-12.col-md-6.col-lg-6.col-xl-6.margin-bottom-20
                   = video_tag attachment.video.url, controls: true, class: 'full-video'
     - @initiative.steps.any?
-      /! steps
       .card
         .card-header
-          button.btn.btn-primary aria-controls='collapseExample' aria-expanded='false' data-target='#collapseExample' data-toggle='collapse' type='button'
-            = t('views.pages.global.steps')
+          button.btn.btn-primary aria-controls='collapseSteps' aria-expanded='false' data-target='#collapseSteps' data-toggle='collapse' type='button'
+            = t('.steps.title')
 
-          #collapseExample.collapse
+          #collapseSteps.collapse
             .card-body
               .container
-                /! Page header
                 .page-header
                   h2
-                    | Timeline
+                    = t('.timeline.title')
                 .timeline
                   - @initiative.steps.each do |step|
                     .line.text-muted
@@ -77,15 +71,14 @@
                         i.glyphicon.glyphicon-plus
                       .panel-heading
                         h5.panel-title
-                          = t("views.pages.initiatives.state.#{step.state}")
-    /! comments
+                          = t(".state.#{step.state}")
     .card
       .card-header
         .flex-between
-          = t('views.pages.global.comments')
+          = t('.comments.title')
           - if current_user
             button.btn.btn-sm.btn-primary.margin-left-20 data-target='#addComment' data-toggle='modal' type='button'
-              = t('views.pages.comments.new.title')
+              = t('.comments.new.title')
 
     - if @initiative.comments.any?
       .card-body.comments
@@ -94,10 +87,8 @@
             - @initiative.comments.each do |comment|
               li
                 .comment-main-level
-                  /! Avatar
                   .comment-avatar
                     = image_tag(comment.user.avatar(:medium))
-                  /! Contenedor del Comentario
                   .comment-box
                     .comment-head
                       h6.comment-name.by-author
@@ -112,7 +103,6 @@
                         = comment.title
                       p
                         = comment.text
-              /! edit comment
               - if current_user
                 - if comment.user == current_user
                   .modal.fade id='editComment-#{comment.id}' aria-hidden='true' aria-labelledby='examplemodallabel' role='dialog' tabindex='-1'
@@ -120,14 +110,14 @@
                       .modal-content
                         .modal-header
                           h5#examplemodallabel.modal-title
-                            = t('views.pages.comments.edit.title_obj', obj: comment.title)
+                            = t('.comments.edit.title', comment: comment.title)
                           button.close aria-label='close' data-dismiss='modal' type='button'
                             span aria-hidden='true'  &times;
                         .modal-body
                           = simple_form_for comment, url: initiative_comment_path(@initiative, comment), html: { multipart: true } do |f|
                             = f.input :title
                             = f.input :text
-                            = f.button :submit, t('views.pages.global.button.edit'), class: 'btn btn-warning btn-sm'
+                            = f.button :submit, t('.comments.button.edit'), class: 'btn btn-warning btn-sm'
 
 /! add comments
 - if current_user
@@ -136,7 +126,7 @@
       .modal-content
         .modal-header
           h5#examplemodallabel.modal-title
-            = t('views.pages.comments.new.title')
+            = t('.comments.new.title')
           button.close aria-label='close' data-dismiss='modal' type='button'
             span aria-hidden='true' &times;
         .modal-body
@@ -144,4 +134,4 @@
             = simple_form_for @initiative.comments.build, url: initiative_comments_path(@initiative), html: { multipart: true } do |f|
               = f.input :title
               = f.input :text
-              = f.button :submit, t('views.pages.global.button.new'), class: 'btn btn-success btn-sm'
+              = f.button :submit, t('.comments.button.new'), class: 'btn btn-success btn-sm'

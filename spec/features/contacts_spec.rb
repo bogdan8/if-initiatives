@@ -12,7 +12,7 @@ feature 'Contacts', type: :feature do
       fill_in 'contact_email', with: contact.email
       fill_in 'contact_description', with: contact.description
     end
-    click_button I18n.t('views.pages.global.button.new')
-    expect(find('#alert')).to have_text I18n.t('controller.contact.save')
+    click_button I18n.t('contacts.new.button.new')
+    expect(find('#alert')).to have_text I18n.t('contacts.create.success')
   end
 end

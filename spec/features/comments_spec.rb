@@ -20,16 +20,16 @@ feature 'Comments', type: :feature do
     expect(find('#addComment'))
   end
 
-  scenario '#Create' do
+  scenario '#Create', js: true do
     login_user_feature(user)
     visit initiative_path(initiative)
-    click_button I18n.t('views.pages.comments.new.title')
+    click_button I18n.t('initiatives.show.comments.new.title')
     within '#new_comment' do
       fill_in 'comment_title', with: new_comment.title
       fill_in 'comment_text', with: new_comment.text
     end
-    click_button I18n.t('views.pages.global.button.new')
-    expect(find('#alert')).to have_text I18n.t('controller.comment.save')
+    click_button I18n.t('initiatives.show.comments.button.new')
+    expect(find('#alert')).to have_text I18n.t('comments.create.success')
   end
 
   scenario '#Access denied for edit' do
@@ -43,7 +43,7 @@ feature 'Comments', type: :feature do
     expect(find("#edit_comment_#{comment.id}"))
   end
 
-  scenario '#Edit' do
+  scenario '#Edit', js: true do
     login_user_feature(user)
     visit initiative_path(initiative)
     find("#edit_comment_tag_#{comment.id}").click
@@ -51,8 +51,8 @@ feature 'Comments', type: :feature do
       fill_in 'comment_title', with: new_comment.title
       fill_in 'comment_text', with: new_comment.text
     end
-    click_button I18n.t('views.pages.global.button.edit')
-    expect(find('#alert')).to have_text I18n.t('controller.comment.update')
+    click_button I18n.t('initiatives.show.comments.button.edit')
+    expect(find('#alert')).to have_text I18n.t('comments.update.success')
   end
 
   # the user can not edit the comments by other users

@@ -7,6 +7,6 @@ class DonationsController < ApplicationController
     DonationService.new(params).call
     head :ok
   rescue Liqpay::InvalidResponse
-    render text: t('controller.donation.error'), status: :internal_server_error
+    render text: t('.error'), status: :internal_server_error
   end
 end

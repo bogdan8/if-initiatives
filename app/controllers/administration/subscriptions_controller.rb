@@ -3,7 +3,6 @@
 module Administration
   class SubscriptionsController < Administration::BaseController
     load_and_authorize_resource
-    add_breadcrumb I18n.t('views.pages.global.subscriptions'), :administration_subscriptions_path
 
     def index
       @subscriptions = Subscription.page(params[:page]).per(8)
@@ -11,7 +10,7 @@ module Administration
 
     def destroy
       @subscription.destroy
-      redirect_to administration_subscriptions_path, success: t('controller.subscription.destroy')
+      redirect_to administration_subscriptions_path, success: t('.success')
     end
   end
 end

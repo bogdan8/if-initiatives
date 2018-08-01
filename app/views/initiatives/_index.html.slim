@@ -7,17 +7,14 @@
       p.card-text
         = initiative.short_description
       p.card-text
-        = t('views.pages.global.general_sum')
-        | : #{initiative.general_sum}
+        = t('.finish_date', date: initiative.finish_date)
       p.card-text
-        = t('views.pages.global.collected_amount')
-        | : #{initiative.collected_amount}
+        = t('.general_sum', sum: initiative.general_sum)
       p.card-text
-        = t('views.pages.global.state')
-        | :
-        = t("views.pages.initiatives.state.#{initiative.state}")
+        = t('.collected_amount', amount: initiative.collected_amount)
       p.card-text
-        = t('views.pages.global.categories')
-        | :
+        = t(".state.#{initiative.state}")
+      p.card-text
+        = t('.title')
         = category_link initiative
-      = link_to t('views.pages.global.button.show'), initiative_path(initiative), class: 'btn btn-sm btn-primary'
+      = link_to t('.button.show'), initiative_path(initiative), class: 'btn btn-sm btn-primary'

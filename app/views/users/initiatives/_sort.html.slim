@@ -1,10 +1,11 @@
 .sort.margin-bottom-20
   button.btn.btn-sm.btn-default.margin-right-20 aria-controls='initiativeSort' aria-expanded='false' data-target='#initiativeSort' data-toggle='collapse' type='button'
-      | Фільтер
+    = t('.filter.title')
   = sort_link(q, :updated_at)
-    span.btn.btn-sm.btn-primary Дата додавання
+    span.btn.btn-sm.btn-primary
+      = t('.filter.added_date')
   #initiativeSort.collapse
     .card.card-body
       = search_form_for [:users, q], builder: SimpleForm::FormBuilder do |f|
         = f.input :state_in, collection: collection_states, input_html: { multiple: true, id: 'select2' }
-        = f.button :submit, 'Фільтрувати'
+        = f.button :submit, t('.filter.submit.title')
