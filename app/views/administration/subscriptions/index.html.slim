@@ -1,19 +1,16 @@
-= provide :site_title, t('views.pages.global.subscriptions')
+= provide :site_title, t('.title')
 = provide :subscriptions, 'active'
-.mdl-grid
+
+.row
   - @subscriptions.each do |subscription|
-    .mdl-cell.mdl-cell--3-col-desktop.mdl-cell--12-col-table.mdl-cell--12-col-phone
-      .demo-card-square.mdl-card.mdl-card-subscriptions.mdl-shadow--2dp
-        .mdl-card__supporting-text
-          p
-            = t('views.pages.global.email')
-            | \: #{subscription.email}
-          p
-            = t('views.pages.global.created_at')
-            | \: #{subscription.created_at}
-          /! links
-          p
-            = link_to t('views.pages.global.button.destroy'), administration_subscription_path(subscription), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'
-.mdl-grid
-  .mdl-cell.mdl-cell--12-col-desktop.mdl-cell--12-col-table.mdl-cell--12-col-phone
+    .col-xs-12.col-md-3.col-lg-3.col-xl-3
+      .flex-column.card-block-blue
+        span
+          = t('.email', email: subscription.email)
+        span
+          = t('.created_at', date: (l subscription.created_at))
+        span
+          = link_to t('.button.destroy'), administration_subscription_path(subscription), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm'
+.row
+  .col-xs-12
     = paginate @subscriptions

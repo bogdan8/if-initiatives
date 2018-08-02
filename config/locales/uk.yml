@@ -9,6 +9,10 @@ uk:
   administration:
     main:
       index:
+        role:
+          user: 'Користувач'
+          administrator: 'Адміністратор'
+          moderator: 'Модератор'
         title: 'Адмін панель'
         initiatives:
           title: 'Ініціативи'
@@ -64,6 +68,37 @@ uk:
       rejections:
         update:
           success: 'Відхилено'
+    contacts:
+      index:
+        title: 'Звязатись з нами'
+        email: "Емейл: %{email}"
+        description: "Опис: %{description}"
+        button:
+          destroy: 'Видалити'
+      new:
+        breadcrumb:
+          title: "Зв'язатись з нами"
+        button:
+          new: 'Надіслати'
+    subscriptions:
+      index:
+        title: 'Підписки'
+        email: "Емейл: %{email}"
+        created_at: "Додано о: %{date}"
+        button:
+          destroy: 'Видалити'
+    categories:
+      index:
+        title: 'Категорії'
+        titles: "Назва: %{title}"
+        position: "Позиція: %{position}"
+        initiatives:
+          count: "Кількість: %{count}"
+        button:
+          new: 'Додати'
+          show: 'Показати'
+          edit: 'Редагувати'
+          destroy: 'Видалити'
   subscriptions:
     create:
       success: 'Ви успішно підписались'
