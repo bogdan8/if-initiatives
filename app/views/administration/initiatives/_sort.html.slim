@@ -1,3 +1,4 @@
-= search_form_for [:administration, q], builder: SimpleForm::FormBuilder do |f|
-  = f.input :state_in, collection: collection_administration_states, input_html: { multiple: true }
-  = f.button :submit, 'Фільтрувати'
+.card-block-blue
+  = search_form_for [:administration, q], builder: SimpleForm::FormBuilder do |f|
+    = f.input :state_in, collection: collection_administration_states, input_html: { multiple: true }
+    = f.button :submit, t('.filter')

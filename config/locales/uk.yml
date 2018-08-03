@@ -52,6 +52,37 @@ uk:
           destroy: 'Видалити'
           confirm: 'Ви дійсно хочете видалити?'
     initiatives:
+      sort:
+        filter: 'Фільтрувати'
+      index:
+        title: 'Ініціативи'
+        title_body: "Назва: %{title}"
+        short_description: "Короткий опис: %{description}"
+        finish_date: "Дата завершення: %{date}"
+        general_sum: "Загальна сума: %{sum}"
+        collected_amount: "Зібрано коштів: %{amount}"
+        initiatives:
+          state:
+            confirmation: 'Надіслати на підтвердження'
+            confirmating: 'Очікується підтвердження'
+            confirmed: 'Підтвердити'
+            locked: 'Заблукувати'
+            rejected: 'Відхилити'
+            fundraising: 'Розпочато збір коштів'
+            fundraised: 'Збір коштів завершено'
+            implementing: 'Реалізувати'
+            unimplemented: 'Не реалізовано'
+            reporting: 'Звітність'
+            implemented: 'Реалізовано'
+        categories: 'Категорії'
+        button:
+          show: 'Переглянути'
+          edit: 'Редагувати'
+          destroy: 'Видалити'
+          confirm: 'Ви дійсно хочете видалити?'
+          confirmed: 'Підтвердити'
+          fundraised: 'Завершити збір коштів'
+          rejected: 'Відхилити'
       fundraises:
         update:
           success:
