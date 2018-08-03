@@ -35,7 +35,7 @@ uk:
           title: 'Користувачі'
           email: "Емейл: %{email}"
           phone: "Телефон: %{phone}"
-          age: "Вік: %{age}"
+          age: "Вік: %{age} років"
           initiatives:
             count: "Кількість: %{count}"
         subscriptions:
@@ -99,6 +99,36 @@ uk:
           show: 'Показати'
           edit: 'Редагувати'
           destroy: 'Видалити'
+    users:
+      index:
+        title: 'Користувачі'
+        name: "Ім'я: %{name}"
+        email: "Емейл: %{email}"
+        phone: "Телефон: %{phone}"
+        age: "Вік: %{age} років"
+        initiatives:
+          count: "Кількість ініціатив: %{count}"
+        button:
+          show: 'Переглянути'
+        role:
+          user: 'Користувач'
+          administrator: 'Адміністратор'
+          moderator: 'Модератор'
+      show:
+        title: 'Користувач'
+        name: "Ім'я: %{name}"
+        email: "Емейл: %{email}"
+        phone: "Телефон: %{phone}"
+        age: "Вік: %{age} років"
+        initiatives:
+          count: "Кількість ініціатив: %{count}"
+        button:
+          edit: 'Редагувати'
+          destroy: 'Видалити'
+        role:
+          user: 'Користувач'
+          administrator: 'Адміністратор'
+          moderator: 'Модератор'
   subscriptions:
     create:
       success: 'Ви успішно підписались'
@@ -242,7 +272,7 @@ uk:
         title: 'Профіле'
         email: "Емейл: %{email}"
         phone: "Телефон: %{phone}"
-        age: "Вік: %{age}"
+        age: "Вік: %{age} років"
         button:
           edit: 'Редагувати'
     initiatives:
