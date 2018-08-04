@@ -1,0 +1,44 @@
+ uk:
+  activerecord:
+    attributes:
+      report:
+        title: 
+          zero: 'Назви'
+          one: 'Назва'
+          other: 'Назви'
+        description:
+          title: 
+          zero: 'Описи'
+          one: 'Опис'
+          other: 'Описи'
+      initiative:
+        title: 'Назва'
+        description: 'Опис'
+        short_description: 'Короткий опис'
+        long_description: 'Опис'
+        general_sum: 'Загальна ціна'
+        finish_days: 'Кількість днів до завершення'
+      comment:
+        title: 'Назва'
+        text: 'Текст'
+      contact:
+        full_name: "Ім'я та прізвище"
+        email: 'Емейл'
+        description: 'Опис'
+      category:
+        title: 'Назва'
+        position: 'Позиція'
+      attachment:
+        image: 'Зображення'
+        video: 'Відео'
+    errors:
+      models:
+        initiative:
+          attributes:
+            state:
+              invalid_transition: 'Невірний стейт'
+      messages:
+        record_invalid: 'Виникли помилки: %{errors}'
+        restrict_dependent_destroy:
+          has_one: 'Неможливо видалити запис, так як існує залежність: %{record}'
+          has_many: 'Неможливо видалити запис, так як існують залежності: %{record}'
