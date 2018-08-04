@@ -83,6 +83,60 @@ uk:
           confirmed: 'Підтвердити'
           fundraised: 'Завершити збір коштів'
           rejected: 'Відхилити'
+      show:
+        title: 'Ініціатива'
+        title_body: "Назва: %{title}"
+        short_description: "Короткий опис: %{description}"
+        long_description: "Довгий опис: %{description}"
+        finish_date: "Дата завершення: %{date}"
+        general_sum: "Загальна сума: %{sum}"
+        collected_amount: "Зібрано коштів: %{amount}"
+        initiatives:
+          state:
+            confirmation: 'Надіслати на підтвердження'
+            confirmating: 'Очікується підтвердження'
+            confirmed: 'Підтвердити'
+            locked: 'Заблукувати'
+            rejected: 'Відхилити'
+            fundraising: 'Розпочато збір коштів'
+            fundraised: 'Збір коштів завершено'
+            implementing: 'Реалізувати'
+            unimplemented: 'Не реалізовано'
+            reporting: 'Звітність'
+            implemented: 'Реалізовано'
+        categories: 'Категорії'
+        button:
+          show: 'Переглянути'
+          edit: 'Редагувати'
+          destroy: 'Видалити'
+          confirm: 'Ви дійсно хочете видалити?'
+          confirmed: 'Підтвердити'
+          fundraised: 'Завершити збір коштів'
+          rejected: 'Відхилити'
+        breadcrumb:
+          title: 'Ініціатива'
+        images:
+          title: 'Зображення'
+        videos:
+          title: 'Відео'
+        comments:
+          title: 'Коментарі'
+          user:
+            name: "Ім'я: %{name}"
+        comment:
+          title: "Назва: %{title}"
+          text: "Текс: %{text}"
+        confirm: 'Ви дійно хочите видалити?'
+      edit:
+        breadcrumb:
+          title: 'Редагувати'
+        title: 'Редагувати'
+        categories:
+          chose: 'Виберіть вашу категорію'
+        button:
+          edit: 'Редагувати'
+      update:
+        success: 'Ініціативу успішно відредаговано'
       fundraises:
         update:
           success:

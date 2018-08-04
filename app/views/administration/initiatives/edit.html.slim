@@ -1,15 +1,12 @@
-= provide :site_title, t('views.pages.initiatives.edit.title')
+= provide :site_title, t('.title')
 = provide :initiatives, 'active'
 
-.mdl-grid
-  .mdl-cell.mdl-cell--12-col.mdl-shadow--4dp.background-white
-    .mdl-grid
-      .mdl-cell.mdl-cell--8-col-desktop.mdl-cell--2-offset-desktop.mdl-cell--10-col-table.mdl-cell--1-offset-table.mdl-cell--12-col-phone.full-div-size.full-div-size
-        = simple_form_for [:administration, @initiative], html: { multipart: true,  class: 'flex-column'} do |f|
-          = f.input :title
-          = f.input :short_description
-          = f.input :long_description
-          = f.input :finish_days
-          = f.input :general_sum
-          = f.input :category_ids, collection: @categories.order(:title), label_method: :title, value_method: :id, prompt: 'Chose your categories', input_html: { multiple: true }
-          = f.button :submit, t('views.pages.global.button.edit'), class: 'btn btn-success btn-sm'
+.row
+   = simple_form_for [:administration, @initiative], html: { multipart: true } do |f|
+      = f.input :title
+      = f.input :short_description
+      = f.input :long_description
+      = f.input :finish_days
+      = f.input :general_sum
+      = f.input :category_ids, collection: @categories.order(:title), label_method: :title, value_method: :id, prompt: t('.categories.chose'), input_html: { multiple: true }
+      = f.button :submit, t('.button.edit'), class: 'btn btn-success btn-sm'
