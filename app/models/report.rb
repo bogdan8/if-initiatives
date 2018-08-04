@@ -19,7 +19,6 @@ class Report < ApplicationRecord
   has_many :attachments, dependent: :destroy, inverse_of: :report
   accepts_nested_attributes_for :attachments, reject_if: :all_blank, allow_destroy: true
 
-  # validations
   validates :title, :description, presence: true
   validates :title, length: { minimum: 5 }
   validates :description, length: { minimum: 25 }
