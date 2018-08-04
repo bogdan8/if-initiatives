@@ -5,5 +5,5 @@
 #= require bootstrap
 #= require cocoon
 #= require select2
-
-
+#= require jquery.easy-autocomplete
+#= require administration/initiatives
