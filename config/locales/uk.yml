@@ -1,35 +1,6 @@
 uk:
-  comments:
-    create:
-      success: 'Коментар успішно добавлений'
-    update:
-      success: 'Коментар успішно відредагований'
   breadcrumb:
     title: 'Головна'
-  administration:
-    initiatives:
-      fundraises:
-        update:
-          success:
-            fundraising: 'Розпочато збір коштів'
-            fundraised: 'Збір коштів завершено'
-      implementions:
-        update:
-          success:
-            implementing: 'Розпочато реалізацію'
-            implemented: 'Реалізацію завершено'
-      locks:
-        update:
-          success: 'Заблоковано'
-      rejections:
-        update:
-          success: 'Відхилено'
-  subscriptions:
-    create:
-      success: 'Ви успішно підписались'
-      button:
-        create: 'Підписатись'
-
   categories:
     show:
       title: 'Категорії'
@@ -50,12 +21,22 @@ uk:
           implemented: 'Реалізовано'
         button:
           show: 'Переглянути'
+  comments:
+    create:
+      success: 'Коментар успішно добавлений'
+    update:
+      success: 'Коментар успішно відредагований'
   contacts:
     new:
       breadcrumb:
         title: "Зв'язатись з нами"
       button:
         new: 'Надіслати'
+  subscriptions:
+    create:
+      success: 'Ви успішно підписались'
+      button:
+        create: 'Підписатись'
   initiatives:
     breadcrumb:
       title: 'Ініціативи'
@@ -159,230 +140,9 @@ uk:
       read: 'Прочитано'
       new: 'Нове'
       title: "Назва: %{title}"
-  users:
-    users:
-      show:
-        breadcrumb:
-          title: 'Мій профіль'
-        title: 'Профіле'
-        email: "Емейл: %{email}"
-        phone: "Телефон: %{phone}"
-        age: "Вік: %{age}"
-        button:
-          edit: 'Редагувати'
-    initiatives:
-      create:
-        success: 'Ініціативу додано, ви можете переглянути її у своєму кабінеті та надіслати на підтвердження'
-      confirmations:
-        update:
-          success: 'Ініціативу успішно надісланно на підтвердження, очікуйте підтвердження.'
-      sort:
-        filter:
-          title: 'Фільтр'
-          added_date: 'Дата добавлення'
-          submit:
-            title: 'Фільтрувати'
-      index:
-        breadcrumb:
-          title: 'Ініціативи'
-        title: 'Ініціативи'
-        finish_date: "Дата завершення: %{date}"
-        general_sum: "Загальна сума: %{sum}"
-        collected_amount: "Зібрано коштів: %{amount}"
-        state:
-          confirmation: 'Надіслати на підтвердження'
-          confirmed: 'Підтвердити'
-          locked: 'Заблукувати'
-          rejected: 'Відхилити'
-          fundraising: 'Розпочато збір коштів'
-          fundraised: 'Збір коштів завершено'
-          implementing: 'Реалізувати'
-          unimplemented: 'Не реалізовано'
-          reporting: 'Звітність'
-          implemented: 'Реалізовано'
-        button:
-          show: 'Переглянути'
-          fundraised: 'Збір коштів'
-      show:
-        breadcrumb:
-          title: 'Ініціатива: %{obj}'
-        finish_date: "Дата завершення: %{date}"
-        general_sum: "Загальна сума: %{sum}"
-        collected_amount: "Зібрано коштів: %{amount}"
-        state:
-          draft: 'Чернетка'
-          confirmation: 'Надіслати на підтвердження'
-          confirmed: 'Підтвердити'
-          locked: 'Заблукувати'
-          rejected: 'Відхилити'
-          fundraising: 'Розпочато збір коштів'
-          fundraised: 'Збір коштів завершено'
-          implementing: 'Реалізувати'
-          unimplemented: 'Не реалізовано'
-          reporting: 'Звітність'
-          implemented: 'Реалізовано'
-        categories: 'Категорії'
-        button:
-          edit: 'Редагувати'
-          show: 'Переглянути'
-          destroy: 'Видалити'
-          fundraised: 'Збір коштів'
-          confirmation: 'Надіслати на підтвердження'
-      edit:
-        breadcrumb:
-          title: "Редагувати: %{obj}"
-        title: 'Редагувати'
-      new:
-        breadcrumb:
-          title: 'Додати ініціативу'
-        title: 'Добавити'
-      form:
-        button:
-          new: 'Добавити'
-          edit: 'Редагувати'
-        image:
-          button:
-            new: 'Добавити зображення'
-            video: 'Добавити відео'
-      images:
-        title: 'Зображення'
-      videos:
-        title: 'Відео'
-      steps:
-        title: 'Кроки'
-      timeline:
-        title: 'Хронологія'
-      comments:
-        title: 'Коментарі'
-      reports:
-        button:
-          new: 'Додати репорт'
-    reports:
-      new:
-        submit: 'Добавити'
-        attachments:
-          image:
-            button:
-              new: 'Додати зображення'
-          video:
-            button:
-              new: 'Додати відео'
-      edit:
-        submit: 'Редагувати'
-        attachments:
-          image:
-            button:
-              new: 'Додати зображення'
-          video:
-            button:
-              new: 'Додати відео'
-      reports:
-        title: "Назва: %{title}"
-        description: "Опис: %{description}"
-        updated_at: "Оновлено в %{date}"
-        button:
-          destroy: 'Видалити'
-        confirm: 'Ви дійсно хочите видалити цей запис'
- 
-
-  layouts:
-    user:
-      header:
-        title: 'Ініціативи'
-        search:
-          title: 'Пошук'
-      navigation:
-        my:
-          initiatives:
-            title: 'Мої ініціативи'
-        administrations:
-          title: 'Адмін панель'
-        notifications:
-          title: "%{count} Повідомлень"
-        profile:
-          button:
-            show: 'Профіль'
-            edit: 'Редагувати профіль'
-        sign_in:
-          button:
-            new: 'Увійти'
-        sign_out:
-          button:
-            destroy: 'Вийти'
-        registration:
-          button:
-            new: 'Зареєструватись'
-        initiatives:
-          title: 'Ініціативи'
-          button:
-            new: 'Додати ініціативу'
-        subscription:
-          button:
-            new: 'Підписатись'
-        contacts:
-          button:
-            new: "Зв'язатись з нами"
-      subscription:
-        subscription:
-          title: 'Підписатись'
-          submit:
-            create: 'Підписатись'
-            close: 'Закрити'
   unauthorized:
     manage:
       all: 'Ви не маєте доступу до цього ресурсу'
-
-
-
-  controller:
-    admins:
-      save: 'Адміністратора додано'
-      update: 'Дані успішно відредаговані'
-      destroy: 'Категорію видалено'
-    user:
-      save: 'Користувача додано'
-      update: 'Користувача відредаговано'
-      destroy: 'Користувача видалено'
-    role:
-      change: 'Роль змінено'
-    category:
-      save: 'Категорію додано'
-      update: 'Категорію відредаговано'
-      destroy: 'Категорію видалено'
-    comment:
-      save: 'Коментар додано'
-      update: 'Коментар відредаговано'
-      destroy: 'Коментар видалено'
-    subscription:
-      save: 'Підписано'
-      destroy: 'Підписку видалено'
-    initiative:
-      save: 'Ініціативу додано'
-      update: 'Ініціативу відредаговано'
-      destroy: 'Ініціативу видалено'
-      to_confirmating: 'Відправлено на підтвердження'
-      to_fundraising: 'Збір коштів розпочато'
-      to_fundraised: 'Збір коштів завершено'
-      to_rejected: 'Ініціативу відхилено'
-      to_implementing: 'Розпочато реалізацію'
-      to_locked: 'Ініціативу заблоковано'
-      to_implemented: 'Завершено реалізацію'
-      to_implemented: 'Ініціативу успішно завершено'
-      to_unimplemented: 'Ініціативу не завершено'
-      to_reporting: 'Ініціативу відправлено для надання звіту'
-    attachment:
-      new: 'Файл додано'
-      update: 'Файл відредаговано'
-      destroy: 'Файл видалено'
-    report:
-      new: 'Звіт додано'
-      update: 'Звіт відредаговано'
-      destroy: 'Звіт видалено'
-    contact:
-      save: "Дякуємо за ваше повідомлення, ми з вами зв'яжемось якомога швидше"
-    donation:
-      error: 'Помилка платежу'
-
   views:
     pagination:
       first: '&laquo; Перший'
@@ -390,7 +150,6 @@ uk:
       previous: '&lsaquo; Попередній'
       next: 'Наступний &rsaquo;'
       truncate: '&hellip;'
-
   mail:
     user:
       pasword:
@@ -401,61 +160,15 @@ uk:
       fundraised:
         subject: 'Дата збору коштів завершено'
         body: 'Завершено збір коштів на вашу ініціативу'
-
   helpers:
     page_entries_info:
       one_page:
         display_entries:
-          zero: 'Не %{entry_name} знайдено'
-          one: 'Відображення <b>1</b> %{entry_name}'
-          other: 'Відображення <b>всі %{count}</b> %{entry_name}'
+          zero: "Не %{entry_name} знайдено"
+          one: "Відображення <b>1</b> %{entry_name}"
+          other: "Відображення <b>всі %{count}</b> %{entry_name}"
       more_pages:
-        display_entries: 'Відображення %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> загалом'
-
-  activerecord:
-    attributes:
-      report:
-        title: 
-          zero: 'Назви'
-          one: 'Назва'
-          other: 'Назви'
-        description:
-          title: 
-          zero: 'Описи'
-          one: 'Опис'
-          other: 'Описи'
-      initiative:
-        title: 'Назва'
-        description: 'Опис'
-        short_description: 'Короткий опис'
-        long_description: 'Опис'
-        general_sum: 'Загальна ціна'
-        finish_days: 'Кількість днів до завершення'
-      comment:
-        title: 'Назва'
-        text: 'Текст'
-      contact:
-        full_name: "Ім'я та прізвище"
-        email: 'Емейл'
-        description: 'Опис'
-      category:
-        title: 'Назва'
-        position: 'Позиція'
-      attachment:
-        image: 'Зображення'
-        video: 'Відео'
-    errors:
-      models:
-        initiative:
-          attributes:
-            state:
-              invalid_transition: 'Невірний стейт'
-      messages:
-        record_invalid: 'Виникли помилки: %{errors}'
-        restrict_dependent_destroy:
-          has_one: 'Неможливо видалити запис, так як існує залежність: %{record}'
-          has_many: 'Неможливо видалити запис, так як існують залежності: %{record}'
-
+        display_entries: "Відображення %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> загалом"
   date:
     abbr_day_names:
     - нд.
@@ -512,41 +225,41 @@ uk:
   datetime:
     distance_in_words:
       about_x_hours:
-        few: близько %{count} години
-        many: близько %{count} годин
-        one: близько %{count} година
-        other: близько %{count} години
+        few: "близько %{count} години"
+        many: "близько %{count} годин"
+        one: "близько %{count} година"
+        other: "близько %{count} години"
       about_x_months:
-        few: близько %{count} місяців
-        many: близько %{count} місяців
-        one: близько %{count} місяця
-        other: близько %{count} місяця
+        few: "близько %{count} місяців"
+        many: "близько %{count} місяців"
+        one: "близько %{count} місяця"
+        other: "близько %{count} місяця"
       about_x_years:
-        few: близько %{count} років
-        many: близько %{count} років
-        one: близько %{count} року
-        other: близько %{count} року
+        few: "близько %{count} років"
+        many: "близько %{count} років"
+        one: "близько %{count} року"
+        other: "близько %{count} року"
       almost_x_years:
-        few: майже %{count} років
-        many: майже %{count} років
-        one: майже %{count} роки
-        other: майже %{count} років
-      half_a_minute: півхвилини
+        few: "майже %{count} років"
+        many: "майже %{count} років"
+        one: "майже %{count} роки"
+        other: "майже %{count} років"
+      half_a_minute: 'півхвилини'
       less_than_x_minutes:
-        few: менше %{count} хвилин
-        many: менше %{count} хвилин
-        one: менше %{count} хвилини
-        other: менше %{count} хвилини
+        few: "менше %{count} хвилин"
+        many: "менше %{count} хвилин"
+        one: "менше %{count} хвилини"
+        other: "менше %{count} хвилини"
       less_than_x_seconds:
-        few: менше %{count} секунд
-        many: менше %{count} секунд
-        one: менше %{count} секунди
-        other: менше %{count} секунди
+        few: "менше %{count} секунд"
+        many: "менше %{count} секунд"
+        one: "менше %{count} секунди"
+        other: "менше %{count} секунди"
       over_x_years:
-        few: більше %{count} років
-        many: більше %{count} років
-        one: більше %{count} року
-        other: більше %{count} року
+        few: "більше %{count} років"
+        many: "більше %{count} років"
+        one: "більше %{count} року"
+        other: "більше %{count} року"
       x_days:
         few: "%{count} дні"
         many: "%{count} днів"
@@ -590,12 +303,12 @@ uk:
       equal_to: має дорівнювати %{count}
       even: має бути парним
       exclusion: зарезервовано
-      greater_than: має бути більше ніж %{count}
-      greater_than_or_equal_to: має бути більше ніж або дорівнювати %{count}
+      greater_than: має бути "більше ніж %{count}"
+      greater_than_or_equal_to: має бути "більше ніж або дорівнювати" %{count}
       inclusion: не включено до переліку
       invalid: недійсний
-      less_than: має бути менше ніж %{count}
-      less_than_or_equal_to: має бути менше ніж або дорівнювати %{count}
+      less_than: має бути "менше ніж %{count}"
+      less_than_or_equal_to: має бути "менше ніж або дорівнювати" %{count}
       model_invalid: 'Виникли помилки: %{errors}'
       not_a_number: не число
       not_an_integer: не э цілим числом

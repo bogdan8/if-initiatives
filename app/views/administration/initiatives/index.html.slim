@@ -1,9 +1,12 @@
-= provide :site_title, t('views.pages.global.initiatives')
+= provide :site_title, t('.title')
 = provide :initiatives, 'active'
 
-= render 'administration/initiatives/sort', q: @q
+.row
+  .col-xs-12.col-md-12.col-lg-12.col-xs-12
+    = render 'administration/initiatives/sort', q: @q
 
-#initiatives
+
+.row id='initiatives'
   = render 'index', collection: @initiatives
 
 #paginator

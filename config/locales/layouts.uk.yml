@@ -1,0 +1,60 @@
+uk:
+  layouts:
+    administration:
+      header:
+        title: 'Адмін панель'
+        search:
+          title: 'Пошук'
+      navigation:
+        initiatives:
+          title: 'Ініціативи'
+        categories:
+          title: 'Категорії'
+        subscriptions:
+          title: 'Підписки'
+        contacts:
+          title: "Зв'язатись з нами"
+        users:
+          title: 'Користувачі'
+    user:
+      header:
+        title: 'Ініціативи'
+        search:
+          title: 'Пошук'
+      navigation:
+        my:
+          initiatives:
+            title: 'Мої ініціативи'
+        administrations:
+          title: 'Адмін панель'
+        notifications:
+          title: "%{count} Повідомлень"
+        profile:
+          button:
+            show: 'Профіль'
+            edit: 'Редагувати профіль'
+        sign_in:
+          button:
+            new: 'Увійти'
+        sign_out:
+          button:
+            destroy: 'Вийти'
+        registration:
+          button:
+            new: 'Зареєструватись'
+        initiatives:
+          title: 'Ініціативи'
+          button:
+            new: 'Додати ініціативу'
+        subscription:
+          button:
+            new: 'Підписатись'
+        contacts:
+          button:
+            new: "Зв'язатись з нами"
+      subscription:
+        subscription:
+          title: 'Підписатись'
+          submit:
+            create: 'Підписатись'
+            close: 'Закрити'

@@ -1,0 +1,125 @@
+uk:
+  users:
+    users:
+      show:
+        breadcrumb:
+          title: 'Мій профіль'
+        title: 'Профіле'
+        email: "Емейл: %{email}"
+        phone: "Телефон: %{phone}"
+        age: "Вік: %{age} років"
+        button:
+          edit: 'Редагувати'
+    initiatives:
+      index:
+        breadcrumb:
+          title: 'Ініціативи'
+        title: 'Ініціативи'
+        finish_date: "Дата завершення: %{date}"
+        general_sum: "Загальна сума: %{sum}"
+        collected_amount: "Зібрано коштів: %{amount}"
+        state:
+          confirmation: 'Надіслати на підтвердження'
+          confirmed: 'Підтвердити'
+          locked: 'Заблукувати'
+          rejected: 'Відхилити'
+          fundraising: 'Розпочато збір коштів'
+          fundraised: 'Збір коштів завершено'
+          implementing: 'Реалізувати'
+          unimplemented: 'Не реалізовано'
+          reporting: 'Звітність'
+          implemented: 'Реалізовано'
+        button:
+          show: 'Переглянути'
+          fundraised: 'Збір коштів'
+      show:
+        breadcrumb:
+          title: 'Ініціатива: %{obj}'
+        finish_date: "Дата завершення: %{date}"
+        general_sum: "Загальна сума: %{sum}"
+        collected_amount: "Зібрано коштів: %{amount}"
+        state:
+          draft: 'Чернетка'
+          confirmation: 'Надіслати на підтвердження'
+          confirmed: 'Підтвердити'
+          locked: 'Заблукувати'
+          rejected: 'Відхилити'
+          fundraising: 'Розпочато збір коштів'
+          fundraised: 'Збір коштів завершено'
+          implementing: 'Реалізувати'
+          unimplemented: 'Не реалізовано'
+          reporting: 'Звітність'
+          implemented: 'Реалізовано'
+        categories: 'Категорії'
+        button:
+          edit: 'Редагувати'
+          show: 'Переглянути'
+          destroy: 'Видалити'
+          fundraised: 'Збір коштів'
+          confirmation: 'Надіслати на підтвердження'
+      new:
+        breadcrumb:
+          title: 'Додати ініціативу'
+        title: 'Добавити'
+      create:
+        success: 'Ініціативу додано, ви можете переглянути її у своєму кабінеті та надіслати на підтвердження'
+      edit:
+        breadcrumb:
+          title: "Редагувати: %{obj}"
+        title: 'Редагувати'
+      sort:
+        filter:
+          title: 'Фільтр'
+          added_date: 'Дата добавлення'
+          submit:
+            title: 'Фільтрувати'
+      confirmations:
+        update:
+          success: 'Ініціативу успішно надісланно на підтвердження, очікуйте підтвердження.'
+      form:
+        button:
+          new: 'Добавити'
+          edit: 'Редагувати'
+        image:
+          button:
+            new: 'Добавити зображення'
+            video: 'Добавити відео'
+      images:
+        title: 'Зображення'
+      videos:
+        title: 'Відео'
+      steps:
+        title: 'Кроки'
+      timeline:
+        title: 'Хронологія'
+      comments:
+        title: 'Коментарі'
+      reports:
+        button:
+          new: 'Додати репорт'
+    reports:
+      new:
+        submit: 'Добавити'
+        attachments:
+          image:
+            button:
+              new: 'Додати зображення'
+          video:
+            button:
+              new: 'Додати відео'
+      edit:
+        submit: 'Редагувати'
+        attachments:
+          image:
+            button:
+              new: 'Додати зображення'
+          video:
+            button:
+              new: 'Додати відео'
+      reports:
+        title: "Назва: %{title}"
+        description: "Опис: %{description}"
+        updated_at: "Оновлено в %{date}"
+        button:
+          destroy: 'Видалити'
+        confirm: 'Ви дійсно хочите видалити цей запис'

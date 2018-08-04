@@ -1,72 +1,62 @@
-= provide :site_title, t('views.pages.global.initiative')
+= provide :site_title, t('.title')
 = provide :initiatives, 'active'
-.mdl-grid
-  .mdl-cell.mdl-cell--12-col
-    .demo-card-wide.mdl-card.mdl-shadow--2dp
-      .mdl-card__supporting-text
-        .mdl-grid
-          .mdl-cell.mdl-cell--3-col-desktop.mdl-cell--3-col-table.mdl-cell--12-col-phone
-            = image_tag @initiative.decorate.first_image(:medium), class: 'main-image'
-          .mdl-cell.mdl-cell--9-col-desktop.mdl-cell--9-col-table.mdl-cell--12-col-phone
-            p
-              = t('views.pages.global.title')
-              | \: #{@initiative.title}
-            p
-              = t('views.pages.global.short_description')
-              | \: #{@initiative.short_description}
-            p
-              = t('views.pages.global.long_description')
-              | \: #{@initiative.long_description}
-            p
-              = t('views.pages.global.finish_date')
-              | \: #{@initiative.finish_date}
-            p
-              = t('views.pages.global.general_sum')
-              | \: #{@initiative.general_sum}
-            /! show categories
-            p
-              = t('views.pages.global.categories')
-              | \:
-              - @initiative.decorate.categories_title
-        .mdl-grid--no-spacing
-          .mdl-cell.mdl-cell--12-col
-            h3
-              = t('views.pages.global.images')
-            .mdl-grid
-              - @initiative.decorate.attachments_images.each do |attachment|
-                .mdl-cell.mdl-cell--3-col-desktop.mdl-cell--3-col-table.mdl-cell--12-col-phone
-                  = image_tag attachment.image.url(:medium), class: 'full-image'
-        .mdl-grid--no-spacing
-          .mdl-cell.mdl-cell--12-col
-            h3
-              = t('views.pages.global.videos')
-            .mdl-grid
-              - @initiative.decorate.attachments_videos.each do |attachment|
-                .mdl-cell.mdl-cell--6-col-desktop.mdl-cell--6-col-table.mdl-cell--12-col-phone
-                  = video_tag attachment.video.url, class: 'full-video'
-        .mdl-grid--no-spacing
-          .mdl-cell.mdl-cell--12-col
-            h3
-              = t('views.pages.global.comments')
-            .mdl-grid--no-spacing
-              - @initiative.comments.includes(:user).each do |comment|
-                .mdl-cell.mdl-cell--12-col
-                  .comment-user-block
-                    = image_tag comment.decorate.user_avatar, class: 'user-image'
-                    .user-information
-                      span
-                        = comment.user.name
-                      span
-                        = added_time comment.updated_at
-                  p
-                    = t('views.pages.global.title')
-                    | \: #{comment.title}
-                  p
-                    = t('views.pages.global.text')
-                    | \: #{comment.text}
-                  /! comment links
-                  = link_to t('views.pages.global.button.destroy'), administration_comment_path(comment, initiative_id: @initiative.id), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'
-      .mdl-card__actions.mdl-card--border
-        = link_to t('views.pages.global.button.edit'), edit_administration_initiative_path(@initiative), class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect'
-        = link_to t('views.pages.global.button.destroy'), administration_initiative_path(@initiative), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect'
-        = initiative_state_administrator_links(@initiative)
+
+.card-block-blue
+  .row
+    .col-xs-12.col-md-6.col-lg-3.col-xl-3
+      = image_tag @initiative.decorate.first_image(:medium), class: 'index-image'
+    .col-xs-12.col-md-6.col-lg-9.col-xl-9
+      .flex-column
+        span
+          = t('.title_body', title: @initiative.title)
+        span
+          = t('.short_description', description: @initiative.short_description)
+        span
+          = t('.long_description', description: @initiative.long_description)
+        span
+          = t('.finish_date', date: @initiative.finish_date)
+        span
+          = t('.general_sum', sum: @initiative.general_sum)
+        span
+          = t('.categories')
+          = @initiative.decorate.categories_title
+  .row
+    .col-xl-12
+      span
+        = t('.images.title')
+      .row
+        - @initiative.decorate.attachments_images.each do |attachment|
+          .col-xs-6.col-md-3.col-lg-3.col-xl-3
+            = image_tag attachment.image.url(:medium), class: 'full-image'
+    .col-xl-12
+      span
+        = t('.videos.title')
+      .row
+        - @initiative.decorate.attachments_videos.each do |attachment|
+          .col-xs-12.col-md-6.col-lg-6.col-xl-6
+            = video_tag attachment.video.url, class: 'full-video'
+  .row
+    .col-xl-12
+      span
+        = t('.comments.title')
+      .row
+        .col-xl-12
+          - @initiative.comments.includes(:user).each do |comment|
+            .comment-user-block
+              = image_tag comment.decorate.user_avatar, class: 'user-image'
+              .user-information
+                span
+                  = t('.comments.user.name', name: comment.user.name)
+                span
+                  = added_time comment.updated_at
+            span
+              = t('.comment.title', title: comment.title)
+            span
+              = t('.comment.text', text: comment.text)
+
+            = link_to t('.button.destroy'), administration_comment_path(comment, initiative_id: @initiative.id), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger btn-sm'
+.row
+  .col-xl-12
+    = link_to t('.button.edit'), edit_administration_initiative_path(@initiative), class: 'btn btn-warning btn-sm'
+    = link_to t('.button.destroy'), administration_initiative_path(@initiative), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger btn-sm'
+    = initiative_state_administrator_links(@initiative)

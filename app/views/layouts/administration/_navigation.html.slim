@@ -1,37 +1,10 @@
-.demo-drawer.mdl-layout__drawer.mdl-color--blue-grey-900.mdl-color-text--blue-grey-50
-  header.demo-drawer-header
-    = image_tag current_user.avatar.url(:medium), class: 'demo-avatar'
-    .demo-avatar-dropdown
-      span
-        = current_user.email
-      .mdl-layout-spacer
-      button#accbtn.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--icon
-        i.material-icons[role="presentation"]
-          | arrow_drop_down
-        span.visuallyhidden
-          | Accounts
-      ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect[for="accbtn"]
-        li.mdl-menu__item
-          = link_to destroy_user_session_path, method: :delete do
-            i.fa.fa-fw.fa-sign-out
-            = t('views.pages.global.sign_out')
-  nav.demo-navigation.mdl-navigation.mdl-color--blue-grey-800
-    = link_to administration_initiatives_path, class: "mdl-navigation__link #{yield :initiatives}" do
-      i.mdl-color-text--blue-grey-400.fa.fa-fw.fa-dashboard
-      = t('views.pages.global.initiatives')
-    = link_to administration_categories_path, class: "mdl-navigation__link #{yield :categories}" do
-      i.mdl-color-text--blue-grey-400.fa.fa-fw.fa-dashboard
-      span.nav-link-text
-        = t('views.pages.global.categories')
-    = link_to administration_subscriptions_path, class: "mdl-navigation__link #{yield :subscriptions}" do
-      i.mdl-color-text--blue-grey-400.fa.fa-fw.fa-dashboard
-      span.nav-link-text
-        = t('views.pages.global.subscriptions')
-    = link_to administration_contacts_path, class: "mdl-navigation__link #{yield :contacts}" do
-      i.mdl-color-text--blue-grey-400.fa.fa-fw.fa-dashboard
-      span.nav-link-text
-        = t('views.pages.global.contacts')
-    = link_to administration_users_path, class: "mdl-navigation__link #{yield :users}" do
-      i.mdl-color-text--blue-grey-400.fa.fa-fw.fa-dashboard
-      span.nav-link-text
-        = t('views.pages.global.users')
+li.nav-item
+  = link_to t('.initiatives.title'), administration_initiatives_path, class: "nav-link #{yield :initiatives}"
+li.nav-item
+  = link_to t('.categories.title'), administration_categories_path, class: "nav-link #{yield :categories}"
+li.nav-item
+  = link_to t('.subscriptions.title'), administration_subscriptions_path, class: "nav-link #{yield :subscriptions}"
+li.nav-item
+  = link_to t('.contacts.title'), administration_contacts_path, class: "nav-link #{yield :contacts}"
+li.nav-item
+  = link_to t('.users.title'), administration_users_path, class: "nav-link #{yield :users}"

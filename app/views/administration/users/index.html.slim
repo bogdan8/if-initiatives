@@ -1,7 +1,9 @@
-= provide :site_title, t('views.pages.users.index.title')
+= provide :site_title, t('.title')
 = provide :users, 'active'
-.mdl-grid
+
+.row.users
   = render 'administration/users/index', collection: @users, presenter: @presenter
-.mdl-grid
-  .mdl-cell.mdl-cell--12-col-desktop.mdl-cell--12-col-table.mdl-cell--12-col-phone
+
+.row
+  .col-xs-12
     = paginate @users
