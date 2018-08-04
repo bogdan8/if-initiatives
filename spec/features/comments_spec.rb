@@ -11,13 +11,13 @@ feature 'Comments', type: :feature do
 
   scenario '#Access denied for create' do
     visit initiative_path(initiative)
-    expect(page).not_to have_selector('#addComment')
+    expect(page).not_to have_selector('#addCommentBtn')
   end
 
   scenario '#Access granted for create' do
     login_user_feature(user)
     visit initiative_path(initiative)
-    expect(find('#addComment'))
+    expect(page).to have_selector('#addCommentBtn')
   end
 
   scenario '#Create', js: true do
@@ -43,16 +43,30 @@ feature 'Comments', type: :feature do
     expect(find("#edit_comment_#{comment.id}"))
   end
 
-  scenario '#Edit', js: true do
-    login_user_feature(user)
-    visit initiative_path(initiative)
-    find("#edit_comment_tag_#{comment.id}").click
-    within "#edit_comment_#{comment.id}" do
-      fill_in 'comment_title', with: new_comment.title
-      fill_in 'comment_text', with: new_comment.text
+  feature '#Edit', js: true do
+    scenario 'with correct parameters' do
+      login_user_feature(user)
+      visit initiative_path(initiative)
+      find("#edit_comment_tag_#{comment.id}").click
+      within "#edit_comment_#{comment.id}" do
+        fill_in 'comment_title', with: new_comment.title
+        fill_in 'comment_text', with: new_comment.text
+      end
+      click_button I18n.t('initiatives.show.comments.button.edit')
+      expect(find('#alert')).to have_text I18n.t('comments.update.success')
     end
-    click_button I18n.t('initiatives.show.comments.button.edit')
-    expect(find('#alert')).to have_text I18n.t('comments.update.success')
+
+    scenario 'with incorrect parameters' do
+      login_user_feature(user)
+      visit initiative_path(initiative)
+      find("#edit_comment_tag_#{comment.id}").click
+      within "#edit_comment_#{comment.id}" do
+        fill_in 'comment_title', with: ''
+        fill_in 'comment_text', with: ''
+      end
+      click_button I18n.t('initiatives.show.comments.button.edit')
+      # TODO: need to add expect errors
+    end
   end
 
   # the user can not edit the comments by other users
