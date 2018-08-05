@@ -50,6 +50,7 @@ uk:
       finish_date: "Дата завершення: %{date}"
       general_sum: "Загальна сума: %{sum}"
       collected_amount: "Зібрано коштів: %{amount}"
+      categories: 'Категорії'
       state:
         confirmation: 'Надіслати на підтвердження'
         confirmed: 'Підтвердити'

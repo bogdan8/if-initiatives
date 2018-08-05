@@ -13,6 +13,7 @@ module Users
     end
 
     def show
+      @initiative = Initiative.includes(comments: :user).friendly.find(params[:id])
       add_breadcrumb t('.breadcrumb.title', obj: @initiative.title)
     end
 
