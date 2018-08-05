@@ -20,7 +20,7 @@ feature 'Comments', type: :feature do
     expect(page).to have_selector('#addCommentBtn')
   end
 
-  feature '#New', js: true do
+  feature '#New' do
     before do
       login_user_feature(user)
       visit initiative_path(initiative)
@@ -58,7 +58,7 @@ feature 'Comments', type: :feature do
     expect(find("#edit_comment_#{comment.id}"))
   end
 
-  feature '#Edit', js: true do
+  feature '#Edit' do
     before do
       login_user_feature(user)
       visit initiative_path(initiative)
