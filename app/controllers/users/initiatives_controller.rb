@@ -29,7 +29,6 @@ module Users
         redirect_to [:users, @initiative], success: t('.success')
       else
         add_breadcrumb t('.breadcrumb.title')
-        flash[:error] = @initiative.errors.full_messages.to_sentence
         render :new
       end
     end
@@ -45,7 +44,6 @@ module Users
         redirect_to [:users, @initiative], success: t('.success')
       else
         add_breadcrumb t('.breadcrumb.title', obj: @initiative.title)
-        flash[:error] = @initiative.errors.full_messages.to_sentence
         render :edit
       end
     end

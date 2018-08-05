@@ -10,7 +10,6 @@ class ContactsController < ApplicationController
     if @contact.save
       redirect_to root_path, success: t('.success')
     else
-      flash[:error] = @contact.errors.full_messages.to_sentence
       render :new
     end
   end

@@ -296,20 +296,20 @@ uk:
   errors:
     format: "%{attribute} %{message}"
     messages:
-      accepted: має бути прийнятий
-      blank: не може бути пустим
-      present: має бути пустим
-      confirmation: не збігається з підтвердженням
-      empty: не може бути порожнім
-      equal_to: має дорівнювати %{count}
-      even: має бути парним
-      exclusion: зарезервовано
-      greater_than: має бути "більше ніж %{count}"
-      greater_than_or_equal_to: має бути "більше ніж або дорівнювати" %{count}
-      inclusion: не включено до переліку
-      invalid: недійсний
-      less_than: має бути "менше ніж %{count}"
-      less_than_or_equal_to: має бути "менше ніж або дорівнювати" %{count}
+      accepted: 'має бути прийнятий'
+      blank: 'не може бути пустим'
+      present: 'має бути пустим'
+      confirmation: 'не збігається з підтвердженням'
+      empty: 'не може бути порожнім'
+      equal_to: "має дорівнювати %{count}"
+      even: 'має бути парним'
+      exclusion: 'зарезервовано'
+      greater_than: "має бути більше ніж %{count}"
+      greater_than_or_equal_to: "має бути більше ніж або дорівнювати %{count}"
+      inclusion: 'не включено до переліку'
+      invalid: 'недійсний'
+      less_than: "має бути менше ніж %{count}"
+      less_than_or_equal_to: "має бути менше ніж або дорівнювати %{count}"
       model_invalid: 'Виникли помилки: %{errors}'
       not_a_number: не число
       not_an_integer: не э цілим числом
