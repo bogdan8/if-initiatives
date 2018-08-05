@@ -20,16 +20,31 @@ feature 'Comments', type: :feature do
     expect(page).to have_selector('#addCommentBtn')
   end
 
-  scenario '#Create', js: true do
-    login_user_feature(user)
-    visit initiative_path(initiative)
-    click_button I18n.t('initiatives.show.comments.new.title')
-    within '#new_comment' do
-      fill_in 'comment_title', with: new_comment.title
-      fill_in 'comment_text', with: new_comment.text
+  feature '#New', js: true do
+    before do
+      login_user_feature(user)
+      visit initiative_path(initiative)
     end
-    click_button I18n.t('initiatives.show.comments.button.new')
-    expect(find('#alert')).to have_text I18n.t('comments.create.success')
+
+    scenario 'with correct parameters' do
+      click_button I18n.t('initiatives.show.comments.new.title')
+      within '#new_comment' do
+        fill_in 'comment_title', with: new_comment.title
+        fill_in 'comment_text', with: new_comment.text
+      end
+      click_button I18n.t('initiatives.show.comments.button.new')
+      expect(find('#alert')).to have_text I18n.t('comments.create.success')
+    end
+
+    scenario 'with incorrect parameters' do
+      click_button I18n.t('initiatives.show.comments.new.title')
+      within '#new_comment' do
+        fill_in 'comment_title', with: ''
+        fill_in 'comment_text', with: ''
+      end
+      click_button I18n.t('initiatives.show.comments.button.new')
+      expect(find('#alert')).to have_text I18n.t('errors.messages.blank'), count: 2
+    end
   end
 
   scenario '#Access denied for edit' do
@@ -44,9 +59,12 @@ feature 'Comments', type: :feature do
   end
 
   feature '#Edit', js: true do
-    scenario 'with correct parameters' do
+    before do
       login_user_feature(user)
       visit initiative_path(initiative)
+    end
+
+    scenario 'with correct parameters' do
       find("#edit_comment_tag_#{comment.id}").click
       within "#edit_comment_#{comment.id}" do
         fill_in 'comment_title', with: new_comment.title
@@ -57,15 +75,13 @@ feature 'Comments', type: :feature do
     end
 
     scenario 'with incorrect parameters' do
-      login_user_feature(user)
-      visit initiative_path(initiative)
       find("#edit_comment_tag_#{comment.id}").click
       within "#edit_comment_#{comment.id}" do
         fill_in 'comment_title', with: ''
         fill_in 'comment_text', with: ''
       end
       click_button I18n.t('initiatives.show.comments.button.edit')
-      # TODO: need to add expect errors
+      expect(find('#alert')).to have_text I18n.t('errors.messages.blank'), count: 2
     end
   end
 
