@@ -21,21 +21,19 @@ module Administration
         redirect_to [:administration, @category], success: t('.success')
       else
         add_breadcrumb t('.breadcrumb.title')
-        flash[:error] = @category.errors.full_messages.to_sentence
         render :new
       end
     end
 
     def edit
-      add_breadcrumb t('.breadcrumb.edit', obj: @category.title)
+      add_breadcrumb t('.breadcrumb.title', obj: @category.title)
     end
 
     def update
       if @category.update(category_params)
-        redirect_to [:administration, @category], success: t('success')
+        redirect_to [:administration, @category], success: t('.success')
       else
         add_breadcrumb t('.breadcrumb.title', obj: @category.title)
-        flash[:error] = @category.errors.full_messages.to_sentence
         render :edit
       end
     end

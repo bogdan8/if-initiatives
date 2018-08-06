@@ -165,7 +165,7 @@ uk:
         created_at: "Додано о: %{date}"
         button:
           destroy: 'Видалити'
-    categories:
+    categories: 
       index:
         title: 'Категорії'
         titles: "Назва: %{title}"
@@ -177,6 +177,38 @@ uk:
           show: 'Показати'
           edit: 'Редагувати'
           destroy: 'Видалити'
+      show:
+        title: 'Назва'
+        body_title: "Назва: %{title}"
+        position: "Позиція: %{position}"
+        initiatives:
+          count: "Кількість ініціатив: %{count}"
+        breadcrumb:
+          title: 'Категорія'
+        confirm: 'Ви дійсно хочите видалити?'
+        button:
+          edit: 'Редагувати'
+          destroy: 'Видалити'
+      new:
+        title: 'Додати категорію'
+        breadcrumb:
+          title: 'Додати категорію'
+      create:
+        title: 'Додати категорію'
+        success: 'Категорію успішно створено'
+        breadcrumb:
+          title: 'Додати категорію'
+      edit:
+        title: 'Редагувати категорію'
+        breadcrumb:
+          title: 'Редагувати категорію'
+      update:
+        title: 'Редагувати категорію'
+        success: 'Категорію успішно оновлено'
+      form:
+        button:
+          new: 'Додати'
+          edit: 'Редагувати'
     users:
       index:
         title: 'Користувачі'
