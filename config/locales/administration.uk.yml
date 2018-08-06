@@ -177,6 +177,7 @@ uk:
           show: 'Показати'
           edit: 'Редагувати'
           destroy: 'Видалити'
+        confirm: 'Ви дійсно хочите видалити?'
       show:
         title: 'Назва'
         body_title: "Назва: %{title}"
@@ -205,6 +206,8 @@ uk:
       update:
         title: 'Редагувати категорію'
         success: 'Категорію успішно оновлено'
+      destroy:
+        success: 'Категорію успішно видалено'
       form:
         button:
           new: 'Додати'
