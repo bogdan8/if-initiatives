@@ -158,6 +158,8 @@ uk:
           title: "Зв'язатись з нами"
         button:
           new: 'Надіслати'
+      destroy:
+        success: 'Звязатись з нами успішно видаленно'
     subscriptions:
       index:
         title: 'Підписки'
