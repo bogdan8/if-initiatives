@@ -26,6 +26,8 @@ uk:
       success: 'Коментар успішно добавлений'
     update:
       success: 'Коментар успішно відредагований'
+    destroy:
+      success: 'Коментар успішно видаленний'
   contacts:
     new:
       breadcrumb:

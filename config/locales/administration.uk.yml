@@ -242,4 +242,6 @@ uk:
           user: 'Користувач'
           administrator: 'Адміністратор'
           moderator: 'Модератор'
- 
+    comments:
+      destroy:
+        success: 'Коментар успішно видаленний'
