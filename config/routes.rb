@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :admins
   mount Notifications::Engine => '/notifications'
   namespace :api, defaults: { format: :json } do
     resources :initiatives, only: %i(index show) do
