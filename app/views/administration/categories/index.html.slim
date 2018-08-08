@@ -20,7 +20,7 @@
           span
             = link_to t('.button.edit'),  edit_administration_category_path(category), class: 'btn btn-warning btn-sm'
           span
-            = link_to t('.button.destroy'), administration_category_path(category), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm'
+            = link_to t('.button.destroy'), administration_category_path(category), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger btn-sm'
 .row
   .col-sm-12.flex-center
     = paginate @categories

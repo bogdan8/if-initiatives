@@ -158,6 +158,8 @@ uk:
           title: "Зв'язатись з нами"
         button:
           new: 'Надіслати'
+      destroy:
+        success: 'Звязатись з нами успішно видаленно'
     subscriptions:
       index:
         title: 'Підписки'
@@ -165,7 +167,7 @@ uk:
         created_at: "Додано о: %{date}"
         button:
           destroy: 'Видалити'
-    categories:
+    categories: 
       index:
         title: 'Категорії'
         titles: "Назва: %{title}"
@@ -177,6 +179,41 @@ uk:
           show: 'Показати'
           edit: 'Редагувати'
           destroy: 'Видалити'
+        confirm: 'Ви дійсно хочите видалити?'
+      show:
+        title: 'Назва'
+        body_title: "Назва: %{title}"
+        position: "Позиція: %{position}"
+        initiatives:
+          count: "Кількість ініціатив: %{count}"
+        breadcrumb:
+          title: 'Категорія'
+        confirm: 'Ви дійсно хочите видалити?'
+        button:
+          edit: 'Редагувати'
+          destroy: 'Видалити'
+      new:
+        title: 'Додати категорію'
+        breadcrumb:
+          title: 'Додати категорію'
+      create:
+        title: 'Додати категорію'
+        success: 'Категорію успішно створено'
+        breadcrumb:
+          title: 'Додати категорію'
+      edit:
+        title: 'Редагувати категорію'
+        breadcrumb:
+          title: 'Редагувати категорію'
+      update:
+        title: 'Редагувати категорію'
+        success: 'Категорію успішно оновлено'
+      destroy:
+        success: 'Категорію успішно видалено'
+      form:
+        button:
+          new: 'Додати'
+          edit: 'Редагувати'
     users:
       index:
         title: 'Користувачі'
@@ -207,4 +244,6 @@ uk:
           user: 'Користувач'
           administrator: 'Адміністратор'
           moderator: 'Модератор'
- 
+    comments:
+      destroy:
+        success: 'Коментар успішно видаленний'

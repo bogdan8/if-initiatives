@@ -18,8 +18,10 @@ uk:
         finish_date: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
         collected_amount: "Зібрано коштів: %{amount}"
+        categories: 'Категорії'
         state:
           confirmation: 'Надіслати на підтвердження'
+          confirmating: 'Очікується підтвердження'
           confirmed: 'Підтвердити'
           locked: 'Заблукувати'
           rejected: 'Відхилити'
@@ -38,9 +40,12 @@ uk:
         finish_date: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
         collected_amount: "Зібрано коштів: %{amount}"
+        comments:
+          title: 'Коментарі'
         state:
           draft: 'Чернетка'
           confirmation: 'Надіслати на підтвердження'
+          confirmating: 'Очікується підтвердження'
           confirmed: 'Підтвердити'
           locked: 'Заблукувати'
           rejected: 'Відхилити'
@@ -57,6 +62,17 @@ uk:
           destroy: 'Видалити'
           fundraised: 'Збір коштів'
           confirmation: 'Надіслати на підтвердження'
+        reports:
+          button:
+            new: 'Додати звітність'
+        images:
+          title: 'Зображення'
+        videos:
+          title: 'Відео'
+        steps:
+          title: 'Історія'
+        timeline:
+          title: 'Хронологія'
       new:
         breadcrumb:
           title: 'Додати ініціативу'
@@ -116,6 +132,16 @@ uk:
           video:
             button:
               new: 'Додати відео'
+      form:
+        new:
+          submit: 'Добавити'
+        attachments:
+          image:
+            button:
+              new: 'Додати зображення'
+          video:
+            button:
+              new: 'Додати відео'
       reports:
         title: "Назва: %{title}"
         description: "Опис: %{description}"
@@ -123,3 +149,11 @@ uk:
         button:
           destroy: 'Видалити'
         confirm: 'Ви дійсно хочите видалити цей запис'
+    attachments:
+      form:
+        image:
+          button:
+            destroy: 'Видалити'
+        video:
+          button:
+            destroy: 'Видалити'

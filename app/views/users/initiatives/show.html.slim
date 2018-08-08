@@ -100,9 +100,10 @@
                           = comment.title
                         p
                           = comment.text
-    .card
-      .card-header
-        = t('.reports.button.new')
-      .card-body
-        .comments-container
-          = render 'users/reports/new', initiative: @initiative
+    - if @initiative.implementing?
+      .card
+        .card-header
+          = t('.reports.button.new')
+        .card-body
+          .comments-container
+            = render 'users/reports/new', initiative: @initiative

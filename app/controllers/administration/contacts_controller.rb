@@ -10,7 +10,7 @@ module Administration
 
     def destroy
       @contact.destroy
-      redirect_to administration_contacts_path, success: t('success')
+      redirect_to administration_contacts_path, success: t('.success')
     end
   end
 end
