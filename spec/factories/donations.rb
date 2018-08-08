@@ -1,13 +1,11 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: donations
 #
-#  id            :integer          not null, primary key
-#  payer_id      :integer
-#  user_id       :integer
-#  initiative_id :integer
+#  id            :bigint(8)        not null, primary key
+#  user_id       :bigint(8)
+#  initiative_id :bigint(8)
 #  amount        :integer
 #  description   :string
 #  currency      :string

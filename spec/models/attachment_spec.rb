@@ -1,10 +1,9 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: attachments
 #
-#  id                 :integer          not null, primary key
+#  id                 :bigint(8)        not null, primary key
 #  image_file_name    :string
 #  image_content_type :string
 #  image_file_size    :integer
@@ -13,10 +12,10 @@
 #  video_content_type :string
 #  video_file_size    :integer
 #  video_updated_at   :datetime
-#  initiative_id      :integer
+#  initiative_id      :bigint(8)
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  report_id          :integer
+#  report_id          :bigint(8)
 #
 
 require 'rails_helper'

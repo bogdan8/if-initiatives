@@ -2,7 +2,6 @@
 
 module Users
   class ReportsController < ApplicationController
-    load_resource :report, through: :initiative
     before_action :find_initiative, only: %i[create]
     add_breadcrumb I18n.t('.breadcrumb.title'), :users_reports_path
 

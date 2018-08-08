@@ -3,8 +3,6 @@
 module Users
   module Initiatives
     class ConfirmationsController < Users::Initiatives::BaseController
-      load_resource :initiative
-
       def update
         @initiative = Initiative.friendly.find(params[:id])
         if @initiative.to_confirmating

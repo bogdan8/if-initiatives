@@ -1,0 +1,10 @@
+li.nav-item
+  = link_to t('.initiatives.title'), admin_initiatives_path, class: "nav-link #{yield :initiatives}"
+li.nav-item
+  = link_to t('.categories.title'), admin_categories_path, class: "nav-link #{yield :categories}"
+li.nav-item
+  = link_to t('.subscriptions.title'), admin_subscriptions_path, class: "nav-link #{yield :subscriptions}"
+li.nav-item
+  = link_to t('.contacts.title'), admin_contacts_path, class: "nav-link #{yield :contacts}"
+li.nav-item
+  = link_to t('.users.title'), admin_users_path, class: "nav-link #{yield :users}"

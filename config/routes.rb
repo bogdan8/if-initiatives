@@ -20,7 +20,7 @@ Rails.application.routes.draw do
                                    password: :secret,
                                    confirmation: :verification }
 
-  devise_for :admins, controllers: { sessions: 'admins/sessions' }
+  devise_for :admins, controllers: { sessions: 'admins/sessions' },
                       path: :admin,
                       path_names: { sign_in: :login,
                                    sign_up: :new,

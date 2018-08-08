@@ -1,13 +1,12 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: reports
 #
-#  id            :integer          not null, primary key
+#  id            :bigint(8)        not null, primary key
 #  title         :string
 #  description   :text
-#  initiative_id :integer
+#  initiative_id :bigint(8)
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #

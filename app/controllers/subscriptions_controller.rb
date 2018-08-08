@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class SubscriptionsController < ApplicationController
-  load_resource
-
   def create
     if @subscription.save
       respond_to do |format|

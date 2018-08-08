@@ -20,13 +20,11 @@ require 'rspec/rails'
 require 'shoulda/matchers'
 require 'paperclip/matchers'
 require 'capybara/rspec'
-require 'cancan/matchers'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].map { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
 
-# Capybara
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
@@ -48,7 +46,6 @@ Shoulda::Matchers.configure do |config|
 end
 
 RSpec.configure do |config|
-  # Capybara
   config.before(:each, type: :feature) do
     I18n.locale = :uk
     Capybara.current_session.current_window.resize_to(2_500, 2_500)

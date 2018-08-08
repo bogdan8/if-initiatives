@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class ContactsController < ApplicationController
-  load_resource
-
   def new
     add_breadcrumb t('.breadcrumb.title')
   end

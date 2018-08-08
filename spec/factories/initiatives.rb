@@ -1,10 +1,9 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: initiatives
 #
-#  id                :integer          not null, primary key
+#  id                :bigint(8)        not null, primary key
 #  title             :string
 #  short_description :text
 #  long_description  :text
@@ -13,7 +12,7 @@
 #  collected_amount  :integer          default(0)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
-#  user_id           :integer
+#  user_id           :bigint(8)
 #  state             :string           default("draft")
 #  finish_days       :integer          default(5)
 #  slug              :string
