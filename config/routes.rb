@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :admins
   mount Notifications::Engine => '/notifications'
   namespace :api, defaults: { format: :json } do
     resources :initiatives, only: %i(index show) do
@@ -11,7 +10,8 @@ Rails.application.routes.draw do
     resources :contacts, only: %i(new create)
   end
 
-  devise_for :users, controllers: { registrations: 'users/registrations',
+  devise_for :users, controllers: { sessions: 'users/sessions',
+                                    registrations: 'users/registrations',
                                     omniauth_callbacks: 'users/omniauth_callbacks' },
                      path: :user,
                      path_names: { sign_in: :login,
@@ -19,8 +19,18 @@ Rails.application.routes.draw do
                                    sign_out: :logout,
                                    password: :secret,
                                    confirmation: :verification }
+
+  devise_for :admins, controllers: { sessions: 'admins/sessions' }
+                      path: :admin,
+                      path_names: { sign_in: :login,
+                                   sign_up: :new,
+                                   sign_out: :logout,
+                                   password: :secret,
+                                   confirmation: :verification }
+
+
   root 'main#index'
-  namespace :administration do
+  namespace :admin do
     get '/main' => 'main#index'
     resources :initiatives
     namespace :initiatives, path: 'manage-initiatives' do
