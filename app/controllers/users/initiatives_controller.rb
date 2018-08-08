@@ -2,7 +2,7 @@
 
 module Users
   class InitiativesController < ApplicationController
-    load_and_authorize_resource find_by: :slug
+    load_resource find_by: :slug
     before_action :all_categories, only: %i[new create edit update]
     add_breadcrumb I18n.t('.initiatives.breadcrumb.title'), :users_initiatives_path
     include AbilityStateToInitiatives

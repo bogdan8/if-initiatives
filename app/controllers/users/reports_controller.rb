@@ -2,8 +2,7 @@
 
 module Users
   class ReportsController < ApplicationController
-    load_and_authorize_resource :initiative, find_by: :slug
-    load_and_authorize_resource :report, through: :initiative
+    load_resource :report, through: :initiative
     before_action :find_initiative, only: %i[create]
     add_breadcrumb I18n.t('.breadcrumb.title'), :users_reports_path
 

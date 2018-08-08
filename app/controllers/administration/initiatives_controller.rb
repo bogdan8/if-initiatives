@@ -2,7 +2,7 @@
 
 module Administration
   class InitiativesController < Administration::BaseController
-    load_and_authorize_resource find_by: :slug
+    load_resource find_by: :slug
     before_action :all_categories, only: %i[edit update]
 
     include AbilityStateToInitiatives

@@ -36,8 +36,6 @@
 #
 
 class User < ApplicationRecord
-  after_create :assign_default_role
-  rolify
   include Paperclip::Glue
 
   devise :database_authenticatable, :registerable,
@@ -48,7 +46,6 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :donations, dependent: :destroy
 
-  # validations
   validates :name, :email, :phone, :age, presence: true
   validates :name, length: { in: 2..30 }
   validates :phone, phone: true
@@ -86,11 +83,5 @@ class User < ApplicationRecord
     else
       super
     end
-  end
-
-  private
-
-  def assign_default_role
-    add_role(:user)
   end
 end

@@ -116,7 +116,6 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11.0)
     byebug (10.0.2)
-    cancancan (2.2.0)
     cane (2.6.2)
       parallel
     capistrano (3.11.0)
@@ -427,7 +426,6 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rolify (5.2.0)
     roodi (5.0.0)
       ruby_parser (~> 3.2, >= 3.2.2)
     rspec-core (3.7.1)
@@ -561,7 +559,6 @@ DEPENDENCIES
   breadcrumbs_on_rails
   bullet
   byebug
-  cancancan
   capistrano
   capistrano-bundler
   capistrano-rails
@@ -603,7 +600,6 @@ DEPENDENCIES
   rails_best_practices
   ransack
   recaptcha
-  rolify
   rspec-rails
   rubocop!
   ruby-graphviz

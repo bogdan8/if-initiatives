@@ -2,7 +2,7 @@
 
 module Administration
   class UsersController < Administration::BaseController
-    load_and_authorize_resource
+    load_resource
     before_action :user_presenter, only: %i[index show]
 
     def index

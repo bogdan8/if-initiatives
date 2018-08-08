@@ -3,7 +3,8 @@
 module Administration
   module Initiatives
     class LocksController < Administration::Initiatives::BaseController
-      load_and_authorize_resource :initiative
+      load_resource :initiative
+
       def update
         @initiative = Initiative.friendly.find(params[:id])
         if @initiative.to_locked

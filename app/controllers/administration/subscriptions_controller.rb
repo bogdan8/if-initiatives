@@ -2,7 +2,7 @@
 
 module Administration
   class SubscriptionsController < Administration::BaseController
-    load_and_authorize_resource
+    load_resource
 
     def index
       @subscriptions = Subscription.page(params[:page]).per(8)

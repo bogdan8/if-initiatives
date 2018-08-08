@@ -2,7 +2,7 @@
 
 module Users
   class AttachmentsController < ApplicationController
-    load_and_authorize_resource
+    load_resource
 
     def destroy
       @attachment.destroy

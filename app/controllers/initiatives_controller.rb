@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class InitiativesController < ApplicationController
-  load_and_authorize_resource find_by: :slug
+  load_resource find_by: :slug
+
   def index
     states = %i[draft confirmating rejected locked]
     @q = Initiative.includes(:categories, :attachments).ransack(params[:q])

@@ -2,7 +2,7 @@
 
 module Administration
   class ContactsController < Administration::BaseController
-    load_and_authorize_resource
+    load_resource
 
     def index
       @contacts = Contact.page(params[:page]).per(8)

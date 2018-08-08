@@ -3,6 +3,7 @@
 module Notifications
   class NotificationsController < Notifications::ApplicationController
     layout 'notification'
+
     def index
       @notifications = notifications.includes(:actor, :user, :target).order('id desc').page(params[:page])
 

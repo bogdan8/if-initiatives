@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  load_and_authorize_resource
+  load_resource
   before_action :find_initiative, only: %i[create edit update destroy]
   add_breadcrumb I18n.t('.breadcrumb.title'), :initiatives_path
 

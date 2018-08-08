@@ -2,7 +2,7 @@
 
 module Administration
   class CommentsController < Administration::BaseController
-    load_and_authorize_resource
+    load_resource
     before_action :find_initiative, only: %i[destroy]
 
     def destroy

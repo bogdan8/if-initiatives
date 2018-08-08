@@ -2,7 +2,7 @@
 
 module Administration
   class CategoriesController < Administration::BaseController
-    load_and_authorize_resource
+    load_resource
 
     def index
       @categories = Category.page(params[:page]).per(8)

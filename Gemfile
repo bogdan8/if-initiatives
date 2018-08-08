@@ -50,12 +50,10 @@ gem 'social-share-button'
 gem 'unicode'
 
 # for devise
-gem 'cancancan'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-vkontakte'
-gem 'rolify'
 
 group :development, :test do
   gem 'awesome_print'

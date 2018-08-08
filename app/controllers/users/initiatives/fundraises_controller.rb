@@ -3,7 +3,8 @@
 module Users
   module Initiatives
     class FundraisesController < Users::Initiatives::BaseController
-      load_and_authorize_resource :initiative
+      load_resource :initiative
+
       def update
         @initiative = Initiative.friendly.find(params[:id])
         if @initiative.to_fundraised
