@@ -2,6 +2,7 @@
 
 class SubscriptionsController < ApplicationController
   def create
+    @subscription = Subscription.new(subscription_params)
     if @subscription.save
       respond_to do |format|
         format.js { flash.now[:success] = t('.success') }

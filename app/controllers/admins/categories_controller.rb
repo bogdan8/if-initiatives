@@ -2,6 +2,8 @@
 
 module Admins
   class CategoriesController < Admins::BaseController
+    before_action :find_category, only: %i[show edit update destroy]
+
     def index
       @categories = Category.page(params[:page]).per(8)
     end
@@ -11,10 +13,12 @@ module Admins
     end
 
     def new
+      @category = Category.new
       add_breadcrumb t('.breadcrumb.title')
     end
 
     def create
+      @category = Category.new(category_params)
       if @category.save
         redirect_to [:administration, @category], success: t('.success')
       else
@@ -42,6 +46,10 @@ module Admins
     end
 
     private
+
+    def find_category
+      @category = Category.find(params[:id])
+    end
 
     def category_params
       params.require(:category).permit(:title, :position)

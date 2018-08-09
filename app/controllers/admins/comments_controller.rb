@@ -3,6 +3,7 @@
 module Admins
   class CommentsController < Admins::BaseController
     before_action :find_initiative, only: %i[destroy]
+    before_action :find_comment, only: %i[destroy]
 
     def destroy
       @comment.destroy
@@ -10,6 +11,10 @@ module Admins
     end
 
     private
+
+    def find_comment
+      @comment = Comment.find(params[:id])
+    end
 
     def find_initiative
       @initiative = Initiative.find(params[:initiative_id])

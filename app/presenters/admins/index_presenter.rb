@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Adminis
+module Admins
   class IndexPresenter
     def initiatives_count
       Initiative.without_draft.count
@@ -32,10 +32,6 @@ module Adminis
 
     def categories
       Category.last(3)
-    end
-
-    def roles
-      Role.all
     end
   end
 end

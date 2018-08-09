@@ -1,6 +1,6 @@
 uk:
   layouts:
-    administration:
+    admin:
       header:
         title: 'Адмін панель'
         search:

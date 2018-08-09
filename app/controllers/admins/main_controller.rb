@@ -3,7 +3,7 @@
 module Admins
   class MainController < Admins::BaseController
     def index
-      @presenter = Adminss::IndexPresenter.new
+      @presenter = Admins::IndexPresenter.new
     end
   end
 end

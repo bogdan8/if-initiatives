@@ -2,7 +2,7 @@
 = provide :initiatives, 'active'
 
 .row
-   = simple_form_for [:administration, @initiative], html: { multipart: true } do |f|
+   = simple_form_for [:admins, @initiative], html: { multipart: true } do |f|
       = f.input :title
       = f.input :short_description
       = f.input :long_description

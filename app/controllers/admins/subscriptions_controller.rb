@@ -7,6 +7,7 @@ module Admins
     end
 
     def destroy
+      @subscription = Subscription.find(params[:id])
       @subscription.destroy
       redirect_to administration_subscriptions_path, success: t('.success')
     end

@@ -6,4 +6,4 @@
 #= require cocoon
 #= require select2
 #= require jquery.easy-autocomplete
-#= require administration/initiatives
+#= require admin/initiatives

@@ -3,6 +3,7 @@
 module Admins
   class UsersController < Admins::BaseController
     before_action :user_presenter, only: %i[index show]
+    before_action :find_user, only: %i[show destroy]
 
     def index
       @users = User.includes(:roles).page(params[:page]).per(8)
@@ -17,17 +18,11 @@ module Admins
       redirect_to administration_users_path, success: t('.success')
     end
 
-    # method for change role in user
-    def role
-      @user.roles.destroy_all
-      if @user.add_role params[:role]
-        redirect_to administration_users_path, success: t('.success')
-      else
-        redirect_to administration_users_path, error: @user.errors.full_messages.to_sentence
-      end
-    end
-
     private
+
+    def find_user
+      @user = User.find(params[:id])
+    end
 
     def user_presenter
       @presenter = Users::IndexPresenter.new

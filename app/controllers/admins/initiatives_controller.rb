@@ -3,6 +3,7 @@
 module Admins
   class InitiativesController < Admins::BaseController
     before_action :all_categories, only: %i[edit update]
+    before_action :find_initiative, only: %i[show edit update destroy]
 
     include AbilityStateToInitiatives
 
@@ -37,6 +38,10 @@ module Admins
     end
 
     private
+
+    def find_initiative
+      @initiative = Initiative.friendly.find(params[:id])
+    end
 
     def initiative_params
       text = %i[title short_description long_description]

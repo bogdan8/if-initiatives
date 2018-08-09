@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 module Users
-  class ReportsController < ApplicationController
+  class ReportsController < Users::BaseController
     before_action :find_initiative, only: %i[create]
+    before_action :find_report, only: %i[update destroy]
     add_breadcrumb I18n.t('.breadcrumb.title'), :users_reports_path
 
     def create
@@ -33,6 +34,10 @@ module Users
     end
 
     private
+
+    def find_report
+      @report = Report.find(params[:id])
+    end
 
     def report_params
       text = %i[title description]

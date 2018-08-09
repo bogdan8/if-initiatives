@@ -1,4 +1,4 @@
-$('#initiatives').append("<%= j render 'administration/initiatives/index', collection: @initiatives %>");
+$('#initiatives').append("<%= j render 'admins/initiatives/index', collection: @initiatives %>");
 <% if @initiatives.next_page %>
   $('.pagination').replaceWith("<%= j paginate @initiatives %>");
 <% end %>

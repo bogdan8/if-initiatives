@@ -22,5 +22,5 @@
               = t('.categories')
               = initiative.decorate.categories_title
           .mdl-card__actions.mdl-card--border
-            = link_to t('.button.show'), administration_initiative_path(initiative), class: 'btn btn-primary btn-sm'
+            = link_to t('.button.show'), admins_initiative_path(initiative), class: 'btn btn-primary btn-sm'
             = initiative_state_administrator_links initiative

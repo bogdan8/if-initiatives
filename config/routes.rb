@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
 
   root 'main#index'
-  namespace :admin do
+  scope module: :admins, path: :admin, as: :admins do
     get '/main' => 'main#index'
     resources :initiatives
     namespace :initiatives, path: 'manage-initiatives' do
