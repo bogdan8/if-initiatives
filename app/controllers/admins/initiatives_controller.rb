@@ -24,7 +24,7 @@ module Admins
       Categorization.where(initiative_id: @initiative.id).delete_all
       add_categories_to_initiative
       if @initiative.update(initiative_params)
-        redirect_to [:administration, @initiative], success: t('.success')
+        redirect_to [:admins, @initiative], success: t('.success')
       else
         add_breadcrumb t('.breadcrumb.title', obj: @initiative.title)
         flash[:error] = @initiative.errors.full_messages.to_sentence
@@ -34,7 +34,7 @@ module Admins
 
     def destroy
       @initiative.destroy
-      redirect_to administration_initiatives_path, success: t('.success')
+      redirect_to admins_initiatives_path, success: t('.success')
     end
 
     private

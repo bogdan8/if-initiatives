@@ -7,7 +7,7 @@ module Admins
 
     def destroy
       @comment.destroy
-      redirect_to [:administration, @initiative], success: t('.success')
+      redirect_to [:admins, @initiative], success: t('.success')
     end
 
     private

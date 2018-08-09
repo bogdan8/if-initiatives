@@ -8,3 +8,5 @@ li.nav-item
   = link_to t('.contacts.title'), admins_contacts_path, class: "nav-link #{yield :contacts}"
 li.nav-item
   = link_to t('.users.title'), admins_users_path, class: "nav-link #{yield :users}"
+li.nav-item
+  = link_to t('.sign_out.button.destroy'), destroy_admin_session_path, class: 'nav-link', method: :delete

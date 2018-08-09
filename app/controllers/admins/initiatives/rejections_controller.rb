@@ -7,9 +7,9 @@ module Admins
         @initiative = Initiative.friendly.find(params[:id])
         if @initiative.to_rejected
           step(@initiative)
-          redirect_to administration_initiatives_path, success: t('success')
+          redirect_to admins_initiatives_path, success: t('success')
         else
-          redirect_to administration_initiatives_path, error: @initiative.errors.full_messages.to_sentence
+          redirect_to admins_initiatives_path, error: @initiative.errors.full_messages.to_sentence
         end
       end
     end

@@ -15,7 +15,7 @@ module Admins
 
     def destroy
       @user.destroy
-      redirect_to administration_users_path, success: t('.success')
+      redirect_to admins_users_path, success: t('.success')
     end
 
     private
