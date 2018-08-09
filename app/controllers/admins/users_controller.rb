@@ -6,7 +6,7 @@ module Admins
     before_action :find_user, only: %i[show destroy]
 
     def index
-      @users = User.includes(:roles).page(params[:page]).per(8)
+      @users = User.page(params[:page]).per(8)
     end
 
     def show

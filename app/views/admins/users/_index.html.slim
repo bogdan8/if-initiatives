@@ -14,7 +14,5 @@
           = t('.age', age: user.age)
         span
           = t('.initiatives.count', count: user.initiatives.count)
-        .flex-between
-          = roles_links(presenter.roles, user)
       span
         = link_to t('.button.show'), admins_user_path(user), class: 'btn btn-primary btn-sm'
