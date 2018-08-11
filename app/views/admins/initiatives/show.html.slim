@@ -54,7 +54,7 @@
             span
               = t('.comment.text', text: comment.text)
 
-            = link_to t('.button.destroy'), admins_comment_path(comment, initiative_id: @initiative.id), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger btn-sm'
+            = link_to t('.button.destroy'), admins_initiatives_comment_path(comment, initiative_id: @initiative.id), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger btn-sm'
 .row
   .col-xl-12
     = link_to t('.button.edit'), edit_admins_initiative_path(@initiative), class: 'btn btn-warning btn-sm'

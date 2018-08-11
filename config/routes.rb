@@ -38,8 +38,8 @@ Rails.application.routes.draw do
       resources :rejections, only: %i(update)
       resources :implementions, only: %i(update)
       resources :locks, only: %i(update)
+      resources :comments, only: %i(destroy)
     end
-    resources :comments, only: %i(destroy)
     resources :categories
     resources :subscriptions, only: %i(index destroy)
     resources :contacts, only: %i(index destroy)
