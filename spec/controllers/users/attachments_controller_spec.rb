@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Users::AttachmentsController, type: :controller do
-  let(:user) { create(:user) }
-  let(:initiative) { create(:initiative, user_id: user.id) }
-  let(:attachment) { create(:attachment, initiative_id: initiative.id) }
+  let!(:user) { create(:user) }
+  let!(:initiative) { create(:initiative, user: user) }
+  let!(:attachment) { create(:attachment, initiative: initiative) }
 
   before(:each) do
     login_user(user)

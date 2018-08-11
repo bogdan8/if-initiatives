@@ -3,11 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe Admins::ContactsController, type: :controller do
-  let(:user) { create(:user) }
-  let(:contact) { create(:contact) }
+  let!(:admin) { create(:admin) }
+  let!(:user) { create(:user) }
+  let!(:contact) { create(:contact) }
 
   before(:each) do
-    login_admin(user)
+    login_admin(admin)
   end
 
   describe 'GET #index' do
@@ -22,9 +23,9 @@ RSpec.describe Admins::ContactsController, type: :controller do
     it 'the number of contact us should decrease' do
       contact.save
       contacts = Contact.count
-      get :destroy, params: { id: contact.id }
+      get :destroy, params: { id: contact }
       expect(contacts - 1).to eq(Contact.count)
-      expect(response).to redirect_to(admin_contacts_path)
+      expect(response).to redirect_to(admins_contacts_path)
     end
   end
 end

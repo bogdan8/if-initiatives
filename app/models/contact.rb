@@ -23,7 +23,7 @@ class Contact < ApplicationRecord
     Admin.find_each do |admin|
       Notification.create do |notification|
         notification.notify_type = 'contact'
-        notification.user = admin
+        notification.admin = admin
         notification.target = self
       end
     end

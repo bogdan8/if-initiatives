@@ -3,11 +3,14 @@
 require 'rails_helper'
 
 RSpec.describe Admins::CategoriesController, type: :controller do
-  let(:user) { create(:user) }
-  let(:category) { create(:category) }
+  let!(:admin) { create(:admin) }
+  let!(:user) { create(:user) }
+  let!(:category) { create(:category) }
+
   before(:each) do
-    login_admin(user)
+    login_admin(admin)
   end
+
   describe 'GET #index' do
     it 'renders the template with status' do
       get :index
@@ -18,7 +21,7 @@ RSpec.describe Admins::CategoriesController, type: :controller do
 
   describe 'GET #show' do
     it 'renders the template with status' do
-      get :show, params: { id: category.id }
+      get :show, params: { id: category }
       expect(response).to render_template(:show)
       expect(response.status).to eq(200)
     end
@@ -51,7 +54,7 @@ RSpec.describe Admins::CategoriesController, type: :controller do
 
   describe 'GET #edit' do
     it 'renders the template with status' do
-      get :edit, params: { id: category.id }
+      get :edit, params: { id: category }
       expect(response).to render_template(:edit)
       expect(response.status).to eq(200)
     end
@@ -61,9 +64,9 @@ RSpec.describe Admins::CategoriesController, type: :controller do
     context 'with correct parameters' do
       it 'value should be changed' do
         title = 'new title for category'
-        post :update, params: { id: category.id, category: build(:category, title: title).attributes }
+        post :update, params: { id: category, category: build(:category, title: title).attributes }
         expect(Category.last.title).to eq(title)
-        expect(response).to redirect_to(admin_category_path(category.id))
+        expect(response).to redirect_to(admins_category_path(category))
       end
     end
 
@@ -82,9 +85,9 @@ RSpec.describe Admins::CategoriesController, type: :controller do
       it 'the number of categories should decrease' do
         category.save
         categories = Category.count
-        get :destroy, params: { id: category.id }
+        get :destroy, params: { id: category }
         expect(categories - 1).to eq(Category.count)
-        expect(response).to redirect_to(admin_categories_path)
+        expect(response).to redirect_to(admins_categories_path)
       end
     end
   end

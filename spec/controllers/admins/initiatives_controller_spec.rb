@@ -3,10 +3,16 @@
 require 'rails_helper'
 
 RSpec.describe Admins::InitiativesController, type: :controller do
-  let(:user) { create(:user) }
-  let(:category) { create(:category) }
-  let(:categorization) { create(:categorization) }
-  let(:initiative) { create(:initiative, user_id: user.id) }
+  let!(:admin) { create(:admin) }
+  let!(:user) { create(:user) }
+  let!(:category) { create(:category) }
+  let!(:initiative) { create(:initiative, user: user) }
+  let!(:categorization) { create(:categorization, category: category, initiative: initiative) }
+
+  before(:each) do
+    login_admin(admin)
+  end
+
   describe 'GET #index' do
     it 'renders the template with status' do
       get :index
@@ -25,7 +31,6 @@ RSpec.describe Admins::InitiativesController, type: :controller do
 
   describe 'GET #edit' do
     it 'renders the template with status' do
-      login_user(user)
       get :edit, params: { id: initiative.slug }
       expect(response).to render_template(:edit)
       expect(response.status).to eq(200)
@@ -35,19 +40,17 @@ RSpec.describe Admins::InitiativesController, type: :controller do
   describe 'POST #update' do
     context 'with correct parameters' do
       it 'value should be changed' do
-        login_user(user)
         user.initiatives.create(attributes_for(:initiative))
         title = 'new title for initiative'
         post :update, params: { id: initiative.slug,
                                 initiative: build(:initiative, title: title, category_ids: [category.id]).attributes }
         expect(Initiative.last.title).to eq(title)
-        expect(response).to redirect_to(admin_initiative_path(initiative.slug))
+        expect(response).to redirect_to(admins_initiative_path(initiative.slug))
       end
     end
 
     context 'with incorrect parameters' do
       it 'should renders the edit template' do
-        login_user(user)
         user.initiatives.create(attributes_for(:initiative))
         post :update, params: { id: initiative.slug,
                                 initiative: build(:initiative, title: '', category_ids: [category.id]).attributes }
@@ -61,12 +64,11 @@ RSpec.describe Admins::InitiativesController, type: :controller do
   describe 'GET #destroy' do
     context 'if admin' do
       it 'the number of initiatives should decrease' do
-        login_admin(user)
         initiative.save
         initiatives = Initiative.count
         get :destroy, params: { id: initiative.slug }
         expect(initiatives - 1).to eq(Initiative.count)
-        expect(response).to redirect_to(admin_initiatives_path)
+        expect(response).to redirect_to(admins_initiatives_path)
       end
     end
   end

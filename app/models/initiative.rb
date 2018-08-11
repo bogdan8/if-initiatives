@@ -65,7 +65,7 @@ class Initiative < ApplicationRecord
       Notification.create do |notification|
         notification.notify_type = 'initiative'
         notification.actor = user
-        notification.user = admin
+        notification.admin = admin
         notification.target = self
       end
     end

@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Users::Initiatives::FundraisesController, type: :controller do
-  let(:user) { create(:user) }
-  let(:initiative) { create(:initiative, user_id: user.id) }
+  let!(:user) { create(:user) }
+  let!(:initiative) { create(:initiative, user: user) }
 
   before(:each) do
     login_user(user)

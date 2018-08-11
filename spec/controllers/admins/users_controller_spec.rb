@@ -3,11 +3,15 @@
 require 'rails_helper'
 
 RSpec.describe Admins::UsersController, type: :controller do
-  let(:user) { create(:user) }
+  let!(:admin) { create(:admin) }
+  let!(:user) { create(:user) }
+
+  before do
+    login_admin(admin)
+  end
 
   describe 'GET #index' do
     it 'renders the template with status' do
-      login_admin(user)
       get :index
       expect(response).to render_template(:index)
       expect(response.status).to eq(200)
@@ -16,8 +20,7 @@ RSpec.describe Admins::UsersController, type: :controller do
 
   describe 'GET #show' do
     it 'renders the template with status' do
-      login_admin(user)
-      get :show, params: { id: user.id }
+      get :show, params: { id: user }
       expect(response).to render_template(:show)
       expect(response.status).to eq(200)
     end
@@ -25,24 +28,11 @@ RSpec.describe Admins::UsersController, type: :controller do
 
   describe 'GET #destroy' do
     it 'the number of users should decrease' do
-      login_admin(user)
       user.save
       users = User.count
-      get :destroy, params: { id: user.id }
+      get :destroy, params: { id: user }
       expect(users - 1).to eq(User.count)
-      expect(response).to redirect_to(admin_users_path)
-    end
-  end
-
-  describe 'GET #role' do
-    it 'user role should change to admin instead user' do
-      login_admin(user)
-      user.add_role :user
-      user.save
-      get :role, params: { id: user.id, role: :admin }
-      is_admin = User.last.has_role? :admin
-      expect(is_admin).to eq(true)
-      expect(response).to redirect_to(admin_users_path)
+      expect(response).to redirect_to(admins_users_path)
     end
   end
 end
