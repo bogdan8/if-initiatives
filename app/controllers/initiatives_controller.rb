@@ -27,7 +27,7 @@ class InitiativesController < ApplicationController
       order_id: donation.id,
       description: initiative.short_description,
       result_url: initiative_url(initiative),
-      server_url: donations_url
+      server_url: users_initiative_donations_url(initiative)
     )
   end
 end

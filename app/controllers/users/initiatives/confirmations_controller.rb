@@ -4,7 +4,7 @@ module Users
   module Initiatives
     class ConfirmationsController < Users::Initiatives::BaseController
       def update
-        @initiative = Initiative.friendly.find(params[:id])
+        @initiative = Initiative.friendly.find(params[:initiative_id])
         if @initiative.to_confirmating
           step(@initiative)
           redirect_to users_initiatives_path, success: t('.success')

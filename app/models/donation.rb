@@ -27,7 +27,8 @@ class Donation < ApplicationRecord
       Notification.create do |notification|
         notification.notify_type = 'donation'
         notification.actor = user
-        notification.user = admin
+        # TODO: fix admin
+        #notification.user = admin
         notification.target = self
       end
     end

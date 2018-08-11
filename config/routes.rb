@@ -49,24 +49,19 @@ Rails.application.routes.draw do
   end
   scope module: :users, path: :user, as: :users do
     resources :initiatives do
-      resources :reports, only: %i(create update destroy)
+      resources :reports, only: %i(create update destroy), controller: 'initiatives/reports'
+      resources :comments, except: %i(index show new), controller: 'initiatives/comments'
+      resources :donations, only: %i(create), controller: 'initiatives/donations' 
     end
-    namespace :initiatives, path: 'manage-initiatives' do
-      resources :confirmations, only: %i(update)
-      resources :fundraises, only: %i(update)
-    end
-    resources :attachments, only: %i(destroy)
+    resources :confirmations, only: %i(update), controller: 'initiatives/confirmations'
+    resources :fundraises, only: %i(update), controller: 'initiatives/fundraises'
   end
 
-  resources :initiatives, only: %i(index show) do
-    resources :comments, except: %i(index show new)
-  end
-
+  resources :initiatives, only: %i(index show)
+  resources :categories, only: %i(show)
   resources :subscriptions, only: %i(create)
   resources :contacts, only: %i(new create)
-  resources :categories, only: %i(show)
-  resources :donations, only: %(create)
-
+ 
   get 'user/:id', to: 'users/users#show', as: :user
   get :search, controller: :main
 end

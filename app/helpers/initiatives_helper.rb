@@ -22,7 +22,7 @@ module InitiativesHelper
 
   def initiative_state_user_links_draft(initiative)
     edit = edit_users_initiative_path(initiative)
-    confirmating = users_initiatives_confirmation_path(initiative)
+    confirmating = users_confirmation_path(initiative.id)
     delete = users_initiative_path(initiative)
     data = { confirm: t('.button.confirm') }
     return unless initiative.draft? || initiative.rejected?
@@ -34,7 +34,7 @@ module InitiativesHelper
   end
 
   def initiative_state_user_links_fundraised(initiative)
-    fundraised = users_initiatives_fundraise_path(initiative)
+    fundraised = users_fundraise_path(initiative)
     return unless initiative.fundraising?
     safe_join([link_to(t('.button.fundraised'), fundraised, method: :put, class: @success)])
   end

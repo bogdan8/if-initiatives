@@ -29,7 +29,8 @@ class Report < ApplicationRecord
       Notification.create do |notification|
         notification.notify_type = 'report'
         notification.actor = initiative.user
-        notification.user = admin
+        # TODO: fix admin
+        # notification.user = admin
         notification.target = self
         notification.second_target = initiative
       end
