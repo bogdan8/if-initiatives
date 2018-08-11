@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: donations
@@ -23,12 +24,12 @@ class Donation < ApplicationRecord
   private
 
   def create_notifications
-    Admin.all.each do |admin|
+    Admin.find_each do |admin|
       Notification.create do |notification|
         notification.notify_type = 'donation'
         notification.actor = user
         # TODO: fix admin
-        #notification.user = admin
+        notification.user = admin
         notification.target = self
       end
     end

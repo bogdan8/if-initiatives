@@ -2,14 +2,14 @@
 
 require 'rails_helper'
 
-RSpec.describe Admins::CommentsController, type: :controller do
-  let(:user) { create(:user) }
-  let(:initiative) { create(:initiative, user_id: user.id) }
-  let(:comment) { create(:comment, user_id: user.id, initiative_id: initiative.id) }
+RSpec.describe Admins::Initiatives::CommentsController, type: :controller do
+  let(:admin) { create(:admin) }
+  let(:initiative) { create(:initiative, user: admin) }
+  let(:comment) { create(:comment, user: admin, initiative_id: initiative.id) }
 
   describe 'GET #destroy' do
     it 'the number of comments should decrease' do
-      login_admin(user)
+      login_admin(admin)
       comment.save
       comments = Comment.count
       get :destroy, params: { id: comment.id, initiative_id: initiative.id }

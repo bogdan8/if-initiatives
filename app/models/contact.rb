@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: contacts
@@ -19,7 +20,7 @@ class Contact < ApplicationRecord
   private
 
   def create_notifications
-    Admin.all.each do |admin|
+    Admin.find_each do |admin|
       Notification.create do |notification|
         notification.notify_type = 'contact'
         notification.user = admin

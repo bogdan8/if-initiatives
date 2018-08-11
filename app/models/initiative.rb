@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: initiatives
@@ -60,7 +61,7 @@ class Initiative < ApplicationRecord
   private
 
   def create_notifications
-    Admin.all.each do |admin|
+    Admin.all.find_each do |admin|
       Notification.create do |notification|
         notification.notify_type = 'initiative'
         notification.actor = user
