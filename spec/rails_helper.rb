@@ -32,9 +32,9 @@ ActiveRecord::Migration.maintain_test_schema!
 
 Capybara.javascript_driver = :selenium
 
-# Capybara.configure do |config|
-#  config.default_driver = :selenium
-# end
+Capybara.configure do |config|
+  config.default_driver = :selenium
+end
 
 Capybara.ignore_hidden_elements = false
 
