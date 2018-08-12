@@ -11,7 +11,7 @@ feature 'Comments', type: :feature do
   scenario '#Destroy' do
     login_admin_feature(admin)
     visit admins_initiative_path(initiative)
-    accept_confirm { click_link I18n.t('admins.initiatives.show.button.destroy'), match: :first }
+    click_link I18n.t('admins.initiatives.show.button.destroy'), match: :first
     expect(find('#alert')).to have_text I18n.t('admins.initiatives.comments.destroy.success')
   end
 end

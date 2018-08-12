@@ -29,7 +29,7 @@ feature 'Categories', type: :feature do
   scenario '#Destroy' do
     login_admin_feature(admin)
     visit admins_contacts_path
-    accept_confirm { click_link I18n.t('admins.contacts.index.button.destroy') }
+    click_link I18n.t('admins.contacts.index.button.destroy')
     expect(page).to have_text I18n.t('admins.contacts.destroy.success')
   end
 end

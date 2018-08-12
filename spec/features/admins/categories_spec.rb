@@ -82,7 +82,7 @@ feature 'Categories', type: :feature do
     category.save
     login_admin_feature(admin)
     visit admins_categories_path
-    accept_confirm { click_link I18n.t('admins.categories.index.button.destroy') }
+    click_link I18n.t('admins.categories.index.button.destroy')
     expect(page).to have_text I18n.t('admins.categories.destroy.success')
   end
 end
