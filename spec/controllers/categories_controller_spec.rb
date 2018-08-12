@@ -3,10 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe CategoriesController, type: :controller do
-  let(:user) { create(:user) }
-  let(:category) { create(:category) }
-  let(:categorization) { create(:categorization) }
-  let(:initiative) { create(:initiative, user_id: user.id) }
+  let!(:user) { create(:user) }
+  let!(:category) { create(:category) }
+  let!(:initiative) { create(:initiative, user_id: user.id) }
 
   before(:each) do
     login_user(user)

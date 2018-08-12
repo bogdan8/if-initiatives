@@ -13,7 +13,6 @@ RSpec.describe Users::AttachmentsController, type: :controller do
 
   describe 'GET #destroy' do
     it 'the number of attachments should decrease' do
-      attachment.save
       attachments = Attachment.count
       get :destroy, params: { id: attachment, redirect_path: users_initiatives_path }
       expect(attachments - 1).to eq(Attachment.count)

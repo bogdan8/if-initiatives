@@ -42,9 +42,9 @@ RSpec.describe Admins::InitiativesController, type: :controller do
       it 'value should be changed' do
         user.initiatives.create(attributes_for(:initiative))
         title = 'new title for initiative'
-        post :update, params: { id: initiative.slug,
+        post :update, params: { id: initiative,
                                 initiative: build(:initiative, title: title, category_ids: [category.id]).attributes }
-        expect(Initiative.last.title).to eq(title)
+        expect(Initiative.first.title).to eq(title)
         expect(response).to redirect_to(admins_initiative_path(initiative.slug))
       end
     end
@@ -64,7 +64,6 @@ RSpec.describe Admins::InitiativesController, type: :controller do
   describe 'GET #destroy' do
     context 'if admin' do
       it 'the number of initiatives should decrease' do
-        initiative.save
         initiatives = Initiative.count
         get :destroy, params: { id: initiative.slug }
         expect(initiatives - 1).to eq(Initiative.count)

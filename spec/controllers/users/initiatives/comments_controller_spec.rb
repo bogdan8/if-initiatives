@@ -61,7 +61,6 @@ RSpec.describe Users::Initiatives::CommentsController, type: :controller do
 
   describe 'GET #destroy' do
     it 'the number of comments should decrease' do
-      comment.save
       comments = Comment.count
       get :destroy, params: { id: comment, initiative_id: initiative.slug }
       expect(comments - 1).to eq(Comment.count)

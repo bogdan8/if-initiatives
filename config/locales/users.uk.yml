@@ -110,6 +110,10 @@ uk:
         title: 'Хронологія'
       comments:
         title: 'Коментарі'
+        create:
+          success: 'Коментар успішно створений'
+        update:
+          success: 'Коментар успішно оновлений'
       reports:
         button:
           new: 'Додати репорт'

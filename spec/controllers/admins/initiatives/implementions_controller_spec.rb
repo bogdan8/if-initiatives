@@ -13,24 +13,21 @@ RSpec.describe Admins::Initiatives::ImplementionsController, type: :controller d
 
   describe 'POST #update' do
     it 'initiative state should change to implementing instead fundraised' do
-      initiative.state = :fundraised
-      initiative.save
+      initiative.update_column(:state, :fundraised)
       post :update, params: { id: initiative.slug, state: :implementing }
       expect(Initiative.find(initiative.id).implementing?).to eq(true)
       expect(response).to redirect_to(admins_initiatives_path)
     end
 
     it 'initiative state should change to unimplemented instead fundraised' do
-      initiative.state = :fundraised
-      initiative.save
+      initiative.update_column(:state, :fundraised)
       post :update, params: { id: initiative.slug, state: :unimplemented }
       expect(Initiative.find(initiative.id).unimplemented?).to eq(true)
       expect(response).to redirect_to(admins_initiatives_path)
     end
 
     it 'initiative state should change to implemented instead implementing' do
-      initiative.state = :implementing
-      initiative.save
+      initiative.update_column(:state, :implementing)
       post :update, params: { id: initiative.slug, state: :implemented }
       expect(Initiative.find(initiative.id).implemented?).to eq(true)
       expect(response).to redirect_to(admins_initiatives_path)

@@ -146,6 +146,9 @@ uk:
       rejections:
         update:
           success: 'Відхилено'
+      comments:
+        destroy:
+          success: 'Коментар успішно видалений'
     contacts:
       index:
         title: 'Звязатись з нами'

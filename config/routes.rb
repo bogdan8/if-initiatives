@@ -55,6 +55,7 @@ Rails.application.routes.draw do
     end
     resources :confirmations, only: %i(update), controller: 'initiatives/confirmations'
     resources :fundraises, only: %i(update), controller: 'initiatives/fundraises'
+    resources :attachments, only: %i(destroy)
   end
 
   resources :initiatives, only: %i(index show)

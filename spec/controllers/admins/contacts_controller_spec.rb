@@ -21,7 +21,6 @@ RSpec.describe Admins::ContactsController, type: :controller do
 
   describe 'GET #destroy' do
     it 'the number of contact us should decrease' do
-      contact.save
       contacts = Contact.count
       get :destroy, params: { id: contact }
       expect(contacts - 1).to eq(Contact.count)

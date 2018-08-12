@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe MainController, type: :controller do
-  let(:user) { create(:user) }
-  let(:initiative) { create(:initiative, user_id: user.id, title: 'created for search') }
+  let!(:user) { create(:user) }
+  let!(:initiative) { create(:initiative, user_id: user.id, title: 'created for search') }
 
   describe 'GET #index' do
     it 'renders the template with status' do

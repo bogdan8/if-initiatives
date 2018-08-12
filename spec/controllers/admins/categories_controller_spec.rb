@@ -72,7 +72,7 @@ RSpec.describe Admins::CategoriesController, type: :controller do
 
     context 'with incorrect parameters' do
       it 'should renders the edit template' do
-        post :update, params: { id: category.id, category: build(:category, title: '').attributes }
+        post :update, params: { id: category, category: build(:category, title: '').attributes }
         expect(Category.last.title).not_to eq('')
         expect(response).to render_template(:edit)
         expect(response.status).to eq(200)
@@ -83,7 +83,6 @@ RSpec.describe Admins::CategoriesController, type: :controller do
   describe 'GET #destroy' do
     context 'if admin' do
       it 'the number of categories should decrease' do
-        category.save
         categories = Category.count
         get :destroy, params: { id: category }
         expect(categories - 1).to eq(Category.count)

@@ -38,3 +38,7 @@ Metrics/BlockLength:
   Exclude:
     - '**/*_spec.rb'
   ExcludedMethods: ['included']
+
+Rails/SkipsModelValidations:
+  Exclude:
+    - '**/*_spec.rb'

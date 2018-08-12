@@ -21,9 +21,8 @@ RSpec.describe Admins::SubscriptionsController, type: :controller do
 
   describe 'GET #destroy' do
     it 'the number of subscriptions should decrease' do
-      subscription.save
       subscriptions = Subscription.count
-      get :destroy, params: { id: subscription.id }
+      get :destroy, params: { id: subscription }
       expect(subscriptions - 1).to eq(Subscription.count)
       expect(response).to redirect_to(admins_subscriptions_path)
     end

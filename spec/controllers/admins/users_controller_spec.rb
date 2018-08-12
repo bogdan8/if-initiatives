@@ -28,7 +28,6 @@ RSpec.describe Admins::UsersController, type: :controller do
 
   describe 'GET #destroy' do
     it 'the number of users should decrease' do
-      user.save
       users = User.count
       get :destroy, params: { id: user }
       expect(users - 1).to eq(User.count)

@@ -12,16 +12,14 @@ RSpec.describe Users::Initiatives::ConfirmationsController, type: :controller do
 
   describe 'POST #update' do
     it 'initiative state should change to confirmating instead draft' do
-      initiative.state = :draft
-      initiative.save
+      initiative.update_column(:state, :draft)
       post :update, params: { id: initiative.slug }
       expect(Initiative.find(initiative.id).confirmating?).to eq(true)
       expect(response).to redirect_to(users_initiatives_path)
     end
 
     it 'initiative state should not change if wrong state' do
-      initiative.state = :implemented
-      initiative.save
+      initiative.update_column(:state, :implemented)
       post :update, params: { id: initiative.slug }
       expect(Initiative.find(initiative.id).confirmating?).to eq(false)
       expect(response).to redirect_to(users_initiatives_path)

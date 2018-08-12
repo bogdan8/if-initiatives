@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe ContactsController, type: :controller do
-  let(:contacts) { create(:contacts) }
+  let!(:contact) { create(:contact) }
 
   describe 'GET #new' do
     it 'renders the template with status' do
