@@ -30,11 +30,11 @@ ActiveRecord::Migration.maintain_test_schema!
 #  Capybara::Selenium::Driver.new(app, browser: :chrome)
 # end
 
-Capybara.javascript_driver = :selenium
+# Capybara.javascript_driver = :selenium
 
-Capybara.configure do |config|
-  config.default_driver = :selenium
-end
+# Capybara.configure do |config|
+#  config.default_driver = :selenium
+# end
 
 Capybara.ignore_hidden_elements = false
 
@@ -53,7 +53,7 @@ RSpec.configure do |config|
   end
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  config.include Capybara::DSL
+  # config.include Capybara::DSL
   config.include Shoulda::Matchers::ActiveModel, type: :model
   config.include Shoulda::Matchers::ActiveRecord, type: :model
   config.include Devise::Test::ControllerHelpers, type: :controller
