@@ -61,7 +61,8 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
-  gem 'chromedriver-helper'
+  # gem 'chromedriver-helper'
+  gem 'capybara-screenshot'
   gem 'codecov', require: false
   gem 'database_cleaner'
   gem 'factory_bot_rails'

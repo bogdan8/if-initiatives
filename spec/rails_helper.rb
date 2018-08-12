@@ -20,6 +20,7 @@ require 'rspec/rails'
 require 'shoulda/matchers'
 require 'paperclip/matchers'
 require 'capybara/rspec'
+require 'capybara-screenshot/rspec'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].map { |f| require f }
 
@@ -29,10 +30,9 @@ ActiveRecord::Migration.maintain_test_schema!
 #  Capybara::Selenium::Driver.new(app, browser: :chrome)
 # end
 
-# Capybara.javascript_driver = :selenium
+Capybara.javascript_driver = :selenium
 
 # Capybara.configure do |config|
-#  config.default_max_wait_time = 10 # seconds
 #  config.default_driver = :selenium
 # end
 
@@ -48,11 +48,12 @@ end
 RSpec.configure do |config|
   config.before(:each, type: :feature) do
     I18n.locale = :uk
-#    Capybara.current_session.current_window.resize_to(2_500, 2_500)
+    # Capybara.current_session.current_window.resize_to(2_500, 2_500)
     default_url_options[:locale] = :uk
   end
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.include Capybara::DSL
   config.include Shoulda::Matchers::ActiveModel, type: :model
   config.include Shoulda::Matchers::ActiveRecord, type: :model
   config.include Devise::Test::ControllerHelpers, type: :controller
