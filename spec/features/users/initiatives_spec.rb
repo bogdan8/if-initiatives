@@ -9,7 +9,7 @@ feature 'Initiatives', type: :feature do
 
   scenario '#Access denied' do
     visit new_users_initiative_path
-    expect(find('#alert')).to have_text I18n.t('unauthorized.manage.all')
+    expect(find('#alert')).to have_text I18n.t('devise.failure.unauthenticated')
   end
 
   scenario '#Access granted' do

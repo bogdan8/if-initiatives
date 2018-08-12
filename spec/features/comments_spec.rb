@@ -33,7 +33,7 @@ feature 'Comments', type: :feature do
         fill_in 'comment_text', with: new_comment.text
       end
       click_button I18n.t('initiatives.show.comments.button.new')
-      expect(find('#alert')).to have_text I18n.t('comments.create.success')
+      expect(find('#alert')).to have_text I18n.t('users.initiatives.comments.create.success')
     end
 
     scenario 'with incorrect parameters' do
@@ -71,7 +71,7 @@ feature 'Comments', type: :feature do
         fill_in 'comment_text', with: new_comment.text
       end
       click_button I18n.t('initiatives.show.comments.button.edit')
-      expect(find('#alert')).to have_text I18n.t('comments.update.success')
+      expect(find('#alert')).to have_text I18n.t('users.initiatives.comments.update.success')
     end
 
     scenario 'with incorrect parameters' do
