@@ -32,8 +32,12 @@ uk:
           reporting: 'Звітність'
           implemented: 'Реалізовано'
         button:
+          confirmation: 'Надіслати на підтвердження'
           show: 'Переглянути'
+          edit: 'Редагувати'
+          destroy: 'Видалити'
           fundraised: 'Збір коштів'
+          confirm: 'Ви дійсно хочите видалити?'
       show:
         breadcrumb:
           title: 'Ініціатива: %{obj}'
