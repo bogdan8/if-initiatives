@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module Users
-  class InitiativesController < ApplicationController
-    load_and_authorize_resource find_by: :slug
+  class InitiativesController < Users::BaseController
     before_action :all_categories, only: %i[new create edit update]
+    before_action :find_initiative, only: %i[edit update destroy]
     add_breadcrumb I18n.t('.initiatives.breadcrumb.title'), :users_initiatives_path
     include AbilityStateToInitiatives
 
@@ -54,6 +54,10 @@ module Users
     end
 
     private
+
+    def find_initiative
+      @initiative = Initiative.friendly.find(params[:id])
+    end
 
     def initiative_params
       text = %i[title short_description long_description]

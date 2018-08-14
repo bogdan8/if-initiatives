@@ -1,0 +1,26 @@
+= provide :site_title, t('.title')
+= provide :categories, 'active'
+
+.row
+  .col-xl-12.flex-center
+    = link_to t('.button.new'), new_admins_category_path, class: 'btn btn-success btn-sm'
+.row id='categories'
+  - @categories.each do |category|
+    .col-xs-12.col-md-3.col-lg-3.col-xl-3
+      .flex-column.card-block-blue
+        span
+          = t('.titles', title: category.title)
+        span
+          = t('.position', position: category.position)
+        span
+          = t('.initiatives.count', count: category.initiatives.count)
+        div
+          span
+            = link_to t('.button.show'), admins_category_path(category), class: 'btn btn-success btn-sm'
+          span
+            = link_to t('.button.edit'),  edit_admins_category_path(category), class: 'btn btn-warning btn-sm'
+          span
+            = link_to t('.button.destroy'), admins_category_path(category), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger btn-sm'
+.row
+  .col-sm-12.flex-center
+    = paginate @categories

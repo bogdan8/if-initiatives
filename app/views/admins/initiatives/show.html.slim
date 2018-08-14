@@ -1,0 +1,62 @@
+= provide :site_title, t('.title')
+= provide :initiatives, 'active'
+
+.card-block-blue
+  .row
+    .col-xs-12.col-md-6.col-lg-3.col-xl-3
+      = image_tag @initiative.decorate.first_image(:medium), class: 'index-image'
+    .col-xs-12.col-md-6.col-lg-9.col-xl-9
+      .flex-column
+        span
+          = t('.title_body', title: @initiative.title)
+        span
+          = t('.short_description', description: @initiative.short_description)
+        span
+          = t('.long_description', description: @initiative.long_description)
+        span
+          = t('.finish_date', date: @initiative.finish_date)
+        span
+          = t('.general_sum', sum: @initiative.general_sum)
+        span
+          = t('.categories')
+          = @initiative.decorate.categories_title
+  .row
+    .col-xl-12
+      span
+        = t('.images.title')
+      .row
+        - @initiative.decorate.attachments_images.each do |attachment|
+          .col-xs-6.col-md-3.col-lg-3.col-xl-3
+            = image_tag attachment.image.url(:medium), class: 'full-image'
+    .col-xl-12
+      span
+        = t('.videos.title')
+      .row
+        - @initiative.decorate.attachments_videos.each do |attachment|
+          .col-xs-12.col-md-6.col-lg-6.col-xl-6
+            = video_tag attachment.video.url, class: 'full-video'
+  .row
+    .col-xl-12
+      span
+        = t('.comments.title')
+      .row
+        .col-xl-12
+          - @initiative.comments.includes(:user).each do |comment|
+            .comment-user-block
+              = image_tag comment.decorate.user_avatar, class: 'user-image'
+              .user-information
+                span
+                  = t('.comments.user.name', name: comment.user.name)
+                span
+                  = added_time comment.updated_at
+            span
+              = t('.comment.title', title: comment.title)
+            span
+              = t('.comment.text', text: comment.text)
+
+            = link_to t('.button.destroy'), admins_initiatives_comment_path(comment, initiative_id: @initiative.id), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger btn-sm'
+.row
+  .col-xl-12
+    = link_to t('.button.edit'), edit_admins_initiative_path(@initiative), class: 'btn btn-warning btn-sm'
+    = link_to t('.button.destroy'), admins_initiative_path(@initiative), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger btn-sm'
+    = initiative_state_admin_links(@initiative)

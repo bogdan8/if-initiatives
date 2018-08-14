@@ -10,7 +10,8 @@ Rails.application.routes.draw do
     resources :contacts, only: %i(new create)
   end
 
-  devise_for :users, controllers: { registrations: 'users/registrations',
+  devise_for :users, controllers: { sessions: 'users/sessions',
+                                    registrations: 'users/registrations',
                                     omniauth_callbacks: 'users/omniauth_callbacks' },
                      path: :user,
                      path_names: { sign_in: :login,
@@ -18,8 +19,18 @@ Rails.application.routes.draw do
                                    sign_out: :logout,
                                    password: :secret,
                                    confirmation: :verification }
+
+  devise_for :admins, controllers: { sessions: 'admins/sessions' },
+                      path: :admin,
+                      path_names: { sign_in: :login,
+                                   sign_up: :new,
+                                   sign_out: :logout,
+                                   password: :secret,
+                                   confirmation: :verification }
+
+
   root 'main#index'
-  namespace :administration do
+  scope module: :admins, path: :admin, as: :admins do
     get '/main' => 'main#index'
     resources :initiatives
     namespace :initiatives, path: 'manage-initiatives' do
@@ -27,8 +38,8 @@ Rails.application.routes.draw do
       resources :rejections, only: %i(update)
       resources :implementions, only: %i(update)
       resources :locks, only: %i(update)
+      resources :comments, only: %i(destroy)
     end
-    resources :comments, only: %i(destroy)
     resources :categories
     resources :subscriptions, only: %i(index destroy)
     resources :contacts, only: %i(index destroy)
@@ -38,24 +49,20 @@ Rails.application.routes.draw do
   end
   scope module: :users, path: :user, as: :users do
     resources :initiatives do
-      resources :reports, only: %i(create update destroy)
+      resources :reports, only: %i(create update destroy), controller: 'initiatives/reports'
+      resources :comments, except: %i(index show new), controller: 'initiatives/comments'
+      resources :donations, only: %i(create), controller: 'initiatives/donations' 
     end
-    namespace :initiatives, path: 'manage-initiatives' do
-      resources :confirmations, only: %i(update)
-      resources :fundraises, only: %i(update)
-    end
+    resources :confirmations, only: %i(update), controller: 'initiatives/confirmations'
+    resources :fundraises, only: %i(update), controller: 'initiatives/fundraises'
     resources :attachments, only: %i(destroy)
   end
 
-  resources :initiatives, only: %i(index show) do
-    resources :comments, except: %i(index show new)
-  end
-
+  resources :initiatives, only: %i(index show)
+  resources :categories, only: %i(show)
   resources :subscriptions, only: %i(create)
   resources :contacts, only: %i(new create)
-  resources :categories, only: %i(show)
-  resources :donations, only: %(create)
-
+ 
   get 'user/:id', to: 'users/users#show', as: :user
   get :search, controller: :main
 end

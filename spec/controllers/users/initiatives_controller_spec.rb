@@ -3,10 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Users::InitiativesController, type: :controller do
-  let(:user) { create(:user) }
-  let(:category) { create(:category) }
-  let(:categorization) { create(:categorization) }
-  let(:initiative) { create(:initiative, user_id: user.id) }
+  let!(:user) { create(:user) }
+  let!(:category) { create(:category) }
+  let!(:initiative) { create(:initiative, user_id: user.id) }
 
   before(:each) do
     login_user(user)
@@ -68,7 +67,7 @@ RSpec.describe Users::InitiativesController, type: :controller do
         title = 'new title for initiative'
         post :update, params: { id: initiative.slug,
                                 initiative: build(:initiative, title: title, category_ids: [category.id]).attributes }
-        expect(Initiative.last.title).to eq(title)
+        expect(Initiative.first.title).to eq(title)
         expect(response).to redirect_to(users_initiative_path(initiative.slug))
       end
     end
@@ -78,7 +77,7 @@ RSpec.describe Users::InitiativesController, type: :controller do
         user.initiatives.create(attributes_for(:initiative))
         post :update, params: { id: initiative.slug,
                                 initiative: build(:initiative, title: '', category_ids: [category.id]).attributes }
-        expect(Initiative.last.title).not_to eq('')
+        expect(Initiative.first.title).not_to eq('')
         expect(response).to render_template(:edit)
         expect(response.status).to eq(200)
       end
@@ -88,7 +87,6 @@ RSpec.describe Users::InitiativesController, type: :controller do
   describe 'GET #destroy' do
     it 'the number of users should decrease' do
       login_user(user)
-      initiative.save
       initiatives = Initiative.count
       get :destroy, params: { id: initiative.slug }
       expect(initiatives - 1).to eq(Initiative.count)

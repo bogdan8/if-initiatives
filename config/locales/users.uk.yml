@@ -32,8 +32,12 @@ uk:
           reporting: 'Звітність'
           implemented: 'Реалізовано'
         button:
+          confirmation: 'Надіслати на підтвердження'
           show: 'Переглянути'
+          edit: 'Редагувати'
+          destroy: 'Видалити'
           fundraised: 'Збір коштів'
+          confirm: 'Ви дійсно хочите видалити?'
       show:
         breadcrumb:
           title: 'Ініціатива: %{obj}'
@@ -110,6 +114,10 @@ uk:
         title: 'Хронологія'
       comments:
         title: 'Коментарі'
+        create:
+          success: 'Коментар успішно створений'
+        update:
+          success: 'Коментар успішно оновлений'
       reports:
         button:
           new: 'Додати репорт'

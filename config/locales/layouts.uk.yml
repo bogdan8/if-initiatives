@@ -1,6 +1,6 @@
 uk:
   layouts:
-    administration:
+    admin:
       header:
         title: 'Адмін панель'
         search:
@@ -25,7 +25,7 @@ uk:
         my:
           initiatives:
             title: 'Мої ініціативи'
-        administrations:
+        admins:
           title: 'Адмін панель'
         notifications:
           title: "%{count} Повідомлень"

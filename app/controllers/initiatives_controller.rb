@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class InitiativesController < ApplicationController
-  load_and_authorize_resource find_by: :slug
   def index
     states = %i[draft confirmating rejected locked]
     @q = Initiative.includes(:categories, :attachments).ransack(params[:q])
@@ -28,7 +27,7 @@ class InitiativesController < ApplicationController
       order_id: donation.id,
       description: initiative.short_description,
       result_url: initiative_url(initiative),
-      server_url: donations_url
+      server_url: users_initiative_donations_url(initiative)
     )
   end
 end

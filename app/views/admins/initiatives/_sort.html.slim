@@ -1,0 +1,4 @@
+.card-block-blue
+  = search_form_for [:admins, q], builder: SimpleForm::FormBuilder, wrapper: :horizontal_form, html: { class: 'form-horizontal' } do |f|
+    = f.input :state_in, collection: collection_admins_states, input_html: { multiple: true, id: 'select2' }
+    = f.button :submit, t('.filter')

@@ -1,5 +1,6 @@
 = provide :site_title, t('.title')
 = provide :initiatives_show, 'active'
+
 .row.initiative
   .col-sm-12
     .card
@@ -114,7 +115,7 @@
                           button.close aria-label='close' data-dismiss='modal' type='button'
                             span aria-hidden='true'  &times;
                         .modal-body
-                          = simple_form_for comment, url: initiative_comment_path(@initiative, comment), html: { multipart: true } do |f|
+                          = simple_form_for comment, url: users_initiative_comment_path(@initiative, comment), html: { multipart: true } do |f|
                             = f.input :title
                             = f.input :text
                             = f.button :submit, t('.comments.button.edit'), class: 'btn btn-warning btn-sm'
@@ -130,7 +131,7 @@
             span aria-hidden='true' &times;
         .modal-body
           - if current_user
-            = simple_form_for @initiative.comments.build, url: initiative_comments_path(@initiative), html: { multipart: true } do |f|
+            = simple_form_for @initiative.comments.build, url: users_initiative_comments_path(@initiative), html: { multipart: true } do |f|
               = f.input :title
               = f.input :text
               = f.button :submit, t('.comments.button.new'), class: 'btn btn-success btn-sm'

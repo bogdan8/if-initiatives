@@ -1,0 +1,4 @@
+$('#users').append("<%= j render 'admins/users/index', collection: @users %>");
+<% if @users.next_page %>
+  $('.pagination').replaceWith("<%= j paginate @users %>");
+<% end %>

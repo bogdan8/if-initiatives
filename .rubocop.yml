@@ -11,7 +11,6 @@ AllCops:
     - 'config/**/**'
     - 'db/**/**'
     - 'bin/**'
-    - 'app/models/role.rb'
     - 'vendor/**/*'
 
 Rails:
@@ -39,3 +38,7 @@ Metrics/BlockLength:
   Exclude:
     - '**/*_spec.rb'
   ExcludedMethods: ['included']
+
+Rails/SkipsModelValidations:
+  Exclude:
+    - '**/*_spec.rb'

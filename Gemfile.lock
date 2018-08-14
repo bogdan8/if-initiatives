@@ -81,8 +81,6 @@ GEM
     annotate (2.7.4)
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
-    archive-zip (0.11.0)
-      io-like (~> 0.3.0)
     arel (8.0.0)
     arrayfields (4.9.2)
     ast (2.4.0)
@@ -116,7 +114,6 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11.0)
     byebug (10.0.2)
-    cancancan (2.2.0)
     cane (2.6.2)
       parallel
     capistrano (3.11.0)
@@ -147,11 +144,11 @@ GEM
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
       xpath (~> 3.1)
+    capybara-screenshot (1.0.21)
+      capybara (>= 1.0, < 4)
+      launchy
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
-    chromedriver-helper (1.2.0)
-      archive-zip (~> 0.10)
-      nokogiri (~> 1.8)
     chronic (0.10.2)
     churn (0.0.35)
       chronic (>= 0.2.3)
@@ -245,7 +242,6 @@ GEM
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
-    io-like (0.3.0)
     jaro_winkler (1.5.1)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -427,7 +423,6 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rolify (5.2.0)
     roodi (5.0.0)
       ruby_parser (~> 3.2, >= 3.2.2)
     rspec-core (3.7.1)
@@ -561,7 +556,6 @@ DEPENDENCIES
   breadcrumbs_on_rails
   bullet
   byebug
-  cancancan
   capistrano
   capistrano-bundler
   capistrano-rails
@@ -569,7 +563,7 @@ DEPENDENCIES
   capistrano-rvm
   capistrano3-puma
   capybara
-  chromedriver-helper
+  capybara-screenshot
   cocoon
   codecov
   database_cleaner
@@ -603,7 +597,6 @@ DEPENDENCIES
   rails_best_practices
   ransack
   recaptcha
-  rolify
   rspec-rails
   rubocop!
   ruby-graphviz

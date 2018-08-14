@@ -1,0 +1,9 @@
+= provide :site_title, t('.title')
+= provide :users, 'active'
+
+.row.users
+  = render 'admins/users/index', collection: @users, presenter: @presenter
+
+.row
+  .col-xs-12
+    = paginate @users

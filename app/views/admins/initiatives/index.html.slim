@@ -1,0 +1,13 @@
+= provide :site_title, t('.title')
+= provide :initiatives, 'active'
+
+.row
+  .col-xs-12.col-md-12.col-lg-12.col-xs-12
+    = render 'admins/initiatives/sort', q: @q
+
+
+.row id='initiatives'
+  = render 'index', collection: @initiatives
+
+#paginator
+  = paginate @initiatives

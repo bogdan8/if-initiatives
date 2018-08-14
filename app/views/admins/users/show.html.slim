@@ -1,0 +1,18 @@
+= provide :site_title, t('.title')
+= provide :users, 'active'
+.row
+  .col-xs-12.col-md-12.col-lg-12.col-xl-12
+    .card-block-blue
+      .row
+        .col-xs-12.col-md-6.col-lg-3.col-xl-3
+          = image_tag @user.avatar.url(:medium), class: 'full-image'
+        .col-xs-12.col-md-6.col-lg-9.col-xl-9
+          .flex-column
+            span
+              = t('.email', email: @user.email)
+            span
+              = t('.phone', phone: @user.phone)
+            span
+              = t('.age', age: @user.age)
+            span
+              = link_to t('.button.destroy'), admins_user_path(@user), method: :delete, data: { confirm: t('views.pages.global.confirm') }, class: 'btn btn-danger btn-sm'

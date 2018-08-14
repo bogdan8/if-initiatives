@@ -6,35 +6,29 @@ module ApplicationHelper
     @link = 'nav-link'
   end
 
-  # navigation for signout user
   def navigation_for_signout
     return if user_signed_in?
     safe_join(links_for_signout.map { |link| content_tag(:li, link, class: 'nav-item') })
   end
 
-  # navigation for signin user
   def navigation_for_user
     return unless user_signed_in?
     unread_count = Notification.unread_count(current_user)
     safe_join(links_for_signin(unread_count).map { |link| content_tag(:li, link, class: 'nav-item') })
   end
 
-  # helper of navigation for administrator user
-  def navigation_for_administrator
-    return unless user_signed_in? # return if user not signin
-    return unless current_user.has_role? :administrator # return if user not administrator
-    link = link_to(t('.administrations.title'), main_app.administration_main_path, class: @link)
+  def navigation_for_admin
+    return unless admin_signed_in?
+    link = link_to(t('.admin.title'), main_app.admin_main_path, class: @link)
     content_tag(:li, link, class: 'nav-item')
   end
 
-  # helper to count how much time passed after adding
   def added_time(date)
     TimeDifference.between(date, Time.zone.now).humanize
   end
 
   private
 
-  # links for signout user
   def links_for_signout
     [
       link_to(t('.sign_in.button.new'), new_user_session_path, class: @link),
@@ -42,7 +36,6 @@ module ApplicationHelper
     ]
   end
 
-  # links for signin user
   def links_for_signin(unread_count)
     [
       link_to(t('.my.initiatives.title'), main_app.users_initiatives_path, class: @link),
@@ -53,7 +46,6 @@ module ApplicationHelper
     ]
   end
 
-  # helper for display flash
   def flash_block(type)
     flash_classes = { success: 'alert alert-success', error: 'alert alert-danger' }
     content_tag(:div, class: flash_classes[type.to_sym], id: 'alert') do
