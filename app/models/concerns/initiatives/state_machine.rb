@@ -35,7 +35,7 @@ module Initiatives
         end
 
         event :to_locked do
-          transition all - %i[locked implemented unimplemented] => :locked
+          transition all - %i[locked implemented unimplemented draft] => :locked
         end
       end
     end

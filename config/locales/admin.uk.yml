@@ -16,7 +16,7 @@ uk:
           state:
             confirmation: 'Надіслати на підтвердження'
             confirmed: 'Підтвердити'
-            locked: 'Заблукувати'
+            locked: 'Заблуоковано'
             rejected: 'Відхилити'
             fundraising: 'Розпочато збір коштів'
             fundraised: 'Збір коштів завершено'
@@ -59,7 +59,7 @@ uk:
             confirmation: 'Надіслати на підтвердження'
             confirmating: 'Очікується підтвердження'
             confirmed: 'Підтвердити'
-            locked: 'Заблукувати'
+            locked: 'Заблоковано'
             rejected: 'Відхилити'
             fundraising: 'Розпочато збір коштів'
             fundraised: 'Збір коштів завершено'
@@ -76,6 +76,11 @@ uk:
           confirmed: 'Підтвердити'
           fundraised: 'Завершити збір коштів'
           rejected: 'Відхилити'
+          implementing: 'Реалізувати'
+          unimplemented: 'Не реалізовано'
+          reporting: 'Звітність'
+          implemented: 'Реалізовано'
+          lock: 'Заблокувати'
       show:
         title: 'Ініціатива'
         title_body: "Назва: %{title}"
@@ -89,7 +94,7 @@ uk:
             confirmation: 'Надіслати на підтвердження'
             confirmating: 'Очікується підтвердження'
             confirmed: 'Підтвердити'
-            locked: 'Заблукувати'
+            locked: 'Заблокувати'
             rejected: 'Відхилити'
             fundraising: 'Розпочато збір коштів'
             fundraised: 'Збір коштів завершено'
@@ -140,6 +145,7 @@ uk:
           success:
             implementing: 'Розпочато реалізацію'
             implemented: 'Реалізацію завершено'
+            unimplemented: 'Не реалізовано'
       locks:
         update:
           success: 'Заблоковано'
