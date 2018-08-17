@@ -19,10 +19,6 @@ module Admins
       def finish_date(initiative)
         initiative.update(finish_date: Time.current.to_date + @initiative.finish_days)
       end
-
-      def initiative_with(state)
-        Initiative.with_state(state).includes(:categories, :attachments).page(params[:page]).per(5)
-      end
     end
   end
 end
