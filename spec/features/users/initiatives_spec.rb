@@ -79,4 +79,14 @@ feature 'Initiatives', type: :feature do
       expect(page).to have_text I18n.t('errors.messages.blank'), count: 5
     end
   end
+
+  feature '#Confirmating' do
+    scenario 'send to admin' do
+      login_user_feature(user)
+      visit users_initiatives_path
+      click_link I18n.t('users.initiatives.index.button.confirmation')
+      expect(find('#alert')).to have_text I18n.t('users.initiatives.confirmations.update.success')
+      expect(Initiative.last.confirmating?).to eq true
+    end
+  end
 end
