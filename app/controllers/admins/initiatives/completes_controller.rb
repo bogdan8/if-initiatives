@@ -2,10 +2,10 @@
 
 module Admins
   module Initiatives
-    class RejectionsController < Admins::Initiatives::BaseController
+    class CompletesController < Admins::Initiatives::BaseController
       def update
         @initiative = Initiative.friendly.find(params[:id])
-        if @initiative.to_rejected
+        if @initiative.complete
           step(@initiative)
           redirect_to admins_initiatives_path, success: t('.success')
         else

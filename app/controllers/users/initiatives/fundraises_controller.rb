@@ -5,7 +5,7 @@ module Users
     class FundraisesController < Users::Initiatives::BaseController
       def update
         @initiative = Initiative.friendly.find(params[:id])
-        if @initiative.to_fundraised
+        if @initiative.fundraise
           step(@initiative)
           redirect_to users_initiatives_path, success: t('.success')
         else
