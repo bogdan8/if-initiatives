@@ -6,36 +6,36 @@ module Initiatives
 
     included do
       state_machine initial: :draft do
-        event :to_confirmating do
-          transition %i[draft rejected] => :confirmating
+        event :verify do
+          transition %i[draft rejected] => :verifying
         end
 
-        event :to_fundraising do
-          transition confirmating: :fundraising
+        event :fundraise do
+          transition verifying: :fundraising
         end
 
-        event :to_rejected do
-          transition %i[confirmating fundraising] => :rejected
+        event :reject do
+          transition verifying: :rejected
         end
 
-        event :to_fundraised do
-          transition fundraising: :fundraised
+        event :implement do
+          transition fundraising: :implementing
         end
 
-        event :to_implementing do
-          transition fundraised: :implementing
+        event :complete do
+          transition implementing: :completed
         end
 
-        event :to_implemented do
-          transition implementing: :implemented
+        event :fail do
+          transition implementing: :failed
         end
 
-        event :to_unimplemented do
-          transition fundraised: :unimplemented
+        event :lock do
+          transition %i[fundraising implementing] => :locked
         end
 
-        event :to_locked do
-          transition all - %i[locked implemented unimplemented draft] => :locked
+        event :archive do
+          transition %i[completed failed] => :archived
         end
       end
     end
