@@ -1,5 +1,6 @@
 = provide :site_title, @initiative.title
 = provide :initiatives_show, 'active'
+
 .row.initiative
   .col-sm-12
     .card
@@ -24,8 +25,7 @@
               | :
               = category_link @initiative
             p
-              = initiative_state_user_links_draft @initiative
-              = initiative_state_user_links_fundraised @initiative
+              = render 'buttons', initiative: @initiative
         .row
           .col-sm-12
             p

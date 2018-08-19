@@ -16,6 +16,4 @@
         = t('.categories')
         | :
         = category_link initiative
-      = link_to t('.button.show'), users_initiative_path(initiative), class: 'btn btn-sm btn-primary'
-      = initiative_state_user_links_draft initiative
-      = initiative_state_user_links_fundraised initiative
+      = render 'buttons', initiative: initiative
