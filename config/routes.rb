@@ -34,11 +34,14 @@ Rails.application.routes.draw do
     get '/main' => 'main#index'
     resources :initiatives
     namespace :initiatives, path: 'manage-initiatives' do
-      resources :fundraises, only: %i(update)
-      resources :rejections, only: %i(update)
-      resources :implementions, only: %i(update)
-      resources :locks, only: %i(update)
       resources :comments, only: %i(destroy)
+      resources :fundraises, only: %i(update)
+      resources :implements, only: %i(update)
+      resources :locks, only: %i(update)
+      resources :rejects, only: %i(update)
+      resources :completes, only: %i(update)
+      resources :unfulfills, only: %i(update)
+      resources :archives, only: %i(update)
     end
     resources :categories
     resources :subscriptions, only: %i(index destroy)
@@ -53,8 +56,7 @@ Rails.application.routes.draw do
       resources :comments, except: %i(index show new), controller: 'initiatives/comments'
       resources :donations, only: %i(create), controller: 'initiatives/donations' 
     end
-    resources :confirmations, only: %i(update), controller: 'initiatives/confirmations'
-    resources :fundraises, only: %i(update), controller: 'initiatives/fundraises'
+    resources :verifies, only: %i(update), controller: 'initiatives/verifies'
     resources :attachments, only: %i(destroy)
   end
 

@@ -26,8 +26,8 @@ module Initiatives
           transition implementing: :completed
         end
 
-        event :fail do
-          transition implementing: :failed
+        event :unfulfill do
+          transition implementing: :unfulfilled
         end
 
         event :lock do
@@ -35,7 +35,7 @@ module Initiatives
         end
 
         event :archive do
-          transition %i[completed failed] => :archived
+          transition %i[completed unfulfilled] => :archived
         end
       end
     end
