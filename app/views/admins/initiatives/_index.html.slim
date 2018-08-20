@@ -23,5 +23,4 @@
               = initiative.decorate.categories_title
           .mdl-card__actions.mdl-card--border
             = link_to t('.button.show'), admins_initiative_path(initiative), class: 'btn btn-primary btn-sm'
-            = initiative_state_admin_links initiative
-            = link_to(t('.button.lock'), admins_initiatives_lock_path(initiative, state: :locked), method: :put, class: 'btn btn-danger btn-sm')
+            = render 'buttons', initiative: initiative
