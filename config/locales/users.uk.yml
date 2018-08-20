@@ -11,6 +11,13 @@ uk:
         button:
           edit: 'Редагувати'
     initiatives:
+      buttons:
+        verify: 'Надіслати на підтвердження'
+        show: 'Переглянути'
+        edit: 'Редагувати'
+        destroy: 'Видалити'
+        fundraised: 'Збір коштів'
+        confirm: 'Ви дійсно хочите видалити?'
       index:
         breadcrumb:
           title: 'Ініціативи'
@@ -18,26 +25,7 @@ uk:
         finish_date: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
         collected_amount: "Зібрано коштів: %{amount}"
-        categories: 'Категорії'
-        state:
-          confirmation: 'Надіслати на підтвердження'
-          confirmating: 'Очікується підтвердження'
-          confirmed: 'Підтвердити'
-          locked: 'Заблукувати'
-          rejected: 'Відхилити'
-          fundraising: 'Розпочато збір коштів'
-          fundraised: 'Збір коштів завершено'
-          implementing: 'Реалізувати'
-          unimplemented: 'Не реалізовано'
-          reporting: 'Звітність'
-          implemented: 'Реалізовано'
-        button:
-          confirmation: 'Надіслати на підтвердження'
-          show: 'Переглянути'
-          edit: 'Редагувати'
-          destroy: 'Видалити'
-          fundraised: 'Збір коштів'
-          confirm: 'Ви дійсно хочите видалити?'
+        categories: 'Категорії' 
       show:
         breadcrumb:
           title: 'Ініціатива: %{obj}'
@@ -93,9 +81,9 @@ uk:
           added_date: 'Дата добавлення'
           submit:
             title: 'Фільтрувати'
-      confirmations:
+      verifies:
         update:
-          success: 'Ініціативу успішно надісланно на підтвердження, очікуйте підтвердження.'
+          success: 'Ініціативу надіслано на перевірку'
       form:
         button:
           new: 'Добавити'

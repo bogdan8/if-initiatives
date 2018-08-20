@@ -8,17 +8,6 @@ uk:
         finish_date: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
         collected_amount: "Зібрано коштів: %{amount}"
-        state:
-          confirmation: 'Надіслати на підтвердження'
-          confirmed: 'Підтвердити'
-          locked: 'Заблукувати'
-          rejected: 'Відхилити'
-          fundraising: 'Розпочато збір коштів'
-          fundraised: 'Збір коштів завершено'
-          implementing: 'Реалізувати'
-          unimplemented: 'Не реалізовано'
-          reporting: 'Звітність'
-          implemented: 'Реалізовано'
         button:
           show: 'Переглянути'
   comments:
@@ -53,17 +42,6 @@ uk:
       general_sum: "Загальна сума: %{sum}"
       collected_amount: "Зібрано коштів: %{amount}"
       categories: 'Категорії'
-      state:
-        confirmation: 'Надіслати на підтвердження'
-        confirmed: 'Підтвердити'
-        locked: 'Заблукувати'
-        rejected: 'Відхилити'
-        fundraising: 'Розпочато збір коштів'
-        fundraised: 'Збір коштів завершено'
-        implementing: 'Реалізувати'
-        unimplemented: 'Не реалізовано'
-        reporting: 'Звітність'
-        implemented: 'Реалізовано'
     sort:
       filter:
         title: 'Фільтр'
@@ -81,17 +59,6 @@ uk:
       finish_date: "Дата завершення: %{date}"
       general_sum: "Загальна сума: %{sum}"
       collected_amount: "Зібрано коштів: %{amount}"
-      state:
-        confirmation: 'Надіслати на підтвердження'
-        confirmed: 'Підтвердити'
-        locked: 'Заблукувати'
-        rejected: 'Відхилити'
-        fundraising: 'Розпочато збір коштів'
-        fundraised: 'Збір коштів завершено'
-        implementing: 'Реалізувати'
-        unimplemented: 'Не реалізовано'
-        reporting: 'Звітність'
-        implemented: 'Реалізовано'
       images:
         title: 'Зображення'
       videos:
