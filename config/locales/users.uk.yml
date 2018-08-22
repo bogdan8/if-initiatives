@@ -34,26 +34,11 @@ uk:
         collected_amount: "Зібрано коштів: %{amount}"
         comments:
           title: 'Коментарі'
-        state:
-          draft: 'Чернетка'
-          confirmation: 'Надіслати на підтвердження'
-          confirmating: 'Очікується підтвердження'
-          confirmed: 'Підтвердити'
-          locked: 'Заблукувати'
-          rejected: 'Відхилити'
-          fundraising: 'Розпочато збір коштів'
-          fundraised: 'Збір коштів завершено'
-          implementing: 'Реалізувати'
-          unimplemented: 'Не реалізовано'
-          reporting: 'Звітність'
-          implemented: 'Реалізовано'
         categories: 'Категорії'
         button:
           edit: 'Редагувати'
           show: 'Переглянути'
           destroy: 'Видалити'
-          fundraised: 'Збір коштів'
-          confirmation: 'Надіслати на підтвердження'
         reports:
           button:
             new: 'Додати звітність'
