@@ -12,7 +12,7 @@ RSpec.describe Admins::Initiatives::LocksController, type: :controller do
   end
 
   describe 'POST #update' do
-    it 'initiative state should change to locked instead fundraising' do
+    it 'initiative state should change to locked instead of fundraising' do
       initiative.update_column(:state, :fundraising)
       post :update, params: { id: initiative.slug }
       expect(Initiative.find(initiative.id).locked?).to eq(true)
@@ -20,7 +20,6 @@ RSpec.describe Admins::Initiatives::LocksController, type: :controller do
     end
 
     it 'initiative state should not change if wrong state' do
-      initiative.update_column(:state, :implemented)
       post :update, params: { id: initiative.slug }
       expect(Initiative.find(initiative.id).locked?).to eq(false)
       expect(response).to redirect_to(admins_initiatives_path)

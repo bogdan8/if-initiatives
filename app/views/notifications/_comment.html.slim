@@ -2,10 +2,10 @@
   .panel.panel-white.post.panel-shadow
     .post-heading
       .pull-left.image
-        img.img-circle.avatar src="#{notification.actor.avatar(:medium)}"
+        img.img-circle.avatar src="#{notification.user.avatar(:medium)}"
       .pull-left.meta
         .title.h5
-          = link_to notification.actor.name, main_app.user_path(notification.actor)
+          = link_to notification.user.name, main_app.user_path(notification.user)
           span.margin-left-10.margin-right-10
             = t('.commented')
           - if notification.read?
@@ -18,4 +18,4 @@
           = l notification.created_at, format: :short
     .post-description
       p
-        = t('.title', title: notification.target.title)
+        = t('.title', title: notification.target&.title)

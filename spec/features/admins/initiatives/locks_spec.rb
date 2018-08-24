@@ -2,54 +2,26 @@
 
 require 'rails_helper'
 
-feature 'Locks', types: :feature do
+feature 'Locks', type: :feature do
   let!(:admin) { create(:admin) }
-  let(:user) { create(:user) }
-  let!(:initiative) { create(:initiative, user: user) }
+  let!(:user) { create(:user) }
+  let!(:initiative) { create(:initiative, user_id: user.id) }
 
   feature '#Update' do
-    before do
-      login_admin_feature(admin)
-    end
-
-    scenario 'confirmating to locks' do
-      initiative.update_column(:state, :confirmating)
-      visit admins_initiatives_path
-      click_link I18n.t('admins.initiatives.index.button.lock')
-      expect(find('#alert')).to have_text I18n.t('admins.initiatives.locks.update.success')
-      expect(Initiative.last.locked?)
-    end
-
-    scenario 'rejected to locks' do
-      initiative.update_column(:state, :rejected)
-      visit admins_initiatives_path
-      click_link I18n.t('admins.initiatives.index.button.lock')
-      expect(find('#alert')).to have_text I18n.t('admins.initiatives.locks.update.success')
-      expect(Initiative.last.locked?)
-    end
-
-    scenario 'fundraising to locks' do
+    scenario 'from fundraising' do
       initiative.update_column(:state, :fundraising)
+      login_admin_feature(admin)
       visit admins_initiatives_path
-      click_link I18n.t('admins.initiatives.index.button.lock')
+      click_link I18n.t('admins.initiatives.buttons.lock')
       expect(find('#alert')).to have_text I18n.t('admins.initiatives.locks.update.success')
-      expect(Initiative.last.locked?)
     end
 
-    scenario 'fundraised to locks' do
-      initiative.update_column(:state, :fundraised)
-      visit admins_initiatives_path
-      click_link I18n.t('admins.initiatives.index.button.lock')
-      expect(find('#alert')).to have_text I18n.t('admins.initiatives.locks.update.success')
-      expect(Initiative.last.locked?)
-    end
-
-    scenario 'implementing to locks' do
+    scenario 'from implementing' do
       initiative.update_column(:state, :implementing)
+      login_admin_feature(admin)
       visit admins_initiatives_path
-      click_link I18n.t('admins.initiatives.index.button.lock')
+      click_link I18n.t('admins.initiatives.buttons.lock')
       expect(find('#alert')).to have_text I18n.t('admins.initiatives.locks.update.success')
-      expect(Initiative.last.locked?)
     end
   end
 end

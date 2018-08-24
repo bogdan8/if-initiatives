@@ -13,17 +13,6 @@ uk:
           finish_date: "Дата завершення: %{date}"
           general_sum: "Загальна сума: %{sum}"
           collected_amount: "Зібрано коштів: %{amount}"
-          state:
-            confirmation: 'Надіслати на підтвердження'
-            confirmed: 'Підтвердити'
-            locked: 'Заблуоковано'
-            rejected: 'Відхилити'
-            fundraising: 'Розпочато збір коштів'
-            fundraised: 'Збір коштів завершено'
-            implementing: 'Реалізувати'
-            unimplemented: 'Не реалізовано'
-            reporting: 'Звітність'
-            implemented: 'Реалізовано'
         users:
           title: 'Користувачі'
           email: "Емейл: %{email}"
@@ -45,6 +34,15 @@ uk:
           destroy: 'Видалити'
           confirm: 'Ви дійсно хочете видалити?'
     initiatives:
+      buttons:
+        reject: 'Відхилити'
+        verify: 'Підтвердити'
+        fundraise: 'Розпочати збір коштів'
+        implement: 'Розпочати реалізацію'
+        lock: 'Заблокувати'
+        complete: 'Завершено'
+        unfulfill: 'Провалено'
+        archive: 'Архівувати'
       sort:
         filter: 'Фільтрувати'
       index:
@@ -53,34 +51,13 @@ uk:
         short_description: "Короткий опис: %{description}"
         finish_date: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
-        collected_amount: "Зібрано коштів: %{amount}"
-        initiatives:
-          state:
-            confirmation: 'Надіслати на підтвердження'
-            confirmating: 'Очікується підтвердження'
-            confirmed: 'Підтвердити'
-            locked: 'Заблоковано'
-            rejected: 'Відхилити'
-            fundraising: 'Розпочато збір коштів'
-            fundraised: 'Збір коштів завершено'
-            implementing: 'Реалізувати'
-            unimplemented: 'Не реалізовано'
-            reporting: 'Звітність'
-            implemented: 'Реалізовано'
+        collected_amount: "Зібрано коштів: %{amount}" 
         categories: 'Категорії'
         button:
           show: 'Переглянути'
           edit: 'Редагувати'
           destroy: 'Видалити'
           confirm: 'Ви дійсно хочете видалити?'
-          confirmed: 'Підтвердити'
-          fundraised: 'Завершити збір коштів'
-          rejected: 'Відхилити'
-          implementing: 'Реалізувати'
-          unimplemented: 'Не реалізовано'
-          reporting: 'Звітність'
-          implemented: 'Реалізовано'
-          lock: 'Заблокувати'
       show:
         title: 'Ініціатива'
         title_body: "Назва: %{title}"
@@ -89,28 +66,12 @@ uk:
         finish_date: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
         collected_amount: "Зібрано коштів: %{amount}"
-        initiatives:
-          state:
-            confirmation: 'Надіслати на підтвердження'
-            confirmating: 'Очікується підтвердження'
-            confirmed: 'Підтвердити'
-            locked: 'Заблокувати'
-            rejected: 'Відхилити'
-            fundraising: 'Розпочато збір коштів'
-            fundraised: 'Збір коштів завершено'
-            implementing: 'Реалізувати'
-            unimplemented: 'Не реалізовано'
-            reporting: 'Звітність'
-            implemented: 'Реалізовано'
         categories: 'Категорії'
         button:
           show: 'Переглянути'
           edit: 'Редагувати'
           destroy: 'Видалити'
           confirm: 'Ви дійсно хочете видалити?'
-          confirmed: 'Підтвердити'
-          fundraised: 'Завершити збір коштів'
-          rejected: 'Відхилити'
         breadcrumb:
           title: 'Ініціатива'
         images:
@@ -137,18 +98,25 @@ uk:
         success: 'Ініціативу успішно відредаговано'
       fundraises:
         update:
-          success:
-            fundraising: 'Розпочато збір коштів'
-            fundraised: 'Збір коштів завершено'
+          success: 'Розпочато збір коштів'
       implementions:
         update:
           success:
             implementing: 'Розпочато реалізацію'
             implemented: 'Реалізацію завершено'
             unimplemented: 'Не реалізовано'
+      implements:
+        update:
+          success: 'Імплементацію розпочато'
       locks:
         update:
           success: 'Заблоковано'
+      archives:
+        update:
+          success: 'Архівовано'
+      unfulfills:
+        update:
+          success: 'Відхилено'
       rejections:
         update:
           success: 'Відхилено'

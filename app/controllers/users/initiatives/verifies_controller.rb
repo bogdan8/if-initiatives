@@ -2,10 +2,10 @@
 
 module Users
   module Initiatives
-    class FundraisesController < Users::Initiatives::BaseController
+    class VerifiesController < Users::Initiatives::BaseController
       def update
         @initiative = Initiative.friendly.find(params[:id])
-        if @initiative.to_fundraised
+        if @initiative.verify
           step(@initiative)
           redirect_to users_initiatives_path, success: t('.success')
         else

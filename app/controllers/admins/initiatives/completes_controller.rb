@@ -2,12 +2,12 @@
 
 module Admins
   module Initiatives
-    class ImplementionsController < Admins::Initiatives::BaseController
+    class CompletesController < Admins::Initiatives::BaseController
       def update
         @initiative = Initiative.friendly.find(params[:id])
-        if @initiative.update(state: params[:state])
+        if @initiative.complete
           step(@initiative)
-          redirect_to admins_initiatives_path, success: t(".success.#{params[:state]}")
+          redirect_to admins_initiatives_path, success: t('.success')
         else
           redirect_to admins_initiatives_path, error: @initiative.errors.full_messages.to_sentence
         end

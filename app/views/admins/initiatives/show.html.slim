@@ -59,4 +59,4 @@
   .col-xl-12
     = link_to t('.button.edit'), edit_admins_initiative_path(@initiative), class: 'btn btn-warning btn-sm'
     = link_to t('.button.destroy'), admins_initiative_path(@initiative), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger btn-sm'
-    = initiative_state_admin_links(@initiative)
+    = render 'buttons', initiative: @initiative

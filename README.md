@@ -41,3 +41,6 @@ $ matric_fu
 $ rubycritic
 $ rails_best_practices
 ```
+
+# Initiative states
+![img](https://github.com/bogdan8/if-initiatives/blob/develop/Initiative_state.png)

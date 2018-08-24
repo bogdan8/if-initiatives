@@ -5,7 +5,7 @@ module Admins
     class LocksController < Admins::Initiatives::BaseController
       def update
         @initiative = Initiative.friendly.find(params[:id])
-        if @initiative.to_locked
+        if @initiative.lock
           step(@initiative)
           redirect_to admins_initiatives_path, success: t('.success')
         else
