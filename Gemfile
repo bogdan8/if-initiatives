@@ -48,6 +48,7 @@ gem 'puma', '~> 3.0'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'social-share-button'
 gem 'unicode'
+gem 'uglifier'
 
 # for devise
 gem 'devise'
@@ -88,6 +89,8 @@ group :development do
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rails', require: false
   gem 'capistrano-rails-console', require: false
+  gem 'capistrano-rails-db', require: false
+  gem 'capistrano-rails-logs-tail'
   gem 'capistrano-rvm', require: false
   gem 'capistrano3-puma', require: false
   gem 'listen'
