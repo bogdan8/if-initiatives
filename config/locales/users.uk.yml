@@ -60,6 +60,8 @@ uk:
         breadcrumb:
           title: "Редагувати: %{obj}"
         title: 'Редагувати'
+      update:
+        success: 'Ініціативу успішно оновлено'
       sort:
         filter:
           title: 'Фільтр'
