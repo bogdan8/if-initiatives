@@ -23,4 +23,4 @@
             = link_to t('.button.destroy'), admins_category_path(category), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger btn-sm'
 .row
   .col-sm-12.flex-center
-    = paginate @categories
+    = paginate @categories, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-sm'

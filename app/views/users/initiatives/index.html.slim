@@ -4,4 +4,4 @@
 .initiatives#initiatives
   = render 'users/initiatives/index', collection: @initiatives
 #paginator
-  = paginate @initiatives
+  = paginate @initiatives, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-sm'
