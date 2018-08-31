@@ -9,7 +9,9 @@ $(document).ready ->
       return
 
   $('#select2').select2
-    theme: 'bootstrap'
+    placeholder: 'Виберіть категорії'
+    language: 'uk'
+    width: '100%'
 
   $input = $("[data-behavior='autocomplete']")
   options =

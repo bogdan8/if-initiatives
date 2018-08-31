@@ -13,4 +13,4 @@
           = link_to t('.button.destroy'), admins_contact_path(contact), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger btn-sm'
 .row
   .col-xs-12.flex-center
-    = paginate @contacts
+    = paginate @contacts, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-sm'

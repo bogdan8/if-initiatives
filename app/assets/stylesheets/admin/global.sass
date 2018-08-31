@@ -1,22 +1,33 @@
-@import 'variable'
+@import '../variable'
 
-html, body
-  font-family: 'EB Garamond', serif
+html
+  font-size: 12px
+
+body
   background-color: $lightgray
 
 p
-  line-height: 1rem
-
-a
-  line-height: 1rem
-  text-decoration: none
+  margin-bottom: 0px
+  font-size: $mainfontsize
 
 span
-  line-height: 1rem
-  font-size: 15px
+  font-size: $mainfontsize
+
+button
+  font-size: $mainfontsize
+
+input
+  font-size: $mainfontsize
+
+li
+  font-size: $mainfontsize
 
 .breadcrumb
   background-color: $white
+
+a
+  &:hover
+    text-decoration: none
 
 .flex-column-center
   display: flex

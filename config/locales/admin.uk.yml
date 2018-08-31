@@ -42,9 +42,11 @@ uk:
         lock: 'Заблокувати'
         complete: 'Завершено'
         unfulfill: 'Провалено'
-        archive: 'Архівувати'
+        archived: 'Архівувати'
       sort:
-        filter: 'Фільтрувати'
+        filter:
+          title: 'Фільтрувати'
+          added_date: 'Дата добавлення'
       index:
         title: 'Ініціативи'
         title_body: "Назва: %{title}"
@@ -58,6 +60,16 @@ uk:
           edit: 'Редагувати'
           destroy: 'Видалити'
           confirm: 'Ви дійсно хочете видалити?'
+        state:
+          draft: 'Чернетка'
+          verifying: 'Перевіряється'
+          rejected: 'Відхиленно'
+          fundraising: 'Збір коштів'
+          implementing: 'Реалізація'
+          completed: 'Завершено'
+          unfulfilled: 'Не завершено'
+          locked: 'Заблоковано'
+          archived: 'Заархівовано'
       show:
         title: 'Ініціатива'
         title_body: "Назва: %{title}"

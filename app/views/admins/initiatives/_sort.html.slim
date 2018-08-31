@@ -1,4 +1,11 @@
-.card-block-blue
-  = search_form_for [:admins, q], builder: SimpleForm::FormBuilder, wrapper: :horizontal_form, html: { class: 'form-horizontal' } do |f|
-    = f.input :state_in, collection: collection_admins_states, input_html: { multiple: true, id: 'select2' }
-    = f.button :submit, t('.filter')
+.sort.margin-bottom-20
+  button.btn.btn-sm.btn-default.margin-right-20 aria-controls='initiativeSort' aria-expanded='false' data-target='#initiativeSort' data-toggle='collapse' type='button'
+    = t('.filter.title')
+  = sort_link(q, :updated_at)
+    span.btn.btn-sm.btn-primary
+      = t('.filter.added_date')
+  #initiativeSort.collapse
+    .card-block-blue
+      = search_form_for [:admins, q], builder: SimpleForm::FormBuilder do |f|
+        = f.input :state_in, collection: collection_admins_states, input_html: { multiple: true, id: 'select2' }
+        = f.button :submit, t('.filter.title')

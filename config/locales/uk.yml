@@ -1,4 +1,15 @@
 uk:
+  global:
+    state:
+      draft: 'Чернетка'
+      verifying: 'Перевіряється'
+      rejected: 'Відхиленно'
+      fundraising: 'Збір коштів'
+      implementing: 'Реалізація'
+      completed: 'Завершено'
+      unfulfilled: 'Не завершено'
+      locked: 'Заблоковано'
+      archived: 'Заархівовано'
   breadcrumb:
     title: 'Головна'
   categories:
@@ -42,6 +53,16 @@ uk:
       general_sum: "Загальна сума: %{sum}"
       collected_amount: "Зібрано коштів: %{amount}"
       categories: 'Категорії'
+      state:
+        draft: 'Чернетка'
+        verifying: 'Перевіряється'
+        rejected: 'Відхиленно'
+        fundraising: 'Збір коштів'
+        implementing: 'Реалізація'
+        completed: 'Завершено'
+        unfulfilled: 'Не завершено'
+        locked: 'Заблоковано'
+        archive: 'Заархівовано'
     sort:
       filter:
         title: 'Фільтр'
@@ -74,6 +95,16 @@ uk:
         button:
           new: 'Додати'
           edit: 'Редагувати'
+      state:
+        draft: 'Чернетка'
+        verifying: 'Перевіряється'
+        rejected: 'Відхиленно'
+        fundraising: 'Збір коштів'
+        implementing: 'Реалізація'
+        completed: 'Завершено'
+        unfulfilled: 'Не завершено'
+        locked: 'Заблоковано'
+        archive: 'Заархівовано'
   notifications:
     notifications:
       index:

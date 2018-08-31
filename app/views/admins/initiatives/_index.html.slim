@@ -5,22 +5,21 @@
         .col-xs-12.col-md-6.col-lg-3.col-xl-3
           = image_tag initiative.decorate.first_image(:small), class: 'index-image'
         .col-xs-12.col-md-6.col-lg-9.col-xl-9
-          .flex-column
-            span
-              = t('.title_body', title: initiative.title)
-            span
-              = t('.short_description', description: initiative.short_description)
-            span
-              = t('.finish_date', date: I18n.l(initiative.finish_date || Date.today ))
-            span
-              = t('.general_sum', sum: initiative.general_sum)
-            span
-              = t('.collected_amount', amount: initiative.collected_amount)
-            span
-              = t(".initiatives.state.#{initiative.state}")
-            span
-              = t('.categories')
-              = initiative.decorate.categories_title
-          .mdl-card__actions.mdl-card--border
+          p
+            = t('.title_body', title: truncate(initiative.title, length: 30))
+          p
+            = t('.short_description', description: truncate(initiative.short_description, length: 100))
+          p
+            = t('.finish_date', date: I18n.l(initiative.finish_date || Date.today ))
+          p
+            = t('.general_sum', sum: initiative.general_sum)
+          p
+            = t('.collected_amount', amount: initiative.collected_amount)
+          p
+            = t(".state.#{initiative.state}")
+          p
+            = t('.categories')
+            = initiative.decorate.categories_title
+          p
             = link_to t('.button.show'), admins_initiative_path(initiative), class: 'btn btn-primary btn-sm'
             = render 'buttons', initiative: initiative

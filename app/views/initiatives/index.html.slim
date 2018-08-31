@@ -1,7 +1,8 @@
 = provide :site_title, t('.title')
 = provide :initiatives_index, 'active'
+
 = render 'initiatives/sort', q: @q
-#initiatives.card-columns
+.initiatives#initiatives
   = render 'initiatives/index', collection: @initiatives
 #paginator
-  = paginate @initiatives
+  = paginate @initiatives, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-sm'
