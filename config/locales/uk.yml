@@ -1,4 +1,15 @@
 uk:
+  global:
+    state:
+      draft: 'Чернетка'
+      verifying: 'Перевіряється'
+      rejected: 'Відхиленно'
+      fundraising: 'Збір коштів'
+      implementing: 'Реалізація'
+      completed: 'Завершено'
+      unfulfilled: 'Не завершено'
+      locked: 'Заблоковано'
+      archived: 'Заархівовано'
   breadcrumb:
     title: 'Головна'
   categories:
