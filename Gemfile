@@ -47,8 +47,8 @@ gem 'paperclip', '~> 5.2.0'
 gem 'puma', '~> 3.0'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'social-share-button'
-gem 'unicode'
 gem 'uglifier'
+gem 'unicode'
 
 # for devise
 gem 'devise'
