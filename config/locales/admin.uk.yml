@@ -58,6 +58,16 @@ uk:
           edit: 'Редагувати'
           destroy: 'Видалити'
           confirm: 'Ви дійсно хочете видалити?'
+        state:
+          draft: 'Чернетка'
+          verifying: 'Перевіряється'
+          rejected: 'Відхиленно'
+          fundraising: 'Збір коштів'
+          implementing: 'Реалізація'
+          completed: 'Завершено'
+          unfulfilled: 'Не завершено'
+          locked: 'Заблоковано'
+          archive: 'Заархівовано'
       show:
         title: 'Ініціатива'
         title_body: "Назва: %{title}"

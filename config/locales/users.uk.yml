@@ -25,7 +25,17 @@ uk:
         finish_date: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
         collected_amount: "Зібрано коштів: %{amount}"
-        categories: 'Категорії' 
+        categories: 'Категорії'
+        state:
+          draft: 'Чернетка'
+          verifying: 'Перевіряється'
+          rejected: 'Відхиленно'
+          fundraising: 'Збір коштів'
+          implementing: 'Реалізація'
+          completed: 'Завершено'
+          unfulfilled: 'Не завершено'
+          locked: 'Заблоковано'
+          archive: 'Заархівовано'
       show:
         breadcrumb:
           title: 'Ініціатива: %{obj}'
@@ -50,11 +60,23 @@ uk:
           title: 'Історія'
         timeline:
           title: 'Хронологія'
+        state:
+          draft: 'Чернетка'
+          verifying: 'Перевіряється'
+          rejected: 'Відхиленно'
+          fundraising: 'Збір коштів'
+          implementing: 'Реалізація'
+          completed: 'Завершено'
+          unfulfilled: 'Не завершено'
+          locked: 'Заблоковано'
+          archive: 'Заархівовано'
       new:
         breadcrumb:
           title: 'Додати ініціативу'
         title: 'Добавити'
       create:
+        breadcrumb:
+          title: 'Додати ініціативу'
         success: 'Ініціативу додано, ви можете переглянути її у своєму кабінеті та надіслати на підтвердження'
       edit:
         breadcrumb:

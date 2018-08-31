@@ -13,7 +13,7 @@
               = image_tag(@initiative.decorate.first_image(:original), class: 'image-main')
           .col-sm-12.col-md-6.col-lg-6.col-xl-6
             p
-              = t('.finish_date', date: @initiative.finish_date)
+              = t('.finish_date', date: l(@initiative.finish_date))
             p
               = t('.general_sum', sum: @initiative.general_sum)
             p
