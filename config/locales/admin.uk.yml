@@ -42,7 +42,7 @@ uk:
         lock: 'Заблокувати'
         complete: 'Завершено'
         unfulfill: 'Провалено'
-        archived: 'Архівувати'
+        archive: 'Архівувати'
       sort:
         filter:
           title: 'Фільтрувати'
