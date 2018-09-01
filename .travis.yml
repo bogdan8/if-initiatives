@@ -5,6 +5,9 @@ addons:
   chrome: stable
 rvm:
   - 2.5.1
+env:
+  - ADMIN_EMAIL=test@test.com
+  - ADMIN_PASSWORD=123456789
 
 before_install:
   - sudo /etc/init.d/postgresql stop
