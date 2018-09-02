@@ -116,6 +116,10 @@ uk:
         update:
           success: 'Коментар успішно оновлений'
       reports:
+        create:
+          success: 'Звітність додано'
+        update:
+          success: 'Звітність оновлена'
         button:
           new: 'Додати репорт'
     reports:
