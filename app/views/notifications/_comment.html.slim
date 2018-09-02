@@ -1,21 +1,22 @@
-.col-sm-12
-  .panel.panel-white.post.panel-shadow
-    .post-heading
-      .pull-left.image
-        img.img-circle.avatar src="#{notification.user.avatar(:medium)}"
-      .pull-left.meta
-        .title.h5
-          = link_to notification.user.name, main_app.user_path(notification.user)
-          span.margin-left-10.margin-right-10
-            = t('.commented')
+.card
+  .card-body
+    .row
+      .col-md-2
+        img.img.img-rounded.img-fluid src="#{notification.user.avatar(:medium)}"
+        p.text-secondary.text-center
+          = l notification.created_at, format: :short
+      .col-md-10
+        p
+          = link_to notification.user.name, main_app.user_path(notification.user), class: 'float-left'
+        p.badge.badge-pill.badge-secondary.margin-left-10
+          = t('.commented')
+        p
           - if notification.read?
             span.badge.badge-pill.badge-secondary
               = t('.read')
           - else
             span.badge.badge-pill.badge-saccess
               = t('.new')
-        h6.text-muted.time
-          = l notification.created_at, format: :short
-    .post-description
-      p
-        = t('.title', title: notification.target&.title)
+        .clearfix
+        p
+          = t('.title', title: notification.target&.title)
