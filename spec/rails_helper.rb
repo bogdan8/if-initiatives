@@ -33,6 +33,15 @@ end
 
 Capybara.javascript_driver = :selenium
 
+Capybara::Screenshot.s3_configuration = {
+  s3_client_credentials: {
+    access_key_id: ENV['AMAZONE_KEY_ID'],
+    secret_access_key: ENV['AMAZONE_SECRET_ACCESS_KEY'],
+    region: 'us-east-1'
+  },
+  bucket_name: 'initiative-if'
+}
+
 # Capybara.configure do |config|
 #  config.default_driver = :selenium
 # end

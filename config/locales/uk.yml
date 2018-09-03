@@ -34,6 +34,8 @@ uk:
         title: "Зв'язатись з нами"
       button:
         new: 'Надіслати'
+    create:
+      success: 'Дякуємо за звязок з нами, очікуйте відповіді'
   subscriptions:
     create:
       success: 'Ви успішно підписались'

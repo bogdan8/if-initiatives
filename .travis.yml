@@ -3,8 +3,10 @@ sudo: required
 dist: trusty
 addons:
   chrome: stable
+
 rvm:
   - 2.5.1
+
 env:
   - ADMIN_EMAIL=test@test.com
 
@@ -15,9 +17,9 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install postgresql-9.5
 
-before_script: 
-  - 'export DISPLAY=:99.0'
-  - 'sh -e /etc/init.d/xvfb start'
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
   - CHROMEDRIVER_VERSION=$(curl -s http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
   - echo $CHROMEDRIVER_VERSION $PWD $PATH
   - sudo apt-get install zip unzip
