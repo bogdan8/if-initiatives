@@ -4,29 +4,25 @@ dist: trusty
 addons:
   chrome: stable
 rvm:
-- 2.5.1
+  - 2.5.1
 env:
-  global:
-  - secure: lvqnLbcgij8s6I71DS8Y4HR1K4V8DQ3SIj+8uruiG+7h8Gy+gecAVcIxGfwVZUdZBSltmBY76fy0OezexhcoLySVjRGa21TielYUkX+XXRo7jTnSu6rlYm6q9aSV7BGEpGGoChu5lVXMUk6BylH8A0SiTJWEDRQDshI6W4DrExrhbmPmZqGz37814y4MJPnpuBkJqtiZ04hErWP/vgJkpZ0RYgrsWzFQJb+XItTUGmK/gH6h00oXUZOL+r0LVw0liKa4IBuR29Y0DxqfSjb1Sc6btwdg0zDhyriPTc44F2hYs15lfzy8m7ESPKJGjlelArQg6235sujut1nSzjffe1YuGW5R7NQw/jKWaHLiKld8TkEpe0lmv3w6k4gj4EjosbLXInFt0hK2fcO+27T3Wiz5OY3Ya/Y8uXgZmkZCBUBLwBN53t0cjwbVsBF25lVcvzFV2PecJNNmAKD0r9PpNi01SL1Sly2m7C+yG0XC7AmDr3vTwj+By/EmE4HBjesdZQhux1+t7f4Qc+va9FHh+F+2T1sf5PZYoZb3VmwZ6V9S9B2UBvkueLmdmW3av6wqFU9v70IpP+k/hlfbSbbiiR03djlIcdslAzO0Q07yIdN+r7qbp5SiwMfIm+EvaBk10yWPOtrD8e782XPnDJvmtn1X3eg9p48T2MblOWg/v9c=
-  - secure: UgYj4FYGB0C0oJDh0JY5UgSJIRWz3T77yC0dCBC2zDuhAv+6qVGfH5hAys/vydncTTDRZKXkepH00KAQDo7xQdf2lcxa+GyKUsKHkr2LMUEM39TEoFTp+kUiZCJsWqwZxc3bj3xlJTuTL7AevRvM+vKw97gsSnlDildbY/V7vNHhFKGnMdNJHdgoBulx0/MRjbCfzgBblF1Eu82hbvMcZSr7BDBuK4Jwe1/y6/0SlA2V8WEi26mV+nuUyoGbbluA2XEHxLXbBZtd0ew4UNgtu3qLNp9gIsRcEPJufJftZ0r20WgocTCfemJ6lFLUypACqkgG6iMgeIXVT0TQP1FEyecDdNOVw0O7mPREvDKStvAiqcxLU7K136QUApfEEeke/24nsJThv2g2lNH+z5Zi3GxtU+Vz1m3w8erlGw1okNJjLtnstjBj4TMZxJHJUZbO7FphhYAHJUhHxo307EcJEeMN7Q9CchinRHQWhg/9gCpVFUdBuEn0zdSdCNkrh/Ubfy6h0joz+nvQqsm7Ua6Dk4q7dppO8H6MI0miKL/vcGTSRgagnf+JmAI/MiXUeL3//vK2o7grryrPdrVUX9N5mvqqanr/44pADVSTQcrNFT4NUx2RKw+2XE4/h3o3dvoO5fRYfEoXWqu461eVOEaihg6UdV3n2Opzx6l0zY88T4M=
-  - secure: WJwnLcWzwDiZjSQhdibGhkQAWrNa0p1tAs/Hc7LXnfZjg2/ibstSUF3Qon6bHM8MFrc87Vu0nB3WuxmTE39ulnraNC/fkPy67EEetlaeRD/fnY5ElRizmiXhHzOV1OiUQmF0BJnyju3RfQdjHER+XCfOTOrXUGne4GKuOL9c8YdUZWPSEP0PKf2u2AxkJI1CtBH07FE9eIxLQQWsVknDsQURYY81eecLsDoT/9A6PTdna/nF8aX1nzBLGesuU5cuCa2M6bBXEGmsaHR807JHfed2lYpvle0st42sePB86/WYI6RFy9e2rQt7YOQwlSqajQ1ak1Hwi9k6h2olZF9JPn8EHEVCzFElbWZ2dLsHUJ6+TJV8lJPYSOsTWNPXdmr7n6U2rO39SVvl+Sgb+6wMTGOByar8pLHFHAl0hYvZJwrCcoDxngSsd0F1lby4RS+62nVWiKaq/L1WAVnMK/zsITIM0Vd34O5wnSLgEJfF28kuHAvdc22223LyVAZhTqd9WFgu3bLPdt7EyDyQeEV9Zz98Ea1xePAabMtcCH6Z1z90atBMhmwzuO7b9SZzrZYCtP2vE42ccHdYvrQ9jgnGk6uD9YJ20D6y5AvzLNV0pBKFlzlinLf4Uy5GONFcdVFliq8VgBADzF9JFO9NmGH97RGlKZA7E4Q3z0/puvcFd0U=
-  - secure: LXq4XD5XOb0Tmi3nxqZOd4BDxakatYDMZrnUBCqjyWzludApPBSvOvycTwVoaszQeAKZJdSIetlGqG9rI20v9tI2BaQMwUBu/In4p8B1D7dxtP3WLYdWX8S2Um7+gOAsV+pR7qYUkE79rPMunAgw8XF+V721COySaQYrRLymLlnBdICoRj0hfu4hi3NiHVrccp1H7RrWAx5e0WmNhYVkjic7D0tWB3qbOC09sZIT9pjvzdfZUkIA2uvX7wy0uVwXvLWNRnxQUwnWTsUJsO3Sv5XrYquJRkUr+i1ZACwA6CnS79IeWQfApZJ1Pci7R7hjKf/eczon1fTW6raWpKypmzuTeSGS22xTzhfmSN9y6QD6p7/0YrxndPA5w5O/RRMbVizQJxYSRNoQXX1Cke6tiVC4zIEqqJbOzkc1j+adxUGT1SNxqMCBdQZA6i93qK06jFDu6rXRD2Ds3zsRul7vrmT5v+4Cn3tDPbINVQQW4yxzLFPR6rs1JmZkzySUJznbZ6uOcMj8XjClM5hcwgIYFi/KisflFl6fiMa3Vwq82++B9Ouq3Ljol3wr79IsfnVekIsZ7iPb13I92EtxslhKYmRAeVcIHIwA3TV3unxnEaKG4N4LB2kOwJbEfPLFNN7aeDtghmUaa1IH/dnhIa28Hrc2N/KDFbWfu+d0a8dv8SE=
+  - ADMIN_EMAIL=test@test.com
 before_install:
-- sudo /etc/init.d/postgresql stop
-- wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key
-  add -
-- sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main
-  9.5" >> /etc/apt/sources.list.d/postgresql.list'
-- sudo apt-get update
-- sudo apt-get install postgresql-9.5
+  - sudo /etc/init.d/postgresql stop
+  - wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key
+    add -
+  - sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main
+    9.5" >> /etc/apt/sources.list.d/postgresql.list'
+  - sudo apt-get update
+  - sudo apt-get install postgresql-9.5
 before_script:
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
-- CHROMEDRIVER_VERSION=$(curl -s http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-- echo $CHROMEDRIVER_VERSION $PWD $PATH
-- sudo apt-get install zip unzip
-- curl -L -O 'http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip'
-- unzip chromedriver_linux64.zip -d chromedriver
-- export PATH=$PATH:$PWD/chromedriver
-- bundle exec rake db:setup RAILS_ENV=test
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - CHROMEDRIVER_VERSION=$(curl -s http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+  - echo $CHROMEDRIVER_VERSION $PWD $PATH
+  - sudo apt-get install zip unzip
+  - curl -L -O 'http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip'
+  - unzip chromedriver_linux64.zip -d chromedriver
+  - export PATH=$PATH:$PWD/chromedriver
+  - bundle exec rake db:setup RAILS_ENV=test
 script: bundle exec rspec spec && bundle exec rubocop
