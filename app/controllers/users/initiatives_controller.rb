@@ -4,11 +4,12 @@ module Users
   class InitiativesController < Users::BaseController
     before_action :all_categories, only: %i[new create edit update]
     before_action :find_initiative, only: %i[edit update destroy]
+    before_action :access_granted?, only: %i[show edit update destroy]
     add_breadcrumb I18n.t('.initiatives.breadcrumb.title'), :users_initiatives_path
     include AbilityStateToInitiatives
 
     def index
-      @q = current_user.initiatives.includes(:categories, :attachments).ransack(params[:q])
+      @q = current_user.initiatives.includes(:categories, :attachments).order(:id).ransack(params[:q])
       @initiatives = @q.result.page(params[:page]).per(6)
     end
 
@@ -75,6 +76,11 @@ module Users
 
     def all_categories
       @categories = Category.all
+    end
+
+    def access_granted?
+      initiative = Initiative.friendly.find(params[:id])
+      redirect_to root_path, error: t('unauthorized.manage.all') unless current_user.initiatives.include? initiative
     end
   end
 end
