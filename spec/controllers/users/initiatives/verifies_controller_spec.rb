@@ -8,7 +8,7 @@ RSpec.describe Users::Initiatives::VerifiesController, type: :controller do
   let!(:initiative) { create(:initiative, user: user) }
 
   before(:each) do
-    login_admin(admin)
+    login_admin(user)
   end
 
   describe 'POST #update' do

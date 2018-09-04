@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 feature 'Registration', type: :feature do
-  let(:user) { create(:user) }
+  let!(:user) { create(:user) }
 
   scenario '#Access denied' do
     visit edit_user_registration_path
@@ -43,7 +43,7 @@ feature 'Registration', type: :feature do
         fill_in 'user_current_password', with: ''
       end
       click_button I18n.t('devise.registrations.edit.update')
-      expect(page).to have_text I18n.t('errors.messages.blank'), count: 2
+      expect(page).to have_text I18n.t('errors.messages.blank'), count: 5
     end
   end
 end
