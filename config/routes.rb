@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   root 'main#index'
   scope module: :admins, path: :admin, as: :admins do
     get '/main' => 'main#index'
-    resources :initiatives
+    resources :initiatives, only: %i(index show destroy)
     namespace :initiatives, path: 'manage-initiatives' do
       resources :comments, only: %i(destroy)
       resources :fundraises, only: %i(update)

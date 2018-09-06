@@ -29,38 +29,6 @@ RSpec.describe Admins::InitiativesController, type: :controller do
     end
   end
 
-  describe 'GET #edit' do
-    it 'renders the template with status' do
-      get :edit, params: { id: initiative.slug }
-      expect(response).to render_template(:edit)
-      expect(response.status).to eq(200)
-    end
-  end
-
-  describe 'POST #update' do
-    context 'with correct parameters' do
-      it 'value should be changed' do
-        user.initiatives.create(attributes_for(:initiative))
-        title = 'new title for initiative'
-        post :update, params: { id: initiative,
-                                initiative: build(:initiative, title: title, category_ids: [category.id]).attributes }
-        expect(Initiative.first.title).to eq(title)
-        expect(response).to redirect_to(admins_initiative_path(initiative.slug))
-      end
-    end
-
-    context 'with incorrect parameters' do
-      it 'should renders the edit template' do
-        user.initiatives.create(attributes_for(:initiative))
-        post :update, params: { id: initiative.slug,
-                                initiative: build(:initiative, title: '', category_ids: [category.id]).attributes }
-        expect(Initiative.last.title).not_to eq('')
-        expect(response).to render_template(:edit)
-        expect(response.status).to eq(200)
-      end
-    end
-  end
-
   describe 'GET #destroy' do
     context 'if admin' do
       it 'the number of initiatives should decrease' do

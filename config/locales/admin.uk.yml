@@ -219,6 +219,8 @@ uk:
           administrator: 'Адміністратор'
           moderator: 'Модератор'
       show:
+        breadcrumb:
+          title: 'Користувач'
         title: 'Користувач'
         name: "Ім'я: %{name}"
         email: "Емейл: %{email}"

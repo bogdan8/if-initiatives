@@ -2,8 +2,7 @@
 
 module Admins
   class InitiativesController < Admins::BaseController
-    before_action :all_categories, only: %i[edit update]
-    before_action :find_initiative, only: %i[show edit update destroy]
+    before_action :find_initiative, only: %i[show destroy]
 
     include AbilityStateToInitiatives
 
@@ -14,22 +13,6 @@ module Admins
 
     def show
       add_breadcrumb t('.breadcrumb.title', obj: @initiative.title)
-    end
-
-    def edit
-      add_breadcrumb t('.breadcrumb.title', obj: @initiative.title)
-    end
-
-    def update
-      Categorization.where(initiative_id: @initiative.id).delete_all
-      add_categories_to_initiative
-      if @initiative.update(initiative_params)
-        redirect_to [:admins, @initiative], success: t('.success')
-      else
-        add_breadcrumb t('.breadcrumb.title', obj: @initiative.title)
-        flash[:error] = @initiative.errors.full_messages.to_sentence
-        render :edit
-      end
     end
 
     def destroy
@@ -47,17 +30,6 @@ module Admins
       text = %i[title short_description long_description]
       number = %i[finish_days general_sum]
       params.require(:initiative).permit(*text, *number)
-    end
-
-    def add_categories_to_initiative
-      return if params[:initiative][:category_ids].nil?
-      params[:initiative][:category_ids].each do |category|
-        @initiative.categorizations.build(category_id: category) unless category.empty?
-      end
-    end
-
-    def all_categories
-      @categories = Category.all
     end
   end
 end
