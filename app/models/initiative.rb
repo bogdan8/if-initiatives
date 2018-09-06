@@ -9,14 +9,14 @@
 #  short_description :text
 #  long_description  :text
 #  general_sum       :integer
-#  finish_date       :date
+#  finish_date       :datetime
 #  collected_amount  :integer          default(0)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  user_id           :bigint(8)
 #  state             :string           default("draft")
-#  finish_days       :integer          default(5)
 #  slug              :string
+#  finished_at       :datetime
 #
 
 class Initiative < ApplicationRecord
@@ -38,7 +38,7 @@ class Initiative < ApplicationRecord
   has_many :attachments, dependent: :destroy, inverse_of: :initiative
   accepts_nested_attributes_for :attachments, reject_if: :all_blank, allow_destroy: true
 
-  validates :title, :short_description, :long_description, :general_sum, :finish_days, presence: true
+  validates :title, :short_description, :long_description, :general_sum, :finished_at, presence: true
   validates :title, length: { minimum: 5 }
   validates :short_description, length: { minimum: 25 }
   validates :long_description, length: { minimum: 50 }
