@@ -5,11 +5,13 @@ module Users
     private
 
     def sign_up_params
-      params.require(:user).permit(:email, :name, :phone, :age, :avatar, :password, :password_confirmation, :current_password)
+      custom_attributes = %i[name phone age avatar]
+      params.require(:user).permit(:email, :password, :password_confirmation, :current_password, [*custom_attributes])
     end
 
     def account_update_params
-      params.require(:user).permit(:email, :name, :phone, :age, :avatar, :password, :password_confirmation, :current_password)
+      custom_attributes = %i[name phone age avatar]
+      params.require(:user).permit(:email, :password, :password_confirmation, :current_password, [*custom_attributes])
     end
   end
 end

@@ -62,7 +62,7 @@ module Users
 
     def initiative_params
       text = %i[title short_description long_description]
-      number = %i[finish_days general_sum]
+      number = %i[finished_at general_sum]
       attachments = %i[id image video _destroy]
       params.require(:initiative).permit(*text, *number, attachments_attributes: [*attachments])
     end

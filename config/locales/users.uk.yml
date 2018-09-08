@@ -22,7 +22,7 @@ uk:
         breadcrumb:
           title: 'Ініціативи'
         title: 'Ініціативи'
-        finish_date: "Дата завершення: %{date}"
+        finished_at: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
         collected_amount: "Зібрано коштів: %{amount}"
         categories: 'Категорії'
@@ -39,7 +39,7 @@ uk:
       show:
         breadcrumb:
           title: 'Ініціатива: %{obj}'
-        finish_date: "Дата завершення: %{date}"
+        finished_at: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
         collected_amount: "Зібрано коштів: %{amount}"
         comments:

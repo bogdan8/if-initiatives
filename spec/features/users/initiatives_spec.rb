@@ -29,7 +29,6 @@ feature 'Initiatives', type: :feature do
         fill_in 'initiative_title', with: initiative.title
         fill_in 'initiative_short_description', with: initiative.short_description
         fill_in 'initiative_long_description', with: initiative.long_description
-        fill_in 'initiative_finish_days', with: initiative.finish_days
         fill_in 'initiative_general_sum', with: initiative.general_sum
       end
       click_button I18n.t('users.initiatives.new.title')
@@ -41,11 +40,10 @@ feature 'Initiatives', type: :feature do
         fill_in 'initiative_title', with: ''
         fill_in 'initiative_short_description', with: ''
         fill_in 'initiative_long_description', with: ''
-        fill_in 'initiative_finish_days', with: ''
         fill_in 'initiative_general_sum', with: ''
       end
       click_button I18n.t('users.initiatives.new.title')
-      expect(page).to have_text I18n.t('errors.messages.blank'), count: 5
+      expect(page).to have_text I18n.t('errors.messages.blank'), count: 4
     end
   end
 
@@ -60,7 +58,6 @@ feature 'Initiatives', type: :feature do
         fill_in 'initiative_title', with: initiative.title
         fill_in 'initiative_short_description', with: initiative.short_description
         fill_in 'initiative_long_description', with: initiative.long_description
-        fill_in 'initiative_finish_days', with: initiative.finish_days
         fill_in 'initiative_general_sum', with: initiative.general_sum
       end
       click_button I18n.t('users.initiatives.edit.title')
@@ -72,11 +69,10 @@ feature 'Initiatives', type: :feature do
         fill_in 'initiative_title', with: ''
         fill_in 'initiative_short_description', with: ''
         fill_in 'initiative_long_description', with: ''
-        fill_in 'initiative_finish_days', with: ''
         fill_in 'initiative_general_sum', with: ''
       end
       click_button I18n.t('users.initiatives.edit.title')
-      expect(page).to have_text I18n.t('errors.messages.blank'), count: 5
+      expect(page).to have_text I18n.t('errors.messages.blank'), count: 4
     end
   end
 end

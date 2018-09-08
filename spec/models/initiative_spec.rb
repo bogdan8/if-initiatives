@@ -9,14 +9,14 @@
 #  short_description :text
 #  long_description  :text
 #  general_sum       :integer
-#  finish_date       :date
+#  finish_date       :datetime
 #  collected_amount  :integer          default(0)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  user_id           :bigint(8)
 #  state             :string           default("draft")
-#  finish_days       :integer          default(5)
 #  slug              :string
+#  finished_at       :datetime
 #
 
 require 'rails_helper'
@@ -36,7 +36,7 @@ RSpec.describe Initiative, type: :model do
     it { is_expected.to validate_presence_of :short_description }
     it { is_expected.to validate_presence_of :long_description }
     it { is_expected.to validate_presence_of :general_sum }
-    it { is_expected.to validate_presence_of :finish_days }
+    it { is_expected.to validate_presence_of :finished_at }
     it { is_expected.to validate_length_of(:title).is_at_least(5) }
     it { is_expected.to validate_length_of(:short_description).is_at_least(25) }
     it { is_expected.to validate_length_of(:long_description).is_at_least(50) }

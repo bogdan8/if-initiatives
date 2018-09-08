@@ -14,7 +14,7 @@
         span
           = t('.long_description', description: @initiative.long_description)
         span
-          = t('.finish_date', date: @initiative.finish_date)
+          = t('.finish_date', date: l(@initiative.finished_at))
         span
           = t('.general_sum', sum: @initiative.general_sum)
         span

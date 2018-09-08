@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
+# rubocop:disable Rails/LexicallyScopedActionFilter
+
 module Users
   module Initiatives
     class BaseController < ApplicationController
       before_action :access_granted?, only: %i[show edit update destroy]
+
       private
 
       def step(initiative)
@@ -17,3 +20,5 @@ module Users
     end
   end
 end
+
+# rubocop:enable Rails/LexicallyScopedActionFilter
