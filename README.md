@@ -37,9 +37,9 @@ $ rake state_machine:draw FILE=initiative.rb CLASS=Initiative
 # Checking the code
 ```sh
 $ rubocop
-$ matric_fu
+$ gem install metric_fu && metric_fu
 $ rubycritic
-$ rails_best_practices
+$ rails_best_practices .
 ```
 
 # Initiative states

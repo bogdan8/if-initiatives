@@ -28,7 +28,6 @@ Rails.application.routes.draw do
                                    password: :secret,
                                    confirmation: :verification }
 
-
   root 'main#index'
   scope module: :admins, path: :admin, as: :admins do
     get '/main' => 'main#index'
@@ -54,7 +53,7 @@ Rails.application.routes.draw do
     resources :initiatives do
       resources :reports, only: %i(create update destroy), controller: 'initiatives/reports'
       resources :comments, except: %i(index show new), controller: 'initiatives/comments'
-      resources :donations, only: %i(create), controller: 'initiatives/donations' 
+      resources :donations, only: %i(create), controller: 'initiatives/donations'
     end
     resources :verifies, only: %i(update), controller: 'initiatives/verifies'
     resources :attachments, only: %i(destroy)
@@ -64,7 +63,7 @@ Rails.application.routes.draw do
   resources :categories, only: %i(show)
   resources :subscriptions, only: %i(create)
   resources :contacts, only: %i(new create)
- 
+
   get 'user/:id', to: 'users/users#show', as: :user
   get :search, controller: :main
 end

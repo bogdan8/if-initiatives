@@ -26,11 +26,8 @@ namespace :puma do
   before :start, :make_dirs
 end
 
-namespace :deploy do
-  end
-
 namespace :logs do
-	desc "tail rails logs" 
+	desc "tail rails logs"
 	task :tail do
 		on roles(:app) do
 			execute "tail -f #{shared_path}/log/#{fetch(:rails_env)}.log"
@@ -46,7 +43,7 @@ namespace :deploy do
       invoke 'deploy'
     end
   end
-  
+
 	after  :finishing,    :compile_assets
 	after  :finishing,    :cleanup
 end
