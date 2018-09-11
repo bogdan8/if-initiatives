@@ -44,7 +44,7 @@ class Initiative < ApplicationRecord
   validates :long_description, length: { minimum: 50 }
   validates :general_sum, length: { maximum: 6 }
 
-  scope :fundraising_now, -> { where(finish_date: Time.current.to_date, state: 'fundraising') }
+  scope :fundraising_now, -> { where(finished_at: Time.current.to_date, state: 'fundraising') }
   scope :without_draft, -> { where.not(state: :draft) }
   scope :available_everyone, ->(*states) { where.not(state: states) }
   scope :by_category, ->(id) { joins(:categorizations).where(Categorization.table_name => { category_id: id }) }
