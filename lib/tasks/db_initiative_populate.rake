@@ -9,14 +9,15 @@ namespace :db do
         u.phone = '0991351355'
         u.age = rand(10..100)
         u.save!
+        u.confirm
       end
-      puts user.name
+      puts user.email
     end
 
     puts 'Categories:'
-    10.times do |t|
+    5.times do |t|
       category = Category.new.tap do |c|
-        c.title = Faker::Movie.quote
+        c.title = Faker::Artist.name
         c.position = t
         c.save
       end
@@ -26,23 +27,20 @@ namespace :db do
     puts 'Initiatives:'
     50.times do |t|
       initiative = Initiative.new.tap do |i|
-        i.user_id = rand(1...User.count)
-        puts rand(1...User.count)
+        i.user_id = rand(1..3)
         i.title = Faker::Lorem.sentence(10)
         i.short_description = Faker::Lorem.sentence(20)
-        i.long_description = Faker::Lorem.sentence(50)
+        i.long_description = Faker::Lorem.sentence(100)
         i.general_sum = rand(100..10_000)
         i.finished_at = Time.current.to_date
         i.save!
       end
-      p initiative.title
     end
 
-    puts 'Categorizations:'
-    50.times do |t|
+    1.upto(50) do |t|
       categorization = Categorization.new.tap do |i|
-        i.initiative = t
-        i.category = rand(1..10)
+        i.initiative_id = t
+        i.category_id = rand(1..5)
         i.save
       end
     end
