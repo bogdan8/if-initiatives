@@ -56,7 +56,7 @@ uk:
           general_sum: 'Загальна ціна'
           collected_amount: 'Зібрано коштів'
           category_ids: 'Категорії'
-          finish_days: 'Кількість днів до завершення'
+          finished_at: 'Дата завершення'
         new:
           title: 'Назва'
           long_description: 'Опис'
@@ -65,4 +65,4 @@ uk:
           general_sum: 'Загальна ціна'
           collected_amount: 'Зібрано коштів'
           category_ids: 'Категорії'
-          finish_days: 'Кількість днів до завершення'
+          finished_at: 'Дата завершення'

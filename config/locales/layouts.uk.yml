@@ -16,6 +16,9 @@ uk:
           title: "Зв'язатись з нами"
         users:
           title: 'Користувачі'
+        sign_out:
+          button:
+            destroy: 'Вийти'
     user:
       header:
         title: 'Ініціативи'
