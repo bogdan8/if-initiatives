@@ -8,6 +8,7 @@ namespace :db do
         u.password = '123456'
         u.phone = '0991351355'
         u.age = rand(10..100)
+        u.avatar = File.open(Rails.root + 'spec/support/photo.jpg')
         u.save!
         u.confirm
       end
