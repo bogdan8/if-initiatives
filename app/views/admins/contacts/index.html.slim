@@ -1,0 +1,16 @@
+= provide :site_title, t('.title')
+= provide :contacts, 'active'
+
+.row.contacts
+  - @contacts.each do |contact|
+    .col-xs-12.col-md-3.col-lg-3.col-xl-3
+      .flex-column.card-block-blue
+        span
+          = t('.email', email: contact.email)
+        span
+          = t('.description', description: contact.description)
+        span
+          = link_to t('.button.destroy'), admins_contact_path(contact), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger btn-sm'
+.row
+  .col-xs-12.flex-center
+    = paginate @contacts, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-sm'

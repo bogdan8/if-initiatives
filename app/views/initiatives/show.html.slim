@@ -1,90 +1,137 @@
-= provide :site_title, t('views.pages.global.initiative')
+= provide :site_title, t('.title')
 = provide :initiatives_show, 'active'
-.mdl-grid.portfolio-max-width
-  .mdl-cell.mdl-cell--12-col.mdl-card.mdl-shadow--4dp
-    .mdl-card__title
-      h2.mdl-card__title-text
+
+.row.initiative
+  .col-sm-12
+    .card
+      .card-header
         = @initiative.title
-    .mdl-card__media
-      = image_tag(@initiative.decorate.first_image(:original), class: 'initiative-image')
-    .mdl-card__supporting-text
-      strong
-        = t('views.pages.global.categories')
-      span
-        = @initiative.decorate.categories_title
-    .mdl-grid.portfolio-copy
-      .mdl-cell.mdl-cell--12-col.mdl-card__supporting-text.no-padding
-        p
-          = @initiative.long_description
-      .mdl-cell.mdl-cell--12-col.mdl-card__supporting-text.no-padding
-        p
-          = t('views.pages.global.finish_date')
-          | \: #{@initiative.finish_date}
-        p
-          = t('views.pages.global.general_sum')
-          | \: #{@initiative.general_sum}
-        p
-          = t('views.pages.global.collected_amount')
-          | \: #{@initiative.collected_amount}
-        p
-          = t("views.pages.initiatives.state.# @initiative.state ")
-      = liqpay @liqpay_request
-      /! show images
-      .mdl-cell.mdl-cell--12-col.mdl-card__supporting-text.no-padding
-        .mdl-grid
-          - @initiative.decorate.attachments_images.each do |attachment|
-            .mdl-cell.mdl-cell--2-col-desktop.mdl-cell--4-col-tablet.mdl-cell--12-col-phone.mdl-card__supporting-text.no-padding
-              = image_tag attachment.image.url(:medium), class: 'full-image'
-      /! show videos
-      .mdl-cell.mdl-cell--12-col.mdl-card__supporting-text.no-padding
-        .mdl-grid
-          - @initiative.decorate.attachments_videos.each do |attachment|
-            .mdl-cell.mdl-cell--6-col-desktop.mdl-cell--12-col-phone.mdl-card__supporting-text.no-padding
-              = video_tag attachment.video.url, controls: true, class: 'full-video'
-    /! show steps
-    .mdl-card__supporting-text
-      strong
-        = t('views.pages.global.steps')
-    .mdl-grid.portfolio-copy
-      .mdl-cell.mdl-cell--12-col.mdl-card__supporting-text.no-padding
-        - @initiative.steps.each do |step|
-          p
-            = t('views.pages.global.created_at')
-            | \: #{step.created_at}
-          p
-            = t('views.pages.global.initiatives.state')
-            | \: #{t("views.pages.initiatives.state.#{step.state}")}
-    /! show comments
-    .mdl-card__supporting-text
-      strong
-        = t('views.pages.global.comments')
-    .mdl-grid.portfolio-copy
-      .mdl-cell.mdl-cell--12-col.mdl-card__supporting-text.no-padding
-        - @initiative.comments.each do |comment|
-          p
-            = t('views.pages.global.title')
-            | \: #{comment.title}
-          p
-            = t('views.pages.global.text')
-            | \: #{comment.text}
-          /! edit comment
+      .card-body
+        .row
+          .col-sm-12.col-md-6.col-lg-6.col-xl-6
+            .mdl-card__media
+              = image_tag(@initiative.decorate.first_image(:original), class: 'image-main')
+          .col-sm-12.col-md-6.col-lg-6.col-xl-6
+            p
+              = t('.finish_date', date: @initiative.finish_date)
+            p
+              = t('.general_sum', sum: @initiative.general_sum)
+            p
+              = t('.collected_amount', amount: @initiative.collected_amount)
+            p
+              = t(".state.#{@initiative.state}")
+            p
+              = t('.title')
+              = category_link @initiative
+
+            = liqpay @liqpay_request
+        .row
+          .col-sm-12
+            p
+              = t('.long_description')
+              br
+              = @initiative.long_description
+    - if @initiative.decorate.attachments_images.any?
+      .card
+        .card-header
+          = t('.images.title')
+        .card-body
+          .row
+            - @initiative.decorate.attachments_images.each do |attachment|
+                .col-sm-12.col-md-6.col-lg-4.col-xl-3
+                  = image_tag attachment.image.url(:medium), class: 'image'
+    - if @initiative.decorate.attachments_videos.any?
+      .card
+        .card-header
+          = t('.videos.title')
+        .card-body
+          .row
+            - @initiative.decorate.attachments_videos.each do |attachment|
+                .col-sm-12.col-md-6.col-lg-6.col-xl-6.margin-bottom-20
+                  = video_tag attachment.video.url, controls: true, class: 'full-video'
+    - @initiative.steps.any?
+      .card
+        .card-header
+          button.btn.btn-primary aria-controls='collapseSteps' aria-expanded='false' data-target='#collapseSteps' data-toggle='collapse' type='button'
+            = t('.steps.title')
+
+          #collapseSteps.collapse
+            .card-body
+              .container
+                .page-header
+                  h2
+                    = t('.timeline.title')
+                .timeline
+                  - @initiative.steps.each do |step|
+                    .line.text-muted
+                    .separator.text-muted
+                      time
+                        = step.created_at
+                    article.panel.panel-primary
+                      .panel-heading.icon
+                        i.glyphicon.glyphicon-plus
+                      .panel-heading
+                        h5.panel-title
+                          = t(".state.#{step.state}")
+    .card
+      .card-header
+        .flex-between
+          = t('.comments.title')
           - if current_user
-            - if current_user.id == comment.user.id
-              .mdl-card__supporting-text
-                strong
-                  = t('views.pages.comments.edit.title_obj', obj: comment.title)
-              = simple_form_for comment, url: initiative_comment_path(@initiative, comment), html: { multipart: true } do |f|
-                = f.input :title
-                = f.input :text
-                = f.button :submit, t('views.pages.global.button.edit'), class: 'btn btn-warning btn-sm'
-    /! add comments
-    .mdl-card__supporting-text
-      strong
-        = t('views.pages.comments.new.title')
-    .mdl-grid.portfolio-copy
-      - if current_user
-        .mdl-cell.mdl-cell--12-col.mdl-card__supporting-text.no-padding
-          = simple_form_for @initiative.comments.build, url: initiative_comments_path(@initiative), html: { multipart: true } do |f|
-            = f.input :title
-            = f.input :text
-            = f.button :submit, t('views.pages.global.button.new'), class: 'btn btn-success btn-sm'
+            button.btn.btn-sm.btn-primary.margin-left-20 data-target='#addComment' data-toggle='modal' type='button' id='addCommentBtn'
+              = t('.comments.new.title')
+
+    - if @initiative.comments.any?
+      .card-body.comments
+        .comments-container
+          ul#comments-list.comments-list
+            - @initiative.comments.each do |comment|
+              li
+                .comment-main-level
+                  .comment-avatar
+                    = image_tag(comment.user.avatar(:medium))
+                  .comment-box
+                    .comment-head
+                      h6.comment-name.by-author
+                        = link_to(comment.user.name, user_path(comment.user.id))
+                      span
+                        = l comment.updated_at
+                      - if current_user
+                        - if comment.user == current_user
+                          i.fa.fa-edit data-target="#editComment-#{comment.id}" id="edit_comment_tag_#{comment.id}" data-toggle='modal'
+                    .comment-content
+                      p
+                        = comment.title
+                      p
+                        = comment.text
+              - if current_user
+                - if comment.user == current_user
+                  .modal.fade id='editComment-#{comment.id}' aria-hidden='true' aria-labelledby='examplemodallabel' role='dialog' tabindex='-1'
+                    .modal-dialog role='document'
+                      .modal-content
+                        .modal-header
+                          h5#examplemodallabel.modal-title
+                            = t('.comments.edit.title', comment: comment.title)
+                          button.close aria-label='close' data-dismiss='modal' type='button'
+                            span aria-hidden='true'  &times;
+                        .modal-body
+                          = simple_form_for comment, url: users_initiative_comment_path(@initiative, comment), html: { multipart: true } do |f|
+                            = f.input :title
+                            = f.input :text
+                            = f.button :submit, t('.comments.button.edit'), class: 'btn btn-warning btn-sm'
+
+- if current_user
+  .modal.fade id='addComment' aria-hidden='true' aria-labelledby='examplemodallabel' role='dialog' tabindex='-1'
+    .modal-dialog role='document'
+      .modal-content
+        .modal-header
+          h5#examplemodallabel.modal-title
+            = t('.comments.new.title')
+          button.close aria-label='close' data-dismiss='modal' type='button'
+            span aria-hidden='true' &times;
+        .modal-body
+          - if current_user
+            = simple_form_for @initiative.comments.build, url: users_initiative_comments_path(@initiative), html: { multipart: true } do |f|
+              = f.input :title
+              = f.input :text
+              = f.button :submit, t('.comments.button.new'), class: 'btn btn-success btn-sm'

@@ -19,24 +19,32 @@ require 'devise'
 require 'rspec/rails'
 require 'shoulda/matchers'
 require 'paperclip/matchers'
+require 'capybara/rails'
 require 'capybara/rspec'
-require 'cancan/matchers'
+require 'capybara-screenshot/rspec'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].map { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
 
-# Capybara
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
-Capybara.javascript_driver = :chrome
+Capybara.javascript_driver = :selenium
 
-Capybara.configure do |config|
-  config.default_max_wait_time = 10 # seconds
-  config.default_driver = :selenium
-end
+Capybara::Screenshot.s3_configuration = {
+  s3_client_credentials: {
+    access_key_id: ENV['AMAZONE_KEY_ID'],
+    secret_access_key: ENV['AMAZONE_SECRET_ACCESS_KEY'],
+    region: 'us-east-1'
+  },
+  bucket_name: 'initiative-if'
+}
+
+# Capybara.configure do |config|
+#  config.default_driver = :selenium
+# end
 
 Capybara.ignore_hidden_elements = false
 
@@ -48,20 +56,17 @@ Shoulda::Matchers.configure do |config|
 end
 
 RSpec.configure do |config|
-  # Capybara
   config.before(:each, type: :feature) do
-    I18n.locale = :en
-    Capybara.current_session.driver.browser.manage.window.resize_to(2_500, 2_500)
-  end
-
-  config.before(:each, type: :feature) do
-    default_url_options[:locale] = :en
+    Capybara::Session.new(:selenium)
+    I18n.locale = :uk
+    # Capybara.current_session.current_window.resize_to(2_500, 2_500)
+    default_url_options[:locale] = :uk
   end
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.include Capybara::DSL
   config.include Shoulda::Matchers::ActiveModel, type: :model
   config.include Shoulda::Matchers::ActiveRecord, type: :model
-  # devise
   config.include Devise::Test::ControllerHelpers, type: :controller
 
   config.infer_spec_type_from_file_location!

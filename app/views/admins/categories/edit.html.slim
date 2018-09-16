@@ -1,0 +1,6 @@
+= provide :site_title, t('.title')
+= provide :categories, 'active'
+
+.row
+  .col-xl-12
+    = render 'form', action: :edit, category: @category

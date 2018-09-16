@@ -1,9 +1,6 @@
 AllCops:
-  DisplayStyleGuide: true
   DisplayCopNames: true
-  Include:
-    - '**/Gemfile'
-    - '**/Rakefile'
+  TargetRubyVersion: 2.5.1
   Exclude:
     - '**/bin/spring'
     - '**/bin/setup'
@@ -14,8 +11,8 @@ AllCops:
     - 'config/**/**'
     - 'db/**/**'
     - 'bin/**'
-    - 'app/models/role.rb'
-    - 'vendor/*'
+    - 'vendor/**/*'
+
 Rails:
   Enabled: true
 
@@ -25,17 +22,23 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Max: 20
 
+Metrics/ClassLength:
+  Max: 1500
+
+Metrics/AbcSize:
+  Max: 30
+
 Style/Documentation:
   Enabled: false
 
-Metrics/AbcSize:
-  Max: 25
-
-Metrics/ModuleLength:
-  Exclude:
-    - "**/*_spec.rb"
+Layout/IndentArray:
+  Enabled: false
 
 Metrics/BlockLength:
   Exclude:
-    - "**/*_spec.rb"
+    - '**/*_spec.rb'
   ExcludedMethods: ['included']
+
+Rails/SkipsModelValidations:
+  Exclude:
+    - '**/*_spec.rb'

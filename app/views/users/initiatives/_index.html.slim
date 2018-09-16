@@ -1,33 +1,20 @@
-.mdl-grid.portfolio-max-width
+.row.block
   - collection.decorate.each do |initiative|
-    .mdl-cell.mdl-card.mdl-shadow--4dp.portfolio-card
-      .mdl-card__media
-        = image_tag(initiative.first_image(:medium), class: 'initiative-image')
-      .mdl-card__title
-        h2.mdl-card__title-text
-          = initiative.title
-      .mdl-card__supporting-text
-        p.short_description
-          = initiative.short_description
-        p
-          = t('views.pages.global.finish_date')
-          | : 
-          = initiative.finish_date
-        p
-          = t('views.pages.global.general_sum')
-          | : 
-          = initiative.general_sum
-        p
-          = t('views.pages.global.collected_amount')
-          | : 
-          = initiative.collected_amount
-        p
-          = t("views.pages.initiatives.state.#{initiative.state}")
-        p
-          = t('views.pages.global.categories')
-          | : 
-          = initiative.categories_title
-      .mdl-card__actions.mdl-card--border
-        = link_to t('views.pages.global.button.show'), users_initiative_path(initiative), class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'
-        = initiative_state_user_links_draft initiative
-        = initiative_state_user_links_fundraised initiative
+    .col-12.col-xs-12.col-sm-6.col-lg-4.col-xl-3
+      .header
+        = image_tag(initiative.first_image(:medium), class: 'image')
+      .body
+        p.title
+          = truncate(initiative.title, length: 30)
+        p.text
+          = truncate(initiative.short_description, length: 100)
+        p.text
+          = t('.general_sum', sum: initiative.general_sum)
+        p.text
+          = t('.collected_amount', amount: initiative.collected_amount)
+        p.text
+          = t(".state.#{initiative.state}")
+        p.text
+          = t('.categories')
+          = category_link initiative
+        = render 'buttons', initiative: initiative

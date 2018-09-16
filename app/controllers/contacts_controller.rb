@@ -1,14 +1,16 @@
 # frozen_string_literal: true
 
 class ContactsController < ApplicationController
-  load_resource
-  def new; end
+  def new
+    @contact = Contact.new
+    add_breadcrumb t('.breadcrumb.title')
+  end
 
   def create
+    @contact = Contact.new(contact_params)
     if @contact.save
-      redirect_to root_path, success: t('controller.contact.save')
+      redirect_to root_path, success: t('.success')
     else
-      flash[:error] = @contact.errors.full_messages.to_sentence
       render :new
     end
   end

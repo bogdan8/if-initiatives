@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Users::UsersController, type: :controller do
-  let(:user) { create(:user) }
+  let!(:user) { create(:user) }
 
   before(:each) do
     login_user(user)

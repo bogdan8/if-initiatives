@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.4.3'
+ruby '2.5.1'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -29,6 +29,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 4.2.1'
 
 # for style
+gem 'bootstrap', '~> 4.1.1'
 gem 'bootstrap4-kaminari-views'
 gem 'font-awesome-rails'
 gem 'sass-rails', '~> 5.0'
@@ -46,31 +47,35 @@ gem 'paperclip', '~> 5.2.0'
 gem 'puma', '~> 3.0'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'social-share-button'
+gem 'uglifier'
 gem 'unicode'
 
 # for devise
-gem 'cancancan'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-vkontakte'
-gem 'rolify'
 
 group :development, :test do
   gem 'awesome_print'
+  gem 'aws-sdk-s3'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
-  gem 'chromedriver-helper'
+  # gem 'chromedriver-helper'
+  gem 'capybara-screenshot'
   gem 'codecov', require: false
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'metric_fu', git: 'https://github.com/metricfu/metric_fu.git'
   gem 'parallel_tests'
   gem 'progress_bar'
   gem 'rack-mini-profiler'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
-  gem 'rubocop'
+  gem 'rubocop', git: 'https://github.com/rubocop-hq/rubocop.git'
   gem 'rubycritic'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 3.1'
@@ -85,6 +90,8 @@ group :development do
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rails', require: false
   gem 'capistrano-rails-console', require: false
+  gem 'capistrano-rails-db', require: false
+  gem 'capistrano-rails-logs-tail'
   gem 'capistrano-rvm', require: false
   gem 'capistrano3-puma', require: false
   gem 'listen'

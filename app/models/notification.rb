@@ -6,6 +6,7 @@
 #
 #  id                 :integer          not null, primary key
 #  user_id            :integer          not null
+#  admin_id           :integer
 #  actor_id           :integer
 #  notify_type        :string           not null
 #  target_type        :string
@@ -21,4 +22,6 @@
 
 class Notification < ApplicationRecord
   include Notifications::Model
+
+  belongs_to :admin
 end

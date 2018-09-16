@@ -30,6 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  unauthorized:
+    manage:
+      all: "You have no access to this resource"
   views:
     pagination:
       first: "&laquo; First"

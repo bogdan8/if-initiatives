@@ -1,0 +1,92 @@
+= provide :site_title, t('.title')
+= provide :admins, 'active'
+
+.row.main
+  .col-xs-12.col-md-3.col-lg-3.col-xl-3
+    = link_to admins_initiatives_path, class: 'flex-column-center card-block-green' do
+      = fa_icon 'book 2x'
+      = @presenter.initiatives_count
+      = t('.initiatives.title')
+      span.btn.btn-primary.btn-sm
+        = t('.button.show')
+  .col-xs-12.col-md-3.col-lg-3.col-xl-3
+    = link_to admins_users_path, class: 'flex-column-center card-block-green' do
+      = fa_icon 'address-book 2x'
+      = @presenter.users_count
+      = t('.users.title')
+      span.btn.btn-primary.btn-sm
+        = t('.button.show')
+        = fa_icon 'angle-right'
+  .col-xs-12.col-md-3.col-lg-3.col-xl-3
+    = link_to admins_subscriptions_path, class: 'flex-column-center card-block-green' do
+      = fa_icon 'envelope 2x'
+      = @presenter.subscriptions_count
+      = t('.subscriptions.title')
+      span.btn.btn-primary.btn-sm
+        = t('.button.show')
+        = fa_icon 'angle-right'
+  .col-xs-12.col-md-3.col-lg-3.col-xl-3
+    = link_to admins_categories_path, class: 'flex-column-center card-block-green' do
+      = fa_icon 'list-alt 2x'
+      = @presenter.categories_count
+      = t('.categories.title')
+      span.btn.btn-primary.btn-sm
+        = t('.button.show')
+        = fa_icon 'angle-right'
+.row
+  .col-xs-12.col-md-3.col-lg-3.col-xl-3
+    - @presenter.initiatives.each do |initiative|
+      .flex-column.card-block-blue
+        span
+          = initiative.title
+        span
+          = t('.initiatives.short_description', description: initiative.short_description)
+        span
+          = t('.initiatives.finish_date', date: initiative.finish_date)
+        span
+          = t('.initiatives.general_sum', sum: initiative.general_sum)
+        span
+          = t('.initiatives.collected_amount', amount: initiative.collected_amount)
+        span
+          = t(".initiatives.state.#{initiative.state}")
+        span
+          = t('.initiatives.categories')
+          | :
+          = initiative.decorate.categories_title
+        div
+          = link_to t('.button.show'), admins_initiative_path(initiative), class: 'btn btn-primary btn-sm'
+  .col-xs-12.col-md-3.col-lg-3.col-xl-3
+    - @presenter.users.each do |user|
+      .flex-column.card-block-blue
+        span
+          = user.name
+        span
+          = t('.users.email', email: user.email)
+        span
+          = t('.users.phone', phone: user.phone)
+        span
+          = t('.users.age', age: user.age)
+        span
+          = t('.users.initiatives.count', count: user.initiatives.count)
+        div
+          = link_to t('.button.show'), admins_user_path(user), class: 'btn btn-primary btn-sm'
+  .col-xs-12.col-md-3.col-lg-3.col-xl-3
+    - @presenter.subscriptions.each do |subscription|
+      .flex-column.card-block-blue
+        span
+          = t('.subscriptions.email', email: subscription.email)
+        span
+          = t('.subscriptions.created_at', date: subscription.created_at)
+        div
+          = link_to t('.button.destroy'), admins_subscription_path(subscription), method: :delete, data: { confirm: t('.button.confirm') }, class: 'btn btn-primary btn-sm'
+  .col-xs-12.col-md-3.col-lg-3.col-xl-3
+    - @presenter.categories.each do |category|
+      .flex-column.card-block-blue
+        span
+          = category.title
+        span
+          = t('.categories.position', position: category.position)
+        span
+          = t('.categories.initiatives.count', count: category.initiatives.count)
+        div
+          = link_to t('.button.show'), admins_category_path(category), class: 'btn btn-primary btn-sm'

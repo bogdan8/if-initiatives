@@ -4,7 +4,7 @@
 #
 # Table name: categorizations
 #
-#  id            :integer          not null, primary key
+#  id            :bigint(8)        not null, primary key
 #  initiative_id :integer
 #  category_id   :integer
 #  created_at    :datetime         not null

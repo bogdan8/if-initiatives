@@ -1,7 +1,12 @@
-nav.mdl-navigation.mdl-typography--body-1-force-preferred-font
-  = link_to t('views.pages.global.initiatives'), main_app.initiatives_path, class: 'mdl-navigation__link'
-  = link_to t('views.pages.initiatives.new.title'), main_app.new_users_initiative_path, class: 'mdl-navigation__link'
-  = navigation_for_administrator
-  = navigation_for_signout
-  = navigation_for_user
-  = link_to t('views.pages.contacts.new.title'), main_app.new_contact_path, class: 'mdl-navigation__link'
+li.nav-item
+  = link_to t('.initiatives.title'), main_app.initiatives_path, class: 'nav-link'
+li.nav-item
+  = link_to t('.initiatives.button.new'), main_app.new_users_initiative_path, class: 'nav-link'
+= navigation_for_signout
+= navigation_for_user
+li.nav-item
+  = link_to t('.contacts.button.new'), main_app.new_contact_path, class: 'nav-link'
+li.nav-item
+  a.nav-link href='#' data-target='#subscription' data-toggle='modal' id='subscription-modal-open'
+    = t('.subscription.button.new')
+= render 'layouts/user/subscription'

@@ -1,0 +1,8 @@
+doctype html
+html
+  = render 'layouts/user/head'
+  body
+    = render 'layouts/user/header'
+    - # render 'layouts/user/flash'
+    .container
+      = yield

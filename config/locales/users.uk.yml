@@ -1,0 +1,168 @@
+uk:
+  users:
+    users:
+      show:
+        breadcrumb:
+          title: 'Мій профіль'
+        title: 'Профіле'
+        email: "Емейл: %{email}"
+        phone: "Телефон: %{phone}"
+        age: "Вік: %{age} років"
+        button:
+          edit: 'Редагувати'
+    initiatives:
+      buttons:
+        verify: 'Надіслати на підтвердження'
+        show: 'Переглянути'
+        edit: 'Редагувати'
+        destroy: 'Видалити'
+        fundraised: 'Збір коштів'
+        confirm: 'Ви дійсно хочите видалити?'
+      index:
+        breadcrumb:
+          title: 'Ініціативи'
+        title: 'Ініціативи'
+        finished_at: "Дата завершення: %{date}"
+        general_sum: "Загальна сума: %{sum}"
+        collected_amount: "Зібрано коштів: %{amount}"
+        categories: 'Категорії'
+        state:
+          draft: 'Чернетка'
+          verifying: 'Перевіряється'
+          rejected: 'Відхиленно'
+          fundraising: 'Збір коштів'
+          implementing: 'Реалізація'
+          completed: 'Завершено'
+          unfulfilled: 'Не завершено'
+          locked: 'Заблоковано'
+          archive: 'Заархівовано'
+      show:
+        breadcrumb:
+          title: 'Ініціатива: %{obj}'
+        finished_at: "Дата завершення: %{date}"
+        general_sum: "Загальна сума: %{sum}"
+        collected_amount: "Зібрано коштів: %{amount}"
+        comments:
+          title: 'Коментарі'
+        categories: 'Категорії'
+        button:
+          edit: 'Редагувати'
+          show: 'Переглянути'
+          destroy: 'Видалити'
+        reports:
+          button:
+            new: 'Додати звітність'
+        images:
+          title: 'Зображення'
+        videos:
+          title: 'Відео'
+        steps:
+          title: 'Історія'
+        timeline:
+          title: 'Хронологія'
+        state:
+          draft: 'Чернетка'
+          verifying: 'Перевіряється'
+          rejected: 'Відхиленно'
+          fundraising: 'Збір коштів'
+          implementing: 'Реалізація'
+          completed: 'Завершено'
+          unfulfilled: 'Не завершено'
+          locked: 'Заблоковано'
+          archive: 'Заархівовано'
+      new:
+        breadcrumb:
+          title: 'Додати ініціативу'
+        title: 'Добавити'
+      create:
+        breadcrumb:
+          title: 'Додати ініціативу'
+        success: 'Ініціативу додано, ви можете переглянути її у своєму кабінеті та надіслати на підтвердження'
+      edit:
+        breadcrumb:
+          title: "Редагувати: %{obj}"
+        title: 'Редагувати'
+      update:
+        success: 'Ініціативу успішно оновлено'
+      sort:
+        filter:
+          title: 'Фільтр'
+          added_date: 'Дата добавлення'
+          submit:
+            title: 'Фільтрувати'
+      verifies:
+        update:
+          success: 'Ініціативу надіслано на перевірку'
+      form:
+        button:
+          new: 'Добавити'
+          edit: 'Редагувати'
+        image:
+          button:
+            new: 'Добавити зображення'
+            video: 'Добавити відео'
+      images:
+        title: 'Зображення'
+      videos:
+        title: 'Відео'
+      steps:
+        title: 'Кроки'
+      timeline:
+        title: 'Хронологія'
+      comments:
+        title: 'Коментарі'
+        create:
+          success: 'Коментар успішно створений'
+        update:
+          success: 'Коментар успішно оновлений'
+      reports:
+        create:
+          success: 'Звітність додано'
+        update:
+          success: 'Звітність оновлена'
+        button:
+          new: 'Додати репорт'
+    reports:
+      new:
+        submit: 'Добавити'
+        attachments:
+          image:
+            button:
+              new: 'Додати зображення'
+          video:
+            button:
+              new: 'Додати відео'
+      edit:
+        submit: 'Редагувати'
+        attachments:
+          image:
+            button:
+              new: 'Додати зображення'
+          video:
+            button:
+              new: 'Додати відео'
+      form:
+        new:
+          submit: 'Добавити'
+        attachments:
+          image:
+            button:
+              new: 'Додати зображення'
+          video:
+            button:
+              new: 'Додати відео'
+      reports:
+        title: "Назва: %{title}"
+        description: "Опис: %{description}"
+        updated_at: "Оновлено в %{date}"
+        button:
+          destroy: 'Видалити'
+        confirm: 'Ви дійсно хочите видалити цей запис'
+    attachments:
+      form:
+        image:
+          button:
+            destroy: 'Видалити'
+        video:
+          button:
+            destroy: 'Видалити'

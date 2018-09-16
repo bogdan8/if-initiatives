@@ -1,9 +1,7 @@
-h3
-  = t("views.pages.reports.#{action}.title")
 = simple_form_for entity, url: url, html: { multipart: true } do |f|
   = f.input :title
   = f.input :description
   = render '/users/attachments/form', entity: :report, action: action, redirect_path: users_initiative_path(initiative.slug), f: f
-  = link_to_add_association t('views.pages.attachments.new.image'), f, :attachments, partial: 'users/attachments/image_fields', data: { association_insertion_node: "#images_cocoon_#{action}", association_insertion_method: :append }
-  = link_to_add_association t('views.pages.attachments.new.video'), f, :attachments, partial: 'users/attachments/video_fields', data: { association_insertion_node: "#videos_cocoon_#{action}", association_insertion_method: :append }
-  = f.button :submit, t("views.pages.global.button.#{action}"), class: 'btn btn-success btn-sm'
+  = link_to_add_association t('.attachments.image.button.new'), f, :attachments, partial: 'users/attachments/image_fields', data: { association_insertion_node: "#images_cocoon_#{action}", association_insertion_method: :append }
+  = link_to_add_association t('.attachments.video.button.new'), f, :attachments, partial: 'users/attachments/video_fields', data: { association_insertion_node: "#videos_cocoon_#{action}", association_insertion_method: :append }
+  = f.button :submit, t(".#{action}.submit"), class: 'btn btn-success btn-sm'

@@ -1,213 +1,158 @@
 uk:
-  controller:
-    admins:
-      save: 'Адміністратора додано'
-      update: 'Дані успішно відредаговані'
-      destroy: 'Категорію видалено'
-    user:
-      save: 'Користувача додано'
-      update: 'Користувача відредаговано'
-      destroy: 'Користувача видалено'
-    role:
-      change: 'Роль змінено'
-    category:
-      save: 'Категорію додано'
-      update: 'Категорію відредаговано'
-      destroy: 'Категорію видалено'
-    comment:
-      save: 'Коментар додано'
-      update: 'Коментар відредаговано'
-      destroy: 'Коментар видалено'
-    subscription:
-      save: 'Підписано'
-      destroy: 'Підписку видалено'
-    initiative:
-      save: 'Ініціативу додано'
-      update: 'Ініціативу відредаговано'
-      destroy: 'Ініціативу видалено'
-      to_confirmating: 'Відправлено на підтвердження'
-      to_fundraising: 'Збір коштів розпочато'
-      to_fundraised: 'Збір коштів завершено'
-      to_rejected: 'Ініціативу відхилено'
-      to_implementing: 'Розпочато реалізацію'
-      to_locked: 'Ініціативу заблоковано'
-      to_implemented: 'Завершено реалізацію'
-      to_implemented: 'Ініціативу успішно завершено'
-      to_unimplemented: 'Ініціативу не завершено'
-      to_reporting: 'Ініціативу відправлено для надання звіту'
-    attachment:
-      new: 'Файл додано'
-      update: 'Файл відредаговано'
-      destroy: 'Файл видалено'
-    report:
-      new: 'Звіт додано'
-      update: 'Звіт відредаговано'
-      destroy: 'Звіт видалено'
-    contact:
-      save: "Дякуємо за ваше повідомлення, ми з вами зв'яжемось якомога швидше"
-    donation:
-      error: 'Помилка платежу'
-
-  views:
-    pages:
-      global:
+  global:
+    state:
+      draft: 'Чернетка'
+      verifying: 'Перевіряється'
+      rejected: 'Відхиленно'
+      fundraising: 'Збір коштів'
+      implementing: 'Реалізація'
+      completed: 'Завершено'
+      unfulfilled: 'Не завершено'
+      locked: 'Заблоковано'
+      archived: 'Заархівовано'
+  breadcrumb:
+    title: 'Головна'
+  categories:
+    show:
+      title: 'Категорії'
+      initiatives:
+        finish_date: "Дата завершення: %{date}"
+        general_sum: "Загальна сума: %{sum}"
+        collected_amount: "Зібрано коштів: %{amount}"
         button:
-          new: 'Додати'
           show: 'Переглянути'
-          show_obj: "Переглянути: %{obj}"
-          edit: 'Редагувати'
-          edit_obj: "Редагувати: %{obj}"
-          destroy: 'Видалити'
-          confirmation: 'Надіслати на підтвердження'
-          confirmed: 'Підтвердити'
-          locked: 'Заблукувати'
-          rejected: 'Відхилити'
-          fundraised: 'Розпочати збір коштів'
-          implementing: 'Реалізувати'
-          unimplemented: 'Не реалізовано'
-          reporting: 'Звітність'
-          implemented: 'Реалізовано'
-        profile:
-          show: 'Профіль'
-          edit: 'Редагувати профіль'
-        title: 'Назва'
-        description: 'Опис'
-        updated_at: 'Додано о'
-        name: "Ім'я"
-        email: 'Електронна адреса'
-        role:
-          title: 'Роль'
-          user: 'Користувач'
-          administrator: 'Адміністратор'
-          moderator: 'Модератор'
-        draft: 'Чернетки'
-        rejected: 'Відхиленні'
-        fundraised: 'Завершено збір коштів'
-        confirmating: 'Підтвердження'
+  comments:
+    create:
+      success: 'Коментар успішно добавлений'
+    update:
+      success: 'Коментар успішно відредагований'
+    destroy:
+      success: 'Коментар успішно видаленний'
+  contacts:
+    new:
+      breadcrumb:
+        title: "Зв'язатись з нами"
+      button:
+        new: 'Надіслати'
+    create:
+      success: 'Дякуємо за звязок з нами, очікуйте відповіді'
+  subscriptions:
+    create:
+      success: 'Ви успішно підписались'
+      button:
+        create: 'Підписатись'
+  initiatives:
+    breadcrumb:
+      title: 'Ініціативи'
+    index:
+      button:
+        show: 'Переглянути'
+      breadcrumb:
+        title: 'Ініціативи'
+      title: 'Ініціативи'
+      short_description:
+      finish_date: "Дата завершення: %{date}"
+      general_sum: "Загальна сума: %{sum}"
+      collected_amount: "Зібрано коштів: %{amount}"
+      categories: 'Категорії'
+      state:
+        draft: 'Чернетка'
+        verifying: 'Перевіряється'
+        rejected: 'Відхиленно'
         fundraising: 'Збір коштів'
         implementing: 'Реалізація'
-        reporting: 'Звітність'
-        implemented: 'Завершені'
-        unimplemented: 'Не завершені'
-        locked: 'Заблоковані'
-        report: 'Звіт'
-        text: 'Текст'
-        position: 'Позиція'
-        long_description: 'Опис'
-        short_description: 'Короткий опис'
-        finish_date: 'Дата завершення'
-        general_sum: 'Загальна ціна'
-        finish_days: 'Кількість днів до завершення'
-        collected_amount: 'Зібрано коштів'
-        initiatives: 'Ініціативи'
-        initiative: 'Ініціатива'
-        administration: 'Адмін панель'
-        categories: 'Категорії'
-        category: 'Категорія'
-        comments: 'Коментарі'
-        notifications: '%{count} повідомлень'
-        comment: 'Коментар'
-        users: 'Користувачі'
-        user: 'Користувач'
-        subscriptions: 'Підписки'
-        sign_in: 'Увійти'
-        sign_out: 'Вийти'
-        home: 'Головна'
-        profile_edit: 'Редагувати профіль'
-        confirm: 'Ви впевнені?'
-        registration: 'Реєстрація'
-        phone: 'Телефон'
-        age: 'Вік'
-        images: 'Зображення'
-        videos: 'Відео'
-        contacts: "Зв'язатись з нами"
-        links: 'Посилання'
-        created_at: 'Додано в'
-        state: 'Стан'
-        count:
-          initiatives: 'Кількість ініціатив'
-          categories: 'Кількість категорій'
-          comments: 'Кількість коментарів'
-      categories:
-        edit:
-          title: 'Редагувати категорію'
-        new: 
-          title: 'Додати Категорію'
-        index: 
-          title: 'Всі категорії'
-      initiatives:
-        state:
-          draft: 'Чернетка'
-          confirmating: 'Очікується підтвердження'
-          rejected: 'Відхиленно'
-          fundraising: 'Проходить збір коштів'
-          fundraised: 'Зібрано кошти, очікується початку реалізації'
-          implementing: 'Проходить реалізація'
-          implemented: 'Реалізовано'
-          unimplemented: 'Не реалізовано'
-          locked: 'Заблоковано'
-        form:
-          categories: 'Виберіть категорії'
-        edit:
-          title: 'Редагувати ініціативу'
-        new: 
-          title: 'Додати ініціативу'
-        index: 
-          title: 'Всі ініціативи'
-      users:
-        name: "Ім'я"
-        phone: 'Телефон'
-        age: 'Вік'
-        roles: 'Ролі'
-        edit:
-          title: 'Редагувати користувача'
-        new:
-          title: 'Додати користувача'
-        index:
-          title: 'Всі користувачі'
+        completed: 'Завершено'
+        unfulfilled: 'Не завершено'
+        locked: 'Заблоковано'
+        archive: 'Заархівовано'
+    sort:
+      filter:
+        title: 'Фільтр'
+        added_date: 'Дата добавлення'
+        submit:
+          title: 'Фільтрувати'
+    show:
+      pay: 'Пожертвувати'
+      breadcrumb:
+        title: "Ініціатива: %{obj}"
+      timeline:
+        title: 'Історія змін'
+      title: 'Ініціатива'
+      long_description: 'Опис'
+      finish_date: "Дата завершення: %{date}"
+      general_sum: "Загальна сума: %{sum}"
+      collected_amount: "Зібрано коштів: %{amount}"
+      images:
+        title: 'Зображення'
+      videos:
+        title: 'Відео'
+      steps:
+        title: 'Історія змін'
       comments:
-        edit:
-          title: 'Редагувати коментар'
-          title_obj: 'Редагувати %{obj}'
+        title: 'Коментарі'
         new:
           title: 'Додати коментар'
-        index:
-          title: 'Всі коментарі'
-      attachments:
         edit:
-          image: 'Редагувати фото'
-          video: 'Редагувати відео'
-        new:
-          image: 'Додати фото'
-          video: 'Додати відео'
-        index:
-          image: 'Всі фото'
-          video: 'Всі відео'
-        destroy:
-          image: 'Видалити фото'
-          video: 'Видалити відео'
-      reports:
-        edit:
-          title: 'Редагувати звіт'
-        new:
-          title: 'Додати звіт'
-        index:
-          title: 'Всі звіти'
-      contacts:
-        new:
-          title: 'Звязатись з нами'
-      notifications:
-        all_notifications: 'Всі нагадування'
-        clean_all: 'Очистити все'
-        no_records: 'Немає нових нагадувань'
-
+          title: "Редагувати: %{comment}"
+        button:
+          new: 'Додати'
+          edit: 'Редагувати'
+      state:
+        draft: 'Чернетка'
+        verifying: 'Перевіряється'
+        rejected: 'Відхиленно'
+        fundraising: 'Збір коштів'
+        implementing: 'Реалізація'
+        completed: 'Завершено'
+        unfulfilled: 'Не завершено'
+        locked: 'Заблоковано'
+        archive: 'Заархівовано'
+  notifications:
+    notifications:
+      index:
+        title: 'Сповіщення'
+        clean: 'Очистити все'
+    comment:
+      title: "Назва: %{title}"
+      commented: 'Прокоментував'
+      read: 'Прочитано'
+      new: 'Нове'
+    contact:
+      added: 'Додав питання'
+      read: 'Прочитано'
+      new: 'Нове'
+      full_name: "Ім'я: %{name}"
+      email: "Емейл: "
+      description: 'Опис'
+    donation:
+      donated: 'Пожертвув'
+      read: 'Прочитано'
+      new: 'Нове'
+      name: "Ім'я: %{name}"
+      phone: "Телефон: %{phone}"
+      email: "Емейл: %{email}"
+      amount: "Сума: %{amount}"
+    initiative:
+      added: 'Додав ініціативу'
+      read: 'Прочитано'
+      new: 'Нове'
+      target:
+        title: "Назва: %{title}"
+    report:
+      reported: 'Повідомив у'
+      read: 'Прочитано'
+      new: 'Нове'
+      title: "Назва: %{title}"
+  unauthorized:
+    manage:
+      all: 'Ви не маєте доступу до цього ресурсу'
+  views:
     pagination:
       first: '&laquo; Перший'
       last: 'Останій &raquo;'
       previous: '&lsaquo; Попередній'
       next: 'Наступний &rsaquo;'
       truncate: '&hellip;'
-
   mail:
     user:
       pasword:
@@ -218,61 +163,15 @@ uk:
       fundraised:
         subject: 'Дата збору коштів завершено'
         body: 'Завершено збір коштів на вашу ініціативу'
-
   helpers:
     page_entries_info:
       one_page:
         display_entries:
-          zero: 'Не %{entry_name} знайдено'
-          one: 'Відображення <b>1</b> %{entry_name}'
-          other: 'Відображення <b>всі %{count}</b> %{entry_name}'
+          zero: "Не %{entry_name} знайдено"
+          one: "Відображення <b>1</b> %{entry_name}"
+          other: "Відображення <b>всі %{count}</b> %{entry_name}"
       more_pages:
-        display_entries: 'Відображення %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> загалом'
-
-  activerecord:
-    attributes:
-      report:
-        title: 
-          zero: 'Назви'
-          one: 'Назва'
-          other: 'Назви'
-        description:
-          title: 
-          zero: 'Описи'
-          one: 'Опис'
-          other: 'Описи'
-      initiative:
-        title: 'Назва'
-        description: 'Опис'
-        short_description: 'Короткий опис'
-        long_description: 'Опис'
-        general_sum: 'Загальна ціна'
-        finish_days: 'Кількість днів до завершення'
-      comment:
-        title: 'Назва'
-        text: 'Текст'
-      contact:
-        full_name: "Ім'я та прізвище"
-        email: 'Емейл'
-        description: 'Опис'
-      category:
-        title: 'Назва'
-        position: 'Позиція'
-      attachment:
-        image: 'Зображення'
-        video: 'Відео'
-    errors:
-      models:
-        initiative:
-          attributes:
-            state:
-              invalid_transition: 'Невірний стейт'
-      messages:
-        record_invalid: 'Виникли помилки: %{errors}'
-        restrict_dependent_destroy:
-          has_one: 'Неможливо видалити запис, так як існує залежність: %{record}'
-          has_many: 'Неможливо видалити запис, так як існують залежності: %{record}'
-
+        display_entries: "Відображення %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> загалом"
   date:
     abbr_day_names:
     - нд.
@@ -329,41 +228,41 @@ uk:
   datetime:
     distance_in_words:
       about_x_hours:
-        few: близько %{count} години
-        many: близько %{count} годин
-        one: близько %{count} година
-        other: близько %{count} години
+        few: "близько %{count} години"
+        many: "близько %{count} годин"
+        one: "близько %{count} година"
+        other: "близько %{count} години"
       about_x_months:
-        few: близько %{count} місяців
-        many: близько %{count} місяців
-        one: близько %{count} місяця
-        other: близько %{count} місяця
+        few: "близько %{count} місяців"
+        many: "близько %{count} місяців"
+        one: "близько %{count} місяця"
+        other: "близько %{count} місяця"
       about_x_years:
-        few: близько %{count} років
-        many: близько %{count} років
-        one: близько %{count} року
-        other: близько %{count} року
+        few: "близько %{count} років"
+        many: "близько %{count} років"
+        one: "близько %{count} року"
+        other: "близько %{count} року"
       almost_x_years:
-        few: майже %{count} років
-        many: майже %{count} років
-        one: майже %{count} роки
-        other: майже %{count} років
-      half_a_minute: півхвилини
+        few: "майже %{count} років"
+        many: "майже %{count} років"
+        one: "майже %{count} роки"
+        other: "майже %{count} років"
+      half_a_minute: 'півхвилини'
       less_than_x_minutes:
-        few: менше %{count} хвилин
-        many: менше %{count} хвилин
-        one: менше %{count} хвилини
-        other: менше %{count} хвилини
+        few: "менше %{count} хвилин"
+        many: "менше %{count} хвилин"
+        one: "менше %{count} хвилини"
+        other: "менше %{count} хвилини"
       less_than_x_seconds:
-        few: менше %{count} секунд
-        many: менше %{count} секунд
-        one: менше %{count} секунди
-        other: менше %{count} секунди
+        few: "менше %{count} секунд"
+        many: "менше %{count} секунд"
+        one: "менше %{count} секунди"
+        other: "менше %{count} секунди"
       over_x_years:
-        few: більше %{count} років
-        many: більше %{count} років
-        one: більше %{count} року
-        other: більше %{count} року
+        few: "більше %{count} років"
+        many: "більше %{count} років"
+        one: "більше %{count} року"
+        other: "більше %{count} року"
       x_days:
         few: "%{count} дні"
         many: "%{count} днів"
@@ -399,20 +298,20 @@ uk:
   errors:
     format: "%{attribute} %{message}"
     messages:
-      accepted: має бути прийнятий
-      blank: не може бути пустим
-      present: має бути пустим
-      confirmation: не збігається з підтвердженням
-      empty: не може бути порожнім
-      equal_to: має дорівнювати %{count}
-      even: має бути парним
-      exclusion: зарезервовано
-      greater_than: має бути більше ніж %{count}
-      greater_than_or_equal_to: має бути більше ніж або дорівнювати %{count}
-      inclusion: не включено до переліку
-      invalid: недійсний
-      less_than: має бути менше ніж %{count}
-      less_than_or_equal_to: має бути менше ніж або дорівнювати %{count}
+      accepted: 'має бути прийнятий'
+      blank: 'не може бути пустим'
+      present: 'має бути пустим'
+      confirmation: 'не збігається з підтвердженням'
+      empty: 'не може бути порожнім'
+      equal_to: "має дорівнювати %{count}"
+      even: 'має бути парним'
+      exclusion: 'зарезервовано'
+      greater_than: "має бути більше ніж %{count}"
+      greater_than_or_equal_to: "має бути більше ніж або дорівнювати %{count}"
+      inclusion: 'не включено до переліку'
+      invalid: 'недійсний'
+      less_than: "має бути менше ніж %{count}"
+      less_than_or_equal_to: "має бути менше ніж або дорівнювати %{count}"
       model_invalid: 'Виникли помилки: %{errors}'
       not_a_number: не число
       not_an_integer: не э цілим числом

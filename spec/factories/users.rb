@@ -4,7 +4,7 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
+#  id                     :bigint(8)        not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
@@ -40,7 +40,7 @@ FactoryBot.define do
     email Faker::Internet.email
     password Faker::Internet.password
     confirmed_at Time.zone.today
-    name Faker::HarryPotter.character
+    name Faker::Lorem.characters(10)
     phone '+380991234567'
     age 24
   end

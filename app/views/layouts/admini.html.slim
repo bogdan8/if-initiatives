@@ -1,0 +1,9 @@
+doctype html
+html
+  = render 'layouts/admin/head'
+  body
+    = render 'layouts/admin/header'
+    = render 'layouts/admin/flash'
+    .container-fluid
+      = render 'layouts/admin/breadcrumb'
+      = yield

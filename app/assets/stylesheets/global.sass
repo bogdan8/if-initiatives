@@ -1,9 +1,36 @@
 @import 'variable'
 
+html
+  font-size: 12px
+
+p
+  margin-bottom: 0px
+  font-size: $mainfontsize
+
+span
+  font-size: $mainfontsize
+
+button
+  font-size: $mainfontsize
+
+input
+  font-size: $mainfontsize
+
+li
+  font-size: $mainfontsize
+
+a
+  &:hover
+    text-decoration: none
+
 .flex-center
   display: flex
   justify-content: center
   align-items: center
+
+.flex-between
+  display: flex
+  justify-content: space-between
 
 .full-size
   width: 100%
@@ -42,6 +69,22 @@
 .margin-top-20
   margin:
     top: 20px
+
+.margin-bottom-10
+  margin: 
+    bottom: 10px
+
+.margin-right-10
+  margin:
+    right: 10px
+
+.margin-left-10
+  margin:
+    left: 10px
+
+.margin-top-10
+  margin:
+    top: 10px
 
 .main-image
   width: 100%

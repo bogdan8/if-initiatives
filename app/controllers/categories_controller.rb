@@ -2,7 +2,7 @@
 
 class CategoriesController < ApplicationController
   def show
-    @category = Category.find(params[:id])
+    @category = Category.includes(:categorizations, initiatives: :attachments).find(params[:id])
     @presenter = Categories::ShowPresenter.new(@category)
   end
 end

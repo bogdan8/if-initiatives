@@ -4,7 +4,7 @@
 #
 # Table name: comments
 #
-#  id            :integer          not null, primary key
+#  id            :bigint(8)        not null, primary key
 #  title         :string           default("")
 #  text          :text             default("")
 #  initiative_id :integer
@@ -22,7 +22,7 @@ class Comment < ApplicationRecord
   validates :title, presence: true
   validates :text, presence: true
   validates :title, length: { minimum: 5 }
-  validates :text, length: { minimum: 10 }
+  validates :text, length: { minimum: 5 }
 
   private
 

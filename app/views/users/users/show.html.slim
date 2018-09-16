@@ -1,27 +1,14 @@
-= provide :site_title, t('views.pages.global.user')
+= provide :site_title, t('.title')
 = provide :users, 'active'
-.mdl-grid
-  .mdl-cell.mdl-cell--12-col
-    .demo-card-wide.mdl-card.mdl-shadow--2dp
-      .mdl-card__supporting-text
-        .mdl-grid
-          .mdl-cell.mdl-cell--3-col-desktop.mdl-cell--3-col-table.mdl-cell--12-col-phone.image-block
-            = image_tag @user.avatar.url(:medium), class: 'main-image'
-          .mdl-cell.mdl-cell--9-col-desktop.mdl-cell--9-col-table.mdl-cell--12-col-phone
-            p
-              = t('views.pages.global.email')
-              | : 
-              = @user.email
-            p
-              = t('views.pages.global.phone')
-              | : 
-              = @user.phone
-            p
-              = t('views.pages.global.age')
-              | : 
-              = @user.age
-            p
-              = t('views.pages.global.email')
-              | : 
-              = @user.email
-        = link_to t('views.pages.global.button.edit'), edit_user_registration_path, class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect margin-rigth-20'
+.row
+  .col-sm-12.col-md-6.col-lg-4.col-xl-3
+    = image_tag @user.avatar.url(:medium), class: 'full-image'
+  .col-sm-12.col-md-6.col-lg-8.col-xl-9
+    p
+      = t('.email', email: @user.email)
+    p
+      = t('.phone', phone: @user.phone)
+    p
+      = t('.age', age: @user.age)
+    p
+      = link_to t('.button.edit'), edit_user_registration_path, class: 'btn btn-sm btn-primary'

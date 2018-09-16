@@ -2,13 +2,16 @@
 
 module Users
   class RegistrationsController < Devise::RegistrationsController
-    before_action :configure_permitted_parameters
-
     private
 
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: %i[name phone age avatar])
-      devise_parameter_sanitizer.permit(:account_update, keys: %i[name phone age avatar])
+    def sign_up_params
+      custom_attributes = %i[name phone age avatar]
+      params.require(:user).permit(:email, :password, :password_confirmation, :current_password, [*custom_attributes])
+    end
+
+    def account_update_params
+      custom_attributes = %i[name phone age avatar]
+      params.require(:user).permit(:email, :password, :password_confirmation, :current_password, [*custom_attributes])
     end
   end
 end
