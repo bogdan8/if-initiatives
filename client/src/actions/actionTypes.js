@@ -1,1 +1,0 @@
-export const GET_INITIATIVES = 'GET_INITIATIVES'
