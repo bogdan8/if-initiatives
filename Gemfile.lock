@@ -106,6 +106,10 @@ GEM
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     babosa (1.0.2)
     bcrypt (3.1.12)
     better_errors (2.4.0)
@@ -200,6 +204,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    connection_pool (2.2.2)
     crass (1.0.4)
     database_cleaner (1.7.0)
     debug_inspector (0.0.3)
@@ -254,6 +259,10 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    graphiql-rails (1.4.11)
+      railties
+      sprockets-rails
+    graphql (1.8.9)
     hashie (3.5.7)
     highline (1.7.10)
     hirb (0.7.3)
@@ -375,8 +384,11 @@ GEM
     public_suffix (3.0.2)
     puma (3.12.0)
     rack (2.0.5)
+    rack-cors (1.0.2)
     rack-mini-profiler (1.0.0)
       rack (>= 1.2.0)
+    rack-proxy (0.6.4)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.1.6)
@@ -426,6 +438,12 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    react-rails (2.4.7)
+      babel-transpiler (>= 0.7.0)
+      connection_pool
+      execjs
+      railties (>= 3.2)
+      tilt
     recaptcha (4.10.0)
       json
     redcard (1.1.0)
@@ -558,6 +576,10 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webpacker (3.5.5)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -601,6 +623,8 @@ DEPENDENCIES
   font-awesome-rails
   foreman
   friendly_id (~> 5.1.0)
+  graphiql-rails
+  graphql
   jbuilder (~> 2.5)
   jquery-rails
   jquery-ui-rails (~> 4.2.1)
@@ -617,11 +641,13 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   progress_bar
   puma (~> 3.0)
+  rack-cors
   rack-mini-profiler
   rails (~> 5.1.5)
   rails-controller-testing
   rails_best_practices
   ransack
+  react-rails
   recaptcha
   rspec-rails
   rubocop!
@@ -643,6 +669,7 @@ DEPENDENCIES
   uglifier
   unicode
   web-console
+  webpacker
 
 RUBY VERSION
    ruby 2.5.1p57
