@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+  end
+
+  post "/graphql", to: "graphql#execute"
   mount Notifications::Engine => '/notifications'
   namespace :api, defaults: { format: :json } do
     resources :initiatives, only: %i(index show) do

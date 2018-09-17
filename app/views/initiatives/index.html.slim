@@ -1,6 +1,6 @@
 = provide :site_title, t('.title')
 = provide :initiatives_index, 'active'
-
+= react_component("HelloWorld", { greeting: "Hello from react-rails." })
 = render 'initiatives/sort', q: @q
 .initiatives#initiatives
   = render 'initiatives/index', collection: @initiatives
