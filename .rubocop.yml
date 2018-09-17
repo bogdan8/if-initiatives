@@ -12,6 +12,7 @@ AllCops:
     - 'db/**/**'
     - 'bin/**'
     - 'vendor/**/*'
+    - 'node_modules/**/**'
 
 Rails:
   Enabled: true
