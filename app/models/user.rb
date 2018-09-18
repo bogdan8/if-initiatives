@@ -60,8 +60,7 @@ class User < ApplicationRecord
                     default_url: '/images/missing.png'
   validates_attachment_content_type :avatar, content_type: %r{\Aimage\/.*\Z}
 
-  @user_password = "prochord#{rand(30..10_500)}"
-
+  @user_password = Passgen::generate
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
