@@ -55,6 +55,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-vkontakte'
+gem 'passgen'
 
 group :development, :test do
   gem 'awesome_print'
