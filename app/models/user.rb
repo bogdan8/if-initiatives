@@ -60,16 +60,16 @@ class User < ApplicationRecord
                     default_url: '/images/missing.png'
   validates_attachment_content_type :avatar, content_type: %r{\Aimage\/.*\Z}
 
-  @user_password = Passgen::generate
   def self.from_omniauth(auth)
+    user_password = Passgen.generate
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
       user.name = auth.info.name
       user.email = auth.info.email unless auth.info.email.nil?
-      user.password = @user_password
+      user.password = user_password
       user.skip_confirmation!
-      UserMailer.send_password_to_user(user, @user_password).deliver_now! unless auth.info.email.nil?
+      UserMailer.send_password_to_user(user, user_password).deliver_now! unless auth.info.email.nil?
     end
   end
 
