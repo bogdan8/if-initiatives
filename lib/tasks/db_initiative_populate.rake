@@ -5,7 +5,7 @@
 namespace :db do
   task populate: :environment do
     10.times do
-      user = User.new.tap do |u|
+      User.new.tap do |u|
         u.name = Faker::HarryPotter.character
         u.email = Faker::Internet.email
         u.password = '123456'
@@ -19,7 +19,7 @@ namespace :db do
     end
 
     5.times do |t|
-      category = Category.new.tap do |c|
+      Category.new.tap do |c|
         c.title = Faker::Artist.name
         c.position = t
         c.save
