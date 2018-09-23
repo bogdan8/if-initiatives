@@ -42,7 +42,7 @@
         span
           = t('.initiatives.short_description', description: initiative.short_description)
         span
-          = t('.initiatives.finish_date', date: initiative.finish_date)
+          = t('.initiatives.finish_date', date: l(initiative.finished_at))
         span
           = t('.initiatives.general_sum', sum: initiative.general_sum)
         span
