@@ -63,6 +63,7 @@ Rails.application.routes.draw do
   resources :categories, only: %i(show)
   resources :subscriptions, only: %i(create)
   resources :contacts, only: %i(new create)
+  resources :donations, only: %i(create)
 
   get 'user/:id', to: 'users/users#show', as: :user
   get :search, controller: :main
