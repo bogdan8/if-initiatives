@@ -4,9 +4,8 @@
 
 namespace :db do
   task populate: :environment do
-    puts 'Users:'
     10.times do
-      user = User.new.tap do |u|
+      User.new.tap do |u|
         u.name = Faker::HarryPotter.character
         u.email = Faker::Internet.email
         u.password = '123456'
@@ -16,20 +15,18 @@ namespace :db do
         u.save!
         u.confirm
       end
-      puts user.email
+      print '.'
     end
 
-    puts 'Categories:'
-    5.times do
-      category = Category.new.tap do |c|
+    5.times do |t|
+      Category.new.tap do |c|
         c.title = Faker::Artist.name
         c.position = t
         c.save
       end
-      puts category.title
+      print '.'
     end
 
-    puts 'Initiatives:'
     50.times do
       Initiative.new.tap do |i|
         i.user_id = rand(1..3)
@@ -40,9 +37,10 @@ namespace :db do
         i.finished_at = Time.current.to_date
         i.save!
       end
+      print '.'
     end
 
-    1.upto(50) do
+    1.upto(50) do |t|
       Categorization.new.tap do |i|
         i.initiative_id = t
         i.category_id = rand(1..5)
