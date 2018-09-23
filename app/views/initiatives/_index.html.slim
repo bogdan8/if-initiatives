@@ -9,7 +9,7 @@
         p.text
           = truncate(initiative.short_description, length: 100)
         p.text
-          = t('.finish_date', date: initiative.finish_date)
+          = t('.finish_date', date: l(initiative.finished_at))
         p.text
           = t('.general_sum', sum: initiative.general_sum)
         p.text

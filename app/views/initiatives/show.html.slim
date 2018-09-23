@@ -13,7 +13,7 @@
               = image_tag(@initiative.decorate.first_image(:original), class: 'image-main')
           .col-sm-12.col-md-6.col-lg-6.col-xl-6
             p
-              = t('.finish_date', date: @initiative.finish_date)
+              = t('.finish_date', date: l(@initiative.finished_at))
             p
               = t('.general_sum', sum: @initiative.general_sum)
             p
@@ -24,7 +24,11 @@
               = t('.title')
               = category_link @initiative
 
-            = liqpay @liqpay_request
+            = form_tag('/donations', local: true, method: :post, remote: true) do
+              = text_field_tag :amount, 5, data: { behavior: 'autocomplete' }, class: 'form-control mr-sm-1', type: :number
+              = hidden_field_tag :id, @initiative.id
+              = submit_tag t('.pay'), class: 'btn btn-success btn-sm'
+            #donation
         .row
           .col-sm-12
             p
