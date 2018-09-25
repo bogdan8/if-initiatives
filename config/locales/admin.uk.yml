@@ -39,7 +39,7 @@ uk:
         verify: 'Підтвердити'
         fundraise: 'Розпочати збір коштів'
         implement: 'Розпочати реалізацію'
-        lock: 'Заблокувати'
+        block: 'Заблокувати'
         complete: 'Завершено'
         unfulfill: 'Провалено'
         archive: 'Архівувати'
@@ -68,7 +68,7 @@ uk:
           implementing: 'Реалізація'
           completed: 'Завершено'
           unfulfilled: 'Не завершено'
-          locked: 'Заблоковано'
+          blocked: 'Заблоковано'
           archived: 'Заархівовано'
       show:
         title: 'Ініціатива'
@@ -120,7 +120,7 @@ uk:
       implements:
         update:
           success: 'Імплементацію розпочато'
-      locks:
+      blocks:
         update:
           success: 'Заблоковано'
       archives:

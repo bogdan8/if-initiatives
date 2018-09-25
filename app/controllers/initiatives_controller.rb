@@ -2,7 +2,7 @@
 
 class InitiativesController < ApplicationController
   def index
-    states = %i[draft confirmating rejected locked]
+    states = %i[draft confirmating rejected blocked]
     @q = Initiative.includes(:categories, :attachments).ransack(params[:q])
     @initiatives = @q.result.available_everyone(states).page(params[:page]).per(12)
     add_breadcrumb t('.breadcrumb.title'), :initiatives_path

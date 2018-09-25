@@ -30,7 +30,7 @@ uk:
       to_fundraised: 'Збір коштів завершено'
       to_rejected: 'Ініціативу відхилено'
       to_implementing: 'Розпочато реалізацію'
-      to_locked: 'Ініціативу заблоковано'
+      to_blocked: 'Ініціативу заблоковано'
       to_implemented: 'Завершено реалізацію'
       to_implemented: 'Ініціативу успішно завершено'
       to_unimplemented: 'Ініціативу не завершено'

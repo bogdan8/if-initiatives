@@ -30,8 +30,8 @@ module Initiatives
           transition implementing: :unfulfilled
         end
 
-        event :lock do
-          transition %i[fundraising implementing] => :locked
+        event :block do
+          transition %i[fundraising implementing] => :blocked
         end
 
         event :archive do

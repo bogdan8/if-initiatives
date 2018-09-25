@@ -16,17 +16,17 @@ module InitiativesHelper
   end
 
   def collection_admins_states
-    states = %i[verifying rejected fundraising implementing locked completed unfulfilled archived]
+    states = %i[verifying rejected fundraising implementing blocked completed unfulfilled archived]
     states.map { |state| [I18n.t(".global.state.#{state}"), state] }
   end
 
   def collection_user_states
-    states = %i[draft verifying rejected fundraising implementing locked completed unfulfilled archived]
+    states = %i[draft verifying rejected fundraising implementing blocked completed unfulfilled archived]
     states.flatten.map { |state| [I18n.t(".global.state.#{state}"), state] }
   end
 
   def collection_states
-    states = %i[fundraising implementing locked completed unfulfilled]
+    states = %i[fundraising implementing blocked completed unfulfilled]
     states.map { |state| [I18n.t(".global.state.#{state}"), state] }
   end
 end
