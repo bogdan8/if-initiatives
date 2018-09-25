@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Admins::Initiatives::LocksController, type: :controller do
+RSpec.describe Admins::Initiatives::BlocksController, type: :controller do
   let!(:admin) { create(:admin) }
   let!(:user) { create(:user) }
   let!(:initiative) { create(:initiative, user: user) }
@@ -12,16 +12,16 @@ RSpec.describe Admins::Initiatives::LocksController, type: :controller do
   end
 
   describe 'POST #update' do
-    it 'initiative state should change to locked instead of fundraising' do
+    it 'initiative state should change to blocked instead of fundraising' do
       initiative.update_column(:state, :fundraising)
       post :update, params: { id: initiative.slug }
-      expect(Initiative.find(initiative.id).locked?).to eq(true)
+      expect(Initiative.find(initiative.id).blocked?).to eq(true)
       expect(response).to redirect_to(admins_initiatives_path)
     end
 
     it 'initiative state should not change if wrong state' do
       post :update, params: { id: initiative.slug }
-      expect(Initiative.find(initiative.id).locked?).to eq(false)
+      expect(Initiative.find(initiative.id).blocked?).to eq(false)
       expect(response).to redirect_to(admins_initiatives_path)
     end
   end

@@ -3,10 +3,10 @@
   = link_to t('.reject'), admins_initiatives_reject_path(initiative.id), method: :put, class: 'btn btn-danger btn-sm'
 - if initiative.fundraising?
   = link_to t('.implement'), admins_initiatives_implement_path(initiative.id), method: :put, class: 'btn btn-success btn-sm'
-  = link_to t('.lock'), admins_initiatives_lock_path(initiative.id), method: :put, class: 'btn btn-success btn-sm'
+  = link_to t('.block'), admins_initiatives_block_path(initiative.id), method: :put, class: 'btn btn-success btn-sm'
 - if initiative.implementing?
   = link_to t('.complete'), admins_initiatives_complete_path(initiative.id), method: :put, class: 'btn btn-success btn-sm'
   = link_to t('.unfulfill'), admins_initiatives_unfulfill_path(initiative.id), method: :put, class: 'btn btn-danger btn-sm'
-  = link_to t('.lock'), admins_initiatives_lock_path(initiative.id), method: :put, class: 'btn btn-danger btn-sm'
+  = link_to t('.block'), admins_initiatives_block_path(initiative.id), method: :put, class: 'btn btn-danger btn-sm'
 - if initiative.completed? || initiative.unfulfilled?
   = link_to t('.archive'), admins_initiatives_archive_path(initiative.id), method: :put, class: 'btn btn-success btn-sm'

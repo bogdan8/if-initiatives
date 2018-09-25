@@ -36,7 +36,7 @@ Rails.application.routes.draw do
       resources :comments, only: %i(destroy)
       resources :fundraises, only: %i(update)
       resources :implements, only: %i(update)
-      resources :locks, only: %i(update)
+      resources :blocks, only: %i(update)
       resources :rejects, only: %i(update)
       resources :completes, only: %i(update)
       resources :unfulfills, only: %i(update)

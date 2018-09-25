@@ -34,7 +34,7 @@ uk:
           implementing: 'Реалізація'
           completed: 'Завершено'
           unfulfilled: 'Не завершено'
-          locked: 'Заблоковано'
+          blocked: 'Заблоковано'
           archive: 'Заархівовано'
       show:
         breadcrumb:
@@ -68,7 +68,7 @@ uk:
           implementing: 'Реалізація'
           completed: 'Завершено'
           unfulfilled: 'Не завершено'
-          locked: 'Заблоковано'
+          blocked: 'Заблоковано'
           archive: 'Заархівовано'
       new:
         breadcrumb:
