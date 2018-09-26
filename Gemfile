@@ -37,13 +37,14 @@ gem 'select2-rails'
 gem 'slim'
 
 # for server
+gem 'aws-sdk-s3'
 gem 'babosa'
 gem 'dotenv-rails'
 gem 'foreman'
-gem 'friendly_id', '~> 5.1.0'
+gem 'friendly_id'
 gem 'kaminari'
-gem 'notifications', '~> 0.6.0'
-gem 'paperclip', '~> 5.2.0'
+gem 'notifications'
+gem 'paperclip'
 gem 'puma', '~> 3.0'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'social-share-button'
@@ -59,7 +60,6 @@ gem 'passgen'
 
 group :development, :test do
   gem 'awesome_print'
-  gem 'aws-sdk-s3'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
