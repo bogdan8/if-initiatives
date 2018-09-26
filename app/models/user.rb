@@ -51,12 +51,9 @@ class User < ApplicationRecord
   validates :phone, phone: true
 
   size_user_avatars = { medium: '300x300>', thumb: '100x100>' }
-  path_user_avatars = ':rails_root/public/images/:class/:attachment/:id/:style/:filename'
 
   has_attached_file :avatar,
                     styles: size_user_avatars,
-                    path: path_user_avatars,
-                    url: '/images/:class/:attachment/:id/:style/:filename',
                     default_url: '/images/missing.png'
   validates_attachment_content_type :avatar, content_type: %r{\Aimage\/.*\Z}
 
