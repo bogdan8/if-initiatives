@@ -37,9 +37,9 @@ Capybara::Screenshot.s3_configuration = {
   s3_client_credentials: {
     access_key_id: ENV['AMAZONE_KEY_ID'],
     secret_access_key: ENV['AMAZONE_SECRET_ACCESS_KEY'],
-    region: 'us-east-1'
+    region: ENV['AMAZONE_REGION']
   },
-  bucket_name: 'initiative-if'
+  bucket_name: ENV['AMAZONE_BUCKET']
 }
 
 # Capybara.configure do |config|
