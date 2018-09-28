@@ -1,4 +1,4 @@
-.col-sm-12
+div class="col-sm-12 #{action_name}"
   h2
     = t('devise.registrations.edit.title', resource: resource_name.to_s.humanize)
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
@@ -10,7 +10,12 @@
     = f.input :name
     = f.input :phone
     = f.input :age
-    = f.input :avatar, as: :file
+    .row
+      .col-12.col-xs-12.col-sm-6.col-lg-4.col-xl-3
+        - if f.object.avatar?
+          = image_tag f.object.avatar, class: 'image'
+      .col-12.col-xs-12.col-sm-6.col-lg-8.col-xl-9
+        = f.input :avatar, as: :file
     = f.input :password, autocomplete: :off, hint: t('devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it')
     = f.input :password_confirmation, autocomplete: :off
     = f.input :current_password, autocomplete: :off
