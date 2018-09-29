@@ -5,7 +5,7 @@ namespace :initiatives do
   task is_fundraised: :environment do
     @initiatives = Initiative.fundraising_now
     @initiatives.each do |initiative|
-      InitiativeMailer.send_if_fundraised(initiative).deliver_now! if initiative.to_fundraised
+      InitiativeMailer.send_implement(initiative).deliver_now! if initiative.implement
     end
   end
 end
