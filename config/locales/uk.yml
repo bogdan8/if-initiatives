@@ -165,7 +165,7 @@ uk:
           subject: 'Ваш тимчасовий пароль'
           title: 'Ваш новий пароль'
     initiative:
-      fundraised:
+      implement:
         subject: 'Дата збору коштів завершено'
         body: 'Завершено збір коштів на вашу ініціативу'
   helpers:
