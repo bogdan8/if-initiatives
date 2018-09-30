@@ -16,6 +16,8 @@
 #  state             :string           default("draft")
 #  slug              :string
 #  finished_at       :datetime
+#  longitude         :text
+#  latitude          :text
 #
 
 class Initiative < ApplicationRecord
