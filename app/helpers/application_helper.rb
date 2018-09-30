@@ -8,17 +8,20 @@ module ApplicationHelper
 
   def navigation_for_signout
     return if user_signed_in?
+
     safe_join(links_for_signout.map { |link| content_tag(:li, link, class: 'nav-item') })
   end
 
   def navigation_for_user
     return unless user_signed_in?
+
     unread_count = Notification.unread_count(current_user)
     safe_join(links_for_signin(unread_count).map { |link| content_tag(:li, link, class: 'nav-item') })
   end
 
   def navigation_for_admin
     return unless admin_signed_in?
+
     link = link_to(t('.admin.title'), main_app.admin_main_path, class: @link)
     content_tag(:li, link, class: 'nav-item')
   end

@@ -69,6 +69,7 @@ module Users
 
     def add_categories_to_initiative
       return if params[:initiative][:category_ids].nil?
+
       params[:initiative][:category_ids].each do |category|
         @initiative.categorizations.build(category_id: category) unless category.empty?
       end
