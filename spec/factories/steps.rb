@@ -13,7 +13,7 @@
 
 FactoryBot.define do
   factory :step do
-    initiative_id 1
-    state Faker::Lorem.characters(10)
+    initiative_id { 1 }
+    state { Faker::Lorem.characters(10) }
   end
 end

@@ -37,11 +37,11 @@
 
 FactoryBot.define do
   factory :user do
-    email Faker::Internet.email
-    password Faker::Internet.password
-    confirmed_at Time.zone.today
-    name Faker::Lorem.characters(10)
-    phone '+380991234567'
-    age 24
+    email { Faker::Internet.email }
+    password { Faker::Internet.password }
+    confirmed_at { Time.zone.today }
+    name { Faker::Lorem.characters(10) }
+    phone { '+380991234567' }
+    age { 24 }
   end
 end

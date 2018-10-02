@@ -13,7 +13,7 @@
 
 FactoryBot.define do
   factory :categorization do
-    initiative_id 1
-    category_id 1
+    initiative_id { 1 }
+    category_id { 1 }
   end
 end

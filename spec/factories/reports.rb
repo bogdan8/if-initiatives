@@ -14,7 +14,7 @@
 
 FactoryBot.define do
   factory :report do
-    title Faker::Lorem.characters(10)
-    description Faker::Lorem.characters(26)
+    title { Faker::Lorem.characters(10) }
+    description { Faker::Lorem.characters(26) }
   end
 end

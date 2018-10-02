@@ -17,12 +17,12 @@
 
 FactoryBot.define do
   factory :donation do
-    payer_id 1
-    user_id 1
-    initiative_id 1
-    amount 123
-    description Faker::Lorem.characters(55)
-    currency 'usd'
-    status 'success'
+    payer_id { 1 }
+    user_id { 1 }
+    initiative_id { 1 }
+    amount { 123 }
+    description { Faker::Lorem.characters(55) }
+    currency { 'usd' }
+    status { 'success' }
   end
 end

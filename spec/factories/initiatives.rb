@@ -22,11 +22,11 @@
 
 FactoryBot.define do
   factory :initiative do
-    title Faker::Lorem.characters(10)
-    short_description Faker::Lorem.characters(26)
-    long_description Faker::Lorem.characters(55)
-    general_sum 123
-    finished_at Time.current
-    collected_amount 123
+    title { Faker::Lorem.characters(10) }
+    short_description { Faker::Lorem.characters(26) }
+    long_description { Faker::Lorem.characters(55) }
+    general_sum { 123 }
+    finished_at { Time.current }
+    collected_amount { 123 }
   end
 end
