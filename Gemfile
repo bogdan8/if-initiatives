@@ -12,6 +12,7 @@ end
 gem 'breadcrumbs_on_rails'
 gem 'cocoon'
 gem 'draper'
+gem 'geocoder'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'rails', '~> 5.1.5'
 gem 'ransack'

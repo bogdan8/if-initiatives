@@ -15,7 +15,7 @@
 
 FactoryBot.define do
   factory :comment do
-    title Faker::Lorem.characters(15)
-    text Faker::Lorem.characters(20)
+    title { Faker::Lorem.characters(15) }
+    text { Faker::Lorem.characters(20) }
   end
 end

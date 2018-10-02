@@ -61,7 +61,7 @@ module Users
     end
 
     def initiative_params
-      text = %i[title short_description long_description]
+      text = %i[title short_description long_description latitude longitude]
       number = %i[finished_at general_sum]
       attachments = %i[id image video _destroy]
       params.require(:initiative).permit(*text, *number, attachments_attributes: [*attachments])
@@ -69,6 +69,7 @@ module Users
 
     def add_categories_to_initiative
       return if params[:initiative][:category_ids].nil?
+
       params[:initiative][:category_ids].each do |category|
         @initiative.categorizations.build(category_id: category) unless category.empty?
       end

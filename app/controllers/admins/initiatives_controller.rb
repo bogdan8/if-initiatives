@@ -25,11 +25,5 @@ module Admins
     def find_initiative
       @initiative = Initiative.friendly.find(params[:id])
     end
-
-    def initiative_params
-      text = %i[title short_description long_description]
-      number = %i[finish_days general_sum]
-      params.require(:initiative).permit(*text, *number)
-    end
   end
 end

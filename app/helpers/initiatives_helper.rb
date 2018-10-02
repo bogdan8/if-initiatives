@@ -3,6 +3,7 @@
 module InitiativesHelper
   def liqpay(liqpay_request)
     return unless current_user
+
     liqpay_button liqpay_request, title: t('.pay')
   end
 
