@@ -7,3 +7,4 @@
 #= require select2
 #= require jquery.easy-autocomplete
 #= require admin/initiatives
+#= require fancybox.min
