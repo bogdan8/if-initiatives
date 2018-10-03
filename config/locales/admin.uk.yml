@@ -129,7 +129,7 @@ uk:
       unfulfills:
         update:
           success: 'Відхилено'
-      rejections:
+      rejects:
         update:
           success: 'Відхилено'
       comments:
