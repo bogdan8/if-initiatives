@@ -8,3 +8,4 @@
 #= require jquery.easy-autocomplete
 #= require initiatives
 #= require form
+#= require fancybox.min
