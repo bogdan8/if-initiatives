@@ -38,7 +38,7 @@ uk:
           archive: Заархівовано
       show:
         breadcrumb:
-          title: Ініціатива: "%{obj}"
+          title: "Ініціатива: %{obj}"
         finished_at: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
         collected_amount: "Зібрано коштів: %{amount}"
