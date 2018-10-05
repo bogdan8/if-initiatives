@@ -1,156 +1,156 @@
 uk:
   global:
     state:
-      draft: 'Чернетка'
-      verifying: 'Перевіряється'
-      rejected: 'Відхиленно'
-      fundraising: 'Збір коштів'
-      implementing: 'Реалізація'
-      completed: 'Завершено'
-      unfulfilled: 'Не завершено'
-      blocked: 'Заблоковано'
-      archived: 'Заархівовано'
+      draft: Чернетка
+      verifying: Перевіряється
+      rejected: Відхиленно
+      fundraising: Збір коштів
+      implementing: Реалізація
+      completed: Завершено
+      unfulfilled: Не завершено
+      blocked: Заблоковано
+      archived: Заархівовано
   breadcrumb:
-    title: 'Головна'
+    title: Головна
   categories:
     show:
-      title: 'Категорії'
+      title: Категорії
       initiatives:
         finish_date: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
         collected_amount: "Зібрано коштів: %{amount}"
         button:
-          show: 'Переглянути'
+          show: Переглянути
   comments:
     create:
-      success: 'Коментар успішно добавлений'
+      success: Коментар успішно добавлений
     update:
-      success: 'Коментар успішно відредагований'
+      success: Коментар успішно відредагований
     destroy:
-      success: 'Коментар успішно видаленний'
+      success: Коментар успішно видаленний
   contacts:
     new:
       breadcrumb:
         title: "Зв'язатись з нами"
       button:
-        new: 'Надіслати'
+        new: Надіслати
     create:
-      success: 'Дякуємо за звязок з нами, очікуйте відповіді'
+      success: Дякуємо за звязок з нами, очікуйте відповіді
   subscriptions:
     create:
-      success: 'Ви успішно підписались'
+      success: Ви успішно підписались
       button:
-        create: 'Підписатись'
+        create: Підписатись
   initiatives:
     breadcrumb:
-      title: 'Ініціативи'
+      title: Ініціативи
     index:
       button:
-        show: 'Переглянути'
+        show: Переглянути
       breadcrumb:
-        title: 'Ініціативи'
-      title: 'Ініціативи'
+        title: Ініціативи
+      title: Ініціативи
       short_description:
       finish_date: "Дата завершення: %{date}"
       general_sum: "Загальна сума: %{sum}"
       collected_amount: "Зібрано коштів: %{amount}"
-      categories: 'Категорії'
+      categories: Категорії
       state:
-        draft: 'Чернетка'
-        verifying: 'Перевіряється'
-        rejected: 'Відхиленно'
-        fundraising: 'Збір коштів'
-        implementing: 'Реалізація'
-        completed: 'Завершено'
-        unfulfilled: 'Не завершено'
-        blocked: 'Заблоковано'
-        archive: 'Заархівовано'
+        draft: Чернетка
+        verifying: Перевіряється
+        rejected: Відхиленно
+        fundraising: Збір коштів
+        implementing: Реалізація
+        completed: Завершено
+        unfulfilled: Не завершено
+        blocked: Заблоковано
+        archive: Заархівовано
     sort:
       filter:
-        title: 'Фільтр'
-        added_date: 'Дата добавлення'
+        title: Фільтр
+        added_date: Дата добавлення
         submit:
-          title: 'Фільтрувати'
+          title: Фільтрувати
     show:
-      pay: 'Пожертвувати'
+      pay: Пожертвувати
       breadcrumb:
         title: "Ініціатива: %{obj}"
       timeline:
-        title: 'Історія змін'
-      title: 'Ініціатива'
-      long_description: 'Опис'
+        title: Історія змін
+      title: Ініціатива
+      long_description: Опис
       finish_date: "Дата завершення: %{date}"
       general_sum: "Загальна сума: %{sum}"
       collected_amount: "Зібрано коштів: %{amount}"
       images:
-        title: 'Зображення'
+        title: Зображення
       videos:
-        title: 'Відео'
+        title: Відео
       steps:
-        title: 'Історія змін'
+        title: Історія змін
       comments:
-        title: 'Коментарі'
+        title: Коментарі
         new:
-          title: 'Додати коментар'
+          title: Додати коментар
         edit:
           title: "Редагувати: %{comment}"
         button:
-          new: 'Додати'
-          edit: 'Редагувати'
+          new: Додати
+          edit: Редагувати
       state:
-        draft: 'Чернетка'
-        verifying: 'Перевіряється'
-        rejected: 'Відхиленно'
-        fundraising: 'Збір коштів'
-        implementing: 'Реалізація'
-        completed: 'Завершено'
-        unfulfilled: 'Не завершено'
-        blocked: 'Заблоковано'
-        archive: 'Заархівовано'
+        draft: Чернетка
+        verifying: Перевіряється
+        rejected: Відхиленно
+        fundraising: Збір коштів
+        implementing: Реалізація
+        completed: Завершено
+        unfulfilled: Не завершено
+        blocked: Заблоковано
+        archive: Заархівовано
     donation:
-      title: 'Підтвердження оплати'
-      description: 'Після підтвердження пожертви, ви будете перенаправленні на сторінку liqpay де ви зможете вибрати для себе зручний тип оплати.'
-      pay: 'Підтвердити пожертву'
-      reject: 'Відхилити'
+      title: Підтвердження оплати
+      description: Після підтвердження пожертви, ви будете перенаправленні на сторінку liqpay де ви зможете вибрати для себе зручний тип оплати.
+      pay: Підтвердити пожертву
+      reject: Відхилити
   notifications:
     notifications:
       index:
-        title: 'Сповіщення'
-        clean: 'Очистити все'
+        title: Сповіщення
+        clean: Очистити все
     comment:
       title: "Назва: %{title}"
-      commented: 'Прокоментував'
-      read: 'Прочитано'
-      new: 'Нове'
+      commented: Прокоментував
+      read: Прочитано
+      new: Нове
     contact:
-      added: 'Додав питання'
-      read: 'Прочитано'
-      new: 'Нове'
-      full_name: "Ім'я: %{name}"
+      added: Додав питання
+      read: Прочитано
+      new: Нове
+      full_name: "Імя: %{name}"
       email: "Емейл: "
-      description: 'Опис'
+      description: Опис
     donation:
-      donated: 'Пожертвув'
-      read: 'Прочитано'
-      new: 'Нове'
-      name: "Ім'я: %{name}"
+      donated: Пожертвув
+      read: Прочитано
+      new: Нове
+      name: "Імя: %{name}"
       phone: "Телефон: %{phone}"
       email: "Емейл: %{email}"
       amount: "Сума: %{amount}"
     initiative:
-      added: 'Додав ініціативу'
-      read: 'Прочитано'
-      new: 'Нове'
+      added: Додав ініціативу
+      read: Прочитано
+      new: Нове
       target:
         title: "Назва: %{title}"
     report:
-      reported: 'Повідомив у'
-      read: 'Прочитано'
-      new: 'Нове'
+      reported: Повідомив у
+      read: Прочитано
+      new: Нове
       title: "Назва: %{title}"
   unauthorized:
     manage:
-      all: 'Ви не маєте доступу до цього ресурсу'
+      all: Ви не маєте доступу до цього ресурсу
   views:
     pagination:
       first: '&laquo; Перший'
@@ -162,12 +162,12 @@ uk:
     user:
       pasword:
         temporary: 
-          subject: 'Ваш тимчасовий пароль'
-          title: 'Ваш новий пароль'
+          subject: Ваш тимчасовий пароль
+          title: Ваш новий пароль
     initiative:
       implement:
-        subject: 'Дата збору коштів завершено'
-        body: 'Завершено збір коштів на вашу ініціативу'
+        subject: Дата збору коштів завершено
+        body: Завершено збір коштів на вашу ініціативу
   helpers:
     page_entries_info:
       one_page:
@@ -206,7 +206,7 @@ uk:
     - вівторок
     - середа
     - четвер
-    - п'ятниця
+    - пятниця
     - субота
     formats:
       default: "%d.%m.%Y"
@@ -252,7 +252,7 @@ uk:
         many: "майже %{count} років"
         one: "майже %{count} роки"
         other: "майже %{count} років"
-      half_a_minute: 'півхвилини'
+      half_a_minute: півхвилини
       less_than_x_minutes:
         few: "менше %{count} хвилин"
         many: "менше %{count} хвилин"
@@ -303,21 +303,21 @@ uk:
   errors:
     format: "%{attribute} %{message}"
     messages:
-      accepted: 'має бути прийнятий'
-      blank: 'не може бути пустим'
-      present: 'має бути пустим'
-      confirmation: 'не збігається з підтвердженням'
-      empty: 'не може бути порожнім'
+      accepted: має бути прийнятий
+      blank: не може бути пустим
+      present: має бути пустим
+      confirmation: не збігається з підтвердженням
+      empty: не може бути порожнім
       equal_to: "має дорівнювати %{count}"
-      even: 'має бути парним'
-      exclusion: 'зарезервовано'
+      even: має бути парним
+      exclusion: зарезервовано
       greater_than: "має бути більше ніж %{count}"
       greater_than_or_equal_to: "має бути більше ніж або дорівнювати %{count}"
-      inclusion: 'не включено до переліку'
-      invalid: 'недійсний'
+      inclusion: не включено до переліку
+      invalid: недійсний
       less_than: "має бути менше ніж %{count}"
       less_than_or_equal_to: "має бути менше ніж або дорівнювати %{count}"
-      model_invalid: 'Виникли помилки: %{errors}'
+      model_invalid: Виникли помилки: "%{errors}"
       not_a_number: не число
       not_an_integer: не э цілим числом
       odd: має бути непарним
@@ -340,7 +340,7 @@ uk:
         other: неправильна довжина (має бути %{count} знаку)
       other_than: має відрізнятись від %{count}
     template:
-      body: 'Помилки виявлено в таких полях:'
+      body: "Помилки виявлено в таких полях:"
       header:
         few: "%{model} не збережено через %{count} помилки"
         many: "%{model} не збережено через %{count} помилок"
@@ -348,27 +348,27 @@ uk:
         other: "%{model} не збережено через %{count} помилки"
   helpers:
     select:
-      prompt: 'Оберіть: '
+      prompt: "Оберіть:" 
     submit:
-      create: Створити %{model}
-      submit: Зберегти %{model}
-      update: Зберегти %{model}
+      create: "Створити %{model}"
+      submit: "Зберегти %{model}"
+      update: "Зберегти %{model}"
   number:
     currency:
       format:
-        delimiter: " "
+        delimiter: ' '
         format: "%n %u"
         precision: 2
-        separator: ","
-        significant: false
-        strip_insignificant_zeros: false
+        separator: ','
+        significant: 'false'
+        strip_insignificant_zeros: 'false'
         unit: грн.
     format:
-      delimiter: " "
+      delimiter: ' '
       precision: 3
-      separator: ","
-      significant: false
-      strip_insignificant_zeros: false
+      separator: ','
+      significant: 'false'
+      strip_insignificant_zeros: 'false'
     human:
       decimal_units:
         format: "%n %u"
@@ -398,12 +398,12 @@ uk:
             many: Трильйонів
             one: Трильйон
             other: Трильйонів
-          unit: ''
+          unit: 
       format:
-        delimiter: ''
+        delimiter: ' '
         precision: 1
-        significant: false
-        strip_insignificant_zeros: false
+        significant: 'false'
+        strip_insignificant_zeros: 'false'
       storage_units:
         format: "%n %u"
         units:
@@ -418,10 +418,10 @@ uk:
           tb: ТБ
     percentage:
       format:
-        delimiter: ''
+        delimiter: 
     precision:
       format:
-        delimiter: ''
+        delimiter: 
   support:
     array:
       last_word_connector: " та "

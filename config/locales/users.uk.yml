@@ -3,166 +3,166 @@ uk:
     users:
       show:
         breadcrumb:
-          title: 'Мій профіль'
-        title: 'Профіле'
+          title: Мій профіль
+        title: Профіле
         email: "Емейл: %{email}"
         phone: "Телефон: %{phone}"
         age: "Вік: %{age} років"
         button:
-          edit: 'Редагувати'
+          edit: Редагувати
     initiatives:
       buttons:
-        verify: 'Надіслати на підтвердження'
-        show: 'Переглянути'
-        edit: 'Редагувати'
-        destroy: 'Видалити'
-        fundraised: 'Збір коштів'
-        confirm: 'Ви дійсно хочите видалити?'
+        verify: Надіслати на підтвердження
+        show: Переглянути
+        edit: Редагувати
+        destroy: Видалити
+        fundraised: Збір коштів
+        confirm: Ви дійсно хочите видалити?
       index:
         breadcrumb:
-          title: 'Ініціативи'
-        title: 'Ініціативи'
+          title: Ініціативи
+        title: Ініціативи
         finished_at: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
         collected_amount: "Зібрано коштів: %{amount}"
-        categories: 'Категорії'
+        categories: Категорії
         state:
-          draft: 'Чернетка'
-          verifying: 'Перевіряється'
-          rejected: 'Відхиленно'
-          fundraising: 'Збір коштів'
-          implementing: 'Реалізація'
-          completed: 'Завершено'
-          unfulfilled: 'Не завершено'
-          blocked: 'Заблоковано'
-          archive: 'Заархівовано'
+          draft: Чернетка
+          verifying: Перевіряється
+          rejected: Відхиленно
+          fundraising: Збір коштів
+          implementing: Реалізація
+          completed: Завершено
+          unfulfilled: Не завершено
+          blocked: Заблоковано
+          archive: Заархівовано
       show:
         breadcrumb:
-          title: 'Ініціатива: %{obj}'
+          title: Ініціатива: "%{obj}"
         finished_at: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
         collected_amount: "Зібрано коштів: %{amount}"
         comments:
-          title: 'Коментарі'
-        categories: 'Категорії'
+          title: Коментарі
+        categories: Категорії
         button:
-          edit: 'Редагувати'
-          show: 'Переглянути'
-          destroy: 'Видалити'
+          edit: Редагувати
+          show: Переглянути
+          destroy: Видалити
         reports:
           button:
-            new: 'Додати звітність'
+            new: Додати звітність
         images:
-          title: 'Зображення'
+          title: Зображення
         videos:
-          title: 'Відео'
+          title: Відео
         steps:
-          title: 'Історія'
+          title: Історія
         timeline:
-          title: 'Хронологія'
+          title: Хронологія
         state:
-          draft: 'Чернетка'
-          verifying: 'Перевіряється'
-          rejected: 'Відхиленно'
-          fundraising: 'Збір коштів'
-          implementing: 'Реалізація'
-          completed: 'Завершено'
-          unfulfilled: 'Не завершено'
-          blocked: 'Заблоковано'
-          archive: 'Заархівовано'
+          draft: Чернетка
+          verifying: Перевіряється
+          rejected: Відхиленно
+          fundraising: Збір коштів
+          implementing: Реалізація
+          completed: Завершено
+          unfulfilled: Не завершено
+          blocked: Заблоковано
+          archive: Заархівовано
       new:
         breadcrumb:
-          title: 'Додати ініціативу'
-        title: 'Добавити'
+          title: Додати ініціативу
+        title: Добавити
       create:
         breadcrumb:
-          title: 'Додати ініціативу'
-        success: 'Ініціативу додано, ви можете переглянути її у своєму кабінеті та надіслати на підтвердження'
+          title: Додати ініціативу
+        success: Ініціативу додано, ви можете переглянути її у своєму кабінеті та надіслати на підтвердження
       edit:
         breadcrumb:
           title: "Редагувати: %{obj}"
-        title: 'Редагувати'
+        title: Редагувати
       update:
-        success: 'Ініціативу успішно оновлено'
+        success: Ініціативу успішно оновлено
       sort:
         filter:
-          title: 'Фільтр'
-          added_date: 'Дата добавлення'
+          title: Фільтр
+          added_date: Дата добавлення
           submit:
-            title: 'Фільтрувати'
+            title: Фільтрувати
       verifies:
         update:
-          success: 'Ініціативу надіслано на перевірку'
+          success: Ініціативу надіслано на перевірку
       form:
         button:
-          new: 'Добавити'
-          edit: 'Редагувати'
+          new: Добавити
+          edit: Редагувати
         image:
           button:
-            new: 'Добавити зображення'
-            video: 'Добавити відео'
+            new: Добавити зображення
+            video: Добавити відео
       images:
-        title: 'Зображення'
+        title: Зображення
       videos:
-        title: 'Відео'
+        title: Відео
       steps:
-        title: 'Кроки'
+        title: Кроки
       timeline:
-        title: 'Хронологія'
+        title: Хронологія
       comments:
-        title: 'Коментарі'
+        title: Коментарі
         create:
-          success: 'Коментар успішно створений'
+          success: Коментар успішно створений
         update:
-          success: 'Коментар успішно оновлений'
+          success: Коментар успішно оновлений
       reports:
         create:
-          success: 'Звітність додано'
+          success: Звітність додано
         update:
-          success: 'Звітність оновлена'
+          success: Звітність оновлена
         button:
-          new: 'Додати репорт'
+          new: Додати репорт
     reports:
       new:
-        submit: 'Добавити'
+        submit: Добавити
         attachments:
           image:
             button:
-              new: 'Додати зображення'
+              new: Додати зображення
           video:
             button:
-              new: 'Додати відео'
+              new: Додати відео
       edit:
-        submit: 'Редагувати'
+        submit: Редагувати
         attachments:
           image:
             button:
-              new: 'Додати зображення'
+              new: Додати зображення
           video:
             button:
-              new: 'Додати відео'
+              new: Додати відео
       form:
         new:
-          submit: 'Добавити'
+          submit: Добавити
         attachments:
           image:
             button:
-              new: 'Додати зображення'
+              new: Додати зображення
           video:
             button:
-              new: 'Додати відео'
+              new: Додати відео
       reports:
         title: "Назва: %{title}"
         description: "Опис: %{description}"
         updated_at: "Оновлено в %{date}"
         button:
-          destroy: 'Видалити'
-        confirm: 'Ви дійсно хочите видалити цей запис'
+          destroy: Видалити
+        confirm: Ви дійсно хочите видалити цей запис
     attachments:
       form:
         image:
           button:
-            destroy: 'Видалити'
+            destroy: Видалити
         video:
           button:
-            destroy: 'Видалити'
+            destroy: Видалити
