@@ -38,7 +38,8 @@
         .card-body
           .row
             - @initiative.decorate.attachments_images.each do |attachment|
-                .col-sm-12.col-md-6.col-lg-4.col-xl-3
+              .col-sm-12.col-md-6.col-lg-4.col-xl-3
+                a data-fancybox='gallery' href="#{attachment.image.url(:original)}"
                   = image_tag attachment.image.url(:medium), class: 'image'
     - if @initiative.decorate.attachments_videos.any?
       /! videos
@@ -48,8 +49,8 @@
         .card-body
           .row
             - @initiative.decorate.attachments_videos.each do |attachment|
-                .col-sm-12.col-md-6.col-lg-6.col-xl-6.margin-bottom-20
-                  = video_tag attachment.video.url, controls: true, class: 'full-video'
+              .col-sm-12.col-md-6.col-lg-6.col-xl-6.margin-bottom-20
+                = video_tag attachment.video.url, controls: true, class: 'full-video'
     - @initiative.steps.any?
       /! steps
       .card

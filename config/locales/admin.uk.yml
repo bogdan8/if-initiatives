@@ -128,8 +128,8 @@ uk:
           success: Архівовано
       unfulfills:
         update:
-          success: Відхилено
-      rejections:
+          success: Не виконано
+      rejects:
         update:
           success: Відхилено
       comments:
