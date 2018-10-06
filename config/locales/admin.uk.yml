@@ -3,238 +3,238 @@ uk:
     main:
       index:
         role:
-          user: 'Користувач'
-          administrator: 'Адміністратор'
-          moderator: 'Модератор'
-        title: 'Адмін панель'
+          user: Користувач
+          administrator: Адміністратор
+          moderator: Модератор
+        title: Адмін панель
         initiatives:
-          title: 'Ініціативи'
+          title: Ініціативи
           short_description: "Короткий опис: %{description}"
           finish_date: "Дата завершення: %{date}"
           general_sum: "Загальна сума: %{sum}"
           collected_amount: "Зібрано коштів: %{amount}"
         users:
-          title: 'Користувачі'
+          title: Користувачі
           email: "Емейл: %{email}"
           phone: "Телефон: %{phone}"
           age: "Вік: %{age} років"
           initiatives:
             count: "Кількість: %{count}"
         subscriptions:
-          title: 'Підписки'
+          title: Підписки
           email: "Емейл: %{email}"
           created_at: "Додано в: %{date}"
         categories:
-          title: 'Категорії'
+          title: Категорії
           position: "Позиція: %{position}"
           initiatives:
             count: "Кількість: %{count}"
         button:
-          show: 'Переглянути'
-          destroy: 'Видалити'
-          confirm: 'Ви дійсно хочете видалити?'
+          show: Переглянути
+          destroy: Видалити
+          confirm: Ви дійсно хочете видалити?
     initiatives:
       buttons:
-        reject: 'Відхилити'
-        verify: 'Підтвердити'
-        fundraise: 'Розпочати збір коштів'
-        implement: 'Розпочати реалізацію'
-        block: 'Заблокувати'
-        complete: 'Завершено'
-        unfulfill: 'Провалено'
-        archive: 'Архівувати'
+        reject: Відхилити
+        verify: Підтвердити
+        fundraise: Розпочати збір коштів
+        implement: Розпочати реалізацію
+        block: Заблокувати
+        complete: Завершено
+        unfulfill: Провалено
+        archive: Архівувати
       sort:
         filter:
-          title: 'Фільтрувати'
-          added_date: 'Дата добавлення'
+          title: Фільтрувати
+          added_date: Дата добавлення
       index:
-        title: 'Ініціативи'
+        title: Ініціативи
         title_body: "Назва: %{title}"
         short_description: "Короткий опис: %{description}"
         finish_date: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
         collected_amount: "Зібрано коштів: %{amount}" 
-        categories: 'Категорії'
+        categories: Категорії
         button:
-          show: 'Переглянути'
-          edit: 'Редагувати'
-          destroy: 'Видалити'
-          confirm: 'Ви дійсно хочете видалити?'
+          show: Переглянути
+          edit: Редагувати
+          destroy: Видалити
+          confirm: Ви дійсно хочете видалити?
         state:
-          draft: 'Чернетка'
-          verifying: 'Перевіряється'
-          rejected: 'Відхиленно'
-          fundraising: 'Збір коштів'
-          implementing: 'Реалізація'
-          completed: 'Завершено'
-          unfulfilled: 'Не завершено'
-          blocked: 'Заблоковано'
-          archived: 'Заархівовано'
+          draft: Чернетка
+          verifying: Перевіряється
+          rejected: Відхиленно
+          fundraising: Збір коштів
+          implementing: Реалізація
+          completed: Завершено
+          unfulfilled: Не завершено
+          blocked: Заблоковано
+          archived: Заархівовано
       show:
-        title: 'Ініціатива'
+        title: Ініціатива
         title_body: "Назва: %{title}"
         short_description: "Короткий опис: %{description}"
         long_description: "Довгий опис: %{description}"
         finish_date: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
         collected_amount: "Зібрано коштів: %{amount}"
-        categories: 'Категорії'
+        categories: Категорії
         button:
-          show: 'Переглянути'
-          edit: 'Редагувати'
-          destroy: 'Видалити'
-          confirm: 'Ви дійсно хочете видалити?'
+          show: Переглянути
+          edit: Редагувати
+          destroy: Видалити
+          confirm: Ви дійсно хочете видалити?
         breadcrumb:
-          title: 'Ініціатива'
+          title: Ініціатива
         images:
-          title: 'Зображення'
+          title: Зображення
         videos:
-          title: 'Відео'
+          title: Відео
         comments:
-          title: 'Коментарі'
+          title: Коментарі
           user:
-            name: "Ім'я: %{name}"
+            name: "Імя: %{name}"
         comment:
           title: "Назва: %{title}"
           text: "Текс: %{text}"
-        confirm: 'Ви дійно хочите видалити?'
+        confirm: Ви дійно хочите видалити?
       edit:
         breadcrumb:
-          title: 'Редагувати'
-        title: 'Редагувати'
+          title: Редагувати
+        title: Редагувати
         categories:
-          chose: 'Виберіть вашу категорію'
+          chose: Виберіть вашу категорію
         button:
-          edit: 'Редагувати'
+          edit: Редагувати
       update:
-        success: 'Ініціативу успішно відредаговано'
+        success: Ініціативу успішно відредаговано
       fundraises:
         update:
-          success: 'Розпочато збір коштів'
+          success: Розпочато збір коштів
       implementions:
         update:
           success:
-            implementing: 'Розпочато реалізацію'
-            implemented: 'Реалізацію завершено'
-            unimplemented: 'Не реалізовано'
+            implementing: Розпочато реалізацію
+            implemented: Реалізацію завершено
+            unimplemented: Не реалізовано
       implements:
         update:
-          success: 'Імплементацію розпочато'
+          success: Імплементацію розпочато
       blocks:
         update:
-          success: 'Заблоковано'
+          success: Заблоковано
       archives:
         update:
-          success: 'Архівовано'
+          success: Архівовано
       unfulfills:
         update:
-          success: 'Відхилено'
+          success: Не виконано
       rejects:
         update:
-          success: 'Відхилено'
+          success: Відхилено
       comments:
         destroy:
-          success: 'Коментар успішно видалений'
+          success: Коментар успішно видалений
     contacts:
       index:
-        title: 'Звязатись з нами'
+        title: Звязатись з нами
         email: "Емейл: %{email}"
         description: "Опис: %{description}"
         button:
-          destroy: 'Видалити'
+          destroy: Видалити
       new:
         breadcrumb:
-          title: "Зв'язатись з нами"
+          title: "Звязатись з нами"
         button:
-          new: 'Надіслати'
+          new: Надіслати
       destroy:
-        success: 'Звязатись з нами успішно видаленно'
+        success: Звязатись з нами успішно видаленно
     subscriptions:
       index:
-        title: 'Підписки'
+        title: Підписки
         email: "Емейл: %{email}"
         created_at: "Додано о: %{date}"
         button:
-          destroy: 'Видалити'
+          destroy: Видалити
     categories: 
       index:
-        title: 'Категорії'
+        title: Категорії
         titles: "Назва: %{title}"
         position: "Позиція: %{position}"
         initiatives:
           count: "Кількість: %{count}"
         button:
-          new: 'Додати'
-          show: 'Показати'
-          edit: 'Редагувати'
-          destroy: 'Видалити'
-        confirm: 'Ви дійсно хочите видалити?'
+          new: Додати
+          show: Показати
+          edit: Редагувати
+          destroy: Видалити
+        confirm: Ви дійсно хочите видалити?
       show:
-        title: 'Назва'
+        title: Назва
         body_title: "Назва: %{title}"
         position: "Позиція: %{position}"
         initiatives:
           count: "Кількість ініціатив: %{count}"
         breadcrumb:
-          title: 'Категорія'
-        confirm: 'Ви дійсно хочите видалити?'
+          title: Категорія
+        confirm: Ви дійсно хочите видалити?
         button:
-          edit: 'Редагувати'
-          destroy: 'Видалити'
+          edit: Редагувати
+          destroy: Видалити
       new:
-        title: 'Додати категорію'
+        title: Додати категорію
         breadcrumb:
-          title: 'Додати категорію'
+          title: Додати категорію
       create:
-        title: 'Додати категорію'
-        success: 'Категорію успішно створено'
+        title: Додати категорію
+        success: Категорію успішно створено
         breadcrumb:
-          title: 'Додати категорію'
+          title: Додати категорію
       edit:
-        title: 'Редагувати категорію'
+        title: Редагувати категорію
         breadcrumb:
-          title: 'Редагувати категорію'
+          title: Редагувати категорію
       update:
-        title: 'Редагувати категорію'
-        success: 'Категорію успішно оновлено'
+        title: Редагувати категорію
+        success: Категорію успішно оновлено
       destroy:
-        success: 'Категорію успішно видалено'
+        success: Категорію успішно видалено
       form:
         button:
-          new: 'Додати'
-          edit: 'Редагувати'
+          new: Додати
+          edit: Редагувати
     users:
       index:
-        title: 'Користувачі'
-        name: "Ім'я: %{name}"
+        title: Користувачі
+        name: "Імя: %{name}"
         email: "Емейл: %{email}"
         phone: "Телефон: %{phone}"
         age: "Вік: %{age} років"
         initiatives:
           count: "Кількість ініціатив: %{count}"
         button:
-          show: 'Переглянути'
+          show: Переглянути
         role:
-          user: 'Користувач'
-          administrator: 'Адміністратор'
-          moderator: 'Модератор'
+          user: Користувач
+          administrator: Адміністратор
+          moderator: Модератор
       show:
         breadcrumb:
-          title: 'Користувач'
-        title: 'Користувач'
-        name: "Ім'я: %{name}"
+          title: Користувач
+        title: Користувач
+        name: "Імя: %{name}"
         email: "Емейл: %{email}"
         phone: "Телефон: %{phone}"
         age: "Вік: %{age} років"
         initiatives:
           count: "Кількість ініціатив: %{count}"
         button:
-          edit: 'Редагувати'
-          destroy: 'Видалити'
+          edit: Редагувати
+          destroy: Видалити
         role:
-          user: 'Користувач'
-          administrator: 'Адміністратор'
-          moderator: 'Модератор'
+          user: Користувач
+          administrator: Адміністратор
+          moderator: Модератор
     comments:
       destroy:
-        success: 'Коментар успішно видаленний'
+        success: Коментар успішно видаленний

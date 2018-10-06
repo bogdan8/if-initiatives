@@ -1,68 +1,72 @@
 uk:
   simple_form:
-    yes: 'Так'
-    no: 'Ні'
+    'yes': Так
+    'no': Ні
     required:
-      text: 'вимагається'
+      text: вимагається
       mark: '*'
     error_notification:
-      default_message: 'Будь ласка, перегляньте наведені нижче проблеми:'
+      default_message: "Будь ласка, перегляньте наведені нижче проблеми:"
     labels:
       user:
         edit:
-          email: 'Емейл'
-          password: 'Пароль'
-          remember_me: 'Запамятати мене'
+          email: Емейл
+          password: Пароль
+          remember_me: Запамятати мене
         new:
-          email: 'Емейл'
-          password: 'Пароль'
-          remember_me: 'Запамятати мене'
+          email: Емейл
+          password: Пароль
+          remember_me: Запамятати мене
       category:
         edit:
-          title: 'Назва'
-          position: 'Позиція'
+          title: Назва
+          position: Позиція
         new:
-          title: 'Назва'
-          position: 'Позиція'
+          title: Назва
+          position: Позиція
       comment:
         edit:
-          title: 'Назва'
-          text: 'Текст'
+          title: Назва
+          text: Текст
         new:
-          title: 'Назва'
-          text: 'Текст'
+          title: Назва
+          text: Текст
       attachment:
         edit:
-          title: 'Назва'
-          description: 'Текст'
+          title: Назва
+          description: Текст
         new:
-          title: 'Назва'
-          description: 'Текст'
+          title: Назва
+          description: Текст
       report:
-        title: 'Назва'
-        description: 'Текст'
+        title: Назва
+        description: Текст
         edit:
-          title: 'Назва'
-          description: 'Текст'
+          title: Назва
+          description: Текст
         new:
-          title: 'Назва'
-          description: 'Текст'
+          title: Назва
+          description: Текст
       initiative:
         edit:
-          title: 'Назва'
-          long_description: 'Опис'
-          short_description: 'Короткий опис'
-          finished_date: 'Дата завершення'
-          general_sum: 'Загальна ціна'
-          collected_amount: 'Зібрано коштів'
-          category_ids: 'Категорії'
-          finished_at: 'Дата завершення'
+          title: Назва
+          long_description: Опис
+          short_description: Короткий опис
+          finished_date: Дата завершення
+          general_sum: Загальна ціна
+          collected_amount: Зібрано коштів
+          category_ids: Категорії
+          finished_at: Дата завершення
+          latitude: Широта
+          longitude: Довгота
         new:
-          title: 'Назва'
-          long_description: 'Опис'
-          short_description: 'Короткий опис'
-          finished_date: 'Дата завершення'
-          general_sum: 'Загальна ціна'
-          collected_amount: 'Зібрано коштів'
-          category_ids: 'Категорії'
-          finished_at: 'Дата завершення'
+          title: Назва
+          long_description: Опис
+          short_description: Короткий опис
+          finished_date: Дата завершення
+          general_sum: Загальна ціна
+          collected_amount: Зібрано коштів
+          category_ids: Категорії
+          finished_at: Дата завершення
+          latitude: Широта
+          longitude: Довгота

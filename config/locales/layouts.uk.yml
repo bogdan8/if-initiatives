@@ -2,62 +2,62 @@ uk:
   layouts:
     admin:
       header:
-        title: 'Адмін панель'
+        title: Адмін панель
         search:
-          title: 'Пошук'
+          title: Пошук
       navigation:
         initiatives:
-          title: 'Ініціативи'
+          title: Ініціативи
         categories:
-          title: 'Категорії'
+          title: Категорії
         subscriptions:
-          title: 'Підписки'
+          title: Підписки
         contacts:
           title: "Зв'язатись з нами"
         users:
-          title: 'Користувачі'
+          title: Користувачі
         sign_out:
           button:
-            destroy: 'Вийти'
+            destroy: Вийти
     user:
       header:
-        title: 'Ініціативи'
+        title: Ініціативи
         search:
-          title: 'Пошук'
+          title: Пошук
       navigation:
         my:
           initiatives:
-            title: 'Мої ініціативи'
+            title: Мої ініціативи
         admins:
-          title: 'Адмін панель'
+          title: Адмін панель
         notifications:
           title: "%{count} Повідомлень"
         profile:
           button:
-            show: 'Профіль'
-            edit: 'Редагувати профіль'
+            show: Профіль
+            edit: Редагувати профіль
         sign_in:
           button:
-            new: 'Увійти'
+            new: Увійти
         sign_out:
           button:
-            destroy: 'Вийти'
+            destroy: Вийти
         registration:
           button:
-            new: 'Зареєструватись'
+            new: Зареєструватись
         initiatives:
-          title: 'Ініціативи'
+          title: Ініціативи
           button:
-            new: 'Додати ініціативу'
+            new: Додати ініціативу
         subscription:
           button:
-            new: 'Підписатись'
+            new: Підписатись
         contacts:
           button:
             new: "Зв'язатись з нами"
       subscription:
         subscription:
-          title: 'Підписатись'
+          title: Підписатись
           submit:
-            create: 'Підписатись'
-            close: 'Закрити'
+            create: Підписатись
+            close: Закрити
