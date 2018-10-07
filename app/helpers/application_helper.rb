@@ -56,7 +56,8 @@ module ApplicationHelper
     end
   end
 
-  def google_map(initiative)
-    %Q{<iframe width="300" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=#{ENV['MAP_KEY']}&q=#{[initiative.latitude, initiative.longitude].join(',')}" allowfullscreen></iframe>}
+  def google_map(data)
+    map_url = "https://www.google.com/maps/embed/v1/place?key=#{ENV['MAP_KEY']}&q=#{data.latitude},#{data.longitude}"
+    %(<iframe width="300" height="300" frameborder="0" style="border:0" src="#{map_url}" allowfullscreen></iframe>)
   end
 end
