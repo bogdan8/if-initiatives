@@ -16,8 +16,8 @@
 #  state             :string           default("draft")
 #  slug              :string
 #  finished_at       :datetime
-#  longitude         :string
-#  latitude          :string
+#  longitude         :float
+#  latitude          :float
 #
 
 FactoryBot.define do

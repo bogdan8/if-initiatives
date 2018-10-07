@@ -117,8 +117,8 @@ ActiveRecord::Schema.define(version: 20180930172544) do
     t.string "state", default: "draft"
     t.string "slug"
     t.datetime "finished_at"
-    t.string "longitude"
-    t.string "latitude"
+    t.float "longitude"
+    t.float "latitude"
     t.index ["slug"], name: "index_initiatives_on_slug", unique: true
     t.index ["user_id"], name: "index_initiatives_on_user_id"
   end
