@@ -55,4 +55,8 @@ module ApplicationHelper
       content_tag(:button, 'x', class: 'close clear', 'data-dismiss' => 'alert') + flash[type.to_sym]
     end
   end
+
+  def google_map(initiative)
+    %Q{<iframe width="300" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=#{ENV['MAP_KEY']}&q=#{[initiative.latitude, initiative.longitude].join(',')}" allowfullscreen></iframe>}
+  end
 end

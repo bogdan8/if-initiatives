@@ -12,6 +12,7 @@
             .mdl-card__media
               = image_tag(@initiative.decorate.first_image(:original), class: 'image-main')
           .col-sm-12.col-md-6.col-lg-6.col-xl-6
+            == google_map @initiative
             p
               = t('.finished_at', date: l(@initiative.finished_at))
             p
