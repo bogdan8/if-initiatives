@@ -66,6 +66,7 @@ uk:
         blocked: Заблоковано
         archive: Заархівовано
     sort:
+      state_in: Стан
       filter:
         title: Фільтр
         added_date: Дата добавлення
