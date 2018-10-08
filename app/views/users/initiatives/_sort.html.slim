@@ -7,5 +7,5 @@
   #initiativeSort.collapse
     .card.card-body
       = search_form_for [:users, q], builder: SimpleForm::FormBuilder do |f|
-        = f.input :state_in, collection: collection_states, input_html: { multiple: true, id: 'select2' }
+        = f.input :state_in, collection: collection_states, input_html: { multiple: true, id: 'select2' }, label: t('.state_in')
         = f.button :submit, t('.filter.submit.title')

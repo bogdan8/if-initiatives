@@ -85,6 +85,7 @@ uk:
       update:
         success: Ініціативу успішно оновлено
       sort:
+        state_in: Стан
         filter:
           title: Фільтр
           added_date: Дата добавлення
