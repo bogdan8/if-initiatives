@@ -58,6 +58,6 @@ module ApplicationHelper
 
   def google_map(data)
     map_url = "https://www.google.com/maps/embed/v1/place?key=#{ENV['MAP_KEY']}&q=#{data.latitude},#{data.longitude}"
-    %(<iframe width="300" height="300" frameborder="0" style="border:0" src="#{map_url}" allowfullscreen></iframe>)
+    %(<iframe frameborder="0" style="border:0" src="#{map_url}" allowfullscreen></iframe>)
   end
 end
