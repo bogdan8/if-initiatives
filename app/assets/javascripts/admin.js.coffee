@@ -8,3 +8,5 @@
 #= require jquery.easy-autocomplete
 #= require admin/initiatives
 #= require fancybox.min
+#= require Chart.bundle
+#= require chartkick

@@ -36,6 +36,8 @@ gem 'font-awesome-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'select2-rails'
 gem 'slim'
+gem 'chartkick'
+gem 'groupdate'
 
 # for server
 gem 'aws-sdk-s3'

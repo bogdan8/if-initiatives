@@ -9,3 +9,5 @@
 #= require initiatives
 #= require form
 #= require fancybox.min
+#= require Chart.bundle
+#= require chartkick
