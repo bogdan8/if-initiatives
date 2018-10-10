@@ -42,6 +42,11 @@ Rails.application.routes.draw do
       resources :unfulfills, only: %i(update)
       resources :archives, only: %i(update)
     end
+    scope module: :charts, path: :charts, as: :charts do
+      resources :users, only: %i(index)
+      resources :initiatives, only: %i(index)
+      resources :subscriptions, only: %i(index)
+    end
     resources :categories
     resources :subscriptions, only: %i(index destroy)
     resources :contacts, only: %i(index destroy)
