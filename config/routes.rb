@@ -46,6 +46,7 @@ Rails.application.routes.draw do
       resources :users, only: %i(index)
       resources :initiatives, only: %i(index)
       resources :subscriptions, only: %i(index)
+      resources :contacts, only: %i(index)
     end
     resources :categories
     resources :subscriptions, only: %i(index destroy)
