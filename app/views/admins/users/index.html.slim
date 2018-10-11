@@ -1,6 +1,10 @@
 = provide :site_title, t('.title')
 = provide :users, 'active'
 
+.row.main
+  .col-xs-12.col-md-12.col-lg-12.col-xl-12
+    = line_chart admins_charts_users_path, refresh: 60
+
 .row.users
   = render 'admins/users/index', collection: @users, presenter: @presenter
 
