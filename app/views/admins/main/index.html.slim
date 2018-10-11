@@ -1,7 +1,7 @@
 = provide :site_title, t('.title')
 = provide :admins, 'active'
 
-.row.main
+.row
   .col-xs-12.col-md-4.col-lg-4.col-xl-4
     = line_chart admins_charts_users_path, refresh: 60
   .col-xs-12.col-md-4.col-lg-4.col-xl-4
