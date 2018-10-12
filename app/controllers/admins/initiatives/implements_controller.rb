@@ -6,6 +6,7 @@ module Admins
       def update
         @initiative = Initiative.friendly.find(params[:id])
         return redirect_to admins_initiatives_path, success: t('.success') if @initiative.implement
+
         redirect_to admins_initiatives_path, error: @initiative.errors.full_messages.to_sentence
       end
     end

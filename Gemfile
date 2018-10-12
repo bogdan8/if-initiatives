@@ -32,12 +32,12 @@ gem 'jquery-ui-rails', '~> 4.2.1'
 # for style
 gem 'bootstrap', '~> 4.1.1'
 gem 'bootstrap4-kaminari-views'
+gem 'chartkick'
 gem 'font-awesome-rails'
+gem 'groupdate'
 gem 'sass-rails', '~> 5.0'
 gem 'select2-rails'
 gem 'slim'
-gem 'chartkick'
-gem 'groupdate'
 
 # for server
 gem 'aws-sdk-s3'
