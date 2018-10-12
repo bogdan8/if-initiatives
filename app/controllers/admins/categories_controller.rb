@@ -8,13 +8,10 @@ module Admins
       @categories = Category.page(params[:page]).per(8)
     end
 
-    def show
-      add_breadcrumb t('.breadcrumb.title', obj: @category.title), [:admins, @category]
-    end
+    def show; end
 
     def new
       @category = Category.new
-      add_breadcrumb t('.breadcrumb.title')
     end
 
     def create
@@ -22,20 +19,16 @@ module Admins
       if @category.save
         redirect_to [:admins, @category], success: t('.success')
       else
-        add_breadcrumb t('.breadcrumb.title')
         render :new
       end
     end
 
-    def edit
-      add_breadcrumb t('.breadcrumb.title', obj: @category.title)
-    end
+    def edit; end
 
     def update
       if @category.update(category_params)
         redirect_to [:admins, @category], success: t('.success')
       else
-        add_breadcrumb t('.breadcrumb.title', obj: @category.title)
         render :edit
       end
     end

@@ -11,9 +11,7 @@ module Admins
       @initiatives = @q.result.page(params[:page]).per(6)
     end
 
-    def show
-      add_breadcrumb t('.breadcrumb.title', obj: @initiative.title)
-    end
+    def show; end
 
     def destroy
       @initiative.destroy

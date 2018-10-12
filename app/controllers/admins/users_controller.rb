@@ -9,9 +9,7 @@ module Admins
       @users = User.page(params[:page]).per(8)
     end
 
-    def show
-      add_breadcrumb t('.breadcrumb.title', obj: @user.name)
-    end
+    def show; end
 
     def destroy
       @user.destroy
