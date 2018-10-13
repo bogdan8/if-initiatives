@@ -1,4 +1,5 @@
 = provide :site_title, t('.title')
 = provide :initiatives_edit, 'active'
+
 .col-sm-12
   = render 'users/initiatives/form', action: :edit, categories: @categories, initiative: @initiative

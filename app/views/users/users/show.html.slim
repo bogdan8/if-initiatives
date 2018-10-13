@@ -1,5 +1,6 @@
 = provide :site_title, t('.title')
 = provide :users, 'active'
+
 .row
   .col-sm-12.col-md-6.col-lg-4.col-xl-3
     = image_tag @user.avatar.url(:medium), class: 'full-image'

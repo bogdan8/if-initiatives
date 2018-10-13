@@ -20,6 +20,7 @@
         span
           = t('.categories')
           = @initiative.decorate.categories_title
+
   .row
     .col-xl-12
       span
@@ -36,6 +37,7 @@
         - @initiative.decorate.attachments_videos.each do |attachment|
           .col-xs-12.col-md-6.col-lg-6.col-xl-6
             = video_tag attachment.video.url, controls: true, class: 'full-video'
+
   .row
     .col-xl-12
       span
@@ -56,6 +58,7 @@
               = t('.comment.text', text: comment.text)
 
             = link_to t('.button.destroy'), admins_initiatives_comment_path(comment, initiative_id: @initiative.id), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger btn-sm'
+
   .row
     .col-xl-12
       = link_to t('.button.destroy'), admins_initiative_path(@initiative), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger btn-sm'

@@ -7,5 +7,4 @@
       ul.navbar-nav.mr-auto
         = render 'layouts/admin/navigation'
       = form_tag('/search', local: true, method: :get, class: 'form-inline my-2 my-lg-0' ) do
-        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-          = text_field_tag(:q, nil, data: { behavior: 'autocomplete' }, placeholder: t('.search.title'), class: 'form-control mr-sm-2', type: :search)
+        = text_field_tag(:q, nil, data: { behavior: 'autocomplete' }, placeholder: t('.search.title'), class: 'form-control mr-sm-2', type: :search)

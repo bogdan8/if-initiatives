@@ -1,16 +1,16 @@
 .modal.fade id='donationModal' aria-hidden='true' role='dialog' tabindex='-1'
-    .modal-dialog role='document'
-      .modal-content
-        .modal-header
-          h5.modal-title
-            = t('.title')
-          button.close aria-label='close' data-dismiss='modal' type='button'
-            span aria-hidden='true' &times;
-        .modal-body
-          h4
-            = t('.description')
-          .flex-between
-            button.btn.btn-sm.btn-danger aria-label='close' data-dismiss='modal' type='button'
-              span aria-hidden='true'
-                = t('.reject')
-            = liqpay @liqpay_request
+  .modal-dialog role='document'
+    .modal-content
+      .modal-header
+        h5.modal-title
+          = t('.title')
+        button.close aria-label='close' data-dismiss='modal' type='button'
+          span aria-hidden='true' &times;
+      .modal-body
+        h4
+          = t('.description')
+        .flex-between
+          button.btn.btn-sm.btn-danger aria-label='close' data-dismiss='modal' type='button'
+            span aria-hidden='true'
+              = t('.reject')
+          = liqpay @liqpay_request

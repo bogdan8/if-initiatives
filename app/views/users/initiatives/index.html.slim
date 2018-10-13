@@ -1,5 +1,6 @@
 = provide :site_title, t('.title')
 = provide :initiatives_index, 'active'
+
 = render 'users/initiatives/sort', q: @q
 .initiatives#initiatives
   = render 'users/initiatives/index', collection: @initiatives
