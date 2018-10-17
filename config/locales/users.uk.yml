@@ -3,7 +3,7 @@ uk:
     users:
       show:
         breadcrumb:
-          title: Мій профіль
+          title: Профіль
         title: Профіле
         email: "Емейл: %{email}"
         phone: "Телефон: %{phone}"

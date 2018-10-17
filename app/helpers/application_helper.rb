@@ -43,8 +43,7 @@ module ApplicationHelper
     [
       link_to(t('.my.initiatives.title'), main_app.users_initiatives_path, class: @link),
       link_to(t('.notifications.title', count: unread_count), notifications_path, class: @link),
-      link_to(t('.profile.button.show'), main_app.user_path(current_user.id), class: @link),
-      link_to(t('.profile.button.edit'), main_app.edit_user_registration_path, class: @link),
+      link_to(t('.profile.button.show'), main_app.edit_user_registration_path, class: @link),
       link_to(t('.sign_out.button.destroy'), main_app.destroy_user_session_path, method: :delete, class: @link)
     ]
   end
