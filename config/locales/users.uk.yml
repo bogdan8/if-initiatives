@@ -8,6 +8,7 @@ uk:
         email: "Емейл: %{email}"
         phone: "Телефон: %{phone}"
         age: "Вік: %{age} років"
+        initiatives: Ініціативи користувача
         button:
           edit: Редагувати
     initiatives:
