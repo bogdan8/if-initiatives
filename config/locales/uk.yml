@@ -74,6 +74,7 @@ uk:
           title: Фільтрувати
     show:
       pay: Пожертвувати
+      user: Користувач
       breadcrumb:
         title: "Ініціатива: %{obj}"
       timeline:

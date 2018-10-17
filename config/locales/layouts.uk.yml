@@ -35,7 +35,6 @@ uk:
         profile:
           button:
             show: Профіль
-            edit: Редагувати профіль
         sign_in:
           button:
             new: Увійти

@@ -11,5 +11,8 @@
       = t('.phone', phone: @user.phone)
     p
       = t('.age', age: @user.age)
-    p
-      = link_to t('.button.edit'), edit_user_registration_path, class: 'btn btn-sm btn-primary'
+
+.initiatives
+  h3
+    = t('.initiatives')
+  = render 'initiatives/index', collection: @user.initiatives

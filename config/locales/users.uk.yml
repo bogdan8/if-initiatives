@@ -3,11 +3,12 @@ uk:
     users:
       show:
         breadcrumb:
-          title: Мій профіль
+          title: Профіль
         title: Профіле
         email: "Емейл: %{email}"
         phone: "Телефон: %{phone}"
         age: "Вік: %{age} років"
+        initiatives: Ініціативи користувача
         button:
           edit: Редагувати
     initiatives:
