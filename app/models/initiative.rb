@@ -47,7 +47,7 @@ class Initiative < ApplicationRecord
 
   scope :fundraising_now, -> { where(finished_at: Time.current.to_date, state: 'fundraising') }
   scope :without_draft, -> { where.not(state: :draft) }
-  scope :available_everyone, ->(*states) { where.not(state: states) }
+  scope :available_everyone, -> { where.not(state: %i[draft verifying rejected archived blocked]) }
   scope :by_category, ->(id) { joins(:categorizations).where(Categorization.table_name => { category_id: id }) }
 
   def normalize_friendly_id(input)
