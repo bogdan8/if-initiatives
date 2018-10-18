@@ -7,8 +7,7 @@ module Categories
     end
 
     def initiatives
-      states = %i[draft confirmating rejected blocked]
-      Initiative.available_everyone(states).by_category(@category)
+      Initiative.available_everyone.by_category(@category)
     end
   end
 end

@@ -10,12 +10,10 @@ module Users
       def create
         @comment = @initiative.comments.new(comment_params)
 
-        if @comment.save
-          redirect_to @initiative, success: t('.success')
-        else
-          add_breadcrumb t('.breadcrumb.title')
-          redirect_to @initiative, error: @comment.errors.full_messages.to_sentence
-        end
+        return redirect_to @initiative, success: t('.success') if @comment.save
+
+        add_breadcrumb t('.breadcrumb.title')
+        redirect_to @initiative, error: @comment.errors.full_messages.to_sentence
       end
 
       def edit
@@ -23,12 +21,10 @@ module Users
       end
 
       def update
-        if @comment.update(comment_params)
-          redirect_to @initiative, success: t('.success')
-        else
-          add_breadcrumb t('.breadcrumb.title', obj: @initiative.title)
-          redirect_to @initiative, error: @comment.errors.full_messages.to_sentence
-        end
+        return redirect_to @initiative, success: t('.success') if @comment.update(comment_params)
+
+        add_breadcrumb t('.breadcrumb.title', obj: @initiative.title)
+        redirect_to @initiative, error: @comment.errors.full_messages.to_sentence
       end
 
       def destroy
