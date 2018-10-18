@@ -5,6 +5,9 @@ class DonationsController < ApplicationController
     return unless current_user
 
     initiative = Initiative.friendly.find(params[:id])
+
+    return unless initiative.fundraising?
+
     donation = Donation.create(user_id: current_user.id, initiative_id: initiative.id)
     @liqpay_request = Liqpay::Request.new(
       amount: params[:amount] || '5',
