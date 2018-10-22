@@ -68,7 +68,7 @@ RSpec.describe Users::InitiativesController, type: :controller do
         post :update, params: { id: initiative.slug,
                                 initiative: build(:initiative, title: title, category_ids: [category.id]).attributes }
         expect(Initiative.first.title).to eq(title)
-        expect(response).to redirect_to(users_initiative_path(initiative.slug))
+        expect(response).to redirect_to(users_initiative_path(initiative))
       end
     end
 
