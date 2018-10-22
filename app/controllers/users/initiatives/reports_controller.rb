@@ -19,18 +19,18 @@ module Users
 
       def update
         if @report.update(report_params)
-          redirect_to [:users, @initiative], success: t('.success')
+          redirect_to [:users, :initiative, @initiative], success: t('.success')
         else
           add_breadcrumb t('.breadcrumb.title', obj: @initiative.title)
-          redirect_to [:users, @initiative], error: @report.errors.full_messages.to_sentence
+          redirect_to [:users, :initiative, @initiative], error: @report.errors.full_messages.to_sentence
         end
       end
 
       def destroy
         if @report.destroy
-          redirect_to [:users, @initiative], success: t('.success')
+          redirect_to [:users, :initiative, @initiative], success: t('.success')
         else
-          redirect_to [:users, @initiative], error: @report.errors.full_messages.to_sentence
+          redirect_to [:users, :initiative, @initiative], error: @report.errors.full_messages.to_sentence
         end
       end
 
