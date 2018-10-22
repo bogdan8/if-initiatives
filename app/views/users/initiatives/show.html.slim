@@ -110,3 +110,11 @@
         .card-body
           .comments-container
             = render 'users/reports/new', initiative: @initiative
+
+      .card
+        .card-header
+          = t('.reports.title')
+        .card-body
+          .comments-container
+            = render 'users/reports/reports', initiative: @initiative
+
