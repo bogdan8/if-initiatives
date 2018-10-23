@@ -4,10 +4,9 @@ module Admins
   module Initiatives
     class ImplementsController < Admins::Initiatives::BaseController
       def update
-        @initiative = Initiative.friendly.find(params[:id])
-        return redirect_to admins_initiatives_path, success: t('.success') if @initiative.implement
+        return redirect_to admins_initiatives_path, success: t('.success') if current_initiative.implement
 
-        redirect_to admins_initiatives_path, error: @initiative.errors.full_messages.to_sentence
+        redirect_to admins_initiatives_path, error: current_initiative.errors.full_messages.to_sentence
       end
     end
   end
