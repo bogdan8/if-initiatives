@@ -9,7 +9,7 @@ module Admins
     def destroy
       @contact = Contact.find(params[:id])
       @contact.destroy
-      redirect_to admins_contacts_path, success: t('.success')
+      redirect_to %i(admins contacts), success: t('.success')
     end
   end
 end

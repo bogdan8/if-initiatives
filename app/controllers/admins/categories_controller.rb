@@ -35,7 +35,7 @@ module Admins
 
     def destroy
       @category.destroy
-      redirect_to admins_categories_path, success: t('.success')
+      redirect_to %i(admins categories), success: t('.success')
     end
 
     private

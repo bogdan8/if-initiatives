@@ -9,7 +9,7 @@ module Admins
     def destroy
       @subscription = Subscription.find(params[:id])
       @subscription.destroy
-      redirect_to admins_subscriptions_path, success: t('.success')
+      redirect_to %i(admins subscriptions), success: t('.success')
     end
   end
 end
