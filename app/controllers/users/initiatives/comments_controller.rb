@@ -37,7 +37,6 @@ module Users
         @comment = Comment.find(params[:id])
       end
 
-
       def comment_params
         params.require(:comment).permit(:title, :text).merge(user_id: current_user.id)
       end

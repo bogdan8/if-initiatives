@@ -51,6 +51,7 @@ uk:
           show: Переглянути
           destroy: Видалити
         reports:
+          title: Звітність
           button:
             new: Додати звітність
         images:
@@ -146,6 +147,8 @@ uk:
       form:
         new:
           submit: Добавити
+        edit:
+          submit: Редагувати
         attachments:
           image:
             button:

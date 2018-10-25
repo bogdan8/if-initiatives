@@ -10,7 +10,7 @@
       - report.attachments.each do |attachment|
         - if attachment.image?
           .col-sm-3
-            = image_tag attachment.image.url(:medium), class: 'full-image'
+            = image_tag attachment.image.url(:medium), class: 'image'
     .row
       - report.attachments.each do |attachment|
         - if attachment.video?

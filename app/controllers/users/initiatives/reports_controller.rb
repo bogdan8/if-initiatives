@@ -9,10 +9,10 @@ module Users
       def create
         @report = current_initiative.reports.build(report_params)
         if @report.save
-          redirect_to users_initiative_path(params[:initiative_id]), success: t('.success')
+          redirect_to [:users, :initiatives, initiative_id: params[:initiative_id]], success: t('.success')
         else
           add_breadcrumb t('.breadcrumb.title')
-          redirect_to users_initiative_path(params[:initiative_id]), error: @report.errors.full_messages.to_sentence
+          redirect_to [:users, :initiatives, initiative_id: params[:initiative_id]], error: @report.errors.full_messages.to_sentence
         end
       end
 
