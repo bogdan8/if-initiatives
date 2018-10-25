@@ -13,7 +13,7 @@ module Admins
 
     def destroy
       @user.destroy
-      redirect_to %i(admins users), success: t('.success')
+      redirect_to %i[admins users], success: t('.success')
     end
 
     private

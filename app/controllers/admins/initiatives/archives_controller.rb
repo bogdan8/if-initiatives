@@ -4,9 +4,9 @@ module Admins
   module Initiatives
     class ArchivesController < Admins::Initiatives::BaseController
       def update
-        return redirect_to %i(admins initiatives), success: t('.success') if current_initiative.archive
+        return redirect_to %i[admins initiatives], success: t('.success') if current_initiative.archive
 
-        redirect_to %i(admins initiatives), error: current_initiative.errors.full_messages.to_sentence
+        redirect_to %i[admins initiatives], error: current_initiative.errors.full_messages.to_sentence
       end
     end
   end

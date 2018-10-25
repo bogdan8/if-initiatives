@@ -15,7 +15,7 @@ module Admins
 
     def destroy
       @initiative.destroy
-      redirect_to %i(admins initiatives), success: t('.success')
+      redirect_to %i[admins initiatives], success: t('.success')
     end
 
     private
