@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
+
 require 'rails_helper'
 
 RSpec.describe Users::Initiatives::ReportsController, type: :controller do
@@ -41,3 +43,4 @@ RSpec.describe Users::Initiatives::ReportsController, type: :controller do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
