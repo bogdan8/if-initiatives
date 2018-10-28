@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# rubocop:disable Rails/LexicallyScopedActionFilter
+# rubocop:disable Rails/LexicallyScopedActionFilter, Naming/MemoizedInstanceVariableName
 
 module Users
   module Initiatives
@@ -21,4 +21,4 @@ module Users
   end
 end
 
-# rubocop:enable Rails/LexicallyScopedActionFilter
+# rubocop:enable Rails/LexicallyScopedActionFilter, Naming/MemoizedInstanceVariableName
