@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Naming/MemoizedInstanceVariableName
+
 module Admins
   module Initiatives
     class BaseController < Admins::BaseController
@@ -18,3 +20,4 @@ module Admins
     end
   end
 end
+# rubocop:enable Naming/MemoizedInstanceVariableName
