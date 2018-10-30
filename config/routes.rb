@@ -61,6 +61,7 @@ Rails.application.routes.draw do
       resources :comments, except: %i(index show new), controller: 'initiatives/comments'
       resources :donations, only: %i(create), controller: 'initiatives/donations'
     end
+    resources :implements, only: %i(update), controller: 'initiatives/implements'
     resources :verifies, only: %i(update), controller: 'initiatives/verifies'
     resources :attachments, only: %i(destroy)
   end

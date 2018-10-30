@@ -19,6 +19,7 @@ uk:
         destroy: Видалити
         fundraised: Збір коштів
         confirm: Ви дійсно хочите видалити?
+        implement: Розпочати реалізацію
       index:
         breadcrumb:
           title: Ініціативи
@@ -125,6 +126,9 @@ uk:
           success: Звітність оновлена
         button:
           new: Додати репорт
+      implements:
+        update:
+          success: Реалізацію розпочато
     reports:
       new:
         submit: Добавити
