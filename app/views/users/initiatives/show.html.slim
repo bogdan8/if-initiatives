@@ -79,30 +79,8 @@
                       .panel-heading
                         h5.panel-title
                           = t(".state.#{step.state}")
+    = render 'users/initiatives/comments/show', initiative: @initiative
 
-    - if @initiative.comments.any?
-      .card
-        .card-header
-          = t('.comments.title')
-        .card-body.comments
-          .comments-container
-            ul#comments-list.comments-list
-              - @initiative.comments.each do |comment|
-                li
-                  .comment-main-level
-                    .comment-avatar
-                      = image_tag(comment.user.avatar(:medium))
-                    .comment-box
-                      .comment-head
-                        h6.comment-name.by-author
-                          = link_to(comment.user.name, user_path(comment.user.id))
-                        span
-                          = comment.updated_at
-                      .comment-content
-                        p
-                          = comment.title
-                        p
-                          = comment.text
     - if @initiative.implementing?
       .card
         .card-header

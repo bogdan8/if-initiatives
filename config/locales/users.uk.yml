@@ -44,8 +44,6 @@ uk:
         finished_at: "Дата завершення: %{date}"
         general_sum: "Загальна сума: %{sum}"
         collected_amount: "Зібрано коштів: %{amount}"
-        comments:
-          title: Коментарі
         categories: Категорії
         button:
           edit: Редагувати
@@ -114,6 +112,8 @@ uk:
       timeline:
         title: Хронологія
       comments:
+        show:
+          title: Коментарі
         title: Коментарі
         create:
           success: Коментар успішно створений
