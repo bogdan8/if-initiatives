@@ -1,0 +1,62 @@
+.card
+  .card-header
+    .flex-between
+      = t('.title')
+      - if current_user
+        button.btn.btn-sm.btn-primary.margin-left-20 data-target='#addComment' data-toggle='modal' type='button' id='addCommentBtn'
+          = t('.new.title')
+
+- if initiative.comments.any?
+  .card-body.comments
+    .comments-container
+      ul#comments-list.comments-list
+        - initiative.comments.each do |comment|
+          li
+            .comment-main-level
+              .comment-avatar
+                = image_tag(comment.user.avatar(:medium))
+              .comment-box
+                .comment-head
+                  h6.comment-name.by-author
+                    = link_to(comment.user.name, user_path(comment.user.id))
+                  span
+                    = l comment.updated_at
+                  - if current_user
+                    - if comment.user == current_user
+                      i.fa.fa-edit data-target="#editComment-#{comment.id}" id="edit_comment_tag_#{comment.id}" data-toggle='modal'
+                .comment-content
+                  p
+                    = comment.title
+                  p
+                    = comment.text
+          - if current_user
+            - if comment.user == current_user
+              .modal.fade id='editComment-#{comment.id}' aria-hidden='true' aria-labelledby='examplemodallabel' role='dialog' tabindex='-1'
+                .modal-dialog role='document'
+                  .modal-content
+                    .modal-header
+                      h5#examplemodallabel.modal-title
+                        = t('.edit.title', comment: comment.title)
+                      button.close aria-label='close' data-dismiss='modal' type='button'
+                        span aria-hidden='true'  &times;
+                    .modal-body
+                      = simple_form_for comment, url: users_initiative_comment_path(initiative, comment), html: { multipart: true } do |f|
+                        = f.input :title
+                        = f.input :text
+                        = f.button :submit, t('.button.edit'), class: 'btn btn-warning btn-sm'
+
+- if current_user
+  .modal.fade id='addComment' aria-hidden='true' aria-labelledby='examplemodallabel' role='dialog' tabindex='-1'
+    .modal-dialog role='document'
+      .modal-content
+        .modal-header
+          h5#examplemodallabel.modal-title
+            = t('.new.title')
+          button.close aria-label='close' data-dismiss='modal' type='button'
+            span aria-hidden='true' &times;
+        .modal-body
+          - if current_user
+            = simple_form_for initiative.comments.build, url: users_initiative_comments_path(initiative), html: { multipart: true } do |f|
+              = f.input :title
+              = f.input :text
+              = f.button :submit, t('.button.new'), class: 'btn btn-success btn-sm'

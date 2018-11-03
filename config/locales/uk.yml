@@ -90,15 +90,6 @@ uk:
         title: Відео
       steps:
         title: Історія змін
-      comments:
-        title: Коментарі
-        new:
-          title: Додати коментар
-        edit:
-          title: "Редагувати: %{comment}"
-        button:
-          new: Додати
-          edit: Редагувати
       state:
         draft: Чернетка
         verifying: Перевіряється
@@ -109,6 +100,15 @@ uk:
         unfulfilled: Не завершено
         blocked: Заблоковано
         archive: Заархівовано
+    comments:
+      title: Коментарі
+      new:
+        title: Додати коментар
+      edit:
+        title: "Редагувати: %{comment}"
+      button:
+        new: Додати
+        edit: Редагувати
     donation:
       title: Підтвердження оплати
       description: Після підтвердження пожертви, ви будете перенаправленні на сторінку liqpay де ви зможете вибрати для себе зручний тип оплати.
