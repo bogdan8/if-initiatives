@@ -1,35 +1,40 @@
-.col-sm-12
-  - initiative.reports.includes(:attachments).each do |report|
-    p
-      = t('.title', title: report.title)
-    p
-      = t('.description', description: report.description)
-    p
-      = t('.updated_at', date: report.updated_at)
-    .row
-      - report.attachments.each do |attachment|
-        - if attachment.image?
-          .col-sm-3
-            = image_tag attachment.image.url(:medium), class: 'image'
-    .row
-      - report.attachments.each do |attachment|
-        - if attachment.video?
-          .col-sm-3
-            = video_tag attachment.video.url, controls: true, class: 'full-video'
-
-
-    button.btn.btn-warning.btn-sm data-target='#editReport' data-toggle='modal' type='button'
-      = t('.edit')
-    #editReport.modal.fade aria-hidden='true' aria-labelledby='editReport' role='dialog' tabindex='-1'
-      .modal-dialog
-        .modal-content
-          .modal-header
-            h5#exampleModalLabel.modal-title
-              = t('.edit')
-            button.close aria-label='Close' data-dismiss='modal' type='button'
-              span aria-hidden='true' &times;
-          .modal-body
-            = render '/users/reports/edit', report: report, initiative: initiative, action: :edit
-    .row
+.card
+  .card-header
+    = t('.title_page')
+  .card-body
+    .comments-container
       .col-sm-12
-        = link_to t('.button.destroy'), users_initiative_report_path(initiative.slug, report), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger btn-sm'
+        - initiative.reports.includes(:attachments).each do |report|
+          p
+            = t('.title', title: report.title)
+          p
+            = t('.description', description: report.description)
+          p
+            = t('.updated_at', date: report.updated_at)
+          .row
+            - report.attachments.each do |attachment|
+              - if attachment.image?
+                .col-sm-3
+                  = image_tag attachment.image.url(:medium), class: 'image'
+          .row
+            - report.attachments.each do |attachment|
+              - if attachment.video?
+                .col-sm-3
+                  = video_tag attachment.video.url, controls: true, class: 'full-video'
+
+
+          button.btn.btn-warning.btn-sm data-target='#editReport' data-toggle='modal' type='button'
+            = t('.edit')
+          #editReport.modal.fade aria-hidden='true' aria-labelledby='editReport' role='dialog' tabindex='-1'
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  h5#exampleModalLabel.modal-title
+                    = t('.edit')
+                  button.close aria-label='Close' data-dismiss='modal' type='button'
+                    span aria-hidden='true' &times;
+                .modal-body
+                  = render '/users/reports/edit', report: report, initiative: initiative, action: :edit
+          .row
+            .col-sm-12
+              = link_to t('.button.destroy'), users_initiative_report_path(initiative.slug, report), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger btn-sm'

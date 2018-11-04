@@ -1,2 +1,7 @@
-.col-sm-12
-  = render 'users/reports/form', action: :new, url: users_initiative_reports_path(initiative), entity: initiative.reports.build, initiative: initiative
+.card
+  .card-header
+    = t('.button.new')
+  .card-body
+    .comments-container
+      .col-sm-12
+        = render 'users/reports/form', action: :new, url: users_initiative_reports_path(initiative), entity: initiative.reports.build, initiative: initiative

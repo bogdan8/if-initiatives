@@ -49,10 +49,6 @@ uk:
           edit: Редагувати
           show: Переглянути
           destroy: Видалити
-        reports:
-          title: Звітність
-          button:
-            new: Додати звітність
         images:
           title: Зображення
         videos:
@@ -126,11 +122,16 @@ uk:
           success: Звітність оновлена
         button:
           new: Додати репорт
+        destroy:
+          success: Звітність видаленно
       implements:
         update:
           success: Реалізацію розпочато
     reports:
       new:
+        title: Звітність
+        button:
+          new: Додати звітність
         submit: Добавити
         attachments:
           image:
@@ -161,12 +162,14 @@ uk:
             button:
               new: Додати відео
       reports:
+        title_page: Звіти
         title: "Назва: %{title}"
         description: "Опис: %{description}"
         updated_at: "Оновлено в %{date}"
         button:
           destroy: Видалити
         confirm: Ви дійсно хочите видалити цей запис
+        edit: Редагувати
     attachments:
       form:
         image:

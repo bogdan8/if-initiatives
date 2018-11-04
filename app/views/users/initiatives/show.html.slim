@@ -82,17 +82,7 @@
     = render 'users/initiatives/comments/show', initiative: @initiative
 
     - if @initiative.implementing?
-      .card
-        .card-header
-          = t('.reports.button.new')
-        .card-body
-          .comments-container
-            = render 'users/reports/new', initiative: @initiative
-
-      .card
-        .card-header
-          = t('.reports.title')
-        .card-body
-          .comments-container
-            = render 'users/reports/reports', initiative: @initiative
+      = render 'users/reports/new', initiative: @initiative
+      - if @initiative.reports.exists?
+        = render 'users/reports/reports', initiative: @initiative
 
