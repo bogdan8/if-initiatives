@@ -27,12 +27,12 @@
             p
               = t('.title')
               = category_link @initiative
-
-            = form_tag('/donations', local: true, method: :post, remote: true) do
-              = number_field_tag :amount, 5, class: 'form-control mr-sm-2', type: :number
-              = hidden_field_tag :id, @initiative.id
-              = submit_tag t('.pay'), class: 'btn btn-success btn-sm'
-            #donation
+            - if @initiative.fundraising?
+              = form_tag('/donations', local: true, method: :post, remote: true) do
+                = number_field_tag :amount, 5, class: 'form-control mr-sm-2', type: :number
+                = hidden_field_tag :id, @initiative.id
+                = submit_tag t('.pay'), class: 'btn btn-success btn-sm'
+              #donation
         .row
           .col-sm-12
             p
