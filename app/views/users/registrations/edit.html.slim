@@ -11,8 +11,8 @@ div class="col-sm-12 #{action_name}"
     = f.input :phone
     = f.input :age
     .row
-      .col-12.col-xs-12.col-sm-6.col-lg-4.col-xl-3
-        - if f.object.avatar?
+      - if f.object.avatar?
+        .col-12.col-xs-12.col-sm-6.col-lg-4.col-xl-3
           = image_tag f.object.avatar.url, class: 'image'
       .col-12.col-xs-12.col-sm-6.col-lg-8.col-xl-9
         = f.input :avatar, as: :file

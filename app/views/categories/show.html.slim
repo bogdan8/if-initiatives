@@ -8,7 +8,7 @@
         p.card-text
           = initiative.short_description
         p.card-text
-          = t('.initiatives.finish_date', date: initiative.finish_date)
+          = t('.initiatives.finish_date', date: l(initiative.finished_at))
         p.card-text
           = t('.initiatives.general_sum', sum: initiative.general_sum)
         p.card-text
