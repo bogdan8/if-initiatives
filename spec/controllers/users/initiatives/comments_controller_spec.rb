@@ -25,7 +25,8 @@ RSpec.describe Users::Initiatives::CommentsController, type: :controller do
         comments = Comment.count
         post :create, params: { comment: build(:comment, title: :a).attributes, initiative_id: initiative.slug }
         expect(Comment.count).to eq(comments)
-      end end
+      end
+    end
   end
 
   describe 'GET #edit' do
