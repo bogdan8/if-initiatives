@@ -10,10 +10,10 @@
             = t('.donated')
           - if notification.read?
             span.badge.badge-pill.badge-secondary
-              | read
+              = t('.read')
           - else
             span.badge.badge-pill.badge-saccess
-              | new
+              = t('.new')
         h6.text-muted.time
           = l notification.created_at, format: :short
     .post-description

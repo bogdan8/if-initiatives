@@ -27,12 +27,15 @@ class Comment < ApplicationRecord
   private
 
   def create_notifications
-    Notification.create do |notification|
-      notification.notify_type = 'comment'
-      notification.actor = user
-      notification.user = initiative.user
-      notification.target = self
-      notification.second_target = initiative
+    Admin.find_each do |admin|
+      Notification.create do |notification|
+        notification.notify_type = 'comment'
+        notification.actor = user
+        notification.user = initiative.user
+        notification.target = self
+        notification.second_target = initiative
+        notification.admin = admin
+      end
     end
   end
 end
