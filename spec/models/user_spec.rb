@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: users
@@ -24,7 +23,6 @@
 #  locked_at              :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  name                   :string           default("")
 #  phone                  :string           default("")
 #  age                    :integer
 #  provider               :string           default("")
@@ -33,6 +31,8 @@
 #  avatar_content_type    :string
 #  avatar_file_size       :integer
 #  avatar_updated_at      :datetime
+#  first_name             :string
+#  last_name              :string
 #
 
 require 'rails_helper'
