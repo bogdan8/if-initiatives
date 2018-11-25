@@ -18,7 +18,7 @@
           = l notification.created_at, format: :short
     .post-description
       p
-        = t('.name', name: notification.user.name)
+        = t('.name', name: notification.user.decorate.full_name)
       p
         = t('.phone', phone: notification.user.phone)
       p

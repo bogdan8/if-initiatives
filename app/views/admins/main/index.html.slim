@@ -67,7 +67,7 @@
     - @presenter.users.each do |user|
       .flex-column.card-block-blue
         span
-          = user.name
+          = user.decorate.full_name
         span
           = t('.users.email', email: user.email)
         span

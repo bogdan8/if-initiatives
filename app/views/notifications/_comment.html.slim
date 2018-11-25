@@ -7,7 +7,7 @@
           = l notification.created_at, format: :short
       .col-md-10
         p
-          = link_to notification.user.name, main_app.user_path(notification.user), class: 'float-left'
+          = link_to notification.user.decorate.full_name, main_app.user_path(notification.user), class: 'float-left'
         p.badge.badge-pill.badge-secondary.margin-left-10
           = t('.commented')
         p

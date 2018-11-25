@@ -5,7 +5,7 @@
         = image_tag user.avatar.url(:medium), class: 'full-image'
       .col-xs-12.flex-column
         span
-          = t('.name', name: user.name)
+          = t('.name', name: user.decorate.full_name)
         span
           = t('.email', email: user.email)
         span

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -46,8 +47,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :donations, dependent: :destroy
 
-  validates :name, :email, :phone, :age, presence: true
-  validates :name, length: { in: 2..30 }
+  validates :first_name, :last_name, :email, :phone, :age, presence: true
+  validates :first_name, :last_name, length: { in: 2..20 }
   validates :phone, phone: true
 
   size_user_avatars = { medium: '300x300>', thumb: '100x100>' }
@@ -62,7 +63,8 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.name = auth.info.name
+      user.first_name = auth.info.first_name
+      user.last_name = auth.info.last_name
       user.email = auth.info.email unless auth.info.email.nil?
       user.password = user_password
       user.skip_confirmation!
